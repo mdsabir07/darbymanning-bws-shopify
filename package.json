@@ -42,5 +42,8 @@
     "watch:theme": "theme open && theme watch",
     "watch": "run-p 'watch:theme' 'watch:css' 'watch:js'",
     "start": "npm run watch"
+  },
+  "dependencies": {
+    "tiny-slider": "^2.9.3"
   }
 }
