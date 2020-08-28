@@ -86,6 +86,16 @@
 @import 'components/button';             // Button.
 
 
+/*----------------------------------------------------------------------------*\
+    #Helpers
+
+    Designed pieces of UI. Only using classes. More explicit naming.
+\*----------------------------------------------------------------------------*/
+
+@import 'helpers/text-helpers'; // Text helpers.
+
+
+
 
 /*----------------------------------------------------------------------------*\
     #UTILITIES
