@@ -6,4 +6,8 @@
 .u-section-p {
     padding-top: var(--padding-lg);
     padding-bottom: var(--padding-lg);
+
+    &--bottom {
+        padding-top: 0;
+    }
 }

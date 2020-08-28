@@ -1,0 +1,14 @@
+.boarder {
+    &::before {
+        display: block;
+        content: "";
+        position: absolute;
+        top: 3.5rem;
+        left: 0;
+        right: 0;
+        height: 0.75rem;
+        width: 100%;
+        background: var(--blue);
+        z-index: 3;
+    }
+}

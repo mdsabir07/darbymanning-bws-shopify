@@ -81,9 +81,12 @@
 @import 'components/core/main';         // Core main.
 @import 'components/core/foot';         // Core footer.
 @import 'components/core/nav';          // Core Nav.
-
-@import 'components/slide';              // Slide.
 @import 'components/button';             // Button.
+
+@import 'components/tns';                // Tiny Slider styles.
+@import 'components/slide';              // Slide.
+@import 'components/small-slide';        // Small Slide.
+
 
 
 /*----------------------------------------------------------------------------*\
@@ -93,6 +96,7 @@
 \*----------------------------------------------------------------------------*/
 
 @import 'helpers/text-helpers'; // Text helpers.
+@import 'helpers/boarder';      // Boarder.
 
 
 
@@ -104,5 +108,6 @@
 \*----------------------------------------------------------------------------*/
 
 @import 'utilities/spacing';              // Micro-level spacing.
+@import 'utilities/grid';                 // Grid override.
 
 

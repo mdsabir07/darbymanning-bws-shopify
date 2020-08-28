@@ -2,25 +2,14 @@
     width: 100%;
     display: flex;
     flex-direction: row;
-    padding: 0 2rem;
+    padding: 0 1rem;
     position: relative;
     z-index: 2;
-    &::before {
-        display: block;
-        content: "";
-        position: absolute;
-        top: 3rem;
-        left: 0;
-        right: 0;
-        height: 0.75rem;
-        width: 100%;
-        background: var(--blue);
-        z-index: 3;
-    }
     
     &__info {
         width: 40%;
         padding: var(--padding-lg) var(--padding-md) ;
+        padding-right: var(--padding-lg);
         background-color: var(--light-gray);
         margin-bottom: 10rem;
         display: flex;
@@ -28,9 +17,11 @@
         justify-content: space-between;
         order: 1;
     }
+
     &__title {
         font-size: 4rem;
     }
+    
     &__img {
         width: 60%;
         height: 60rem;
@@ -40,5 +31,35 @@
 
     &__button {
         font-size: 2rem;
+        padding: 1rem 3rem;
+        background: var(--blue);
+        transition: 0.3s all;
+        &:hover, &:hover {
+            background: var(--dark-blue);
+        }
     }
+
+    &__controls {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        padding: 0 1rem;
+        margin: 0;
+    }
+
+    &__prev {
+        display: none;
+    }
+
+
+    &__next {
+        // max-width: 2rem;
+        text-align: center;
+        padding: 2rem;
+    }
+}
+
+.o-grid {
+    max-width: 160rem;
 }
