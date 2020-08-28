@@ -22,5 +22,15 @@ window.neuekit = neuekit;
 /* Project Code */
 
 
+// import { slider } from 'modules/_tns.js';
 
+// export default slider;
 
+import { tns } from "tiny-slider/src/tiny-slider"
+
+var slider = tns({
+    container: '.hero-slider',
+    items: 3,
+    slideBy: 'page',
+    autoplay: true
+  });

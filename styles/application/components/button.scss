@@ -1,0 +1,12 @@
+.button {
+    background: var(--blue);
+    color: var(--white);
+    text-transform: uppercase;
+    padding: 1rem 1rem;
+    box-sizing: unset;
+    transition: 0.3s all;
+    &:hover, &:focus {
+        background: var(--dark-blue);
+    }
+
+}

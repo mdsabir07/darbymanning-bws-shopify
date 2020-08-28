@@ -16,5 +16,9 @@
     &__a {
         text-transform: uppercase;
         font-size: 3.5rem;
+        transition: 0.3s all;
+        &:hover, &:focus {
+            color: var(--blue);
+        }
     }
 }

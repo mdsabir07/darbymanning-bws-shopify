@@ -1,0 +1,1 @@
+.button{background:var(--blue);color:var(--white);text-transform:uppercase;padding:1rem 1rem;box-sizing:unset;transition:.3s all}.button:hover,.button:focus{background:var(--dark-blue)}
