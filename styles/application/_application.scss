@@ -81,7 +81,8 @@
 @import 'components/core/main';         // Core main.
 @import 'components/core/foot';         // Core footer.
 @import 'components/core/nav';          // Core Nav.
-@import 'components/button';             // Button.
+@import 'components/core/sub-nav';      // Core Sub Nav.
+@import 'components/button';            // Button.
 
 @import 'components/tns';                // Tiny Slider styles.
 @import 'components/slide';              // Slide.
@@ -96,7 +97,7 @@
 \*----------------------------------------------------------------------------*/
 
 @import 'helpers/text-helpers'; // Text helpers.
-@import 'helpers/boarder';      // Boarder.
+@import 'helpers/border';      // border.
 
 
 

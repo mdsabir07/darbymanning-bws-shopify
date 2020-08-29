@@ -5,6 +5,7 @@ export default function () {
     tns({
       container: ".hero-slider",
       items: 1,
+      gutter: 0,
       slideBy: "page",
       autoplay: false,
       loop: true,
