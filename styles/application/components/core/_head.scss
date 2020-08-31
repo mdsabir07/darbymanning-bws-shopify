@@ -2,43 +2,33 @@
 //     #APP HEADER
 // \*----------------------------------------------------------------------------*/
 
-// .c-head {
+.header {
+    &__wrap {
+        padding: 0 2rem 0;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        position: relative;
+        align-items: center;
+    }
 
-//     &__wrap {
-//         padding-top: 3rem;
-//         padding-bottom: 3rem;
-//         display: flex;
-//         flex-direction: row;
-//         justify-content: space-between;
-//         align-content: center;
-//     }
+    &__col {
+        width: 60%;
+        position: unset;
+        &--sub {
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+        }
+    }
 
-//     &__logo {
-//         display: inline-block;
-//     }
+    &__icon {
+        display: inline-block;
+        margin-left: 2rem;
+    }
 
-//     &__col {
-//         width: 60%;
-//         display: flex;
-//         flex-direction: row;
-//         justify-content: space-between;
-//         flex-wrap: wrap;
-//         &--sub {
-//             width: 100%;
-//             flex-wrap: nowrap;
-//         }
-//     }
-
-//     &__details {
-//         display: flex;
-//         flex-direction: row;
-//     }
-//     &__icon {
-//         margin-left: 2.5rem;
-//     }
-//     &__shipping {
-//         margin: 0;
-//     }
-// }
-
-
+    &__shipping {
+        margin: 0;
+    }
+}

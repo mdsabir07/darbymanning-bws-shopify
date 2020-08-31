@@ -1,8 +1,7 @@
-<div class="o-grid  o-grid--item  u-flex">
-
-    <nav class="nav">
+<header class="header  o-grid  o-grid--item  o-grid--item--padding  u-flex">
+    <div class="header__wrap">
         
-        <div class="nav__logo" id="logo">
+        <div class="header__logo" id="logo">
             <a href="/">
                 <?xml version="1.0" encoding="UTF-8"?>
                 <svg width="206px" height="63px" viewBox="0 0 206 63" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -30,47 +29,104 @@
             </a>
         </div>
 
-        <label for="drop" class="nav__toggle">Menu</label>
+        <div class="header__col">
 
-        <input type="checkbox" id="drop" />
-        <ul class="nav__menu  nav__ul">
-            <li class="nav__li">
-                <label for="drop-1" class="nav__toggle">Mens Clothing +</label>
-                <a href="#" class="nav__a">
-                    Mens Clothing
-                </a>
-                <input type="checkbox" id="drop-1"/>
-                <ul class="nav__ul   nav__ul--sub">
-                    <li class="nav__li  nav__li--sub"><a class="nav__a  nav__a--sub" href="#">Themes and stuff</a></li>
-                    <li class="nav__li  nav__li--sub"><a class="nav__a  nav__a--sub" href="#">Plugins</a></li>
-                    <li class="nav__li  nav__li--sub"><a class="nav__a  nav__a--sub" href="#">Tutorials</a></li>
-                </ul> 
-
-            </li>
-
-            <li class="nav__li">
-                <label for="drop-2" class="nav__toggle">Brands +</label>
-                <a href="#" class="nav__a">
-                    Brands
-                </a>
-                <input type="checkbox" id="drop-2"/>
-                <ul class="nav__ul  nav__ul--sub">
-                    <li class="nav__li  nav__li--sub"><a class="nav__a  nav__a--sub" href="#">Resources</a></li>
-                    <li class="nav__li  nav__li--sub"><a class="nav__a  nav__a--sub" href="#">Links</a></li>
+            <div class="header__col  header__col--sub">
+                <p class="header__shipping">FREE UK SHOPPING</p>
+                <div class="header__details">
+                    <a href="#"  class="header__icon">
+                        <?xml version="1.0" encoding="UTF-8"?>
+                        <svg width="19px" height="20px" viewBox="0 0 19 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                            <title>ICON / SEARCH</title>
+                            <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                <g id="Top-Nav-Copy-3" transform="translate(-1042.000000, -19.000000)" stroke="#234766">
+                                    <g id="Group" transform="translate(1037.000000, 14.000000)">
+                                        <circle id="Oval" transform="translate(13.051609, 13.614649) rotate(-34.000000) translate(-13.051609, -13.614649) " cx="13.0516086" cy="13.6146489" r="7.5"></circle>
+                                        <line x1="18.5" y1="19.5" x2="23.5" y2="24.5" id="Line" stroke-linecap="square"></line>
+                                    </g>
+                                </g>
+                            </g>
+                        </svg>
+                    </a>
+                    <a href="#"  class="header__icon">
+                    <?xml version="1.0" encoding="UTF-8"?>
+                    <svg width="11px" height="23px" viewBox="0 0 11 23" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                        <title>ICON / SEARCH Copy</title>
+                        <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                            <g id="Top-Nav-Copy-3" transform="translate(-1096.000000, -18.000000)" fill="#234766">
+                                <g id="Group" transform="translate(1087.000000, 14.000000)">
+                                    <rect id="Rectangle" x="14" y="5" width="1" height="9"></rect>
+                                    <rect id="Rectangle" x="9" y="4" width="11" height="1"></rect>
+                                    <polygon id="Path-2" points="14.0909091 15 14.9090909 15 19 27 18.1818182 27 14.5 16.7142857 10.8181818 27 10 27"></polygon>
+                                </g>
+                            </g>
+                        </g>
+                    </svg>
+                    </a>
+                    <a href="#"  class="header__icon">
+                    <?xml version="1.0" encoding="UTF-8"?>
+                    <svg width="23px" height="19px" viewBox="0 0 23 19" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                        <title>ICON / SEARCH Copy 2</title>
+                        <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                            <g id="Top-Nav-Copy-3" transform="translate(-1146.000000, -20.000000)" stroke="#234766">
+                                <g id="Group" transform="translate(1142.000000, 14.000000)">
+                                    <path d="M4.65462519,14.5 L26.3453748,14.5 L23.6181021,24.5 L7.38189792,24.5 L4.65462519,14.5 Z" id="Rectangle" fill="#FFFFFF"></path>
+                                    <path d="M9,14 C8.66666667,9 10.8333333,6.5 15.5,6.5 C20.1666667,6.5 22.3333333,9 22,14" id="Path-3"></path>
+                                </g>
+                            </g>
+                        </g>
+                    </svg>
+                    </a>
+                </div>
+            </div>
+            <nav class="nav">
+                <label for="drop" class="nav__toggle">Menu</label>
+        
+                <input type="checkbox" id="drop" />
+                <ul class="nav__menu  nav__ul">
+                    <li class="nav__li">
+                        <label for="drop-1" class="nav__toggle">Mens Clothing +</label>
+                        <a href="#" class="nav__a">
+                            Mens Clothing
+                        </a>
+                        <input type="checkbox" id="drop-1"/>
+                        <div class="nav__ul   nav__ul--sub">
+                            <ul>
+                                <li><a class="nav__a  nav__a--sub" href="#">Themes and stuff</a></li>
+                                <li><a class="nav__a  nav__a--sub" href="#">Plugins</a></li>
+                                <li><a class="nav__a  nav__a--sub" href="#">Tutorials</a></li>
+                            </ul> 
+                        </div>
+                    </li>
+        
+                    <li class="nav__li">
+                        <label for="drop-2" class="nav__toggle">Brands +</label>
+                        <a href="#" class="nav__a">
+                            Brands
+                        </a>
+                        <input type="checkbox" id="drop-2"/>
+                        <div class="nav__ul   nav__ul--sub">
+                            <ul>
+                                <li><a class="nav__a  nav__a--sub" href="#">Themes and stuff</a></li>
+                                <li><a class="nav__a  nav__a--sub" href="#">Plugins</a></li>
+                                <li><a class="nav__a  nav__a--sub" href="#">Tutorials</a></li>
+                            </ul> 
+                        </div>
+                    </li>
+        
+                    <li class="nav__li">
+                        <a href="#" class="nav__a">About</a>
+                    </li>
+        
+                    <li class="nav__li">
+                        <a href="#" class="nav__a">Blog</a>
+                    </li>
+        
                 </ul>
-            </li>
-
-            <li class="nav__li">
-                <a href="#" class="nav__a">About</a>
-            </li>
-
-            <li class="nav__li">
-                <a href="#" class="nav__a">Blog</a>
-            </li>
-
-        </ul>
-    </nav>
-</div>
+            </nav>
+        </div>
+    </div>
+</header>
 
 
 <!--<section class="sub-nav  padding-wrap"> <div class="sub-nav__wrap">
@@ -186,3 +242,8 @@
 
         <p> A simple dropdown navigation menu made with CSS Only. Dropdowns are marked with a plus sign ( + )</p>
         <p> Resize the screen to see the look if the screen is smaller then 768px </p>-->
+
+
+       
+            
+            
