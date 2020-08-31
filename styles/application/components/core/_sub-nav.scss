@@ -50,17 +50,18 @@
 
 .nav {
     margin:0;
-    padding: 0;
+	padding: 0;
+	position: unset;
 
     &:after {
         content:"";
         display:table;
-        clear:both;
+		clear:both;
+		position: unset;
     }
     
     &__logo {
         display: block;
-        float: left;
     }
     
     &__toggle {
@@ -72,37 +73,37 @@
     }
 
     &__ul {
-        float: right;
         padding:0;
         margin:0;
         list-style: none;
-        position: relative;
+		position: unset;
+		background: var(--blue);
 
-        @media all and (max-width : 768px) {
-            float: none;
-        }
 
         &--sub {
             display: none;
-            position: absolute; 
+			position: absolute; 
+			z-index: 4;
+			left: 0;
+			right: 0;
+			width: 100%;
+			background: var(--dark-blue);
         }
     }
 
     &__li {
         margin: 0px;
-        display:inline-block;
-        float: left;
-        background-color: #254441;
+		display:inline-block;
+		color: black;
+		position: unset;
+		
         &:hover > .nav__ul--sub {
             display:inherit;
         }
 
         &--sub {
-            background: var(--dark-blue);
-            width:170px;
-            float:none;
+            color: black;
             display:list-item;
-            position: relative;
 
             &:hover {
                 background: var(--blue);
