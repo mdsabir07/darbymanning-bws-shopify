@@ -1,0 +1,11 @@
+.join {
+    padding: 0 1rem;
+    &__wrap {
+        background: var(--dark-blue);
+        padding: var(--padding-md) var(--padding-sm);
+    }
+    &__title {
+        font-size: 2rem;
+        margin: 2rem 0 0;
+    }
+}
