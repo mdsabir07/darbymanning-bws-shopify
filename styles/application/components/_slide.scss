@@ -15,12 +15,11 @@
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
-        justify-content: space-between;
         order: 1;
     }
 
     &__title {
-        font-size: 4rem;
+        font-size: 3.5rem;
         line-height: 1.2;
         font-weight: 400;
     }
@@ -36,7 +35,9 @@
         font-size: 2rem;
         background: var(--blue);
         transition: 0.3s all;
-        padding: 0 2rem;
+        padding: 1rem 3rem;
+        align-self: flex-end;
+
         &:hover, &:hover {
             background: var(--dark-blue);
         }
