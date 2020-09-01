@@ -24,7 +24,28 @@ export default function () {
       nav: false,
       responsive: {
         350: {
-          items: 1,
+          items: 2,
+        },
+        700: {
+          items: 3,
+        },
+        1000: {
+          items: 4
+        }
+      },
+    });
+    tns({
+      container: ".home-slide-2",
+      items: 4,
+      gutter: 10,
+      slideBy: "page",
+      autoplay: false,
+      loop: true,
+      controlsContainer: ".slider-4-controls",
+      nav: false,
+      responsive: {
+        350: {
+          items: 2,
         },
         700: {
           items: 3,

@@ -1,25 +1,241 @@
-// .nav {
-//     width: 100%;
-//     position: relative;
+.nav {
+	position: unset;
 
-//     &__ul {
-//         padding: 0;
-//         display: flex;
-//         flex-direction: row;
-//         justify-content: space-between;
-//         margin-block-end:0;
-//         margin-block-start:0;
-//     }
-//     &__li {
-//         padding: 0;
-//         display: inline;
-//     }
-//     &__a {
-//         text-transform: uppercase;
-//         font-size: 3.5rem;
-//         transition: 0.3s all;
-//         &:hover, &:focus {
-//             color: var(--blue);
-//         }
-//     }
-// }
+    &:after {
+        content:"";
+        display:table;
+		clear:both;
+		position: unset;
+    }
+    
+    &__logo {
+        display: block;
+    }
+    
+    &__toggle {
+        display: none;
+
+    }
+    &[id^=drop] {
+        display: none;
+	}
+	
+	&__dd-wrap {
+		background: var(--dark-blue);
+		margin: 2.2rem 0 0;
+		display: flex;
+		flex-direction: row;
+		flex-wrap: nowrap;
+		padding-bottom: 2rem;
+	}
+
+    &__ul {
+        padding:0;
+        margin:0;
+        list-style: none;
+		position: unset;
+		display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+	}
+	
+	&__dropdown {
+		display: none;
+		flex-direction: row;
+        justify-content: space-between;
+		position: absolute; 
+		z-index: 4;
+		left: 1rem;
+		right: 0;
+		width: calc(100% - 2rem) ;
+		padding:0;
+		margin:0;
+	}
+
+    &__li {
+		margin: 0;
+		display:inline-block;
+		position: unset;
+		
+        &:hover > .nav__dropdown {
+			display:inherit;
+			opacity: 1;	
+        }
+
+        &--sub {
+			display:list-item;
+        }
+    }
+
+    &__a {
+        display:block;
+        padding: 0;	
+		color: var(--dark-blue);
+		text-transform: uppercase;
+		font-size:3rem;
+		transition: 0.3s all;
+
+		&--sub {
+			color: white;
+			font-size: 2rem;
+			text-transform: capitalize;
+		}
+		
+		&:hover {
+			color: var(--blue);
+		}
+	}
+
+	&__col {
+		padding: 0 2rem;
+		width: 100%;
+		margin: 0 0.25rem;
+		&:nth-child(1) {
+			margin: 0 0.25rem 0 0;
+		}
+		&:nth-child(4) {
+			margin: 0 0 0 0.25rem;
+		}
+	}
+
+	&__sub-title {
+		color: white;
+		text-transform: uppercase;
+		font-size: 2.25rem;
+		margin-bottom: 2rem;
+	}
+
+	&__sub-ul {
+		padding: 0;
+	}
+    
+}
+
+/* Media Queries
+--------------------------------------------- */
+
+@media all and (max-width : 768px) {
+
+	.nav {
+		display: inline-block;
+		&__toggle + a,
+		&__menu {
+			display: none;
+		}
+		&__toggle {
+			display: block;
+			background-color: #254441;
+			padding:14px 20px;	
+			color:#FFF;
+			font-size:17px;
+			text-decoration:none;
+			border:none;
+	
+			&--main {
+				display: inline-block;
+				background-color: yellow;
+				color: var(--dark-blue);
+				padding: 0;
+				z-index: 6;
+			}
+			&:hover {
+				background-color: #000000;
+			}
+		}
+
+		[id^=drop]:checked + .nav__ul {
+			display: block;
+		}
+
+		&__ul {
+			position: absolute;
+			left: 0;
+			right: 0;
+			background: var(--dark-blue);
+			z-index: 5;
+		}
+
+		&__li {
+			display: block;
+			width: 100%;
+		}
+
+		&__a {
+			color: white;
+		}
+	}
+	/* Hide the navigation menu by default */
+	/* Also hide the  */
+	// .nav__toggle + a,
+	// .nav__menu {
+	// 	display: none;
+	// }
+
+	/* Stylinf the toggle lable */
+	// .nav__toggle {
+	// 	display: block;
+	// 	background-color: #254441;
+	// 	padding:14px 20px;	
+	// 	color:#FFF;
+	// 	font-size:17px;
+	// 	text-decoration:none;
+	// 	border:none;
+
+	// 	&--main {
+	// 		display: inline-block;
+	// 		background-color: yellow;
+	// 		color: var(--dark-blue);
+	// 		padding: 0;
+	// 	}
+	// }
+
+	// .nav__toggle:hover {
+	// 	background-color: #000000;
+	// }
+
+	/* Display Dropdown when clicked on Parent Lable */
+	// [id^=drop]:checked + .nav__ul {
+	// 	display: block;
+	// }
+
+	/* Change menu item's width to 100% */
+	// .nav__li {
+	// 	display: block;
+	// 	width: 100%;
+	// }
+
+	// .nav__ul--sub .nav__toggle,
+	// .nav__a--sub {
+    //     padding: 0 40px;
+    //     background-color: violet;
+	// }
+
+	.nav__a:hover {
+		background-color: #000000;
+	}
+  
+	.nav__li--sub .nav__toggle,
+	.nav__ul--sub a {
+		background-color: #212121; 
+	}
+
+	/* Hide Dropdowns by Default */
+	.nav__ul--sub {
+		float: none;
+		position:static;
+		color: #ffffff;
+	}
+		
+	/* Hide menus on hover */
+	nav ul ul li:hover > ul,
+	nav ul li:hover > ul {
+		display: none;
+	}
+		
+	/* Fisrt Tier Dropdown */
+	.nav__li--sub {
+		display: block;
+		width: 100%;
+	}
+
+}
