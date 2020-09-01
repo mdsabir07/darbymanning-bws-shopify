@@ -2,9 +2,10 @@
     background: var(--blue);
     color: var(--white);
     text-transform: uppercase;
-    padding: 1rem 1rem;
+    padding: 0.5rem 3rem;
     box-sizing: unset;
     transition: 0.3s all;
+    font-size: 2rem;
     &:hover, &:focus {
         background: var(--dark-blue);
     }

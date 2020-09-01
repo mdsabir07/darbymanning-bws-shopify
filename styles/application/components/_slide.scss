@@ -13,13 +13,16 @@
         background-color: var(--light-gray);
         margin-bottom: 10rem;
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
+        flex-wrap: wrap;
         justify-content: space-between;
         order: 1;
     }
 
     &__title {
         font-size: 4rem;
+        line-height: 1.2;
+        font-weight: 400;
     }
     
     &__img {
@@ -31,9 +34,9 @@
 
     &__button {
         font-size: 2rem;
-        padding: 1rem 3rem;
         background: var(--blue);
         transition: 0.3s all;
+        padding: 0 2rem;
         &:hover, &:hover {
             background: var(--dark-blue);
         }

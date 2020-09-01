@@ -1,0 +1,27 @@
+.home-news {
+    background: var(--light-gray);
+    padding: var(--padding-lg) 0;
+
+    &__item {
+        padding: 0 1rem;
+    }
+    &__img {
+        height: 30rem;
+        background-color: rgb(72, 112, 128);
+    }
+    &__message {
+        position: absolute;
+        top: 0.75rem;
+        left: var(--padding-sm);
+        color: white;
+    }
+    &__info {
+        background-color: white;
+        padding: var(--padding-sm);
+    }
+    &__title {
+        margin: 0;
+        font-size: 3rem;
+    }
+
+}
