@@ -1,0 +1,31 @@
+.block {
+    padding: 0 1rem;
+    &__info {
+        padding: var(--padding-sm);
+        &--white {
+            background: white;
+        }
+    }
+    &__message {
+        position: absolute;
+        top: 0.75rem;
+        left: var(--padding-sm);
+        color: white;
+        text-transform: uppercase;
+        &--blue {
+            color: var(--dark-blue);
+        }
+    }
+    &__title {
+        font-size: 2rem;
+        text-transform: uppercase;
+        margin-bottom: 0;
+        &--large {
+            font-size: 2.5rem;
+        }
+    }
+
+    &__p {
+        font-size: 1.75rem;
+    }
+}
