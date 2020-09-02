@@ -19,6 +19,9 @@
         &--p-tb {
             padding: var(--padding-md) var(--padding-sm);
         }
+        &--p-tb0 {
+            padding: 0 var(--padding-sm);
+        }
     }
     &__message {
         position: absolute;

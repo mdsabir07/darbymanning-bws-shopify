@@ -2,8 +2,19 @@
     #APP FOOTER
 \*----------------------------------------------------------------------------*/
 
-.c-foot {
-
+.footer {
+    &__section {
+        padding: var(--padding-lg) 0;
+        &--pt0 {
+            padding-top: 0;
+        }
+        &--light-gray {
+            background-color: var(--light-gray);
+        }
+        &--xlight-gray {
+            background-color: var(--exlight-gray);
+        }
+    }
 }
 
 

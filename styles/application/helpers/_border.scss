@@ -6,9 +6,13 @@
         top: 3.5rem;
         left: 0;
         right: 0;
-        height: 0.75rem;
+        height: 0.6rem;
         width: 100%;
         background: var(--blue);
         z-index: 3;
+    }
+
+    &--darkblue::before {
+        background: var(--dark-blue);
     }
 }

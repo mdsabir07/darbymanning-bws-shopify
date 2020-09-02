@@ -1,0 +1,26 @@
+.footer-nav {
+    &__title {
+        margin: 0;
+        font-size: 2rem;
+    }
+    &__ul {
+        padding: 0;
+        margin-top: var(--padding-sm);
+        list-style: none;
+
+        &--col2 {
+            columns: 2;
+        }
+    }
+    &__li {
+        margin: 0 0 calc(var(--padding-sm) / 2);
+    }
+    &__a {
+        font-size: 1.75rem;
+        text-transform: capitalize;
+        transition: 0.3s all;
+        &:hover {
+            color: var(--blue);
+        }
+    }
+}
