@@ -1,0 +1,27 @@
+.social {
+    height: 100%;
+    &__wrap {
+        background-color: var(--light-gray);
+        height: 100%;
+    }
+    &__img {
+        background-color: mediumspringgreen;
+        height: inherit;
+    }
+    &__ul {
+        padding: 0;
+        margin: 2rem 0;
+        list-style: none;
+    }
+    &__li {
+        padding: 0.5rem 0;
+    }
+
+    &__a {
+        color: var(--dark-gray);
+        transition: 0.3s all;
+        &:hover {
+            color: var(--blue);
+        }
+    }
+}

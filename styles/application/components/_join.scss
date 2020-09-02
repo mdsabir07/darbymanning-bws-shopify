@@ -1,11 +1,30 @@
 .join {
-    padding: 0 1rem;
     &__wrap {
         background: var(--dark-blue);
-        padding: var(--padding-md) var(--padding-sm);
     }
-    &__title {
-        font-size: 2rem;
-        margin: 2rem 0 0;
+    &__ul {
+        margin: 0 0 2rem;
+        padding: 0;
+    }
+    &__li {
+        color: white;
+        display: inline-block;
+        padding: 0 1rem 0.5rem 0;
+
+        &::after {
+            content:"•";
+            padding-left: 1rem;
+        }
+
+        &:last-child {
+            &::after {
+                content:"";
+                padding-left: 0;
+            }
+        }
+    }
+
+    &__button {
+        margin-top: 2rem;
     }
 }

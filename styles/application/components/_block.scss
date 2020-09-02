@@ -1,9 +1,23 @@
 .block {
     padding: 0 1rem;
+
+    &--row {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+    }
+
+    &__col {
+        width: 50%;
+    }
+
     &__info {
         padding: var(--padding-sm);
         &--white {
             background: white;
+        }
+        &--p-tb {
+            padding: var(--padding-md) var(--padding-sm);
         }
     }
     &__message {
@@ -22,6 +36,9 @@
         margin-bottom: 0;
         &--large {
             font-size: 2.5rem;
+        }
+        &--p-t {
+            padding-top: 2rem;
         }
     }
 
