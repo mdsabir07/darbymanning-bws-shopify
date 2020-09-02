@@ -1,6 +1,6 @@
 .small-slide {
     width: 100%;
-    padding: 0 1rem;
+    // padding: 0 1rem;
     margin: 3rem 0;
 
     &__shadow {
@@ -13,28 +13,6 @@
         height: 40rem;
         background: turquoise;
         position: relative;
-    }
-
-    &__message {
-        position: absolute;
-        top: 0.75rem;
-        left: var(--padding-md);
-        text-transform: uppercase;
-        color: var(--blue);
-    }
-
-    &__info {
-        padding: var(--padding-sm);
-    }
-
-    &__title {
-        font-size: 2rem;
-        text-transform: uppercase;
-        margin-bottom: 0;
-    }
-
-    &__p {
-        font-size: 1.75rem;
     }
 
     &__shop {

@@ -1,10 +1,11 @@
-<header class="c-head o-grid  o-grid--item  u-flex">
-    <div class="padding-wrap  c-head__wrap">
-        <div class="c-head__logo">
+<header class="header  o-grid  o-grid--item  o-grid--item--padding  u-flex">
+    <div class="header__wrap">
+        
+        <div class="header__logo" id="logo">
             <a href="/">
                 <?xml version="1.0" encoding="UTF-8"?>
                 <svg width="206px" height="63px" viewBox="0 0 206 63" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                    <title>Logo</title>
+                    <title>Brothers We Stand</title>
                     <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                         <g id="Top-Nav-Copy-3" transform="translate(-20.000000, -19.000000)">
                             <g id="Logo" transform="translate(20.000000, 19.150754)">
@@ -27,11 +28,13 @@
                 </svg>
             </a>
         </div>
-        <div class="c-head__col">
-            <div class="c-head__col  c-head__col--sub">
-                <p class="c-head__shipping">FREE UK SHOPPING</p>
-                <div class="c-head__details">
-                    <a href="#"  class="c-head__icon">
+
+        <div class="header__col">
+
+            <div class="header__col  header__col--sub">
+                <p class="header__shipping">FREE UK SHOPPING</p>
+                <div class="header__details">
+                    <a href="#"  class="header__icon">
                         <?xml version="1.0" encoding="UTF-8"?>
                         <svg width="19px" height="20px" viewBox="0 0 19 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                             <title>ICON / SEARCH</title>
@@ -45,7 +48,7 @@
                             </g>
                         </svg>
                     </a>
-                    <a href="#"  class="c-head__icon">
+                    <a href="#"  class="header__icon">
                     <?xml version="1.0" encoding="UTF-8"?>
                     <svg width="11px" height="23px" viewBox="0 0 11 23" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                         <title>ICON / SEARCH Copy</title>
@@ -60,7 +63,7 @@
                         </g>
                     </svg>
                     </a>
-                    <a href="#"  class="c-head__icon">
+                    <a href="#"  class="header__icon">
                     <?xml version="1.0" encoding="UTF-8"?>
                     <svg width="23px" height="19px" viewBox="0 0 23 19" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                         <title>ICON / SEARCH Copy 2</title>
@@ -77,33 +80,133 @@
                 </div>
             </div>
 
-            <div class="c-head__col  c-head__col--sub">
-                <nav class="nav">
-                    <ul class="nav__ul">
-                        <li class="nav__li">
-                            <a href="#" class="nav__a">
-                                Mens Clothes
-                            </a>
-                            
-                        </li>
-                        <li class="nav__li">
-                            <a href="#" class="nav__a">
-                                brands
-                            </a>
-                        </li>
-                        <li class="nav__li">
-                            <a href="#" class="nav__a">
-                                about
-                            </a>
-                        </li>
-                        <li class="nav__li">
-                            <a href="#" class="nav__a">
-                                blog
-                            </a>
-                        </li>
-                    </ul>
-                </nav>
-            </div>
+            <nav class="nav">
+
+                <label for="drop" class="nav__toggle  nav__toggle--main">M</label>
+        
+                <input type="checkbox" id="drop" />
+                <ul class="nav__menu  nav__ul">
+                    <li class="nav__li">
+                        <label for="drop-1" class="nav__toggle">Mens Clothing +</label>
+                        <a href="#" class="nav__a">
+                            Mens Clothing
+                        </a>
+                        <input type="checkbox" id="drop-1"/>
+
+                        <div class="nav__dropdown">
+                            <div class="nav__dd-wrap">
+                                <div class="nav__col  border">
+                                    <h2 class="nav__sub-title  nimbus">Clothing</h2>
+                                    <ul class="nav__sub-ul">
+                                        <li><a class="nav__a  nav__a--sub" href="#">Themes and stuff</a></li>
+                                        <li><a class="nav__a  nav__a--sub" href="#">Plugins</a></li>
+                                        <li><a class="nav__a  nav__a--sub" href="#">Tutorials</a></li>
+                                    </ul> 
+                                </div>
+                                <div class="nav__col  border">
+                                    <h2 class="nav__sub-title  nimbus">Edits</h2>
+                                    <ul class="nav__sub-ul">
+                                        <li><a class="nav__a  nav__a--sub" href="#">Themes and stuff</a></li>
+                                        <li><a class="nav__a  nav__a--sub" href="#">Plugins</a></li>
+                                        <li><a class="nav__a  nav__a--sub" href="#">Tutorials</a></li>
+                                    </ul> 
+                                </div>
+                                <div class="nav__col  border">
+                                    <h2 class="nav__sub-title  nimbus">accessories</h2>
+                                    <ul class="nav__sub-ul">
+                                        <li><a class="nav__a  nav__a--sub" href="#">Themes and stuff</a></li>
+                                        <li><a class="nav__a  nav__a--sub" href="#">Plugins</a></li>
+                                        <li><a class="nav__a  nav__a--sub" href="#">Tutorials</a></li>
+                                    </ul> 
+                                </div>
+                                <div class="nav__col  border">
+                                    <h2 class="nav__sub-title  nimbus">Give</h2>
+                                    <ul class="nav__sub-ul">
+                                        <li><a class="nav__a  nav__a--sub" href="#">Themes and stuff</a></li>
+                                        <li><a class="nav__a  nav__a--sub" href="#">Plugins</a></li>
+                                        <li><a class="nav__a  nav__a--sub" href="#">Tutorials</a></li>
+                                    </ul> 
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </li>
+        
+                    <li class="nav__li">
+                        <label for="drop-2" class="nav__toggle">Brands +</label>
+                        <a href="#" class="nav__a">
+                            Brands
+                        </a>
+                        <input type="checkbox" id="drop-2"/>
+                        
+                        <div class="nav__dropdown">
+                            <div class="nav__dd-wrap">
+                                <div class="nav__col  border">
+                                    <h2 class="nav__sub-title  nimbus">Clothing</h2>
+                                    <ul class="nav__sub-ul">
+                                        <li><a class="nav__a  nav__a--sub" href="#">Themes and stuff</a></li>
+                                        <li><a class="nav__a  nav__a--sub" href="#">Plugins</a></li>
+                                        <li><a class="nav__a  nav__a--sub" href="#">Tutorials</a></li>
+                                    </ul> 
+                                </div>
+                                <div class="nav__col  border">
+                                    <h2 class="nav__sub-title  nimbus">Edits</h2>
+                                    <ul class="nav__sub-ul">
+                                        <li><a class="nav__a  nav__a--sub" href="#">Themes and stuff</a></li>
+                                        <li><a class="nav__a  nav__a--sub" href="#">Plugins</a></li>
+                                        <li><a class="nav__a  nav__a--sub" href="#">Tutorials</a></li>
+                                    </ul> 
+                                </div>
+                                <div class="nav__col  border">
+                                    <h2 class="nav__sub-title  nimbus">accessories</h2>
+                                    <ul class="nav__sub-ul">
+                                        <li><a class="nav__a  nav__a--sub" href="#">Themes and stuff</a></li>
+                                        <li><a class="nav__a  nav__a--sub" href="#">Plugins</a></li>
+                                        <li><a class="nav__a  nav__a--sub" href="#">Tutorials</a></li>
+                                    </ul> 
+                                </div>
+                                <div class="nav__col  border">
+                                    <h2 class="nav__sub-title  nimbus">Give</h2>
+                                    <ul class="nav__sub-ul">
+                                        <li><a class="nav__a  nav__a--sub" href="#">Themes and stuff</a></li>
+                                        <li><a class="nav__a  nav__a--sub" href="#">Plugins</a></li>
+                                        <li><a class="nav__a  nav__a--sub" href="#">Tutorials</a></li>
+                                    </ul> 
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </li>
+        
+                    <li class="nav__li">
+                        <a href="#" class="nav__a">About</a>
+                    </li>
+        
+                    <li class="nav__li">
+                        <a href="#" class="nav__a">Blog</a>
+                    </li>
+        
+                </ul>
+            </nav>
+        </div>
+
+        <div class="header__m-search">
+            <a href="#">
+                <?xml version="1.0" encoding="UTF-8"?>
+                <svg width="19px" height="20px" viewBox="0 0 19 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                    <title>ICON / SEARCH</title>
+                    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                        <g id="Top-Nav-Copy-3" transform="translate(-1042.000000, -19.000000)" stroke="#234766">
+                            <g id="Group" transform="translate(1037.000000, 14.000000)">
+                                <circle id="Oval" transform="translate(13.051609, 13.614649) rotate(-34.000000) translate(-13.051609, -13.614649) " cx="13.0516086" cy="13.6146489" r="7.5"></circle>
+                                <line x1="18.5" y1="19.5" x2="23.5" y2="24.5" id="Line" stroke-linecap="square"></line>
+                            </g>
+                        </g>
+                    </g>
+                </svg>
+            </a>
         </div>
     </div>
 </header>
+
+          

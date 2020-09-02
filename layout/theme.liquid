@@ -15,8 +15,8 @@
 </head>
 <body>
 
-  <!--{% include 'header' %}-->
-  {% include 'sub-nav' %}
+  {% include 'header' %}
+
 
 <!--  {% for link in linklists.main-menu.links %}
     {% assign child_list_handle = link.title | handleize %}
@@ -48,6 +48,7 @@
     {{ content_for_layout }}
   </main>
 
+  {% include 'footer' %}
 
 </body>
 </html>

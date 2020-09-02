@@ -2,11 +2,19 @@
     background: var(--blue);
     color: var(--white);
     text-transform: uppercase;
-    padding: 1rem 1rem;
+    padding: 1rem 3rem;
     box-sizing: unset;
     transition: 0.3s all;
+    font-size: 1.75rem;
     &:hover, &:focus {
         background: var(--dark-blue);
+    }
+
+    &--dark {
+        &:hover {
+            color: var(--dark-blue);
+            background-color: white;
+        }
     }
 
 }

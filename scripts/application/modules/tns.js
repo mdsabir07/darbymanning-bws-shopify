@@ -14,17 +14,59 @@ export default function () {
     });
 
     tns({
-      container: ".slider-4",
+      container: ".home-slide-1",
       items: 4,
       gutter: 10,
       slideBy: "page",
       autoplay: false,
       loop: true,
-      controlsContainer: ".slider-4-controls",
+      controlsContainer: ".home-slide-1-controls",
       nav: false,
       responsive: {
         350: {
-          items: 1,
+          items: 2,
+        },
+        700: {
+          items: 3,
+        },
+        1000: {
+          items: 4
+        }
+      },
+    });
+    tns({
+      container: ".home-slide-2",
+      items: 4,
+      gutter: 10,
+      slideBy: "page",
+      autoplay: false,
+      loop: true,
+      controlsContainer: ".home-slide-2-controls",
+      nav: false,
+      responsive: {
+        350: {
+          items: 2,
+        },
+        700: {
+          items: 3,
+        },
+        1000: {
+          items: 4
+        }
+      },
+    });
+    tns({
+      container: ".home-slide-3",
+      items: 4,
+      gutter: 10,
+      slideBy: "page",
+      autoplay: false,
+      loop: true,
+      controlsContainer: ".home-slide-3-controls",
+      nav: false,
+      responsive: {
+        350: {
+          items: 2,
         },
         700: {
           items: 3,
