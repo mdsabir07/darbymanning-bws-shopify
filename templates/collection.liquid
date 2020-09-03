@@ -1,6 +1,6 @@
+<section class="o-grid  o-grid--item">
 {% paginate collection.products by 2 %}
   <h1>{{ collection.title }}</h1>
-  <h2>This is the project list page whoop</h2>
   {% for product in collection.products %}
     <div>
       <a href="{{ product.url | within: collection }}">{{ product.title }}</a>
@@ -17,3 +17,4 @@
     {{ paginate | default_pagination }}
   {% endif %}
 {% endpaginate %}
+</section>
