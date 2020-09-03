@@ -13,11 +13,18 @@
 
     &__info {
         padding: var(--padding-sm);
+
+        &--center {
+            text-align: center;
+        }
         &--white {
             background: white;
         }
         &--p-tb {
             padding: var(--padding-md) var(--padding-sm);
+        }
+        &--small {
+            padding: 0 0.5rem 0.5rem;
         }
         &--p-tb0 {
             padding: 0 var(--padding-sm);

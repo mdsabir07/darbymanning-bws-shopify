@@ -2,6 +2,7 @@ import { tns } from "tiny-slider/src/tiny-slider";
 export default function () {
 
   const init = () => {
+
     tns({
       container: ".hero-slider",
       items: 1,
@@ -34,6 +35,7 @@ export default function () {
         }
       },
     });
+
     tns({
       container: ".home-slide-2",
       items: 4,
@@ -55,6 +57,7 @@ export default function () {
         }
       },
     });
+    
     tns({
       container: ".home-slide-3",
       items: 4,
@@ -76,6 +79,29 @@ export default function () {
         }
       },
     });
+
+    tns({
+      container: ".collection-list-slide",
+      items: 12,
+      gutter: 10,
+      slideBy: "page",
+      autoplay: false,
+      loop: true,
+      controlsContainer: ".collection-list-controls",
+      nav: false,
+      responsive: {
+        350: {
+          items: 3,
+        },
+        700: {
+          items: 6,
+        },
+        1000: {
+          items: 12
+        }
+      },
+    });
+    
 
   };
   const destroy = () => {};

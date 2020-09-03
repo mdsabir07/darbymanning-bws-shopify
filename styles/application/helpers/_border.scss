@@ -12,6 +12,10 @@
         z-index: 3;
     }
 
+    &--top::before {
+        top: 0;
+    }
+
     &--darkblue::before {
         background: var(--dark-blue);
     }

@@ -1,0 +1,10 @@
+.collection-list {
+    padding: 0 2rem 3rem;
+    &__wrap {
+        background-color: var(--exlight-gray);
+    }
+    &__img {
+        height: 10rem;
+        background-color: lightcoral;
+    }
+}
