@@ -1,0 +1,15 @@
+.collection-header {
+    padding-top: var(--padding-md);
+    padding-bottom: var(--padding-md);
+
+    &__img {
+        height: inherit;
+        background-color: rgb(130, 128, 240);
+    }
+    &__info {
+        margin-bottom: var(--padding-md);
+    }
+    &__title {
+        margin-bottom: var(--padding-sm);
+    }
+}

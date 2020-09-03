@@ -20,11 +20,17 @@
         &--white {
             background: white;
         }
+        &--light-gray {
+            background: var(--light-gray);
+        }
         &--p-tb {
             padding: var(--padding-md) var(--padding-sm);
         }
         &--small {
             padding: 0 0.5rem 0.5rem;
+        }
+        &--large {
+            padding: var(--padding-lg)  var(--padding-md);
         }
         &--p-tb0 {
             padding: 0 var(--padding-sm);
