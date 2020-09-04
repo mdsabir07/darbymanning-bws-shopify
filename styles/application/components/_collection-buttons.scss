@@ -1,0 +1,29 @@
+.collection-buttons {
+    margin: var(--padding-lg) 0;
+    position: relative;
+
+    &__wrap {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: space-between;
+        width: 100%;
+        position: relative;
+    }
+
+    &__col {
+        width: 100%;
+        background-color: red;
+    }
+
+    &__a {
+        width: 100%;
+        background-color: black;
+        position: relative;
+    }
+
+    &__button {
+        background-color: blue;
+        width: 100%;
+    }
+}

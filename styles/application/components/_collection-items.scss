@@ -1,0 +1,25 @@
+.collection-items {
+    margin-bottom: var(--padding-lg);
+    &__item {
+        margin: var(--padding-md) 0;
+    }
+    &__img {
+        background-color: chartreuse;
+        height: 40rem;
+    }
+    &__title {
+        font-size: 1.5rem;
+        margin: 0 0 0.25rem;
+        color: var(--dark-gray);
+
+        font-weight: 400;
+        
+        &--brand {
+            color: var(--gray);
+            margin-top: 1rem;
+        }
+        &--price {
+            font-weight: 700;
+        }
+    }
+}

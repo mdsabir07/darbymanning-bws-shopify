@@ -1,9 +1,11 @@
 .o-grid {
     max-width: 180rem;
-}
-
-.o-grid--small-item {
-    display: block;
-    flex-direction: column;
-    padding: 0 0.25rem;
+    &--p {
+        padding: 0 calc(1rem + .8rem);
+    }
+    &--small-item {
+        display: block;
+        flex-direction: column;
+        padding: 0 0.25rem;
+    }
 }
