@@ -1,0 +1,94 @@
+.product-main {
+    margin-bottom: var(--padding-lg);
+    &__img {
+        height: 35rem;
+        background-color: tomato;
+        margin-bottom: var(--padding-md);
+
+        &--hero {
+            height: 50rem;
+            background-color: salmon;
+        }
+    }
+
+    &__title {
+        margin: 0 0 1rem;
+        font-size: 3rem;
+
+        &--price {
+            margin: var(--padding-md) 0 ; 
+        }
+    }
+
+    &__a {
+        color: var(--blue);
+        transition: 0.3s all;
+        &:hover {
+            color: var(--dark-blue);
+        }
+    }
+
+    &__buttons {
+        display: flex;
+        flex-wrap: nowrap;
+        flex-direction: row;
+        align-items: center;
+        margin: var(--padding-md) 0;
+    }
+
+    &__button {
+        margin-left: var(--padding-sm);
+    }
+    
+    &__colors, &__sizes {
+        margin-bottom: var(--padding-sm);
+    }
+
+    &__color {
+        width: 4rem;
+        height: 4rem;
+        background-color: seagreen;
+        margin-right: var(--padding-sm);
+        margin-top: 1rem;
+        display: inline-block;
+    }
+
+    &__sizes {
+        display: flex;
+        flex-wrap: nowrap;
+        flex-direction: row;
+        align-items: center;
+    }
+
+    &__size {
+        width: 5rem;
+        height: 5rem;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        background-color: var(--light-gray);
+        transition: 0.3s all;
+        color: var(--blue);
+        margin-right: var(--padding-sm);
+        margin-top: 1rem;
+        &:hover, &:active {
+            background-color: var(--blue);
+            color: var(--white);
+            cursor: pointer;
+        }
+    }
+
+    &__table {
+        margin: var(--padding-md) 0;
+    }
+    &__tr {
+        vertical-align: top;
+    }
+    &__td {
+        border: none;
+        padding-right: var(--padding-sm);
+        padding-bottom: 2rem;
+        color: var(--dark-gray);
+    }
+}

@@ -10,6 +10,10 @@
     font-weight: normal;
 }
 
+.h-bold {
+    font-weight: 700;
+}
+
 .caps {
     text-transform: uppercase;
 }
@@ -19,4 +23,7 @@
 }
 .white {
     color: var(--white);
+}
+.gray {
+    color: var(--dark-gray);
 }
