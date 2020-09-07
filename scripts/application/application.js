@@ -15,6 +15,8 @@ import Slider from "./modules/tns.js";
 const neuekit = new NeueKit();
 window.neuekit = neuekit;
 
+
+
 // Listen for click on the document
 document.addEventListener('click', function (event) {
   
@@ -29,20 +31,22 @@ document.addEventListener('click', function (event) {
   event.preventDefault();
   
   // If the content is already expanded, collapse it and quit
-  if (content.classList.contains('active')) {
-    content.classList.remove('active');
+  if (content.classList.contains('accordion__content--active')) {
+    content.classList.remove('accordion__content--active');
     return;
   }
   
   // Get all open accordion content, loop through it, and close it
-  var accordions = document.querySelectorAll('.accordion__content.active');
+  var accordions = document.querySelectorAll('.accordion__content.accordion__content--active');
   for (var i = 0; i < accordions.length; i++) {
-    accordions[i].classList.remove('active');
+    accordions[i].classList.remove('accordion__content--active');
   }
   
   // Toggle our content
-  content.classList.toggle('active');
+  content.classList.toggle('accordion__content--active');
 });
+
+
 
 /* Project Code */
 const slider = new Slider();
