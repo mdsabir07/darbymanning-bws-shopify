@@ -56,6 +56,9 @@
         margin-right: var(--padding-sm);
         margin-top: 1rem;
         display: inline-block;
+        .active {
+            border: 1px solid var(--dark-blue);
+        }
     }
 
     &__sizes {

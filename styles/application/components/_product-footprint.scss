@@ -1,0 +1,38 @@
+.product-footprint {
+    background-color: var(--light-gray);
+    padding: var(--padding-lg) 0;
+
+    &__block {
+        display: flex;
+        flex-direction: row;
+    }
+
+    &__col {
+        width: 50%;
+        height: inherit;
+    }
+
+    &__img {
+        background-color: lightseagreen;
+        height: 35rem;
+    }
+
+    &__info {
+        padding: var(--padding-md);
+        background-color: var(--blue);
+        color: white;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    &__title {
+        margin-bottom: 1.5rem;
+    }
+    &__ul {
+        margin-top: 0;
+    }
+    &__li {
+        font-size: 2rem;
+    }
+}
