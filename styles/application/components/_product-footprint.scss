@@ -5,6 +5,7 @@
     &__block {
         display: flex;
         flex-direction: row;
+        margin-bottom: var(--padding-lg);
     }
 
     &__col {
