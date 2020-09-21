@@ -15,8 +15,6 @@ import Slider from "./modules/tns.js";
 const neuekit = new NeueKit();
 window.neuekit = neuekit;
 
-
-
 // Listen for click on the document
 document.addEventListener('click', function (event) {
   
