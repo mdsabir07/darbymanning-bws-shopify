@@ -1,7 +1,7 @@
 development:
-  password: 19b3356d5852a869ed5e4048fd8e6d96
-  theme_id: "100337582214"
-  store: brothers-we-stand.myshopify.com
+  password: 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
+  theme_id: "109190447260"
+  store: brothers-we-stand-shop.myshopify.com
   ignore_files:
   - "scripts/*"
   - "styles/*"
