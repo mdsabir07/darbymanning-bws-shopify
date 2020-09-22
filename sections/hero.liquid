@@ -7,7 +7,8 @@
 	        	{% for block in section.blocks %}
 		            <div id="{{block.id}}">
 		                <div class="slide  border" style="--border-color: {{block.settings.button_color_bg}}">
-		                    <div class="slide__img" data-image-loading-animation>
+		                	{% capture order %}{% if block.settings.layout == 'left' %}1{% else %}2{% endif %}{% endcapture %}
+		                    <div class="slide__img" style="order: {{ order }}" data-image-loading-animation>
 		                    	{% if block.settings.image != blank %}
 			                    	{%- assign img_url = block.settings.image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
 			                    	<img
