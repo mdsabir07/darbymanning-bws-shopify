@@ -1,4 +1,5 @@
-<!--{% for product in collections.frontpage.products limit:4 %}
+{% comment %}
+{% for product in collections.frontpage.products limit:4 %}
   <div>
     <a href="{{ product.url | within: collection }}">{{ product.title }}</a>
     {{ product.price | money }}
@@ -7,7 +8,10 @@
       <img src="{{ product.featured_image.src | img_url: 'large' }}" alt="{{ product.featured_image.alt | escape }}">
     </a>
   </div>
-{% endfor %}-->
+{% endfor %}
+{% endcomment %}
+
+{{ content_for_index }}
 
 {% include "hero-slider" %}
 {% include "full-width-text" %}
