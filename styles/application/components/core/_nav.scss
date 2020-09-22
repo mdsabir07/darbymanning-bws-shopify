@@ -1,5 +1,6 @@
 .nav {
 	position: unset;
+	margin-top: 1rem;
 
     &:after {
         content:"";
@@ -83,7 +84,8 @@
         padding: 0;	
 		color: var(--dark-blue);
 		text-transform: uppercase;
-		font-size:3rem;
+		font-size: 2.25rem;
+		font-weight: 500;
 		transition: 0.3s all;
 
 		&--sub {
