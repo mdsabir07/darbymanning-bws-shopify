@@ -1,95 +1,67 @@
-<div data-section-id="{{ section.id }}" data-section-type="hero-section">
-<div class="overflow-container">
-<div class="{% if section.blocks.size > 1 %}hero__slider{% endif%}">
-{% for block in section.blocks %}
-<div class="feature-row border feature-row__{{block.id}}" {{ block.shopify_attributes }}>  
-  {% capture image_layout %}
-      <div class="feature-row__item feature-row__image">
-        {% if block.settings.image != blank %}
-          {% capture img_id %}FeatureRowImage-{{ forloop.index }}-{{ block.settings.image.id }}{% endcapture %}
-          {% capture wrapper_id %}FeatureRowImageWrapper-{{ forloop.index }}-{{ block.settings.image.id }}{% endcapture %}
-          
-          {% unless block.settings.image == blank %}
-          {% include 'image-style', image: block.settings.image, height: 650, wrapper_id: img_wrapper_id, img_id: img_id %}
-        {% endunless %}
-        {%- assign img_url = block.settings.image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
-          <div id="{{ wrapper_id }}" class="feature-row__image-wrapper js">
-            <div style="padding-top:{{ 1 | divided_by: block.settings.image.aspect_ratio | times: 100}}%;" data-image-loading-animation>
-              <img id="{{ img_id }}"
-                  class="feature-row__image lazyload lazypreload"
-                  data-src="{{ img_url }}"
-                  data-widths="[180, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 2048]"
-                  data-aspectratio="{{ block.settings.image.aspect_ratio }}"
-                  data-sizes="auto"
-                  alt="{{ block.settings.image.alt | escape }}">
-            </div>
-          </div>
-
-          <noscript>
-            {{ block.settings.image | img_url: '600x600', scale: 2 | img_tag: block.settings.image.alt, 'feature-row__image' }}
-          </noscript>
-        {% else %}
-          {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
-        {% endif %}
-      </div>
-    {% endcapture %}
-
-    <div class="feature-row">
-      {% if block.settings.layout == 'left' %}
-        {{ image_layout }}
-      {% endif %}
-
-      <div class="feature-row__item feature-row__text feature-row__text--{{ block.settings.layout }}">
-       <div class="feature-row__text-wrapper">
-        {% if block.settings.title != blank %}
-          <h2 class="h3">{{ block.settings.title | escape }}</h2>
-        {% endif %}
-        {% if block.settings.text != blank %}
-          <div class="rte rte-setting featured-row__subtext">{{ block.settings.text }}</div>
-        {% endif %}
-        {% if block.settings.button_label != blank and block.settings.button_link != blank %}
-          {%- capture ariaLabel -%}
-            {{- block.settings.button_label -}}
-            {%- if block.settings.button_link.type == 'frontpage_link' -%}
-              : {{ 'homepage.general.title' | t -}}
-            {%- elsif block.settings.button_link.type == 'catalog_link' -%}
-              : {{ 'collections.catalog.title' | t -}}
-            {%- elsif block.settings.button_link.object.title -%}
-              : {{ block.settings.button_link.object.title -}}
-            {%- endif -%}
-          {%- endcapture -%}
-
-          <a href="{{ block.settings.button_link }}"
-            class="btn button"
-            aria-label="{{ ariaLabel }}">
-            {{- block.settings.button_label | escape -}}
-          </a>
-        {% endif %}
-       </div> 
-      </div>
-
-      {% if block.settings.layout == 'right' %}
-        {{ image_layout }}
-      {% endif %}
-    </div>
-    <style>
-     .feature-row__{{block.id}} .feature-row__text {
-       background-color : {{block.settings.text_block_bg}};
-       color: {{block.settings.text_color}};
-     }
-     .feature-row__{{block.id}} .feature-row__text .button{
-       background-color : {{block.settings.button_color_bg}};
-       color: {{block.settings.button_text_color}};
-     }
-    </style>
-    </div>    
-    {% endfor %}   
-    </div>
-  {% if section.blocks.size == 0 %}
-    {% include 'no-blocks' %}
-  {% endif %}   
-  </div>
-</div>
+<section class="c-hero-slider" data-section-id="{{ section.id }}" data-section-type="hero-section">
+    <div class="o-grid  o-grid--item">
+        <div class="hero-slider js-slider">
+        	{% if section.blocks.size == 0 %}
+		    {% include 'no-blocks' %}
+		    {% else %}
+	        	{% for block in section.blocks %}
+		            <div id="{{block.id}}">
+		                <div class="slide  border" style="--border-color: {{block.settings.button_color_bg}}">
+		                    <div class="slide__img" data-image-loading-animation>
+		                    	{% if block.settings.image != blank %}
+			                    	{%- assign img_url = block.settings.image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
+			                    	<img
+					                  class="lazyload lazypreload"
+					                  data-src="{{ img_url }}"
+					                  data-sizes="auto"
+					                  alt="{{ block.settings.image.alt | escape }}">
+					            {% else %}
+									{{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+								{% endif %}
+		                    </div>
+		                    <article class="slide__info" style="background-color : {{block.settings.text_block_bg}}; color: {{block.settings.text_color}};">
+		                        <h1 class="slide__title  nimbus">
+		                            {{ block.settings.title | escape }}
+		                        </h1>
+		                        {% if block.settings.button_label != blank and block.settings.button_link != blank %}
+						          {%- capture ariaLabel -%}
+						            {{- block.settings.button_label -}}
+						            {%- if block.settings.button_link.type == 'frontpage_link' -%}
+						              : {{ 'homepage.general.title' | t -}}
+						            {%- elsif block.settings.button_link.type == 'catalog_link' -%}
+						              : {{ 'collections.catalog.title' | t -}}
+						            {%- elsif block.settings.button_link.object.title -%}
+						              : {{ block.settings.button_link.object.title -}}
+						            {%- endif -%}
+						          {%- endcapture -%}
+								  <a href="{{ block.settings.button_link }}" class="button slide__button" aria-label="{{ ariaLabel }}" style="background-color : {{block.settings.button_color_bg}}; color: {{block.settings.button_text_color}};">
+		                            {{- block.settings.button_label | escape -}}
+								  </a>
+								{% endif %}
+		                    </article>
+		                    
+		                </div>
+		            </div>
+	            {% endfor %}  
+	        {% endif %}   
+        </div>
+        <ul class="slide__controls js-slider-controls" id="hero-controls" aria-label="Carousel Navigation" tabindex="0">
+            <li class="slide__prev" data-controls="prev" aria-controls="customize" tabindex="-1">
+                <i class="fas fa-angle-left fa-5x"></i>
+            </li>
+            <li class="slide__next  button" data-controls="next" aria-controls="customize" tabindex="-1">
+                <svg width="17px" height="18px" viewBox="0 0 17 18" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                    <title>NEXT</title>
+                    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                        <g id="Arrow" fill="#FFFFFF">
+                            <polygon id="Fill-3" transform="translate(8.500000, 9.000000) rotate(-270.000000) translate(-8.500000, -9.000000) " points="7.58805575 1 0 17 2.34598347 17 8.54454108 3.44934827 14.6540165 17 17 17 9.44133218 1"></polygon>
+                        </g>
+                    </g>
+                </svg>       
+            </li>
+        </ul>
+    </div>  
+</section>
 {% schema %}
 {
   "name": "Hero Slider",

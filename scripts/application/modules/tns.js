@@ -2,17 +2,18 @@ import { tns } from "tiny-slider/src/tiny-slider";
 export default function () {
 
   const init = () => {
-
-    tns({
-      container: ".hero-slider",
-      items: 1,
-      gutter: 0,
-      slideBy: "page",
-      autoplay: false,
-      loop: true,
-      controlsContainer: "#hero-controls",
-
-    });
+	  
+	Array.from(document.querySelectorAll('.js-slider')).forEach(el => {
+		
+		tns({
+	      container: el,
+	      items: el.getAttribute('data-items') || 1,
+	      gutter: el.getAttribute('data-gutter') || 0,
+	      slideBy: "page",
+	      controlsContainer: el.parentNode.querySelector(".js-slider-controls"),
+	    });
+		
+	})
 
     tns({
       container: ".home-slide-1",

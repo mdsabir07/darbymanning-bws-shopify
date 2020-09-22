@@ -13,3 +13,12 @@
 .tns-nav {
     display: none;
 }
+
+.tns-ovh {
+	padding-right: 21rem;
+	width: calc( 100% + 21rem );
+}
+
+.tns-slide-active + .tns-item:not(.tns-slide-active) {
+	opacity: .5 !important;
+}
