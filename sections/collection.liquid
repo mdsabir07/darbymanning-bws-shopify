@@ -1,4 +1,4 @@
-<section class="c-slider-4 u-section-m u-section-m--bottom">
+<section class="c-slider-4 u-section-m u-section-m--bottom collection-slider">
     <div class="o-grid o-grid--item">
         {% if section.settings.title != blank %}
          <h2 class="nimbus  padding-wrap  h3">{{ section.settings.title | escape }}</h2>
@@ -9,7 +9,7 @@
 
         <div class="home-slide-1">
           {% for product in collection.products limit: product_limit %}
-            <div class="slide__item--{{section.id}}">
+            <div class="slide__item--{{section.id}}"> 
                 {% include 'product-card-grid', product: product, show_vendor: section.settings.show_vendor %}                
             </div>
           {% else %}

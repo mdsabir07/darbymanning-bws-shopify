@@ -7,7 +7,8 @@
 	        	{% for block in section.blocks %}
 		            <div id="{{block.id}}"> 
 		                <div class="slide  border" style="--border-color: {{block.settings.button_color_bg}}">
-		                    <div class="slide__img" data-image-loading-animation>
+		                	{% capture order %}{% if block.settings.layout == 'left' %}1{% else %}2{% endif %}{% endcapture %}
+		                    <div class="slide__img" style="order: {{ order }}" data-image-loading-animation>
 		                    	{% if block.settings.image != blank %}
 			                    	{%- assign img_url = block.settings.image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
 			                    	<img
@@ -46,8 +47,10 @@
 	        {% endif %}   
         </div>
         <ul class="slide__controls js-slider-controls" id="hero-controls" aria-label="Carousel Navigation" tabindex="0">
-            <li class="slide__prev" data-controls="prev" aria-controls="customize" tabindex="-1">
-                <i class="fas fa-angle-left fa-5x"></i>
+            <li class="slide__dots js-slider-dots">
+            	{% for block in section.blocks %}
+            		<span class="slide__dot {% if forloop.index == 1 %}active{% endif %}"></span>
+            	{% endfor %}
             </li>
             <li class="slide__next  button" data-controls="next" aria-controls="customize" tabindex="-1">
                 <svg width="17px" height="18px" viewBox="0 0 17 18" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
