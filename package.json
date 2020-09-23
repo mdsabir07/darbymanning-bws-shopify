@@ -39,7 +39,7 @@
     "build": "run-s 'build:css' 'build:js'",
     "watch:css": "onchange './styles/**/*.scss' -- npm run build:css",
     "watch:js": "rollup --config --watch",
-    "watch:theme": "theme open && theme watch",
+    "watch:theme": "theme open --allow-live && theme watch --allow-live",
     "watch": "run-p 'watch:theme' 'watch:css' 'watch:js'",
     "start": "npm run watch"
   },
