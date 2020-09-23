@@ -1,0 +1,22 @@
+<div class="{% unless product.available %}sold-out{% endunless %} product-card small-slide block  border">
+    <a href="{{ product.url | within: collection }}" class="small-slide__a">
+        <div class="small-slide__shadow">
+            <div class="small-slide__img" data-image-loading-animation>
+             <p class="block__message  block__message--blue">{{product.type}}</p>
+                {%- assign preview_image = product.featured_media.preview_image -%}
+                {%- assign img_url = preview_image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
+                <img
+                class="lazyload lazypreload"
+                data-src="{{ img_url }}"
+                data-sizes="auto"
+                alt="{{ preview_image.alt | escape }}">                                
+            </div>
+
+            <article class="block__info">                
+                <p class="block__p">{{ product.title }}</p>
+                <h5 class="small-slide__shop  nimbus">Shop now</h5>
+            </article>
+
+        </div>
+    </a>
+</div>
