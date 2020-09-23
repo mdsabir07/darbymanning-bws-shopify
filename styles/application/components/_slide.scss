@@ -65,6 +65,7 @@
         justify-content: flex-end;
         padding: 0 1.7rem 0 1rem;
         margin: 0;
+        list-style: none;
     }
 
     &__prev {
@@ -76,5 +77,25 @@
         // max-width: 2rem;
         text-align: center;
         padding: 2rem;
+    }
+    
+    &__dots {
+		display: flex;
+		align-items: center;
+		margin-right: 1.5rem;
+    }
+    
+    &__dot {
+	    width: 1.3rem;
+	    height: 1.3rem;
+	    background-color: var(--light-gray);
+	    margin-right: .8rem;
+	    display: inline-block;
+		border-radius: 50%;
+		transition: background-color .5s ease;
+		
+		&.active {
+			background-color: var(--blue);
+		}
     }
 }
