@@ -10,7 +10,7 @@
         <div class="home-slide-1">
           {% for product in collection.products limit: product_limit %}
             <div class="slide__item--{{section.id}}"> 
-                {% include 'product-card-grid', product: product, show_vendor: section.settings.show_vendor %}                
+                {% include 'product-card-grid', product: product %}                
             </div>
           {% else %}
 
@@ -40,6 +40,7 @@
         {% endfor %}                      
             
         </div>
+    
         <ul class="slide__controls  home-slide-1-controls" aria-label="Carousel Navigation" tabindex="0">
             <li class="slide__prev" data-controls="prev" aria-controls="customize" tabindex="-1">
                 <i class="fas fa-angle-left fa-5x"></i>
@@ -56,6 +57,14 @@
                 </svg>       
             </li>
         </ul>
+      {% if section.settings.show_view_all %}        
+    <div class="text-center">
+      <a href="{{ collection.url }}" class="button" aria-label="{{ 'collections.general.view_all_label' | t: collection_name: collection.title }}">
+      {{ 'collections.general.view_all' | t }}
+      </a>
+    </div>
+  {% endif %}
+
     </div>    
 </section>
 
@@ -206,32 +215,7 @@
       "max": 5,
       "step": 1,
       "default": 2
-    },
-    {
-      "type": "checkbox",
-      "id": "show_vendor",
-      "label": {
-        "da": "Vis produktleverandører",
-        "de": "Produkt-Lieferanten anzeigen",
-        "en": "Show product vendors",
-        "es": "Mostrar proveedores del producto",
-        "fi": "Näytä tuotteen myyjät",
-        "fr": "Afficher les vendeurs",
-        "hi": "उत्पाद विक्रेताओं को दिखाएं",
-        "it": "Mostra fornitori prodotto",
-        "ja": "商品の販売元を表示する",
-        "ko": "제품 공급 업체 표시",
-        "nb": "Vis produktleverandører",
-        "nl": "Productleveranciers weergeven",
-        "pt-BR": "Exibir fornecedores do produto",
-        "pt-PT": "Mostrar fornecedores do produto",
-        "sv": "Visa produktleverantörer",
-        "th": "แสดงผู้ขายสินค้า",
-        "zh-CN": "显示产品厂商",
-        "zh-TW": "顯示產品廠商"
-      },
-      "default": false
-    },
+    },    
     {
       "type": "checkbox",
       "id": "show_view_all",
