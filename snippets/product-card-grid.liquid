@@ -9,10 +9,13 @@
                 class="lazyload lazypreload"
                 data-src="{{ img_url }}"
                 data-sizes="auto"
-                alt="{{ preview_image.alt | escape }}">                                
+                alt="{{ preview_image.alt | escape }}">  
+                <div class="price__wrapper">
+                {% include 'product-price-listing', product: product %}                                             
+                </div>
             </div>
 
-            <article class="block__info">                
+            <article class="block__info">                                
                 <p class="block__p">{{ product.title }}</p>
                 <h5 class="small-slide__shop  nimbus">Shop now</h5>
             </article>
