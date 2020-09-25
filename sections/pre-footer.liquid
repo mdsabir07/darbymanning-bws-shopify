@@ -1,0 +1,348 @@
+{%- if
+    settings.social_twitter_link != blank
+    or settings.social_facebook_link != blank
+    or settings.social_pinterest_link != blank
+    or settings.social_instagram_link != blank
+    or settings.social_tumblr_link != blank
+    or settings.social_snapchat_link != blank
+    or settings.social_youtube_link != blank
+    or settings.social_vimeo_link != blank    
+    or request.page_type == 'article'
+    or request.page_type == 'blog'
+  -%}
+    {%- assign social_icons = true -%}
+{%- endif -%}
+
+{%- assign socials = "Facebook Twitter Pinterest Instagram Tumblr Snapchat YouTube Vimeo" | split: ' ' -%}
+
+<div class="pre-footer">
+    <div class="o-grid  u-flex">
+            {%- for block in section.blocks -%}                
+            <div class="o-grid--item{% if section.blocks.size == 1 %} u-textCenter u-size-12@m{% endif %} u-size-6@m"
+                        {{ block.shopify_attributes }}>
+                {%- case block.type -%}
+                    {%- when 'newsletter' -%}
+                    <article class="block join {% if block.settings.show_border %}border{% endif %} site-footer__newsletter"> 
+                    <div class="join__wrap  block__info  block__info--p-tb" style="background-color:{{block.settings.bg_color}};">
+                        <p class="h4 block__title  block__title--large  block__title--p-t blue caps">{{ block.settings.title }}</p>
+                        <div class="rte_settings">
+                            {{block.settings.text}}
+                        </div>
+                    {%- assign formId = 'ContactFooter' -%}
+                    {% form 'customer', id: formId, novalidate: 'novalidate' %}
+                        {%- if form.posted_successfully? -%}
+                        <p class="form-message form-message--success" tabindex="-1" data-form-status>
+                            {{ 'general.newsletter_form.confirmation' | t }}
+                        </p>
+                        {%- endif -%}
+                        <input type="hidden" name="contact[tags]" value="newsletter">
+                        <div class="input-group {% if form.errors %} input-group--error{% endif %}">
+                        <input type="email"
+                            name="contact[email]"
+                            id="{{ formId }}-email"
+                            class="input-group__field newsletter__input join__input{% if form.errors %} input--error{% endif %}"
+                            value="{{ form.email }}"
+                            placeholder="{{ 'general.newsletter_form.email_placeholder' | t }}"
+                            aria-label="{{ 'general.newsletter_form.email_placeholder' | t }}"
+                            aria-required="true"
+                            required
+                            autocorrect="off"
+                            autocapitalize="off"
+                            {% if form.errors %}
+                            aria-invalid="true"
+                            aria-describedby="{{ formId }}-email-error"
+                            data-form-status
+                            {% endif %}>
+                        <span class="input-group__btn">
+                            <button type="submit" class="newsletter__submit button  button--dark  join__button" name="commit" >
+                            <span class="newsletter__submit-text--large">{{ 'general.newsletter_form.submit' | t }}</span>
+                            </button>
+                        </span>
+                        </div>
+                        {% if form.errors contains 'email' %}
+                        <span id="{{ formId }}-email-error" class="input-error-message">
+                            <span class="visually-hidden">{{ 'general.accessibility.error' | t }} </span>
+                            {% include 'icon-error' %}
+                            <span class="site-footer__newsletter-error">{{ form.errors.translated_fields['email'] | capitalize }} {{ form.errors.messages['email'] }}.</span>
+                        </span>
+                        {% endif %}
+                     {% endform %}
+                    </div>
+                    </article>
+
+                    {%- when 'social' -%}
+                        <article class="block social {% if block.settings.show_border %}border{% endif %}">
+                        <div class="social__wrap block--row" style="background-color:{{block.settings.bg_color}};">    
+                        <div class="block__col social__link">
+                        <div class="block__info  block__info--p-tb">
+                        {%- if block.settings.title -%}
+                            <p class="h4 block__title block__title--large  block__title--p-t blue caps">{{ block.settings.title | escape }}</p>
+                        {%- endif -%}                       
+                        {%- if social_icons -%}
+                            <ul class="social__ul site-footer__social-icons">
+                                {%- for social in socials -%}
+                                {%- assign social_link = social | prepend: 'social_' | append: '_link' | downcase -%}
+                                {%- assign icon_link = social | prepend: 'icon-' | downcase -%}
+                                {%- if settings[social_link] != blank -%}
+                                    <li class="social__li">
+                                    <a class="social__a" href="{{ settings[social_link] | escape }}" aria-describedby="a11y-external-message">                                        
+                                        {{ social }}
+                                    </a>
+                                    </li>
+                                {%- endif -%}
+                                {%- endfor -%}
+                                {%- if settings.social_refer_link != blank -%}
+                                <li class="social__li">
+                                    <a class="social__a" href="{{ settings.social_refer_link | escape }}" aria-describedby="a11y-external-message">                                        
+                                        Refer a Friend
+                                    </a>
+                                </li>
+                                {%- endif -%}
+                            </ul>
+                            {%- endif -%}
+                          </div> 
+                        </div>                                              
+                        <div class="social__img block__col">
+                            {% if block.settings.image != blank %}
+                            {%- assign img_url = block.settings.image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
+                            <img src="{{ block.settings.image | img_url: '480x480' }}"                           
+                            alt="{{ block.settings.image.alt | escape }}">
+                            <noscript>
+                            <p>
+                                {{ block.settings.image | img_url: '480x480', scale: 2 | img_tag: block.settings.image.alt }}
+                            </p>
+                            </noscript>
+                            {% else %}
+                                {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+                            {% endif %}
+                        </div>    
+                      </div>                     
+                     </article>
+                {%- endcase -%}
+            </div>
+        {%- endfor -%}
+    </div>     
+</div>
+
+
+
+{% schema %}
+{
+  "name":"Pre Footer",
+  "max_blocks": 2, 
+  "blocks": [    
+    {
+      "type": "social",
+      "name": "Social",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": {
+            "da": "Overskrift",
+            "de": "Überschrift",
+            "en": "Heading",
+            "es": "Título",
+            "fi": "Otsake",
+            "fr": "Titre",
+            "hi": "शीर्षक",
+            "it": "Heading",
+            "ja": "見出し",
+            "ko": "제목",
+            "nb": "Overskrift",
+            "nl": "Kop",
+            "pt-BR": "Título",
+            "pt-PT": "Título",
+            "sv": "Rubrik",
+            "th": "ส่วนหัว",
+            "zh-CN": "标题",
+            "zh-TW": "標題"
+          },
+          "default": {
+            "da": "Fortæl om din virksomhed",
+            "de": "Rede über dein Unternehmen",
+            "en": "Talk about your business",
+            "es": "Habla sobre tu negocio",
+            "fi": "Kerro yrityksestäsi",
+            "fr": "Parlez de votre entreprise",
+            "hi": "अपने व्यवसाय के बारे में बात करें",
+            "it": "Parla della tua attività commerciale",
+            "ja": "あなたのビジネスについて語る",
+            "ko": "비즈니스에 대한 이야기하기",
+            "nb": "Snakk om bedriften din",
+            "nl": "Vertel over je bedrijf",
+            "pt-BR": "Fale sobre o seu negócio",
+            "pt-PT": "Fale sobre o seu negócio",
+            "sv": "Prata om ditt företag",
+            "th": "พูดถึงธุรกิจของคุณ",
+            "zh-CN": "介绍您的业务",
+            "zh-TW": "描述您的商家"
+          }
+        },        
+        {
+            "type": "checkbox",
+            "id": "show_border",
+            "label": "Show Border",
+            "default": false
+        },
+        {
+            "type": "image_picker",
+            "id": "image",
+            "label": {
+              "da": "Billede",
+              "de": "Foto",
+              "en": "Image",
+              "es": "Imagen",
+              "fi": "Kuva",
+              "fr": "Image",
+              "hi": "इमेज",
+              "it": "Immagine",
+              "ja": "画像",
+              "ko": "이미지",
+              "nb": "Bilde",
+              "nl": "Afbeelding",
+              "pt-BR": "Imagem",
+              "pt-PT": "Imagem",
+              "sv": "Bild",
+              "th": "รูปภาพ",
+              "zh-CN": "图片",
+              "zh-TW": "圖片"
+            }
+        },        
+        {
+            "type": "color",
+            "id": "bg_color",
+            "label": "Block Background",
+            "default": "#f6f6f6"
+        }   
+      ]
+    },
+    {
+      "type": "newsletter",
+      "limit": 1,
+      "name": {
+        "da": "Tilmelding til nyhedsbrev",
+        "de": "Newsletter-Anmeldung",
+        "en": "Newsletter signup",
+        "es": "Suscripción al boletín",
+        "fi": "Uutiskirjeen tilaus",
+        "fr": "Inscription",
+        "hi": "न्यूज़लेटर साइनअप",
+        "it": "Iscriviti alla Newsletter",
+        "ja": "ニュースレターの登録",
+        "ko": "뉴스레터 신청",
+        "nb": "Registrering for nyhetsbrev",
+        "nl": "Nieuwsbriefaanmelding",
+        "pt-BR": "Assinatura da newsletter",
+        "pt-PT": "Registo na newsletter",
+        "sv": "Nyhetsbrevsregistrering",
+        "th": "การสมัครรับจดหมายข่าว",
+        "zh-CN": "新闻通讯注册",
+        "zh-TW": "訂閱電子報"
+      },
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": {
+            "da": "Overskrift",
+            "de": "Überschrift",
+            "en": "Heading",
+            "es": "Título",
+            "fi": "Otsake",
+            "fr": "Titre",
+            "hi": "शीर्षक",
+            "it": "Heading",
+            "ja": "見出し",
+            "ko": "제목",
+            "nb": "Overskrift",
+            "nl": "Kop",
+            "pt-BR": "Título",
+            "pt-PT": "Título",
+            "sv": "Rubrik",
+            "th": "ส่วนหัว",
+            "zh-CN": "标题",
+            "zh-TW": "標題"
+          },
+          "info": {
+            "da": "Abonnenter bliver føjet til [kundelisten](/admin/customers?query=&accepts_marketing=1) for \"accepterer markedsføring\".",
+            "de": "Abonnenten werden zu deiner Liste „akzeptiert Marketingmaterial“ hinzugefügt [Kundenliste.](/admin/customers?query=&accepts_marketing=1)",
+            "en": "Subscribers will be added to your “accepts marketing” [customer list.](/admin/customers?query=&accepts_marketing=1)",
+            "es": "Se añadirá los suscriptores a tu [lista de clientes.](/admin/customers?query=&accepts_marketing=1) \"acepta marketing\".",
+            "fi": "Tilaajat lisätään \"hyväksyy markkinointi\" [-asiakasluetteloosi. ](/admin/customers?query=&accepts_marketing=1)",
+            "fr": "Les abonnés seront ajoutés à votre [liste de clients](/admin/customers?query=&accepts_marketing=1) « Accepte le marketing ».",
+            "hi": "सदस्यों को आपकी “मार्केटिंग स्वीकार करता है” [customer list.](/admin/customers?query=&accepts_marketing=1) में जोड़ दिया जाएगा",
+            "it": "Gli iscritti verranno aggiunti al tuo [elenco clienti.](/admin/customers?query=&accepts_marketing=1) «accetta marketing»",
+            "ja": "購読者は「マーケティングを受け入れる」[顧客リスト](/admin/customers?query=&accepts_marketing=1) に追加されます。",
+            "ko": "가입자가 \"마케팅 수락\" [고객 목록.](/admin/customers?query=&accepts_marketing=1)에 추가됩니다.",
+            "nb": "Abonnenter vil bli lagt til i «aksepterer markedsføring» [kundeliste.](/admin/customers?query=&accepts_marketing=1)",
+            "nl": "Abonnees worden toegevoegd aan je \"accepteert marketing\" [klantenlijst.](/admin/customers?query=&accepts_marketing=1)",
+            "pt-BR": "Os assinantes serão adicionados à “aceita marketing” [lista de clientes. ](/admin/customers?query=&accepts_marketing=1)",
+            "pt-PT": "Os subscritores serão adicionados à sua lista de \"aceitam marketing\" [lista de clientes.](/admin/customers?query=&accepts_marketing=1)",
+            "sv": "Prenumeranter läggs till i din \"accepterar marknadsföring\" [kundlista. ](/admin/customers?query=&accepts_marketing=1)",
+            "th": "ระบบจะเพิ่มผู้สมัครใช้งานไปยังส่วน “ยอมรับการตลาด” ของคุณ [รายชื่อลูกค้า](/admin/customers?query=&accepts_marketing=1)",
+            "zh-CN": "订阅者将被添加到您的“接受营销”[客户列表](/admin/customers?query=&accepts_marketing=1)中。",
+            "zh-TW": "系統會將訂閱者新增至您的「接受行銷」[客戶清單。](/admin/customers?query=&accepts_marketing=1)"
+          },
+          "default": {
+            "da": "Nyhedsbrev",
+            "de": "Newsletter",
+            "en": "Newsletter",
+            "es": "Boletín",
+            "fi": "Uutiskirje",
+            "fr": "Newsletter",
+            "hi": "न्यूज़लेटर",
+            "it": "Newsletter",
+            "ja": "ニュースレター",
+            "ko": "뉴스레터",
+            "nb": "Nyhetsbrev",
+            "nl": "Nieuwsbrief",
+            "pt-BR": "Newsletter",
+            "pt-PT": "Newsletter",
+            "sv": "Nyhetsbrev",
+            "th": "จดหมายข่าว",
+            "zh-CN": "新闻通讯",
+            "zh-TW": "電子報"
+          }
+        },
+        {
+            "type": "html",
+            "id": "text",
+            "label": {
+              "da": "Tekst",
+              "de": "Text",
+              "en": "Text",
+              "es": "Texto",
+              "fi": "Teksti",
+              "fr": "Texte",
+              "hi": "टेक्स्ट",
+              "it": "Testo",
+              "ja": "テキスト",
+              "ko": "텍스트",
+              "nb": "Tekst",
+              "nl": "Tekst",
+              "pt-BR": "Texto",
+              "pt-PT": "Texto",
+              "sv": "Text",
+              "th": "ข้อความ",
+              "zh-CN": "文本",
+              "zh-TW": "文字"
+            }
+        },    
+        {
+            "type": "checkbox",
+            "id": "show_border",
+            "label": "Show Border",
+            "default": false
+        },
+        {
+            "type": "color",
+            "id": "bg_color",
+            "label": "Background",
+            "default": "#f6f6f6"
+        }       
+      ]
+    }
+  ]
+}
+{% endschema %}

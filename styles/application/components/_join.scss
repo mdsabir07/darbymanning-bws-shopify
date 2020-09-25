@@ -11,15 +11,15 @@
         display: inline-block;
         padding: 0 1rem 0.5rem 0;
 
-        &::after {
+        &::before {
             content:"•";
-            padding-left: 1rem;
+            padding-right: 1rem;
         }
 
-        &:last-child {
-            &::after {
+        &:first-child {
+            &::before {
                 content:"";
-                padding-left: 0;
+                padding-right: 0;
             }
         }
     }
