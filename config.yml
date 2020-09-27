@@ -3,5 +3,6 @@ development:
   theme_id: "109190447260"
   store: brothers-we-stand-shop.myshopify.com
   ignore_files:
+  - config/settings_data.json
   - "scripts/*"
   - "styles/*"
