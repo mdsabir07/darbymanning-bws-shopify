@@ -40,6 +40,19 @@
       "number_of_results": "{{ result_number }} of {{ results_count }}",
       "number_of_results_found": "{{ results_count }} results found",
       "one_result_found": "1 result found"
+    },
+    "filters": {
+      "show_more": "Show More",
+      "show_less": "Show Less"
+    },
+    "payment": {
+      "method": "Payment"
+    },
+    "currency": {
+      "dropdown_label": "Currency"
+    },
+    "language": {
+      "dropdown_label": "Language"
     }
   },
   "homepage": {
@@ -54,6 +67,30 @@
       "blog_excerpt": "Your store hasn’t published any blog posts yet. A blog can be used to talk about new product launches, tips, or other news you want to share with your customers. You can check out Shopify’s ecommerce blog for inspiration and advice for your own store and blog.",
       "blog_author": "Author name",
       "no_content": "This section doesn’t currently include any content. Add content to this section using the sidebar."
+    }
+  },
+  "layout": {
+    "navigation": {
+      "search": "Search",
+      "expand": "expand",
+      "collapse": "collapse",
+      "menu": "Menu"
+    },
+    "cart": {
+      "title": "Cart",
+      "items_count": {
+        "one": "item",
+        "other": "items"
+      }
+    },
+    "customer": {
+      "account": "Account",
+      "log_out": "Log out",
+      "log_in": "Log in",
+      "create_account": "Create account"
+    },
+    "footer": {
+      "social_platform": "{{ name }} on {{ platform }}"
     }
   },
   "blogs": {
