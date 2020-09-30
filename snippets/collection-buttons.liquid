@@ -1,23 +1,14 @@
-<section class="collection-buttons  o-grid  o-grid--p">
+{% if section.settings.col_nav_bottom != blank %}
+<section class="collection-buttons  o-grid  o-grid--p">    
+    {% assign collection_handle = section.settings.col_nav_bottom %}
+    {% for link in linklists[collection_handle].links %}
     <div class="o-grid--item  u-size-4@m">
-        <a href="#" class="collection-buttons__a">
+        <a href="{{ link.url }}" class="collection-buttons__a">
             <button class="button  collection-buttons__button">
-                quality essentials
+                {{ link.title }}
             </button>
         </a>
     </div>
-    <div class="o-grid--item  u-size-4@m">
-        <a href="#" class="collection-buttons__a">
-            <button class="button  collection-buttons__button">
-                new in
-            </button>
-        </a>
-    </div>
-    <div class="o-grid--item  u-size-4@m">
-        <a href="#" class="collection-buttons__a">
-            <button class="button  collection-buttons__button">
-                ethical sweatshirts
-            </button>
-        </a>
-    </div>
+    {% endfor %}    
 </section>
+{% endif %}

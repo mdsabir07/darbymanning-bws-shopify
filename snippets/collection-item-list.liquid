@@ -1,20 +1,35 @@
 <section class="collection-items  o-grid  o-grid--p">
     <div class="o-grid--item  u-size-12@s"> 
-        <h1 class="caps  h3  h-light  nimbus">Sort by</h1>
+        <h1 class="caps  h3  h-light  nimbus" for="sort-by">Sort by</h1>
+        <select id="sort-by">
+            <option value="manual">Featured</option>
+            <option value="price-ascending">Price: Low to High</option>
+            <option value="price-descending">Price: High to Low</option>
+            <option value="title-ascending">A-Z</option>
+            <option value="title-descending">Z-A</option>
+            <option value="created-ascending">Oldest to Newest</option>
+            <option value="created-descending">Newest to Oldest</option>
+            <option value="best-selling">Best Selling</option>
+          </select>                    
     </div>
 
-    {% paginate collection.products by 2 %}
-    {% for product in collection.products %}
+    {% paginate collection.products by 16 %}
+    {% for product in collection.products %} 
     
-        <div class="o-grid--item  u-size-6@s  u-size-4@m  u-size-3@l  collection-items__item"> 
+        <div class="o-grid--item  u-size-6@s  u-size-4@m  u-size-3@l  collection-items__item demo"> 
             <a href="{{ product.url | within: collection }}">
                 <div class="collection-items__img">
                     <img src="{{ product.featured_image.src | img_url: 'large' }}" alt="{{ product.featured_image.alt | escape }}">
                 </div>
-                <h2 class="collection-items__title  collection-items__title--brand">Brothers We Stand</h2>
+                <h2 class="collection-items__title  collection-items__title--brand">{{ product.vendor }}</h2>
                 <h1 class="collection-items__title">{{ product.title }}</h1>
                 <h3 class="collection-items__title  collection-items__title--price">
-                    {{ product.price | money }}
+                    {% if product.compare_at_price %}
+                        <s>{{ product.price | money }}</s>
+                        <span class="sale-price">{{ product.compare_at_price | money }}</span>
+                        {% else %}     
+                        {{ product.price | money }}                   
+                    {% endif %}
                     {% unless product.available %}<br><strong>sold out</strong>{% endunless %}
                 </h3>
             </a>
@@ -26,60 +41,5 @@
         {{ paginate | default_pagination }}
     {% endif %}
     {% endpaginate %}
-
-    <div class="o-grid--item  u-size-6@s  u-size-4@m  u-size-3@l  collection-items__item"> 
-        <div class="collection-items__img"></div>
-        <h2 class="collection-items__title  collection-items__title--brand">Brothers We Stand</h2>
-        <h1 class="collection-items__title">Premium Weight Organic T-Shirt</h1>
-        <h3 class="collection-items__title  collection-items__title--price">£20.00</h3>
-    </div>
-
-    <div class="o-grid--item  u-size-6@s  u-size-4@m  u-size-3@l  collection-items__item"> 
-        <div class="collection-items__img"></div>
-        <h2 class="collection-items__title  collection-items__title--brand">Brothers We Stand</h2>
-        <h1 class="collection-items__title">Premium Weight Organic T-Shirt</h1>
-        <h3 class="collection-items__title  collection-items__title--price">£20.00</h3>
-    </div>
-
-    <div class="o-grid--item  u-size-6@s  u-size-4@m  u-size-3@l  collection-items__item"> 
-        <div class="collection-items__img"></div>
-        <h2 class="collection-items__title  collection-items__title--brand">Brothers We Stand</h2>
-        <h1 class="collection-items__title">Premium Weight Organic T-Shirt</h1>
-        <h3 class="collection-items__title  collection-items__title--price">£20.00</h3>
-    </div>
-
-    <div class="o-grid--item  u-size-6@s  u-size-4@m  u-size-3@l  collection-items__item"> 
-        <div class="collection-items__img"></div>
-        <h2 class="collection-items__title  collection-items__title--brand">Brothers We Stand</h2>
-        <h1 class="collection-items__title">Premium Weight Organic T-Shirt</h1>
-        <h3 class="collection-items__title  collection-items__title--price">£20.00</h3>
-    </div>
-    <div class="o-grid--item  u-size-6@s  u-size-4@m  u-size-3@l  collection-items__item"> 
-        <div class="collection-items__img"></div>
-        <h2 class="collection-items__title  collection-items__title--brand">Brothers We Stand</h2>
-        <h1 class="collection-items__title">Premium Weight Organic T-Shirt</h1>
-        <h3 class="collection-items__title  collection-items__title--price">£20.00</h3>
-    </div>
-
-    <div class="o-grid--item  u-size-6@s  u-size-4@m  u-size-3@l  collection-items__item"> 
-        <div class="collection-items__img"></div>
-        <h2 class="collection-items__title  collection-items__title--brand">Brothers We Stand</h2>
-        <h1 class="collection-items__title">Premium Weight Organic T-Shirt</h1>
-        <h3 class="collection-items__title  collection-items__title--price">£20.00</h3>
-    </div>
-
-    <div class="o-grid--item  u-size-6@s  u-size-4@m  u-size-3@l  collection-items__item"> 
-        <div class="collection-items__img"></div>
-        <h2 class="collection-items__title  collection-items__title--brand">Brothers We Stand</h2>
-        <h1 class="collection-items__title">Premium Weight Organic T-Shirt</h1>
-        <h3 class="collection-items__title  collection-items__title--price">£20.00</h3>
-    </div>
-
-    <div class="o-grid--item  u-size-6@s  u-size-4@m  u-size-3@l  collection-items__item"> 
-        <div class="collection-items__img"></div>
-        <h2 class="collection-items__title  collection-items__title--brand">Brothers We Stand</h2>
-        <h1 class="collection-items__title">Premium Weight Organic T-Shirt</h1>
-        <h3 class="collection-items__title  collection-items__title--price">£20.00</h3>
-    </div>
 
 </section>
