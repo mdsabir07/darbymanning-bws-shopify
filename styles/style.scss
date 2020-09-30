@@ -95,7 +95,7 @@ button{
     text-transform: uppercase;
     letter-spacing: 1px;
     border-radius: 2px;
-    padding: 0.2rem 0.5rem;
+    padding: 0.2rem 0.5rem;    
 }
 .price__badge--sale {
     color: var(--white);
@@ -121,6 +121,9 @@ button{
     font-size: 0.6em;
     padding: 0.25rem 0.55rem;
 }
+.price--on-sale .price__regular, .price--on-sale .price__availability {
+    display: none;
+}
 // Featured collection
 .section-title {
     font-size: 2.1rem;
@@ -132,6 +135,9 @@ button{
         display: flex;
         flex-direction: column;
         min-height: 150px;
+        .collection-brands &, .collection-mens &{
+            min-height: 190px; 
+        }
         justify-content: space-between;
         .block__p, .small-slide__shop {
             font-size: 1.6rem;
@@ -149,6 +155,7 @@ button{
         right: 0;
         padding: 0 1rem;
         margin-bottom: 0;
+        color: var(--blue);
     }
 } 
 
@@ -279,6 +286,52 @@ button{
     margin-left: -50vh;
     margin-right: -50vh;
 }
+
+// pagination
+.pagination {
+    width: 100%;
+    text-align: center;
+    list-style: none;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 4rem;
+    li {
+        display: inline-block;
+        padding: 0 0.5rem;
+        .page_btn {
+            display: block;
+            line-height: normal;
+            padding: 1.1rem 1.2rem;
+            &.next {
+                margin-left: 2rem;
+            }
+        }
+    }   
+}
+.collection-mens {
+    .collection-list-slider {
+        margin-left:0 !important;
+    }
+    .view_all_button {
+        padding-top: 1.6rem;
+        padding-bottom: 1.6rem;
+        margin-right: 10px;
+    }
+    .block__button {
+        display: flex;
+        width: 100%;
+        flex-direction: row;
+        justify-content: flex-end;
+        .slide__controls {
+            display: block;
+            width: auto;
+        }
+    }
+}
+            
+
 
 @media only screen and (min-width: 768px) and (max-width: 1024px) { 
     .slide__info {       

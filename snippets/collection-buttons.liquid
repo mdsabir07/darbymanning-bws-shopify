@@ -2,7 +2,7 @@
 <section class="collection-buttons  o-grid  o-grid--p">    
     {% assign collection_handle = section.settings.col_nav_bottom %}
     {% for link in linklists[collection_handle].links %}
-    <div class="o-grid--item  u-size-4@m">
+    <div class="o-grid--item {% if forloop.length > 3 %}u-size-3@m{% else %}u-size-4@m{% endif %}">
         <a href="{{ link.url }}" class="collection-buttons__a">
             <button class="button  collection-buttons__button">
                 {{ link.title }}

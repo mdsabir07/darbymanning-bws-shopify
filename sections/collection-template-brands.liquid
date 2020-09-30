@@ -1,0 +1,28 @@
+<div class="collection-brands">
+    {% include "collection-list-slider" %}
+    {% include "collection-header" %}
+    {% include "collection-buttons" %}
+    {% include "collection-item-list" %}
+</div>
+{% schema %}
+{
+    "name": "Collection pages",
+    "settings": [
+        {
+            "type": "checkbox",
+            "id": "show_vendor",
+            "label": "Show product vendor"
+        },
+        {
+            "type": "link_list",
+            "id": "col_nav",
+            "label": "Top Bar Navigation"
+        },
+        {
+            "type": "link_list",
+            "id": "col_nav_bottom",
+            "label": "Bottom button Bar"
+        }    
+    ]
+}
+{% endschema %}

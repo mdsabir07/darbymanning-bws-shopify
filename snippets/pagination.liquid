@@ -7,20 +7,7 @@
     Usage:
     {% include 'pagination', paginate: paginate %}
 {% endcomment %}
-<ul class="list--inline pagination">
-  {% unless paginate.previous.is_link %}
-    <li aria-hidden="true">
-      <button class="btn btn--tertiary btn--narrow" disabled>        
-        <span class="icon__fallback-text">{{ 'general.pagination.previous' | t }}</span>
-      </button>
-    </li>
-    {% else %}
-    <li>
-      <a href="{{ paginate.previous.url }}" class="btn btn--tertiary btn--narrow">      
-        <span class="icon__fallback-text">{{ 'general.pagination.previous' | t }}</span>
-      </a>
-    </li>
-  {% endunless %}
+<ul class="list--inline pagination">  
   {% for part in paginate.parts limit: cunt %}
   <li class="pagination__count">{{ part.title | link_to: part.url }}</li>
   {% endfor %}  
@@ -37,8 +24,15 @@
     </li>
   {% else %}
     <li>
-      <a href="{{ paginate.next.url }}" class="btn btn--tertiary btn--narrow">        
-        <span class="icon__fallback-text">{{ 'general.pagination.next' | t }}</span>
+      <a href="{{ paginate.next.url }}" class="button page_btn next">        
+        <svg width="17px" height="18px" viewBox="0 0 17 18" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+          <title>NEXT</title>
+          <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+              <g id="Arrow" fill="#FFFFFF">
+                  <polygon id="Fill-3" transform="translate(8.500000, 9.000000) rotate(-270.000000) translate(-8.500000, -9.000000) " points="7.58805575 1 0 17 2.34598347 17 8.54454108 3.44934827 14.6540165 17 17 17 9.44133218 1"></polygon>
+              </g>
+          </g>
+      </svg>
       </a>
     </li>
   {% endunless %}
