@@ -1,26 +1,163 @@
 <section class="o-grid  o-grid--p  product-main">
 
-    <div class="o-grid--item  u-size-12@s">
-        <p>Breadcrumbs go here init</p>
+    <div class="o-grid--item  u-size-12@s u-mB-20">
+       {% include 'breadcrumbs' %}
     </div>
 
-    <div class="o-grid--item  u-size-6@m  u-size-7@l">
-        <div class="product-main__img  product-main__img--hero"></div>
-        <div class="product-main__img"></div>
-        <div class="product-main__links">
-            <p class="product-main__link">t</p>
-            <p class="product-main__link">f</p>
-            <p class="product-main__link">p</p>
-            <p class="product-main__link">e</p>
+  {%- assign current_variant = product.selected_or_first_available_variant -%}  
+  {%- assign product_image_scale = '2' -%}
+  {%- assign compare_at_price = current_variant.compare_at_price -%}
+  {%- assign price = current_variant.price -%}
+
+    <div class="o-grid--item  u-size-6@m  u-size-7@l" data-product-single-media-group>
+        {%- assign featured_media = product.selected_or_first_available_variant.featured_media | default: product.featured_media -%}
+
+      {%- for media in product.media -%}
+        {% include 'media', media: media, featured_media: featured_media, height: 720, image_scale: product_image_scale %}
+      {%- endfor -%}
+
+      {% if product.media.size > 1 %}
+         <div class="thumbnails-wrapper  u-mT-32">          
+          <ul class="o-grid product-single__thumbnails product-single__thumbnails-{{ section.id }}">
+            {% for media in product.media %}
+              <li class="o-grid--item u-size-4  u-size-2@s u-size-2@m  u-size-2@l product-single__thumbnails-item js">
+                <a href="{{ media.preview_image | img_url: product_image_zoom_size, scale: product_image_scale }}"
+                   class="text-link product-single__thumbnail product-single__thumbnail--{{ section.id }}"
+                   data-thumbnail-id="{{ section.id }}-{{ media.id }}"
+                   {% if enable_image_zoom %}data-zoom="{{ media.preview_image | img_url: product_image_zoom_size, scale: product_image_scale }}"{% endif %}>
+
+                    {%- capture thumbnailAlt -%}
+                      {%- if media.media_type == 'video' or media.media_type == 'external_video' -%}
+                        {{ 'sections.featured_product.video_thumbnail_alt' | t: imageAlt: media.alt | escape }}                     
+                      {%- else -%}
+                        {{ 'sections.featured_product.gallery_thumbnail_alt' | t: imageAlt: media.alt | escape }}
+                      {%- endif -%}
+                    {%- endcapture -%}
+
+                    <img class="product-single__thumbnail-image" src="{{ media.preview_image | img_url: '110x110', scale: 2 }}" alt="{{ thumbnailAlt }}">
+                    {%- if media.media_type == 'video' or media.media_type =='external_video' -%}
+                      <div class="product-single__thumbnail-badge">
+                        {% include 'icon-video-badge-full-color' %}
+                      </div>
+                    {%- endif -%}                    
+                </a>
+              </li>
+            {% endfor %}
+          </ul>          
         </div>
+      {% endif %}
+      {% if section.settings.show_share_buttons %}
+        {% include 'social-sharing', share_title: product.title, share_permalink: product.url, share_image: product.featured_media %}          
+      {% endif %}  
     </div>
 
-    <div class="o-grid--item  u-size-6@m  u-size-5@l">
-        <a href="#" class="product-main__a">
-            <h2 class="product-main__title  caps  h3">Brothers We Stand</h2>
-        </a>
-        <h1 class="product-main__title  gray  caps  h3">PREMIUM WEIGHT ORGANIC T-SHIRT</h1>
-        <h2 class="product-main__title  product-main__title--price  blue  caps  h3  h-light">£40.00</h2>
+    <div class="o-grid--item  u-size-6@m  u-size-5@l">        
+        <h1 class="product-main__title  gray  caps  h3">{{product.title}}</h1>
+        <div class="product__price">
+          {% if product.compare_at_price_max > product.price %}
+            <span class="visually-hidden">{{ 'products.general.regular_price' | t }}</span>
+            <span class="product-single__price--wrapper">
+              <span id="ComparePrice" class="product-single__price--compare-at">
+                {% if current_variant.compare_at_price > current_variant.price %}
+                  {{ current_variant.compare_at_price | money }}
+                {% endif %}
+              </span>
+            </span>
+            <span class="visually-hidden">{{ 'products.general.sale_price' | t }}</span>
+          {% else %}
+            <span class="visually-hidden">{{ 'products.general.regular_price' | t }}</span>
+          {% endif %}
+
+          <span id="ProductPrice" class="product-main__title  product-main__title--price  blue  caps  h3  h-light product-single__price{% if product.compare_at_price > product.price %} on-sale{% endif %}" itemprop="price" content="{{ current_variant.price | divided_by: 100.00 }}">
+            {{ current_variant.price | money }} 
+          </span>
+        </div>     
+        {%- if shop.taxes_included or shop.shipping_policy.body != blank -%}
+            <div class="product__policies rte" data-product-policies>
+              {%- if shop.taxes_included -%}
+                {{ 'products.product.include_taxes' | t }}
+              {%- endif -%}
+              {%- if shop.shipping_policy.body != blank -%}
+                {{ 'products.product.shipping_policy_html' | t: link: shop.shipping_policy.url }}
+              {%- endif -%}
+            </div>
+        {%- endif -%}    
+        
+        {% form 'product', product, data-product-form: '', data-product-handle: product.handle %}
+            {% unless product.has_only_default_variant %}
+                {% for option in product.options_with_values %}
+                <div class="js-enabled">
+
+                    <label for="Option{{ option.position }}">
+                        {{ option.name }}
+                    </label>
+
+                    {% comment %}
+                        All inputs that have `name=options[Name]` will be picked up by
+                        ProductForm, registered as an option input, and made available
+                        at ProductForm.optionsInputs
+                    {% endcomment %}
+
+                    <select
+                        id="Option{{ option.position }}"
+                        name="options[{{ option.name | escape }}]">
+                        {% for value in option.values %}
+                        <option
+                            value="{{ value | escape }}"
+                            {% if option.selected_value == value %}selected="selected"{% endif %}>
+                            {{ value }}
+                        </option>
+                        {% endfor %}
+                    </select>
+                </div>
+                {% endfor %}
+            {% endunless %}
+
+            {% comment %}
+                In order for this form to submit, it needs to contain an input with name="id".
+                ProductForm() will automatically create this input (or make sure it has the
+                right value set if it already exists) on form submit based on the
+                currently selected variant. However, if JS is disabled we need a fallback.
+
+                Include a single <select> element which allows users to select all variants
+                as a fallback and present it only when JS is disabled. In addition,
+                make sure you hide the option inputs declared above, like we do with the
+                `.js-enabled` class which only shows its contents when JS is enabled.
+            {% endcomment %}
+            <noscript>
+                <select name="id">
+                {% for variant in product.variants %}
+                    <option
+                    {% if variant == current_variant %}selected="selected"{% endif %}
+                    {% unless variant.available %}disabled="disabled"{% endunless %}
+                    value="{{ variant.id }}">
+                        {{ variant.title }}
+                    </option>
+                {% endfor %}
+                </select>
+            </noscript>
+
+            {% comment %}
+                Any input with `name="quantity"` will be picked up by ProductForm and
+                registered as a quantity input. If a quantity input is not included, a
+                default quantity of 1 is assumed.
+            {% endcomment %}
+            <label for="Quantity">{{ 'products.product.quantity' | t }}</label>
+            <input type="number" id="Quantity" name="quantity" value="1" min="1">
+
+            <button
+                type="submit" class="button"
+                {% unless current_variant.available %}disabled="disabled"{% endunless %}>
+                {{ 'products.product.add_to_cart' | t }}
+            </button>
+            {% if section.settings.enable_payment_button%}
+            {{ form | payment_button }}
+            {% endif %}
+            {% endform %}
+
+        <div class="product-single__description rte">
+            {{ product.description }}
+        </div>
 
         <h3 class="product-main__detail  h5  gray">Color - <span class="h-light">White</span></h3>
         <div class="product-main__colors">

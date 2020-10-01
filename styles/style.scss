@@ -330,6 +330,18 @@ button{
         }
     }
 }
+// Product
+.product-single__thumbnail {
+    display: block;
+    margin: -2px 0 8px;
+    position: relative;
+    img {
+        max-width: 100%;
+        display: block;
+        margin: 0 auto;
+        padding: 2px;
+    }
+}
             
 
 
@@ -411,6 +423,23 @@ button{
     }
     .home-news {
         padding: var(--padding-sm) 0;
+    }
+    .collection-header {
+        .block--row{
+            flex-wrap: wrap;
+            .block__col {
+                width: 100%;
+                &.collection-header__img {                    
+                    order: -1;
+                }
+            }
+        }
+    }
+    .collection-list {
+        .o-grid--small-item {
+        max-width: 110px;
+        width: 100%;
+        }
     }
 }
 
