@@ -16,9 +16,18 @@
         &--brand {
             color: var(--gray);
             margin-top: 1rem;
+            .collection-brands &, .collection-mens & {
+                color: var(--dark-blue);
+                font-weight: 700;
+            }
         }
         &--price {
             font-weight: 700;
         }
+    }
+    &__main-title {
+        font-size: 2.1rem;        
+        margin: 0;
+        padding-left: 1rem;        
     }
 }

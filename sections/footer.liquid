@@ -1,33 +1,60 @@
+{%- assign show_payment_icons = false -%}
+{%- if section.settings.show_payment_icons -%}
+  {%- unless shop.enabled_payment_types == empty -%}
+    {%- assign show_payment_icons = true -%}
+  {%- endunless -%}
+{%- endif -%}
 
-<footer class="footer" data-section-id="{{ section.id }}" data-section-type="footer-section" style="background-color:{{section.settings.color_footer_bg}};">
-    <div class="o-grid  u-flex u-pV-32">
+{%- capture payment_icon_markup -%}
+    {%- if show_payment_icons -%}
+    <div class="site-footer__payment-icons">
+      <span>{{ 'general.payment.method' | t }}</span>
+      <ul class="payment-icons list--inline site-footer__icon-list">
+        {%- for type in shop.enabled_payment_types -%}
+          <li class="payment-icon">
+            {{ type | payment_type_svg_tag: class: 'icon icon--full-color' }}
+          </li>
+        {%- endfor -%}
+      </ul>
+    </div>
+    {%- endif -%}
+{%- endcapture -%}
+
+
+<footer class="footer" data-section-id="{{ section.id }}" data-section-type="footer-section">
+  <div style="background-color:{{section.settings.color_footer_bg}};">
+    <div class="o-grid  u-flex u-pB-32">
             {%- for block in section.blocks -%}
                 {% case block.settings.width %}
                     {% when '16%' %}                    
-                    {%- assign block_width = 'u-size-2@m' -%}
-                    {%- assign block_width_mobile = 'u-size-6@m' -%}
+                    {%- assign block_width = 'u-size-2@m u-size-6' -%}                    
                     {%- assign menu_columns = '' -%}
                     {% when '25%' %}                    
-                    {%- assign block_width = 'u-size-3@m' -%}
-                    {%- assign block_width_mobile = 'u-size-6@m' -%}
+                    {%- assign block_width = 'u-size-3@m' -%}                    
                     {% when '33%' %}                    
-                    {%- assign block_width = 'u-size-4@m' -%}
-                    {%- assign block_width_mobile = 'u-size-6@m' -%}
+                    {%- assign block_width = 'u-size-4@m' -%}                    
                     {%- assign menu_columns = 'footer-nav__ul--col2' -%}
                     {% when '50%' %}                    
-                    {%- assign block_width = 'u-size-6@m' -%}
-                    {%- assign block_width_mobile = 'u-size-6@m' -%}
+                    {%- assign block_width = 'u-size-6@m' -%}                    
                     {% when '66%' %}                    
                     {%- assign block_width = 'u-size-8@m' -%}
                     {% when '75%' %}                    
                     {%- assign block_width = 'u-size-9@m' -%}
                     {% when '100%' %}
-                    {%- assign block_width = 'u-size-12@m' -%}
+                    {%- assign block_width = 'u-size-12' -%}
+                {% endcase %}
+                {% case block.settings.mobile_width %}                                     
+                    {% when '25%' %}                                        
+                    {%- assign block_width_mobile = 'u-size-3' -%}              
+                    {% when '50%' %}                                      
+                    {%- assign block_width_mobile = 'u-size-6' -%}                                     
+                    {% when '100%' %}
+                    {%- assign block_width_mobile = 'u-size-12' -%}
                 {% endcase %}
 
-            <div class="o-grid--item{% if section.blocks.size == 1 %} u-textCenter{% endif %} {{ block_width }}"
+            <div class="o-grid--item{% if section.blocks.size == 1 %} u-textCenter{% endif %} {% if block.type == 'spacer'%}u-size-12{% else%}{{ block_width }} {{block_width_mobile}} u-pT-32{% endif %}"
                         {{ block.shopify_attributes }}>
-                <div class="block  block__info  block__info--p-tb0  border  border--darkblue">
+                <div class="block  block__info  block__info--p-tb0 {% unless block.type == 'spacer'%}border  border--darkblue{% endunless %}">
                         {%- if block.settings.title -%}
                             <p class="footer-nav__title">{{ block.settings.title | escape }}</p>
                         {%- endif -%}
@@ -50,12 +77,11 @@
                       <div class="search-bar u-mV-20" role="dialog" aria-modal="true" aria-label="{{ 'general.search.placeholder' | t }}" data-predictive-search-drawer>
                         <div class="search-bar__interior">
                           <div class="search-form__container" data-search-form-container>
-                            <form class="search-form search-bar__form" action="{{ routes.search_url }}" method="get" role="search">
+                            <form class="search-form search-bar__form u-textEnd" action="{{ routes.search_url }}" method="get" role="search">
                               <div class="search-form__input-wrapper">
                                 <input
                                   type="text"
-                                  name="q"
-                                  placeholder="{{ 'general.search.placeholder' | t }}"
+                                  name="q"                                  
                                   role="combobox"
                                   aria-autocomplete="list"
                                   aria-owns="predictive-search-results"
@@ -67,11 +93,11 @@
                                 <input type="hidden" name="options[prefix]" value="last" aria-hidden="true" />                                
                               </div>
                       
-                              <button class="search-bar__submit search-form__submit"
+                              <button class="search-bar__submit button search-form__submit"
                                 type="submit"
                                 data-search-form-submit>
                                 {% include 'icon-search' %}      
-                                <span class="icon__fallback-text">{{ 'general.search.submit' | t }}</span>                          
+                                <span class="visually-hidden">{{ 'general.search.submit' | t }}</span>                          
                               </button>
                             </form>
                                                   
@@ -80,14 +106,36 @@
                       </div>
                       {%- when 'spacer' -%}
                     <div class="block-spacer" style="background-color:{{block.settings.bg_color}};">
-
-                      </div>                      
+                    </div>                      
                       
                 {%- endcase -%}
              </div> 
             </div>
         {%- endfor -%}
     </div>     
+  </div>
+    <div class="o-grid  u-flex u-pV-32">  
+      <div class="o-grid--item {% if show_payment_icons %}u-size-6@m{% else %}u-size-12@m{% endif %}">
+        <div class="site-footer-legal">         
+          {%- assign legal_linklist = section.settings.legal_menu -%}
+            <ul class="legal-nav__ul">
+                <li class="site-footer__copyright-content legal-nav__li">&copy; {{ 'now' | date: "%Y" }}, {{ shop.name | link_to: routes.root_url }}</li>
+                {%- for link in linklists[legal_linklist].links -%}
+                <li class="legal-nav__li">
+                    <a href="{{ link.url }}"
+                    {% if link.current %} aria-current="page"{% endif %} class="legal-nav__a">
+                    {{ link.title | escape }}
+                    </a>
+                </li>
+                {%- endfor -%}
+            </ul>                    
+        </div>
+      </div>
+      {%- if show_payment_icons -%}  
+       <div class="o-grid--item u-size-6@m">{{ payment_icon_markup }}</div>
+      {% endif %}
+    </div>
+
 </footer>
 
 {% if request.page_type == 'index' %}
@@ -253,47 +301,10 @@
       "default": "#333232"
     },
     {
-      "type": "header",
-      "content": {
-        "da": "Sprogvælger",
-        "de": "Sprachauswahl",
-        "en": "Language Selector",
-        "es": "Selector de idioma",
-        "fi": "Kielenvalitsin",
-        "fr": "Sélecteur de langue",
-        "hi": "भाषा चयनकर्ता",
-        "it": "Selettore lingua",
-        "ja": "言語セレクター",
-        "ko": "언어 선택기",
-        "nb": "Språkvelger",
-        "nl": "Taalkiezer",
-        "pt-BR": "Seletor de idiomas",
-        "pt-PT": "Seletor de Idioma",
-        "sv": "Språkväljare",
-        "th": "ตัวเลือกภาษา",
-        "zh-CN": "语言选择器",
-        "zh-TW": "語言選擇器"
-      },
-      "info": {
-        "da": "Du kan tilføje et sprog ved at gå til dine [sprogindstillinger.](/admin/settings/languages)",
-        "de": "Gehe zu deinen [Spracheinstellungen](/admin/settings/languages), um eine Sprache hinzuzufügen.",
-        "en": "To add a language, go to your [language settings.](/admin/settings/languages)",
-        "es": "Para agregar un idioma, ve a tu[configuración de idioma](/admin/settings/languages)",
-        "fi": "Lisää kieli siirtymällä [kieliasetuksiin.](/admin/settings/languages)",
-        "fr": "Pour ajouter une langue, allez dans vos [paramètres de langue.](/admin/settings/languages).",
-        "hi": "भाषा जोड़ने के लिए, अपने [language settings.](/admin/settings/languages) पर जाएं",
-        "it": "Per aggiungere una lingua, vai su [impostazioni della lingua.](/admin/settings/languages)",
-        "ja": "言語を追加するには、[言語設定](/admin/settings/languages) に移動します。",
-        "ko": "언어를 추가하려면 [언어 설정.](/admin/settings/languages)(으)로 이동하십시오.",
-        "nb": "For å legge til et språk, går du til dine [språkinnstillinger.](/admin/settings/languages)",
-        "nl": "Ga naar je [taalinstellingen.](/admin/settings/languages) om een taal toe te voegen.",
-        "pt-BR": "Para adicionar um idioma, acesse suas [configurações de idioma. ](/admin/settings/languages)",
-        "pt-PT": "Para adicionar um idioma, aceda a [definições de idioma.](/admin/settings/languages)",
-        "sv": "För att lägga till ett språk, gå till dina [språkinställningar.](/admin/settings/languages)",
-        "th": "หากต้องการเพิ่มภาษา ให้ไปที่ [การตั้งค่าภาษา ](/admin/settings/languages) ของคุณ",
-        "zh-CN": "若要添加语言，请转到您的 [语言设置。](/admin/settings/languages)",
-        "zh-TW": "若要新增語言，請前往 [語言設定。](/admin/settings/languages)"
-      }
+      "type": "link_list",
+      "id": "legal_menu",
+      "label": "Legal Menu",
+      "default": "footer"
     }
   ],
   "blocks": [
@@ -577,6 +588,83 @@
               }
             ]
           },
+          {
+          "type": "select",
+          "id": "mobile_width",
+          "label": "Mobile Container width",
+          "default": "50%",
+          "options": [          
+            {
+              "value": "25%",
+              "label": {
+                "da": "25 %",
+                "de": "25%",
+                "en": "25%",
+                "es": "25%",
+                "fi": "25 %",
+                "fr": "25 %",
+                "hi": "25%",
+                "it": "25%",
+                "ja": "25%",
+                "ko": "25%",
+                "nb": "25 %",
+                "nl": "25%",
+                "pt-BR": "25%",
+                "pt-PT": "25%",
+                "sv": "25 %",
+                "th": "25%",
+                "zh-CN": "25％",
+                "zh-TW": "25%"
+              }
+            },            
+            {
+              "value": "50%",
+              "label": {
+                "da": "50 %",
+                "de": "50%",
+                "en": "50%",
+                "es": "50%",
+                "fi": "50 %",
+                "fr": "50 %",
+                "hi": "50%",
+                "it": "50%",
+                "ja": "50%",
+                "ko": "50%",
+                "nb": "50 %",
+                "nl": "50%",
+                "pt-BR": "50%",
+                "pt-PT": "50%",
+                "sv": "50 %",
+                "th": "50%",
+                "zh-CN": "50%",
+                "zh-TW": "50%"
+              }
+            },                       
+            {
+              "value": "100%",
+              "label": {
+                "da": "100 %",
+                "de": "100%",
+                "en": "100%",
+                "es": "100%",
+                "fi": "100 %",
+                "fr": "100 %",
+                "hi": "100%",
+                "it": "100%",
+                "ja": "100%",
+                "ko": "100%",
+                "nb": "100 %",
+                "nl": "100%",
+                "pt-BR": "100%",
+                "pt-PT": "100%",
+                "sv": "100 %",
+                "th": "100%",
+                "zh-CN": "100%",
+                "zh-TW": "100%"
+              }
+            }
+          ]
+        },
         {
             "type": "color",
             "id": "bg_color",
@@ -821,7 +909,84 @@
                 }
               }
             ]
-        }         
+        },
+        {
+          "type": "select",
+          "id": "mobile_width",
+          "label": "Mobile Container width",
+          "default": "50%",
+          "options": [          
+          {
+            "value": "25%",
+            "label": {
+              "da": "25 %",
+              "de": "25%",
+              "en": "25%",
+              "es": "25%",
+              "fi": "25 %",
+              "fr": "25 %",
+              "hi": "25%",
+              "it": "25%",
+              "ja": "25%",
+              "ko": "25%",
+              "nb": "25 %",
+              "nl": "25%",
+              "pt-BR": "25%",
+              "pt-PT": "25%",
+              "sv": "25 %",
+              "th": "25%",
+              "zh-CN": "25％",
+              "zh-TW": "25%"
+            }
+          },
+          {
+            "value": "50%",
+            "label": {
+              "da": "50 %",
+              "de": "50%",
+              "en": "50%",
+              "es": "50%",
+              "fi": "50 %",
+              "fr": "50 %",
+              "hi": "50%",
+              "it": "50%",
+              "ja": "50%",
+              "ko": "50%",
+              "nb": "50 %",
+              "nl": "50%",
+              "pt-BR": "50%",
+              "pt-PT": "50%",
+              "sv": "50 %",
+              "th": "50%",
+              "zh-CN": "50%",
+              "zh-TW": "50%"
+            }
+          },          
+          {
+            "value": "100%",
+            "label": {
+              "da": "100 %",
+              "de": "100%",
+              "en": "100%",
+              "es": "100%",
+              "fi": "100 %",
+              "fr": "100 %",
+              "hi": "100%",
+              "it": "100%",
+              "ja": "100%",
+              "ko": "100%",
+              "nb": "100 %",
+              "nl": "100%",
+              "pt-BR": "100%",
+              "pt-PT": "100%",
+              "sv": "100 %",
+              "th": "100%",
+              "zh-CN": "100%",
+              "zh-TW": "100%"
+            }
+          }
+        ]
+      }
       ]
     },
     {
