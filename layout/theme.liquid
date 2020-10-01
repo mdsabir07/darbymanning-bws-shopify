@@ -21,8 +21,8 @@
 </head>
 <body class="template-{{ request.page_type | handle }}">
 
-  {% include 'header' %}
-
+  {% section 'header' %}
+  
 {% comment %}
   {% for link in linklists.main-menu.links %}
     {% assign child_list_handle = link.title | handleize %}
