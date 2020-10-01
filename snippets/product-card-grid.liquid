@@ -15,7 +15,10 @@
                 </div>
             </div>
 
-            <article class="block__info">                                
+            <article class="block__info">   
+                {% if section.settings.show_vendor %}
+                <h2 class="collection-items__title  collection-items__title--brand">{{ product.vendor }}</h2>                             
+                {% endif %}
                 <p class="block__p">{{ product.title }}</p>
                 <h5 class="small-slide__shop  nimbus">Shop now</h5>
             </article>

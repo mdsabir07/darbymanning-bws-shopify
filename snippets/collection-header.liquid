@@ -3,13 +3,21 @@
         <div class="block  block--row  border">
             <div class="block__col">
                 <div class="block__info  block__info--light-gray  block__info--large  collection-header__info">
-                    <h1 class="block__title  block__title--large  block__title--p-t  caps  collection-header__title  nimbus">Ethical T-Shirts</h1>
-                    <p>We search far and wide to bring you our favourite unique print and colour block men’s t-shirts. All t-shirts are ethically made from sustainable fibres such as organic cotton, hemp and organic linen. Our vision is to provide you with transparent information about where your t-shirts come from. Click on a product footprint tab to read detailed information about each t-shirts supply chain story. </p>
+                    <h1 class="block__title  block__title--large  block__title--p-t  caps  collection-header__title  nimbus">{{ collection.title }}</h1>
+                    {% if collection.description != blank %}
+                        <div class="rte">
+                            {{ collection.description }}
+                        </div>
+                    {% endif %}                    
                 </div>
             </div>
 
             <div class="collection-header__img  block__col">
-
+                {% if collection.image != blank %}
+                <img src="{{ collection.image | img_url: 'master' }}" alt="{{ collection.image.alt }}">
+                {% else %}
+                <img src="{{ products.first.featured_image | img_url: 'master' }}" alt="{{ products.first.featured_image.alt }}"/>
+                {% endif %}
             </div>
         </div>
     </div>
