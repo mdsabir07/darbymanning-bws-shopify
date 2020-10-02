@@ -59,7 +59,6 @@ export default function () {
           }
         },
 	    });
-	    	    		
   })
   
 
@@ -90,29 +89,8 @@ export default function () {
 	    });
 	    	    		
 	})
-       
-    tns({
-      container: ".home-slide-3",
-      items: 4,
-      gutter: 10,
-      slideBy: "page",
-      autoplay: false,
-      loop: true,
-      controlsContainer: ".home-slide-3-controls",
-      nav: false,
-      responsive: {
-        350: {
-          items: 2,
-        },
-        700: {
-          items: 3,
-        },
-        1000: {
-          items: 4
-        }
-      },
-    });
 
+/*
     tns({
       container: ".collection-list-slide",
       items: 12,
@@ -134,6 +112,7 @@ export default function () {
         }
       },
     });
+*/
     
 
   };

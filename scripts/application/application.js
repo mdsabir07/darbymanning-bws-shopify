@@ -8,7 +8,6 @@
 \*----------------------------------------------------------------------------*/
 /* Imports */
 import NeueKit from "@neuekit/neuekit/src/scripts/neuekit";
-import * as util from "./modules/utilities";
 import Slider from "./modules/tns.js";
 import formElement from "./modules/section.js";
 import productHandle from "./modules/section.js";
