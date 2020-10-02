@@ -60,30 +60,37 @@ export default function () {
         },
 	    });
 	    	    		
+  })
+  
+
+  Array.from(document.querySelectorAll('.home-slide-2')).forEach(el => {
+		
+		const controls = el.parentNode.querySelector('.home-slide-2-controls')		
+		
+		const slider = tns({
+	      container: el,
+	      items: el.getAttribute('data-items') || 3,
+	      gutter: el.getAttribute('data-gutter') || 10,
+        slideBy: "page",
+        autoplay: false,
+        loop: true,
+        controlsContainer: controls,
+        nav: false,
+        responsive: {
+          350: {
+            items: 2,
+          },
+          700: {
+            items: 3,
+          },
+          1000: {
+            items: 3
+          }
+        },
+	    });
+	    	    		
 	})
-    
-    tns({
-      container: ".home-slide-2",
-      items: 4,
-      gutter: 10,
-      slideBy: "page",
-      autoplay: false,
-      loop: true,
-      controlsContainer: ".home-slide-2-controls",
-      nav: false,
-      responsive: {
-        350: {
-          items: 2,
-        },
-        700: {
-          items: 3,
-        },
-        1000: {
-          items: 4
-        }
-      },
-    });
-    
+       
     tns({
       container: ".home-slide-3",
       items: 4,

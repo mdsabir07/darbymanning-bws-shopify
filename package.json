@@ -46,6 +46,7 @@
   "dependencies": {
     "@shopify/theme-product": "^4.0.2",
     "@shopify/theme-product-form": "^4.0.2",
+    "@shopify/theme-sections": "^4.0.2",
     "tiny-slider": "^2.9.3"
   }
 }
