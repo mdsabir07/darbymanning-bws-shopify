@@ -67,7 +67,8 @@ export default function () {
 		const controls = el.parentNode.querySelector('.home-slide-2-controls')		
 		
 		const slider = tns({
-	      container: el,
+        container: el,
+        autoWidth: true,        
 	      items: el.getAttribute('data-items') || 3,
 	      gutter: el.getAttribute('data-gutter') || 10,
         slideBy: "page",
@@ -78,6 +79,7 @@ export default function () {
         responsive: {
           350: {
             items: 2,
+            slideBy: 1,
           },
           700: {
             items: 3,
@@ -86,8 +88,7 @@ export default function () {
             items: 3
           }
         },
-	    });
-	    	    		
+      });          	    	    		
 	})
 
 /*

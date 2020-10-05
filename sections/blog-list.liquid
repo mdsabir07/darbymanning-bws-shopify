@@ -4,7 +4,7 @@
             <div class="block  block--row border" style="--border-color: {{section.settings.button_color_bg}}">                
                 <article class="block__col blog__hero__col">
                     <div class="block__info  block__info--light-gray  block__info--large blog__hero__content" style="background-color : {{section.settings.text_block_bg}}; color: {{section.settings.text_color}};">
-                    <h1 class="block__title  block__title--large  block__title--p-t  nimbus u-textCaps">
+                    <h1 class="block__title  block__title--p-t  nimbus u-textCaps">
                         {{ section.settings.title | escape }}
                     </h1>
                     {% if section.settings.text != blank %}
@@ -278,27 +278,8 @@
   ],
   "blocks": [
     {
-      "type": "collection",
-      "name": {
-        "da": "Kollektion",
-        "de": "Kategorie",
-        "en": "Collection",
-        "es": "Colección",
-        "fi": "Kokoelma",
-        "fr": "Collection",
-        "hi": "कलेक्शन",
-        "it": "Collezione",
-        "ja": "コレクション",
-        "ko": "컬렉션",
-        "nb": "Samling",
-        "nl": "Collectie",
-        "pt-BR": "Coleção",
-        "pt-PT": "Coleção",
-        "sv": "Produktserie",
-        "th": "คอลเลกชัน",
-        "zh-CN": "收藏",
-        "zh-TW": "商品系列"
-      },
+      "type": "blog",
+      "name": "Blog",
       "settings": [
         {
           "label": "Blog",
