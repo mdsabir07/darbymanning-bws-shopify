@@ -2,19 +2,6 @@ import { register } from "@shopify/theme-sections";
 import * as product from "@shopify/theme-product";
 import {getUrlWithVariant, ProductForm } from "@shopify/theme-product-form";
 
-const formElement = document.querySelector('[data-product-form]');
-const productHandle = formElement.dataset.productHandle;
-
-fetch(`/products/${productHandle}.js`)
-  .then(response => {
-    return response.json();
-  })
-  .then(productJSON => {
-    const productForm = new ProductForm(formElement, productJSON, {
-      onOptionChange
-    });
-  });
- 
 // This function is called whenever the user changes the value of an option input
 function onOptionChange(event) {
   const variant = event.dataset.variant;
@@ -29,3 +16,24 @@ function onOptionChange(event) {
     // available
   }
 }
+
+document.addEventListener("DOMContentLoaded", () => {
+
+	const formElement = document.querySelector('[data-product-form]');
+	const productHandle = formElement ? formElement.dataset.productHandle : null;
+	
+	if(productHandle) {
+			
+		fetch(`/products/${productHandle}.js`)
+		  .then(response => {
+		    return response.json();
+		  })
+		  .then(productJSON => {
+		    const productForm = new ProductForm(formElement, productJSON, {
+		      onOptionChange
+		    });
+		  });
+		  
+	}
+	
+})
