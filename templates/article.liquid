@@ -1,14 +1,14 @@
+<div class="article-template">
+  {% section 'article-template' %}
+</div>
 {% assign number_of_comments = article.comments_count %}
 {% if comment and comment.created_at %}
   {% assign number_of_comments = article.comments_count %}
 {% endif %}
 
-<h1>{{ article.title }}</h1>
 {% capture author %}<strong>{{ article.author }}</strong>{% endcapture %}
 {% capture date %}<time datetime="{{ article.published_at | date: '%Y-%m-%d' }}">{{ article.published_at | date: format: 'month_day_year' }}</time>{% endcapture %}
-{{ article.author }} @ {{ article.created_at }}
 
-<div>{{ article.content }}</div>
 {% if blog.comments_enabled? %}
   <h2>{{ number_of_comments }} comments</h2>
   {% paginate article.comments by 5 %}

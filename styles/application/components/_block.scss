@@ -45,6 +45,13 @@
         &--blue {
             color: var(--dark-blue);
         }
+        &--default{
+            color: var(--blue);
+            .blog__hero &{
+                left: 3rem;
+            }
+        }
+
     }
     &__title {
         font-size: 2rem;

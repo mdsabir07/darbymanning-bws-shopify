@@ -137,7 +137,7 @@
       "view_all": "View all",
       "view_all_blogs": "View all blogs",
       "all_topics": "All topics",
-      "by_author": "by {{ author }}",
+      "by_author": "Words by {{ author }}",
       "posted_in": "Posted in",
       "read_more": "Read more",
       "read_more_title": "Read more: {{ title }}",

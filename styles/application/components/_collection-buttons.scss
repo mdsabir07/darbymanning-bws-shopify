@@ -2,7 +2,9 @@
     margin-top: var(--padding-lg);
     margin-bottom: var(--padding-lg);
     // position: relative;
-
+    .blog-template & {
+        margin-top: 0;
+    }
     &__wrap {
         
         width: 100%;

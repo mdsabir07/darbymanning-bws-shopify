@@ -101,3 +101,33 @@
         color: var(--dark-gray);
     }
 }
+.meta_content {
+    display: flex;
+    align-items: center;
+    margin-bottom: 2rem;
+    &_icon{
+        width: 50px;
+    }
+    &_detail {
+        width: calc(100% - 50px);
+        p {
+            margin: 0;
+            color: #404040;
+        }
+        a { 
+            color: var(--blue);
+        }
+        .col_list {
+            span {
+                border-right: 1px solid #404040;
+                padding: 0 10px;
+                &:first-child{
+                    padding-left: 0;
+                }
+                &:last-child {
+                    border-right: 0;
+                }
+            }
+        }
+    }
+}
