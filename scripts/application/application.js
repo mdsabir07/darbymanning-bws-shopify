@@ -9,8 +9,7 @@
 /* Imports */
 import NeueKit from "@neuekit/neuekit/src/scripts/neuekit";
 import Slider from "./modules/tns.js";
-import formElement from "./modules/section.js";
-import productHandle from "./modules/section.js";
+import "./modules/section.js";
 
 /* Neue Kit */
 const neuekit = new NeueKit();
