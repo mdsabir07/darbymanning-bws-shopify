@@ -1,84 +1,74 @@
-{% assign custom_attributes = product.metafields.footprint %}
-{% if custom_attributes.size > 0 %}
-    {% for field in custom_attributes %}
-        {% assign attribute_code = field | first %}
-        {% assign attribute_value = field | last %}
-        
-        <div class="meta_content">
-            <div class="meta_content_icon">
-                {% if attribute_code contains 'made_with' %}
-                    {% include 'icon-star' %}
-                {% elsif attribute_code contains 'made_in' %}
-                    {% include 'icon-location' %}
-                {% elsif attribute_code contains 'material' %}
-                    {% include 'icon-recycle' %}
-                {% elsif attribute_code contains 'product_detail' %}
-                    {% include 'icon-user' %}
-                {% endif %}
-            </div>
-            <div class="meta_content_detail">
-                <span class="custom-attribute-value gray">{{attribute_value}}</span>
-                {% if attribute_code contains 'made_in' %}
-                    <p><a href="#">see product footprint</a></p>
-                {% endif %}
-            </div>        
-        </div>        
-    {% endfor %}            
-{% endif %}
-<section class="product-footprint  u-section-m" id="footprint">
-    <div class="o-grid  o-grid--p">
-        <div class="o-grid--item  u-size-12@s">
-            <h1 class="h2  caps"><span>{% include 'icon-footprint'%}</span><span>PRODUCT FOOTPRINT</span></h1>
-            <div class="product-footprint__block">
-                <div class="product-footprint__col">
-                    <div class="product-footprint__img">
-                        
+{% assign custom_attributes = product.metafields.f_accordion %}
+{% if product.metafields.global.footprint_img != blank or product.metafields.global.footprint_point != blank or custom_attributes.size > 0 %}
+ <section class="product-footprint  u-section-m" id="footprint">
+        <div class="o-grid  o-grid--p">
+            {% if product.metafields.global.footprint_img != blank or  product.metafields.global.footprint_point != blank %}
+            <div class="o-grid--item  u-size-12@s">
+                <h1 class="h2  caps product-footprint__title">
+                    <span><img class="u-inblock" src="https://cdn.shopify.com/s/files/1/0463/1927/2092/files/footprint.png?v=1602055246"></span>
+                    <span>PRODUCT FOOTPRINT</span>
+                </h1>
+                <div class="product-footprint__block">
+                    <div class="product-footprint__col">
+                        <div class="product-footprint__img">                           
+                            <img src="{{ product.metafields.global.footprint_img }}">                            
+                        </div>
+                    </div>
+                    <div class="product-footprint__col  product-footprint__info">                       
+                        <h2 class="h2  caps  product-footprint__title">STRONG POINTS</h2>
+                        {{ product.metafields.global.footprint_point }}                        
                     </div>
                 </div>
-                <div class="product-footprint__col  product-footprint__info">
-                    <h2 class="h2  caps  product-footprint__title">STRONG POINTS</h2>
-                    <ul class="product-footprint__ul">
-                        <li class="product-footprint__li">Use of organic cotton</li>
-                        <li class="product-footprint__li">Made to last</li>
-                        <li class="product-footprint__li">Cut & sew factory audited by Fair Wear Foundation</li>
-                    </ul>
-                    
+            </div>
+            {% endif %}
+            <div class="o-grid--item  u-size-6@m u-size-12 accordion">
+                {% if product.metafields.f_accordion.accordion_title_1 != blank %}
+                <div class="accordion__item">
+                    <a href="#content-1" class="accordion__toggle  h2  caps  h-bold">
+                        {{ product.metafields.f_accordion.accordion_title_1 }}  
+                        <div class="accordion__arrow">&#9661;</div>
+                    </a>
+                    <div class="accordion__content" id="content-1">
+                        {{ product.metafields.f_accordion.accordion_content_1 }}
+                    </div>
                 </div>
+                {% endif %}
+                {% if product.metafields.f_accordion.accordion_title_2 != blank %}
+                <div class="accordion__item">
+                    <a href="#content-2" class="accordion__toggle  h2  caps  h-bold">
+                        {{ product.metafields.f_accordion.accordion_title_2 }} <div class="accordion__arrow">&#9661;</div>
+                    </a>
+                    <div class="accordion__content" id="content-2">
+                        {{ product.metafields.f_accordion.accordion_content_2 }}
+                    </div>
+                </div>
+                {% endif %}
+                {% if product.metafields.f_accordion.accordion_title_3 != blank %}
+                <div class="accordion__item">
+                    <a href="#content-3" class="accordion__toggle  h2  caps  h-bold">
+                        {{ product.metafields.f_accordion.accordion_title_3 }} <div class="accordion__arrow">&#9661;</div>
+                    </a>
+                    <div class="accordion__content" id="content-3">
+                        {{ product.metafields.f_accordion.accordion_content_3 }}
+                    </div>
+                </div>
+                {% endif %}
+                {% if product.metafields.f_accordion.accordion_title_4 != blank %}
+                <div class="accordion__item">
+                    <a href="#content-3" class="accordion__toggle  h2  caps  h-bold">
+                        {{ product.metafields.f_accordion.accordion_title_4 }} <div class="accordion__arrow">&#9661;</div>
+                    </a>
+                    <div class="accordion__content" id="content-3">
+                        {{ product.metafields.f_accordion.accordion_content_4 }}
+                    </div>
+                </div>
+                {% endif %}
+            </div>
+    
+            <div class="o-grid--item  u-size-6@m">
+                {{ product.metafields.global.product_areas }}
             </div>
         </div>
-        <div class="o-grid--item  u-size-6@m  accordion">
-            <div class="accordion__item">
-                <a href="#content-1" class="accordion__toggle  h2  caps  h-bold">
-                    SUPPLIERS <div class="accordion__arrow">&#9661;</div>
-                </a>
-                <div class="accordion__content" id="content-1">
-                    <p>Cut & sew: Dhaka, Bangladesh (audited by Fair Wear Foundation and GOTS Global Organic Textile Standard)</p>
-                    <p>Organic Cotton: GOTS Certified</p>
-                </div>
-            </div>
-            <div class="accordion__item">
-                <a href="#content-2" class="accordion__toggle  h2  caps  h-bold">
-                    WORKER CONDITIONS <div class="accordion__arrow">&#9661;</div>
-                </a>
-                <div class="accordion__content" id="content-2">
-                    <p>Our Brothers We Stand plain T-shirts are proudly made in Bangladesh. The manufacture is overseen by a sourcing agent who help emerging designers source sustainably and ethically. Our T-shirts were cut and sewn by one of four factories the agent works closely with in Dhaka, Bangladesh. These factories have been selected because they are amongst the best in the country. The agent has its own team on the ground in Dhaka who visits the factories daily to monitor working conditions and ensure that nothing is subcontracted out to un-regulated factories.</p>
-                    <p>In addition to these policies each of the factories is independently audited by the Fair Wear Foundation and GOTS (Global Organic Textile Standard).</p>
-                </div>
-            </div>
-            <div class="accordion__item">
-                <a href="#content-3" class="accordion__toggle  h2  caps  h-bold">
-                    ENVIRONMENTAL IMPACT <div class="accordion__arrow">&#9661;</div>
-                </a>
-                <div class="accordion__content" id="content-3">
-                    <p>Our basic T-shirts are made from 100% organic cotton. The GOTS (Global Organic Textile Standard) certificate means that all stages of production from growing to knitting and sewing of the T-shirt meet organic standards and don’t use any harmful chemicals.</p>
-                    <p>The printed label inside the neck was printed using water based textile inks. We used Permaset Aqua inks which are the most environmentally friendly inks on the market and passed the Oekotex Class 1 standard with 60% to spare!</p>
-                </div>
-            </div>
-        </div>
+    </section>
+{% endif %}
 
-        <div class="o-grid--item  u-size-6@m">
-            <h2 class="h2  caps">AREAS FOR DEVELOPMENT</h2>
-            <p class="gray">As in many countries, in Bangladesh, the legal minimum wage is not considered sufficient to allow workers a decent standard of living. We are encouraging our sourcing partner to work with the Fair Wear Foundation to explore the challenging topic of a real living wage for garment workers.</p>
-        </div>
-    </div>
-</section>

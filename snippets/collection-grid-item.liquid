@@ -10,7 +10,9 @@
         {% include 'product-card-grid', product: product %}            
     </div>  
 {% else %}
-    <p>no products in collections.</p>
+	<div class="o-grid--item u-size-12">
+    	<p>no products in collections.</p>
+    </div>
 {% endfor %}
 {% if count > 4 %}
     </div>
