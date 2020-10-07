@@ -1,9 +1,9 @@
 .product-main {
-    margin-bottom: var(--padding-lg);
+    margin-bottom: 8rem;
     &__img {
         height: 35rem;
         background-color: tomato;
-        margin-bottom: var(--padding-md);
+        margin-bottom: 3rem;
 
         &--hero {
             height: 50rem;
@@ -22,7 +22,7 @@
         font-size: 3rem;
 
         &--price {
-            margin: var(--padding-md) 0 ; 
+            margin: 3rem 0 ; 
         }
     }
 
@@ -39,22 +39,22 @@
         flex-wrap: nowrap;
         flex-direction: row;
         align-items: center;
-        margin: var(--padding-md) 0;
+        margin: 3rem 0;
     }
 
     &__button {
-        margin-left: var(--padding-sm);
+        margin-left: 2rem;
     }
     
     &__colors, &__sizes {
-        margin-bottom: var(--padding-sm);
+        margin-bottom: 2rem;
     }
 
     &__color {
         width: 4rem;
         height: 4rem;
         background-color: seagreen;
-        margin-right: var(--padding-sm);
+        margin-right: 2rem;
         margin-top: 1rem;
         display: inline-block;
         .active {
@@ -79,7 +79,7 @@
         background-color: var(--light-gray);
         transition: 0.3s all;
         color: var(--blue);
-        margin-right: var(--padding-sm);
+        margin-right: 2rem;
         margin-top: 1rem;
         &:hover, &:active {
             background-color: var(--blue);
@@ -89,45 +89,15 @@
     }
 
     &__table {
-        margin: var(--padding-md) 0;
+        margin: 3rem 0;
     }
     &__tr {
         vertical-align: top;
     }
     &__td {
         border: none;
-        padding-right: var(--padding-sm);
+        padding-right: 2rem;
         padding-bottom: 2rem;
         color: var(--dark-gray);
-    }
-}
-.meta_content {
-    display: flex;
-    align-items: center;
-    margin-bottom: 2rem;
-    &_icon{
-        width: 50px;
-    }
-    &_detail {
-        width: calc(100% - 50px);
-        p {
-            margin: 0;
-            color: #404040;
-        }
-        a { 
-            color: var(--blue);
-        }
-        .col_list {
-            span {
-                border-right: 1px solid #404040;
-                padding: 0 10px;
-                &:first-child{
-                    padding-left: 0;
-                }
-                &:last-child {
-                    border-right: 0;
-                }
-            }
-        }
     }
 }

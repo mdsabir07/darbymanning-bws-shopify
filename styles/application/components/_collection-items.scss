@@ -1,7 +1,7 @@
 .collection-items {
-    margin-bottom: var(--padding-lg);
+    margin-bottom: 8rem;
     &__item {
-        margin: var(--padding-md) 0;
+        margin: 3rem 0;
     }
     &__img {
         background-color: chartreuse;
@@ -16,7 +16,7 @@
         &--brand {
             color: var(--gray);
             margin-top: 1rem;
-            .collection-brands &, .collection-mens & {
+            .collection-brand &, .collection-display-children & {
                 color: var(--dark-blue);
                 font-weight: 700;
             }

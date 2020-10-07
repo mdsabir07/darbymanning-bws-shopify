@@ -55,7 +55,7 @@
         <h1 class="product-main__title  gray  caps  h3">{{product.title}}</h1>
         <div class="product__price">
           {% if product.compare_at_price_max > product.price %}
-            <span class="visually-hidden">{{ 'products.general.regular_price' | t }}</span>
+            <span>{{ 'products.general.regular_price' | t }}</span>
             <span class="product-single__price--wrapper">
               <span id="ComparePrice" class="product-single__price--compare-at">
                 {% if current_variant.compare_at_price > current_variant.price %}
@@ -63,9 +63,9 @@
                 {% endif %}
               </span>
             </span>
-            <span class="visually-hidden">{{ 'products.general.sale_price' | t }}</span>
+            <span>{{ 'products.general.sale_price' | t }}</span>
           {% else %}
-            <span class="visually-hidden">{{ 'products.general.regular_price' | t }}</span>
+            <span>{{ 'products.general.regular_price' | t }}</span>
           {% endif %}
 
           <span id="ProductPrice" class="product-main__title  product-main__title--price  blue  caps  h3  h-light product-single__price{% if product.compare_at_price > product.price %} on-sale{% endif %}" itemprop="price" content="{{ current_variant.price | divided_by: 100.00 }}">
@@ -136,12 +136,12 @@
               data-error-message-wrapper
               role="alert"
             >
-              <span class="visually-hidden">{{ 'general.accessibility.error' | t }} </span>
+              <span>{{ 'general.accessibility.error' | t }} </span>
               {% include 'icon-error' %}
               <span class="product-form__error-message" data-error-message>{{ 'products.product.quantity_minimum_message' | t }}</span>
             </div>
 
-            <div class="product-form__controls-group product-form__controls-group--submit">
+            <div class="o-grid">
               <div class="product-form__item product-form__item--submit
                 {%- if section.settings.enable_payment_button %} product-form__item--payment-button {%- endif -%}
                 {%- if product.has_only_default_variant %} product-form__item--no-variants {%- endif -%}"
@@ -149,7 +149,7 @@
                 <button type="submit" name="add"
                   {% unless current_variant.available %} aria-disabled="true"{% endunless %}
                   aria-label="{% unless current_variant.available %}{{ 'products.product.sold_out' | t }}{% else %}{{ 'products.product.add_to_cart' | t }}{% endunless %}"
-                  class="button product-form__cart-submit{% if section.settings.enable_payment_button %} btn--secondary-accent{% endif %}"                  
+                  class="button product-form__submit{% if section.settings.enable_payment_button %} btn--secondary-accent{% endif %}"                  
                   data-add-to-cart>
                   <span data-add-to-cart-text>
                     {% unless current_variant.available %}
@@ -164,17 +164,18 @@
                 {% endif %}
               </div>
             </div>
-          {% endform %}         
+          {% endform %}     
+              
         <!--Metafields start here  -->
-        <div class="meta_content_wrapper">          
+        <div class="product-meta">          
           {% assign custom_attributes = product.metafields.instructions %}
            {% if custom_attributes.size > 0 %}
            {% for field in custom_attributes %}
               {% assign attribute_code = field | first %}
               {% assign attribute_value = field | last %}
               
-              <div class="meta_content">
-                <div class="meta_content_icon">
+              <div class="product-meta__content">
+                <div class="product-meta__icon">
                 {% if attribute_code contains 'made_with' %}
                   {% include 'icon-star' %}
                 {% elsif attribute_code contains 'made_in' %}
@@ -185,7 +186,7 @@
                   {% include 'icon-user' %}
                 {% endif %}
                 </div>
-                <div class="meta_content_detail">
+                <div class="product-meta__detail">
                   <span class="custom-attribute-value gray">{{attribute_value}}</span>
                   {% if attribute_code contains 'made_in' %}
                   <p><a href="#footprint">see product footprint</a></p>
@@ -194,12 +195,12 @@
               </div>        
            {% endfor %}            
           {% endif %}
-          <div class="meta_content">
-            <div class="meta_content_icon">
+          <div class="product-meta__content">
+            <div class="product-meta__icon">
               {% include 'icon-angle' %}
             </div>
-            <div class="meta_content_detail">
-              <div class="col_list">
+            <div class="product-meta__detail">
+              <div class="product-meta__list">
               {% for collection in product.collections %}
                 <span><a href="{{ collection.url }}">{{ collection.title }}</a></span>
               {% endfor %}
@@ -207,11 +208,11 @@
             </div>
         </div>
         {% if section.settings.question != blank %}
-        <div class="meta_content">
-          <div class="meta_content_icon">
+        <div class="product-meta">
+          <div class="product-meta_icon">
             {% include 'icon-envelope' %}
           </div>
-          <div class="meta_content_detail">            
+          <div class="product-meta_detail">            
               <p>{{section.settings.question}}</p>
               <p>Email &nbsp;<span><a href="mailto:{{section.settings.email}}">{{section.settings.email}}</a></span></p>                        
           </div>

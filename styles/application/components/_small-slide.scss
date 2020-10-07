@@ -10,9 +10,14 @@
     }
 
     &__img {
-        height: 40rem;
-        background: turquoise;
-        position: relative;
+        height: auto;
+        padding: 40px 0 0;
+        background-color: var(--white);
+        
+        img {
+		    width: 100%;
+		}
+
     }
 
     &__shop {

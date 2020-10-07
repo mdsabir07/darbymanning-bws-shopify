@@ -1,10 +1,10 @@
 <article>
 <div class="blog-hero">
     <div class="o-grid  o-grid--item">
-        <div class="blog__hero">       		        	         
+        <div class="blog-hero">       		        	         
             <div class="block  block--row border">                
-                <div class="block__col blog__hero__col u-wrap">
-                  <div class="block__info  block__info--light-gray  block__info--large blog__hero__content" style="background-color : {{section.settings.text_block_bg}}; color: {{section.settings.text_color}};">                    
+                <div class="block__col blog-hero__col u-wrap">
+                  <div class="block__info  block__info--light-gray  block__info--large blog-hero__content" style="background-color : {{section.settings.text_block_bg}}; color: {{section.settings.text_color}};">                    
                     <p class="block__message block__message--default"><span>{{blog.title}} </span></p>
                     <h2 class="article__title nimbus u-textCaps">{{ article.title }}</h2>                                                                               
                   </div> 
@@ -16,7 +16,7 @@
                 </div>
                 {% endif %}
                 </div>
-                <div class="block__col blog__hero__img">
+                <div class="block__col blog-hero__img">
                     {% if article.image %}
                         {%- assign img_url = article.image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
                         <img

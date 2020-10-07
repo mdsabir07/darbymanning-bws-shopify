@@ -6,6 +6,9 @@
     box-sizing: unset;
     transition: 0.3s all;
     font-size: 1.75rem;
+    font-family: urw-din,sans-serif;
+    font-style: normal;
+    font-weight: 400;
     &:hover, &:focus {
         background: var(--dark-blue);
     }

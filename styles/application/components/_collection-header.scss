@@ -1,15 +1,15 @@
 .collection-header {
-    padding-top: var(--padding-md);
-    padding-bottom: var(--padding-md);
+    padding-top: 3rem;
+    padding-bottom: 3rem;
 
     &__img {
         height: inherit;
         background-color: rgb(130, 128, 240);
     }
     &__info {
-        margin-bottom: var(--padding-md);
+        margin-bottom: 3rem;
     }
     &__title {
-        margin-bottom: var(--padding-sm);
+        margin-bottom: 2rem;
     }
 }

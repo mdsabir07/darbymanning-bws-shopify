@@ -3,7 +3,7 @@
     <p class="blog-items__main-title u-textUpper nimbus">{{blog.title}}</p>
 </div>
 {% if count > 3 %}
-    <div class="o-grid o-grid--item home-slide-2 blog-list-slider"> 
+    <div class="o-grid o-grid--item js-slider" data-items="3" data-gutter="10" data-responsive='{"350": {"items": "2", "slideBy": "1"}, "700": {"items": "3"}, "1000": {"items": "3"}}'>> 
 {% endif %}
 {% for article in blog.articles %}
 {%- capture current -%}
@@ -48,7 +48,7 @@
               {% endif %}
             
             <div class="block__info">
-                <h3 class="article__title block__title block__title--large" id="FeaturedBlogTitle-{{ forloop.index0 }}-{{ section.id }}">                  
+                <h3 class="block__title block__title--mid" id="FeaturedBlogTitle-{{ forloop.index0 }}-{{ section.id }}">                  
                   {{ article.title }}
                 </h3>    
                 <div class="block__p article__grid-excerpt">
@@ -60,7 +60,7 @@
                 </div>   
 
                 {% if block.settings.button_label != blank and block.settings.button_link != blank %}                   
-                <div class="article__meta-buttons u-pT-32 ">
+                <div class="block__buttons u-pT-32 ">
                   <a href="{{ block.settings.button_link }}"
                     class="btn button"
                     aria-label="{{ 'blogs.article.read_more_title' | t: title: article.title }}">
@@ -74,34 +74,42 @@
         </article>           
     </div>  
 {% else %}
-    <p>no articles in Blogs.</p>
+    <p>No results.</p>
 {% endfor %}
 {% if count > 3 %}
     </div>
 {% endif %}
 {% if count > 3 %}
-<div class="block__button">
-{% if block.settings.show_view_all %}
-    <a href="{{ blog.url }}" class="button view_all_button">
-    {{ 'blogs.article.view_all' | t }}
-    </a>
-{% endif %}
+<div class="o-grid u-justifyEnd u-alignCenter">
 
-<ul class="slide__controls home-slide-2-controls" aria-label="Carousel Navigation" tabindex="0">    
-    <li class="slide__prev" data-controls="prev" aria-controls="customize" tabindex="-1">
-        <i class="fas fa-angle-left fa-5x"></i>
-    </li>
-    <li class="slide__next  button" data-controls="next" aria-controls="customize" tabindex="-1">
-        <?xml version="1.0" encoding="UTF-8"?>
-        <svg width="17px" height="18px" viewBox="0 0 17 18" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-            <title>Fill 3</title>
-            <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                <g id="Arrow" fill="#FFFFFF">
-                    <polygon id="Fill-3" transform="translate(8.500000, 9.000000) rotate(-270.000000) translate(-8.500000, -9.000000) " points="7.58805575 1 0 17 2.34598347 17 8.54454108 3.44934827 14.6540165 17 17 17 9.44133218 1"></polygon>
-                </g>
-            </g>
-        </svg>       
-    </li>
-</ul>
+	<div>
+		{% if block.settings.show_view_all %}
+		    <a href="{{ blog.url }}" class="button">
+		    {{ 'blogs.article.view_all' | t }}
+		    </a>
+		{% endif %}
+	</div>
+	
+	<div>
+
+		<ul class="slide__controls js-slider-controls" aria-label="Carousel Navigation" tabindex="0">    
+		    <li class="slide__prev" data-controls="prev" aria-controls="customize" tabindex="-1">
+		        <i class="fas fa-angle-left fa-5x"></i>
+		    </li>
+		    <li class="slide__next  button" data-controls="next" aria-controls="customize" tabindex="-1">
+		        <?xml version="1.0" encoding="UTF-8"?>
+		        <svg width="17px" height="18px" viewBox="0 0 17 18" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+		            <title>Fill 3</title>
+		            <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+		                <g id="Arrow" fill="#FFFFFF">
+		                    <polygon id="Fill-3" transform="translate(8.500000, 9.000000) rotate(-270.000000) translate(-8.500000, -9.000000) " points="7.58805575 1 0 17 2.34598347 17 8.54454108 3.44934827 14.6540165 17 17 17 9.44133218 1"></polygon>
+		                </g>
+		            </g>
+		        </svg>       
+		    </li>
+		</ul>
+		
+	</div>
+	
 </div>
 {% endif %}
