@@ -85,7 +85,7 @@
         {% form 'product', product, data-product-form: '', data-product-handle: product.handle %}
           {% unless product.has_only_default_variant %}
           {% for option in product.options_with_values %}
-          <div class="js-enabled">
+          <div class="js-enabled selector-wrapper">
 
           <label for="Option{{ option.position }}">
             {{ option.name }}
@@ -99,7 +99,7 @@
 
           <select
             id="Option{{ option.position }}"
-            name="options[{{ option.name | escape }}]">
+            name="options[{{ option.name | escape }}]" >
             {% for value in option.values %}
               <option
                 value="{{ value | escape }}"
@@ -135,6 +135,10 @@
               {% endfor %}
             </select>
           </noscript>
+
+          {% if product.available and product.variants.size > 1 %}
+            {% render 'swatch' for product.options as swatch %}
+          {% endif %}
 
           {% comment %}
           Any input with `name="quantity"` will be picked up by ProductForm and
