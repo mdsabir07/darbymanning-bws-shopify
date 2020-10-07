@@ -29,7 +29,7 @@
                 {{ 'image' | placeholder_svg_tag: 'placeholder-svg article__grid-image' }}
             {% endif %}
 
-            <h2 class="article__title h3{% if article.image %} article__title--has-image{% endif %}">
+            <h2 class="block__title h3{% if article.image %} block__title--mid block__title--has-image{% endif %}">
               {{ article.title | escape }}
             </h2>
           </a>
@@ -65,7 +65,7 @@
               </div>
             {% endif %}
 
-            <ul class="list--inline article__meta-buttons">
+            <ul class="list--inline block__buttons">
               <li>
                 <a href="{{ article.url }}" class="btn btn--tertiary btn--small" aria-label="{{ 'blogs.article.read_more_title' | t: title: article.title }}">
                   {{ 'blogs.article.read_more' | t }}
@@ -95,7 +95,7 @@
           <div class="grid">
             <div class="grid__item medium-up--five-sixths medium-up--push-one-twelfth">
               <div class="article-listing">
-                <h2 class="article__title h3"><a href="{{ article.url }}">{{ article.title }}</a></h2>
+                <h2 class="block__title block__title--mid"><a href="{{ article.url }}">{{ article.title }}</a></h2>
                 {% if section.settings.blog_show_author %}
                   <span class="article__author">{{ 'blogs.article.by_author' | t: author: article.author }}</span>
                 {% endif %}
@@ -152,7 +152,7 @@
                   </div>
                 {% endif %}
 
-                <ul class="list--inline article__meta-buttons">
+                <ul class="list--inline block__buttons">
                   <li>
                     <a href="{{ article.url }}" class="btn btn--tertiary btn--small" aria-label="{{ 'blogs.article.read_more_title' | t: title: article.title }}">
                       {{ 'blogs.article.read_more' | t }}
@@ -189,21 +189,21 @@
     "da": "Blogsider",
     "de": "Blogseiten",
     "en": "Blog pages",
-    "es": "Páginas del blog",
+    "es": "P??ginas del blog",
     "fi": "Blogisivut",
     "fr": "Pages du blog",
-    "hi": "ब्लॉग पेज",
+    "hi": "??????????????? ?????????",
     "it": "Pagine del blog",
-    "ja": "ブログページ",
-    "ko": "블로그 페이지",
+    "ja": "??????????????????",
+    "ko": "????????? ?????????",
     "nb": "Bloggsider",
     "nl": "Blogpagina's",
-    "pt-BR": "Páginas do blog",
-    "pt-PT": "Páginas do blogue",
+    "pt-BR": "P??ginas do blog",
+    "pt-PT": "P??ginas do blogue",
     "sv": "Bloggsidor",
-    "th": "หน้าบล็อก",
-    "zh-CN": "博客页面",
-    "zh-TW": "部落格頁面"
+    "th": "???????????????????????????",
+    "zh-CN": "????????????",
+    "zh-TW": "???????????????"
   },
   "settings": [
     {
@@ -218,21 +218,21 @@
         "da": "Layout",
         "de": "Layout",
         "en": "Layout",
-        "es": "Diseño",
+        "es": "Dise??o",
         "fi": "Asettelu",
         "fr": "Mise en page",
-        "hi": "लेआउट",
+        "hi": "???????????????",
         "it": "Layout",
-        "ja": "レイアウト",
-        "ko": "레이아웃",
+        "ja": "???????????????",
+        "ko": "????????????",
         "nb": "Oppsett",
         "nl": "Opmaak",
         "pt-BR": "Layout",
         "pt-PT": "Esquema",
         "sv": "Layout",
-        "th": "เลย์เอาต์",
-        "zh-CN": "布局",
-        "zh-TW": "版面配置"
+        "th": "???????????????????????????",
+        "zh-CN": "??????",
+        "zh-TW": "????????????"
       },
       "default": "list",
       "options": [
@@ -242,21 +242,21 @@
             "da": "Gitter",
             "de": "Raster",
             "en": "Grid",
-            "es": "Cuadrícula",
+            "es": "Cuadr??cula",
             "fi": "Ruudukko",
             "fr": "Grille",
-            "hi": "ग्रिड",
+            "hi": "???????????????",
             "it": "Griglia",
-            "ja": "グリッド",
-            "ko": "그리드",
+            "ja": "????????????",
+            "ko": "?????????",
             "nb": "Rutenett",
             "nl": "Raster",
             "pt-BR": "Grade",
             "pt-PT": "Grelha",
-            "sv": "Rutnät",
-            "th": "กริด",
-            "zh-CN": "网格",
-            "zh-TW": "網格"
+            "sv": "Rutn??t",
+            "th": "????????????",
+            "zh-CN": "??????",
+            "zh-TW": "??????"
           }
         },
         {
@@ -268,18 +268,18 @@
             "es": "Lista",
             "fi": "Luettelo",
             "fr": "Liste",
-            "hi": "सूची",
+            "hi": "????????????",
             "it": "Elenco",
-            "ja": "リスト",
-            "ko": "목록",
+            "ja": "?????????",
+            "ko": "??????",
             "nb": "Liste",
             "nl": "Lijst",
             "pt-BR": "Lista",
             "pt-PT": "Lista",
             "sv": "Lista",
-            "th": "รายการ",
-            "zh-CN": "列表",
-            "zh-TW": "清單"
+            "th": "??????????????????",
+            "zh-CN": "??????",
+            "zh-TW": "??????"
           }
         }
       ]
@@ -292,20 +292,20 @@
         "de": "Autor anzeigen",
         "en": "Show author",
         "es": "Mostrar autor",
-        "fi": "Näytä tekijä",
+        "fi": "N??yt?? tekij??",
         "fr": "Afficher l'auteur",
-        "hi": "लेखक दिखाएं",
+        "hi": "???????????? ??????????????????",
         "it": "Mostra autore",
-        "ja": "執筆者を表示する",
-        "ko": "작성자 표시",
+        "ja": "????????????????????????",
+        "ko": "????????? ??????",
         "nb": "Vis forfatter",
         "nl": "Auteur weergeven",
         "pt-BR": "Exibir autor",
         "pt-PT": "Mostrar autor",
-        "sv": "Visa författare",
-        "th": "แสดงผู้เขียน",
-        "zh-CN": "显示作者",
-        "zh-TW": "顯示作者"
+        "sv": "Visa f??rfattare",
+        "th": "????????????????????????????????????",
+        "zh-CN": "????????????",
+        "zh-TW": "????????????"
       },
       "default": true
     },
@@ -317,20 +317,20 @@
         "de": "Datum anzeigen",
         "en": "Show date",
         "es": "Mostrar fecha",
-        "fi": "Näytä päivämäärä",
+        "fi": "N??yt?? p??iv??m????r??",
         "fr": "Afficher la date",
-        "hi": "दिनांक दिखाएं",
+        "hi": "?????????????????? ??????????????????",
         "it": "Mostra data",
-        "ja": "日付を表示する",
-        "ko": "날짜 표시",
+        "ja": "?????????????????????",
+        "ko": "?????? ??????",
         "nb": "Vis dato",
         "nl": "Datum weergeven",
         "pt-BR": "Exibir data",
         "pt-PT": "Mostrar data",
         "sv": "Visa datum",
-        "th": "แสดงวันที่",
-        "zh-CN": "显示日期",
-        "zh-TW": "顯示日期"
+        "th": "??????????????????????????????",
+        "zh-CN": "????????????",
+        "zh-TW": "????????????"
       },
       "default": true
     }

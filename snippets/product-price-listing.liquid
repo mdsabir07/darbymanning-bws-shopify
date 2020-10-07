@@ -28,7 +28,7 @@
   {%- endcomment -%}
   <div class="price__regular">
     <dt>
-      <span class="visually-hidden visually-hidden--inline">{{ 'products.product.regular_price' | t }}</span>
+      <span>{{ 'products.product.regular_price' | t }}</span>
     </dt>
     <dd>
       <span class="price-item price-item--regular">       
@@ -38,7 +38,7 @@
   </div>
   <div class="price__sale">
     <dt>
-      <span class="visually-hidden visually-hidden--inline">{{ 'products.product.sale_price' | t }}</span>
+      <span>{{ 'products.product.sale_price' | t }}</span>
     </dt>
     <dd>
       <span class="price-item price-item--sale">        
@@ -47,7 +47,7 @@
     </dd>
     <div class="price__compare">
       <dt>
-        <span class="visually-hidden visually-hidden--inline">{{ 'products.product.regular_price' | t }}</span>
+        <span>{{ 'products.product.regular_price' | t }}</span>
       </dt>
       <dd>
         <s class="price-item price-item--regular">
@@ -58,11 +58,11 @@
   </div>
   <div class="price__unit">
     <dt>
-      <span class="visually-hidden visually-hidden--inline">{{ 'products.product.unit_price_label' | t }}</span>
+      <span>{{ 'products.product.unit_price_label' | t }}</span>
     </dt>
     <dd class="price-unit-price">
       {%- capture unit_price_separator -%}
-        <span aria-hidden="true">/</span><span class="visually-hidden">{{ 'general.accessibility.unit_price_separator' | t }}&nbsp;</span>
+        <span aria-hidden="true">/</span><span>{{ 'general.accessibility.unit_price_separator' | t }}&nbsp;</span>
       {%- endcapture -%}
       {%- capture unit_price_base_unit -%}
         <span>

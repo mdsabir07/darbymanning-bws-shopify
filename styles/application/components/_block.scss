@@ -12,7 +12,7 @@
     }
 
     &__info {
-        padding: var(--padding-sm);
+        padding: 2rem;
 
         &--center {
             text-align: center;
@@ -23,28 +23,31 @@
         &--light-gray {
             background: var(--light-gray);
         }
-        &--p-tb {
-            padding: var(--padding-md) var(--padding-sm);
-        }
         &--small {
             padding: 0 0.5rem 0.5rem;
         }
+        &--p-tb {
+            padding: 3rem 2rem;
+        }
         &--large {
-            padding: var(--padding-lg)  var(--padding-md);
+            padding: 8rem 3rem;
         }
         &--p-tb0 {
-            padding: 0 var(--padding-sm);
+            padding: 0 2rem;
         }
     }
     &__message {
         position: absolute;
         top: 0.75rem;
-        left: var(--padding-sm);
+        left: 2rem;
         color: white;
         text-transform: uppercase;
         &--blue {
             color: var(--dark-blue);
         }
+        left: 1rem;
+		font-size: 1.2rem;
+		z-index: 1;
     }
     &__title {
         font-size: 2rem;
@@ -56,9 +59,17 @@
         &--p-t {
             padding-top: 2rem;
         }
+        &--mid {
+	        font-size: 2.1rem;
+	        font-weight: normal;
+        }
     }
 
     &__p {
         font-size: 1.75rem;
     }
+    
+    &__buttons .button {
+	    display: inline-block;
+	}
 }

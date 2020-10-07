@@ -11,11 +11,7 @@
     --dark-gray: #353535;
     --white: #fff;
     --black: #000000;
- 
-    --padding-sm: 2rem;
-    --padding-md: 3rem;
-    --padding-lg: 8rem;
     
-    --container-width: calc(160rem + var(--padding-lg) * 2);
+    --container-width: calc(160rem + 8rem * 2);
     --radius: 2.5rem;
 }
