@@ -1,6 +1,6 @@
 .home-about {
-    padding-top: var(--padding-lg);
-    padding-bottom: var(--padding-lg);
+    padding-top: 8rem;
+    padding-bottom: 0;
     background-color: var(--exlight-gray);
 
     &__item {
@@ -10,11 +10,11 @@
 
     &__icon {
         min-width: 7rem;
-        height: 7rem;
-        border: 3px solid var(--blue);
-        border-radius: 50%;
         display: inline-block;
-        margin-right: var(--padding-sm);
+        margin-right: 2rem;
+        height: auto;
+		border: 0;
+		border-radius: 0;
     }
     &__info {
         display: inline-block;
@@ -25,6 +25,6 @@
         margin-bottom: 0.5rem;
     }
     &__button {
-        margin: var(--padding-lg) auto 0;
+        margin: 8rem auto 0;
     }
 }

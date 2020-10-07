@@ -1,7 +1,6 @@
 .collection-buttons {
-    margin-top: var(--padding-lg);
-    margin-bottom: var(--padding-lg);
-    // position: relative;
+    margin-top: 8rem;
+    margin-bottom: 8rem;
 
     &__wrap {
         
@@ -20,5 +19,8 @@
     &__button {
         width: 100%;
         box-sizing: inherit;
+        .active & {
+            background-color: var(--dark-blue);
+        }
     }
 }

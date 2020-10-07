@@ -31,7 +31,7 @@
     "whatwg-fetch": "^3.0.0"
   },
   "scripts": {
-    "serve": "browser-sync start --https --proxy 'https://brothers-we-stand-shop.myshopify.com' --no-notify --files '.' --ignore 'node_modules'",
+    "serve": "browser-sync start --https --proxy 'https://www.brotherswestand.com?preview_theme_id=100337582214' --no-notify --files '.' --ignore 'node_modules'",
     "scss": "sass --no-source-map -s compressed ./styles:./assets",
     "autoprefixer": "postcss --use autoprefixer --replace ./assets/style.css --no-map",
     "build:css": "run-s 'scss' 'autoprefixer'",
@@ -39,11 +39,14 @@
     "build": "run-s 'build:css' 'build:js'",
     "watch:css": "onchange './styles/**/*.scss' -- npm run build:css",
     "watch:js": "rollup --config --watch",
-    "watch:theme": "theme open && theme watch",
+    "watch:theme": "theme open --allow-live && theme watch --allow-live",
     "watch": "run-p 'watch:theme' 'watch:css' 'watch:js'",
     "start": "npm run watch"
   },
   "dependencies": {
+    "@shopify/theme-product": "^4.0.2",
+    "@shopify/theme-product-form": "^4.0.2",
+    "@shopify/theme-sections": "^4.0.2",
     "tiny-slider": "^2.9.3"
   }
 }

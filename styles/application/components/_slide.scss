@@ -1,17 +1,26 @@
+.hero-slider .tns-item {
+	padding-right: .3rem;
+}
+
 .slide {
     width: 100%;
     display: flex;
     flex-direction: row;
-    padding: 0 1rem;
+    padding: 0 1.4rem;
     position: relative;
     z-index: 2;
     
+    &.border::before {
+	    top: 1rem;
+	    background-color: var(--border-color);
+    }
+    
     &__info {
         width: 40%;
-        padding: var(--padding-lg) var(--padding-md) ;
-        padding-right: var(--padding-lg);
+        padding: 5rem 3rem;
+        padding-right: 8rem;
         background-color: var(--light-gray);
-        margin-bottom: 10rem;
+        margin-bottom: 7rem;
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
@@ -26,9 +35,15 @@
     
     &__img {
         width: 60%;
-        height: 60rem;
+        height: 48rem;
         background-color: rgb(233, 93, 0);
         order: 2;
+        
+        img {
+	        object-fit: cover;
+			height: 100%;
+			width: 100%;
+        }
     }
 
     &__button {
@@ -48,8 +63,14 @@
         display: flex;
         flex-direction: row;
         justify-content: flex-end;
-        padding: 0 1rem;
+        padding: 0 1.7rem 0 1rem;
         margin: 0;
+        list-style: none;
+        .collection-slider &{
+            position: relative;
+            top:-22px;
+            align-items: center;
+        }        
     }
 
     &__prev {
@@ -61,5 +82,25 @@
         // max-width: 2rem;
         text-align: center;
         padding: 2rem;
+    }
+    
+    &__dots {
+		display: flex;
+		align-items: center;
+		margin-right: 1.5rem;
+    }
+    
+    &__dot {
+	    width: 1.3rem;
+	    height: 1.3rem;
+	    background-color: var(--light-gray);
+	    margin-right: .8rem;
+	    display: inline-block;
+		border-radius: 50%;
+		transition: background-color .5s ease;
+		
+		&.active {
+			background-color: var(--blue);
+		}
     }
 }

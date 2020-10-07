@@ -1,0 +1,30 @@
+.product-meta {
+    display: flex;
+    align-items: center;
+    margin-bottom: 2rem;
+    
+    &__icon {
+        width: 50px;
+    }
+    &__detail {
+        p {
+            margin: 0;
+            color: #404040;
+        }
+        a {
+            color: var(--blue);
+        }
+    }
+    &__list {
+        span {
+            border-right: 1px solid #404040;
+            padding: 0 10px;
+            &:first-child{
+                padding-left: 0;
+            }
+            &:last-child {
+                border-right: 0;
+            }
+        }
+    }
+}

@@ -1,7 +1,13 @@
 .product-similar {
-    padding: var(--padding-lg) 0;
+    padding: 2rem 0;
     &__img {
         height: 40rem;
         background-color: coral;
+    }
+    .product__img {
+        margin: 0 auto;
+    }
+    .collection-items__title {
+        padding-top: 1.5rem;
     }
 }

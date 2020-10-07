@@ -10,6 +10,9 @@
         width: 100%;
         background: var(--blue);
         z-index: 3;
+        .collection-header &, .blog-listing &, .blog-template & {
+            top: 1.8rem;
+        }
     }
 
     &--top::before {

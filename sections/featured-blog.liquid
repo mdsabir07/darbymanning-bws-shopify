@@ -1,0 +1,304 @@
+ <section class="home-news" style="background-color: {{ section.settings.bg_color }};">
+    {% if section.settings.title != blank %}
+        <h2 class="h-text-center h-light">{{ section.settings.title | escape }}</h2>
+    {% endif %}
+    {% unless blog.articles_count == 0 %}
+    <div class="o-grid  u-flex o-grid--blog">    
+      {% for block in section.blocks limit: section.settings.post_limit %}
+      <div class="o-grid--item  u-size-6@m {% if forloop.first %}u-mB-20{% endif %}">
+      {%- assign blog = blogs[block.settings.blog] -%}
+      {% for article in blog.articles limit: 1 %}              
+          <article class="block border" aria-labelledby="FeaturedBlogTitle-{{ forloop.index0 }}-{{ section.id }}">           
+              <a href="{{ blog.url }}" class="article__link">
+                {% if article.image %}
+                <div class="home-news__img">
+                  <p class="block__message">{{blog.title}}</p>
+                  {%- assign img_url = article.image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
+                    <img
+                        class="article__grid-image lazyload lazypreload"
+                        src="{{ article.image | img_url: 'master' }}"
+                        data-src="{{ img_url }}"
+                        data-sizes="auto"
+                        alt="{{ block.settings.image.alt | escape }}">
+                  <noscript>
+                    <div class="article__grid-image-wrapper">
+                    {{ article | img_url: '345x345', scale: 2 | img_tag: article.title, 'article__grid-image' }}
+                    </div>
+                  </noscript>
+                </div>                                    
+                {% endif %}
+              </a>
+              <div class="block__info  block__info--white">
+                  <h3 class="block__title block__title--mid" id="FeaturedBlogTitle-{{ forloop.index0 }}-{{ section.id }}">                  
+                    {{ article.title }}
+                  </h3>    
+                  <div class="block__p article__grid-excerpt">
+                    {% if article.excerpt.size > 0 %}
+                      {{ article.excerpt }}
+                    {% else %}
+                     {{ article.content | strip_html | truncate: 150 }}
+                    {% endif %}
+                  </div>   
+
+                  {% if block.settings.button_label != blank and block.settings.button_link != blank %}                   
+                  <div class="block__buttons u-pT-32 ">
+                    <a href="{{ block.settings.button_link }}"
+                      class="btn button"
+                      aria-label="{{ 'blogs.article.read_more_title' | t: title: article.title }}">
+                      {{- block.settings.button_label | escape -}}
+                    </a>
+                  </div>
+                {% endif %} 
+              </div>              
+          </article>
+          {% endfor %}
+        </div>      
+      {% endfor %}
+    </div>
+  {% else %}
+    <div class="o-grid  u-flex o-grid--blog">
+      {% for i in (1..section.settings.post_limit) %}
+        <div class="o-grid--item  u-size-6@m">
+          <div class="article__grid-meta">
+            <h3 class="block__title">
+              <a href="#">{{ 'homepage.onboarding.blog_title' | t }}</a>
+            </h3>
+
+
+            <div class="rte article__grid-excerpt">
+              {{ 'homepage.onboarding.blog_excerpt' | t }}
+            </div>
+
+            <ul class="list--inline block__buttons">
+              <li>
+                <a href="{{ blog.url }}" class="btn button">
+                  {{ 'blogs.article.read_more' | t }}
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  {% endunless %}
+    
+</section>
+ 
+{% schema %}
+{
+  "name": {
+    "da": "Blogopslag",
+    "de": "Blogposts",
+    "en": "Blog posts",
+    "es": "Entradas del blog",
+    "fi": "Blogijulkaisut",
+    "fr": "Articles de blog",
+    "hi": "ब्लॉग पोस्ट",
+    "it": "Articoli del blog",
+    "ja": "ブログ記事",
+    "ko": "블로그 게시물",
+    "nb": "Blogginnlegg",
+    "nl": "Blogberichten",
+    "pt-BR": "Posts do blog",
+    "pt-PT": "Publicações no blogue",
+    "sv": "Blogginlägg",
+    "th": "โพสต์บล็อก",
+    "zh-CN": "博客文章",
+    "zh-TW": "部落格文章"
+  },
+  "class": "index-section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": {
+        "da": "Overskrift",
+        "de": "Titel",
+        "en": "Heading",
+        "es": "Título",
+        "fi": "Otsake",
+        "fr": "En-tête",
+        "hi": "शीर्षक",
+        "it": "Heading",
+        "ja": "見出し",
+        "ko": "제목",
+        "nb": "Overskrift",
+        "nl": "Kop",
+        "pt-BR": "Título",
+        "pt-PT": "Título",
+        "sv": "Rubrik",
+        "th": "ส่วนหัว",
+        "zh-CN": "标题",
+        "zh-TW": "標題"
+      },
+      "default": {
+        "da": "Blogopslag",
+        "de": "Blogposts",
+        "en": "Blog posts",
+        "es": "Entradas del blog",
+        "fi": "Blogijulkaisut",
+        "fr": "Articles de blog",
+        "hi": "ब्लॉग पोस्ट",
+        "it": "Articoli del blog",
+        "ja": "ブログ記事",
+        "ko": "블로그 게시물",
+        "nb": "Blogginnlegg",
+        "nl": "Blogberichten",
+        "pt-BR": "Posts do blog",
+        "pt-PT": "Publicações no blogue",
+        "sv": "Blogginlägg",
+        "th": "โพสต์บล็อก",
+        "zh-CN": "博客文章",
+        "zh-TW": "部落格文章"
+      }
+    },
+    {
+        "type": "color",
+        "id": "bg_color",
+        "label": "Backgound"
+    },    
+    {
+      "type": "range",
+      "id": "post_limit",
+      "label": "Blog Category",
+      "min": 1,
+      "max": 12,
+      "step": 1,
+      "default": 2
+    }
+  ],
+  "blocks": [
+    {
+      "type": "blog_category",
+      "name": "Blog Category",
+      "settings": [
+          {
+          "id": "blog",
+          "type": "blog",
+          "label": {
+            "da": "Blog",
+            "de": "Blog",
+            "en": "Blog",
+            "es": "Blog",
+            "fi": "Blogi",
+            "fr": "Blog",
+            "hi": "ब्लॉग",
+            "it": "Blog",
+            "ja": "ブログ",
+            "ko": "블로그",
+            "nb": "Blogg",
+            "nl": "Blog",
+            "pt-BR": "Blog",
+            "pt-PT": "Blogue",
+            "sv": "Blogg",
+            "th": "บล็อก",
+            "zh-CN": "博客",
+            "zh-TW": "部落格"
+        }
+      },
+      {
+        "type": "text",
+        "id": "button_label",
+        "label": {
+          "da": "Knaptekst",
+          "de": "Button-Name",
+          "en": "Button label",
+          "es": "Etiqueta de botón",
+          "fi": "Tekstipainike",
+          "fr": "Texte du bouton",
+          "hi": "बटन लेबल",
+          "it": "Etichetta pulsante",
+          "ja": "ボタンのラベル",
+          "ko": "버튼 레이블",
+          "nb": "Knappetikett",
+          "nl": "Knoplabel",
+          "pt-BR": "Etiqueta de botão",
+          "pt-PT": "Etiqueta do botão",
+          "sv": "Knappetikett",
+          "th": "ป้ายกำกับปุ่ม",
+          "zh-CN": "按钮标签",
+          "zh-TW": "按鈕標籤"
+        }
+      },
+      {
+        "type": "url",
+        "id": "button_link",
+        "label": {
+          "da": "Knaplink",
+          "de": "Button-Link",
+          "en": "Button link",
+          "es": "Enlace de botón",
+          "fi": "Painikelinkki",
+          "fr": "Lien du bouton",
+          "hi": "बटन लिंक",
+          "it": "Link pulsante",
+          "ja": "ボタンのリンク",
+          "ko": "버튼 링크",
+          "nb": "Kobling for knapp",
+          "nl": "Knoplink",
+          "pt-BR": "Link de botão",
+          "pt-PT": "Ligação do botão",
+          "sv": "Knapplänk",
+          "th": "ลิงก์ปุ่ม",
+          "zh-CN": "按钮链接",
+          "zh-TW": "按鈕連結"
+        }
+      }
+     ]
+    }
+  ],
+  "presets": [
+    {
+      "name": {
+        "da": "Blogopslag",
+        "de": "Blogposts",
+        "en": "Blog posts",
+        "es": "Entradas del blog",
+        "fi": "Blogijulkaisut",
+        "fr": "Articles de blog",
+        "hi": "ब्लॉग पोस्ट",
+        "it": "Articoli del blog",
+        "ja": "ブログ記事",
+        "ko": "블로그 게시물",
+        "nb": "Blogginnlegg",
+        "nl": "Blogberichten",
+        "pt-BR": "Posts do blog",
+        "pt-PT": "Publicações no blogue",
+        "sv": "Blogginlägg",
+        "th": "โพสต์บล็อก",
+        "zh-CN": "博客文章",
+        "zh-TW": "部落格文章"
+      },
+      "category": {
+        "da": "Blog",
+        "de": "Blog",
+        "en": "Blog",
+        "es": "Blog",
+        "fi": "Blogi",
+        "fr": "Blog",
+        "hi": "ब्लॉग",
+        "it": "Blog",
+        "ja": "ブログ",
+        "ko": "블로그",
+        "nb": "Blogg",
+        "nl": "Blog",
+        "pt-BR": "Blog",
+        "pt-PT": "Blogue",
+        "sv": "Blogg",
+        "th": "บล็อก",
+        "zh-CN": "博客",
+        "zh-TW": "部落格"
+      },      
+        "blocks": [
+        {
+          "type": "blog_category"
+        },
+        {
+          "type": "blog_category"
+        }     
+      ]      
+    }
+  ]
+}
+{% endschema %}
+
