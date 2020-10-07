@@ -8,8 +8,8 @@
 \*----------------------------------------------------------------------------*/
 /* Imports */
 import NeueKit from "@neuekit/neuekit/src/scripts/neuekit";
-import * as util from "./modules/utilities";
 import Slider from "./modules/tns.js";
+import "./modules/section.js";
 
 /* Neue Kit */
 const neuekit = new NeueKit();

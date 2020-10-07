@@ -12,7 +12,7 @@
       <ul class="payment-icons list--inline site-footer__icon-list">
         {%- for type in shop.enabled_payment_types -%}
           <li class="payment-icon">
-            {{ type | payment_type_svg_tag: class: 'icon icon--full-color' }}
+            {{ type | payment_type_svg_tag: class: 'payment-icon__svg' }}
           </li>
         {%- endfor -%}
       </ul>
@@ -97,7 +97,7 @@
                                 type="submit"
                                 data-search-form-submit>
                                 {% include 'icon-search' %}      
-                                <span class="visually-hidden">{{ 'general.search.submit' | t }}</span>                          
+                                <span>{{ 'general.search.submit' | t }}</span>                          
                               </button>
                             </form>
                                                   

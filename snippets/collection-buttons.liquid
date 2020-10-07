@@ -2,8 +2,8 @@
 <section class="collection-buttons  o-grid  o-grid--p">    
     {% assign collection_handle = section.settings.col_nav_bottom %}
     {% for link in linklists[collection_handle].links %}
-    <div class="o-grid--item {% if forloop.length > 3 %}u-size-3@m{% else %}u-size-4@m{% endif %} u-size-6 u-size-4@s">
-        <a href="{{ link.url }}" class="collection-buttons__a">
+    <div class="o-grid--item u-mT-32 {% if forloop.length == 4 %}u-size-3@m{% elsif forloop.length == 6 %} u-size-4@m{% else %}u-size-4@m{% endif %} u-size-6 u-size-4@s">
+        <a href="{{ link.url }}" class="collection-buttons__a{% if link.url == blog.url %} active{% endif %}">
             <button class="button  collection-buttons__button">
                 {{ link.title }}
             </button>
