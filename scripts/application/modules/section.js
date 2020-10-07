@@ -15,6 +15,9 @@ function onOptionChange(event) {
     // The combination of selected options has a matching variant and it is
     // available
   }
+  if (!variant) return;
+  const url = getUrlWithVariant(window.location.href, variant.id);
+  window.history.replaceState({ path: url }, '', url);
 }
 
 document.addEventListener("DOMContentLoaded", () => {

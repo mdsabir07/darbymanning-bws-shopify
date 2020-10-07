@@ -82,90 +82,88 @@
               {%- endif -%}
             </div>
         {%- endif -%}    
+        {% form 'product', product, data-product-form: '', data-product-handle: product.handle %}
+          {% unless product.has_only_default_variant %}
+          {% for option in product.options_with_values %}
+          <div class="js-enabled selector-wrapper">
 
-        {% capture "form_classes" -%}
-            product-form product-form-{{ section.id }}
-            {%- unless section.settings.show_variant_labels %} product-form--hide-variant-labels {% endunless %}
-            {%- if section.settings.enable_payment_button and product.has_only_default_variant %} product-form--payment-button-no-variants {%- endif -%}
-            {%- if current_variant.available == false %} product-form--variant-sold-out {%- endif -%}
-          {%- endcapture %}
-        
-        {% form 'product', product, class:form_classes, novalidate: 'novalidate', data-product-form: '', data-product-handle: product.handle %}
-            {% unless product.has_only_default_variant %}
-              <div class="product-form__controls-group">
-                {% for option in product.options_with_values %}
-                  <div class="selector-wrapper js product-form__item">
-                    <label {% if option.name == 'default' %}class="label--hidden" {% endif %}for="SingleOptionSelector-{{ forloop.index0 }}">
-                      {{ option.name }}
-                    </label>
-                    <select class="single-option-selector single-option-selector-{{ section.id }} product-form__input"
-                      id="SingleOptionSelector-{{ forloop.index0 }}"
-                      data-index="option{{ forloop.index }}"
-                    >
-                      {% for value in option.values %}
-                        <option value="{{ value | escape }}"{% if option.selected_value == value %} selected="selected"{% endif %}>{{ value }}</option>
-                      {% endfor %}
-                    </select>
-                  </div>
-                {% endfor %}
-              </div>
-            {% endunless %}
+          <label for="Option{{ option.position }}">
+            {{ option.name }}
+          </label>
 
-            <select name="id" id="product-select" class="product-form__variants no-js">
+          {% comment %}
+            All inputs that have `name=options[Name]` will be picked up by
+            ProductForm, registered as an option input, and made available
+            at ProductForm.optionsInputs
+          {% endcomment %}
+
+          <select
+            id="Option{{ option.position }}"
+            name="options[{{ option.name | escape }}]" >
+            {% for value in option.values %}
+              <option
+                value="{{ value | escape }}"
+                {% if option.selected_value == value %}selected="selected"{% endif %}>
+                  {{ value }}
+              </option>
+            {% endfor %}
+          </select>
+          </div>
+          {% endfor %}
+          {% endunless %}
+
+          {% comment %}
+          In order for this form to submit, it needs to contain an input with name="id".
+          ProductForm() will automatically create this input (or make sure it has the
+          right value set if it already exists) on form submit based on the
+          currently selected variant. However, if JS is disabled we need a fallback.
+
+          Include a single <select> element which allows users to select all variants
+          as a fallback and present it only when JS is disabled. In addition,
+          make sure you hide the option inputs declared above, like we do with the
+          `.js-enabled` class which only shows its contents when JS is enabled.
+          {% endcomment %}
+          <noscript>
+            <select name="id">
               {% for variant in product.variants %}
-                <option value="{{ variant.id }}"
-                  {%- if variant == current_variant %} selected="selected" {%- endif -%}>
-                  {{ variant.title }}  {%- if variant.available == false %} - {{ 'products.product.sold_out' | t }}{% endif %}
+                <option
+                  {% if variant == current_variant %}selected="selected"{% endif %}
+                  {% unless variant.available %}disabled="disabled"{% endunless %}
+                  value="{{ variant.id }}">
+                    {{ variant.title }}
                 </option>
               {% endfor %}
             </select>
+          </noscript>
 
-            {% if section.settings.show_quantity_selector %}
-              <div class="product-form__controls-group">
-                <div class="product-form__item">
-                  <label for="Quantity-{{ section.id }}">{{ 'products.product.quantity' | t }}</label>
-                  <input type="number" id="Quantity-{{ section.id }}"
-                    name="quantity" value="1" min="1" pattern="[0-9]*"
-                    class="product-form__input product-form__input--quantity" data-quantity-input
-                  >
-                </div>
-              </div>
-            {% endif %}
+          {% if product.available and product.variants.size > 1 %}
+            {% render 'swatch' for product.options as swatch %}
+          {% endif %}
 
-            <div class="product-form__error-message-wrapper product-form__error-message-wrapper--hidden{% if section.settings.enable_payment_button %} product-form__error-message-wrapper--has-payment-button{% endif %}"
-              data-error-message-wrapper
-              role="alert"
-            >
-              <span>{{ 'general.accessibility.error' | t }} </span>
-              {% include 'icon-error' %}
-              <span class="product-form__error-message" data-error-message>{{ 'products.product.quantity_minimum_message' | t }}</span>
-            </div>
+          {% comment %}
+          Any input with `name="quantity"` will be picked up by ProductForm and
+          registered as a quantity input. If a quantity input is not included, a
+          default quantity of 1 is assumed.
+          {% endcomment %}
+          <label for="Quantity">{{ 'products.product.quantity' | t }}</label>
+          <input type="number" id="Quantity" name="quantity" value="1" min="1">
 
-            <div class="o-grid">
-              <div class="product-form__item product-form__item--submit
-                {%- if section.settings.enable_payment_button %} product-form__item--payment-button {%- endif -%}
-                {%- if product.has_only_default_variant %} product-form__item--no-variants {%- endif -%}"
-              >
-                <button type="submit" name="add"
-                  {% unless current_variant.available %} aria-disabled="true"{% endunless %}
-                  aria-label="{% unless current_variant.available %}{{ 'products.product.sold_out' | t }}{% else %}{{ 'products.product.add_to_cart' | t }}{% endunless %}"
-                  class="button product-form__submit{% if section.settings.enable_payment_button %} btn--secondary-accent{% endif %}"                  
-                  data-add-to-cart>
-                  <span data-add-to-cart-text>
-                    {% unless current_variant.available %}
-                      {{ 'products.product.sold_out' | t }}
-                    {% else %}
-                      {{ 'products.product.add_to_cart' | t }}
-                    {% endunless %}
-                  </span>                
-                </button>
-                {% if section.settings.enable_payment_button %}
-                  {{ form | payment_button }}
-                {% endif %}
-              </div>
-            </div>
-          {% endform %}     
-              
+          {% comment %}
+          Line Item property inputs with `name="properties[NAME]"` will be picked up
+          by ProductForm and registered as a properties input.
+          {% endcomment %}     
+
+          <button
+          type="submit"
+          {% unless current_variant.available %}disabled="disabled"{% endunless %}>
+          {{ 'products.product.add_to_cart' | t }}
+          </button>
+
+          {% if section.settings.enable_payment_button %}
+            {{ form | payment_button }}
+          {% endif %}        
+        {% endform %}
+                               
         <!--Metafields start here  -->
         <div class="product-meta">          
           {% assign custom_attributes = product.metafields.instructions %}
@@ -208,11 +206,11 @@
             </div>
         </div>
         {% if section.settings.question != blank %}
-        <div class="product-meta">
-          <div class="product-meta_icon">
+        <div class="product-meta__content">
+          <div class="product-meta__icon">
             {% include 'icon-envelope' %}
           </div>
-          <div class="product-meta_detail">            
+          <div class="product-meta__detail">            
               <p>{{section.settings.question}}</p>
               <p>Email &nbsp;<span><a href="mailto:{{section.settings.email}}">{{section.settings.email}}</a></span></p>                        
           </div>
@@ -254,10 +252,8 @@
                     F
                 </button>
             </a>
-        </div>
-        
-        <p class="gray  h-bold">Brothers notes: Good quality organic t-shirt made to last in a premium weight.</p>
-        
+        </div>        
+        <p class="gray  h-bold">Brothers notes: Good quality organic t-shirt made to last in a premium weight.</p>        
     </div>
 </section>
 
