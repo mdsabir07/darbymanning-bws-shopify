@@ -1,15 +1,13 @@
 
-<div class="product-template__container"
-  id="ProductSection-{{ section.id }}"
+<div class="product-template__container" id="ProductSection-{{ section.id }}"
   data-section-id="{{ section.id }}"
   data-section-type="product"
-  data-enable-history-state="true"
->
+  data-enable-history-state="true">
 
-{% include "product-main" %}
+  {% include "product-main" %}
 
 </div>
-{% include "product-footprint" %}
+
 
 {% unless product == empty %}
   <script type="application/json" id="ProductJson-{{ section.id }}">

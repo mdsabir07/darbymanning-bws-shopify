@@ -10,7 +10,7 @@ function onOptionChange(event) {
     // The combination of selected options does not have a matching variant
   } else if (variant && !variant.available) {
     // The combination of selected options has a matching variant but it is
-    // currently unavailable
+    // currently unavailable 
   } else if (variant && variant.available) {
     // The combination of selected options has a matching variant and it is
     // available
