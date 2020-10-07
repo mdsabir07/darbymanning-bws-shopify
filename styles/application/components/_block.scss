@@ -45,10 +45,22 @@
         &--blue {
             color: var(--dark-blue);
         }
+        
         left: 1rem;
 		font-size: 1.2rem;
 		z-index: 1;
+		
+        &--default {
+	        
+            color: var(--blue);
+            
+            .blog__hero & {
+                left: 3rem;
+            }
+        }
+        
     }
+    
     &__title {
         font-size: 2rem;
         text-transform: uppercase;

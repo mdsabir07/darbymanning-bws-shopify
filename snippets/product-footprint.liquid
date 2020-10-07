@@ -1,7 +1,34 @@
-<section class="product-footprint  u-section-m">
+{% assign custom_attributes = product.metafields.footprint %}
+{% if custom_attributes.size > 0 %}
+    {% for field in custom_attributes %}
+        {% assign attribute_code = field | first %}
+        {% assign attribute_value = field | last %}
+        
+        <div class="meta_content">
+            <div class="meta_content_icon">
+                {% if attribute_code contains 'made_with' %}
+                    {% include 'icon-star' %}
+                {% elsif attribute_code contains 'made_in' %}
+                    {% include 'icon-location' %}
+                {% elsif attribute_code contains 'material' %}
+                    {% include 'icon-recycle' %}
+                {% elsif attribute_code contains 'product_detail' %}
+                    {% include 'icon-user' %}
+                {% endif %}
+            </div>
+            <div class="meta_content_detail">
+                <span class="custom-attribute-value gray">{{attribute_value}}</span>
+                {% if attribute_code contains 'made_in' %}
+                    <p><a href="#">see product footprint</a></p>
+                {% endif %}
+            </div>        
+        </div>        
+    {% endfor %}            
+{% endif %}
+<section class="product-footprint  u-section-m" id="footprint">
     <div class="o-grid  o-grid--p">
         <div class="o-grid--item  u-size-12@s">
-            <h1 class="h2  caps">PRODUCT FOOTPRINT</h1>
+            <h1 class="h2  caps"><span>{% include 'icon-footprint'%}</span><span>PRODUCT FOOTPRINT</span></h1>
             <div class="product-footprint__block">
                 <div class="product-footprint__col">
                     <div class="product-footprint__img">

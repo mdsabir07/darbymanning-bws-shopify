@@ -77,28 +77,23 @@
                 <div class="header__details">
                     <a href="/search" class="header__icon">
                         {% include 'icon-search' %}
-                        <span class="icon__fallback-text">{{ 'layout.navigation.search' | t }}</span>
                     </a>
                     {% if shop.customer_accounts_enabled %}
                     {% if customer %}
                       <a href="{{ routes.account_url }}" class="header__icon">
                         {% include 'icon-login' %}
-                        <span class="icon__fallback-text">{{ 'layout.customer.account' | t }}</span>
                       </a>
                     {% else %}
                       <a href="{{ routes.account_login_url }}" class="header__icon">
                         {% include 'icon-login' %}
-                        <span class="icon__fallback-text">{{ 'layout.customer.log_in' | t }}</span>
                       </a>
                     {% endif %}
                   {% endif %}
         
                   <a href="{{ routes.cart_url }}" class="header__icon">
                     {% include 'icon-cart' %}
-                    <span class="icon__fallback-text">{{ 'layout.cart.title' | t }}</span>
                     <div id="CartCount" class="header__cart-count{% if cart.item_count == 0 %} u-hide{% endif %}" data-cart-count-bubble>
                       <span data-cart-count>{{ cart.item_count }}</span>
-                      <span class="icon__fallback-text u-hide@m">{{ 'layout.cart.items_count' | t: count: cart.item_count }}</span>
                     </div>
                   </a>
                 </div>

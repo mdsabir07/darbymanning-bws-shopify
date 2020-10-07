@@ -7,7 +7,7 @@
         flex-direction: column;
         min-height: 150px;
         
-        .collection-brands &, .collection-mens & {
+        .collection-brand &, .collection-display-children & {
             min-height: 190px; 
         }
         
@@ -36,6 +36,16 @@
         &__regular, &__sale {
 	        
 	        margin-right: 0.625rem;
+	        
+	        dt {
+		        display: none;
+	        }
+	        
+	        dd span {
+				font-weight: bold;
+				margin-bottom: .5rem;
+				display: block;
+	        }
 	        
         }
         
@@ -92,7 +102,7 @@
         
         
         dd {
-		    margin: 0 0.5em 0 0;
+		    margin: 0;
 		}
 		
 		&--sold-out &__badge--sale {

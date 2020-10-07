@@ -1,7 +1,6 @@
 .collection-buttons {
     margin-top: 8rem;
     margin-bottom: 8rem;
-    // position: relative;
 
     &__wrap {
         
@@ -20,19 +19,8 @@
     &__button {
         width: 100%;
         box-sizing: inherit;
-        .active &{
+        .active & {
             background-color: var(--dark-blue);
-        }
-    }
-    @media only screen and (max-width: 500px) {
-        .o-grid--item.u-size-6 {
-            flex-basis: 100%;
-            max-width: 100%;
-            width: 100%;
-            .button {
-                padding-left: 2rem;
-                padding-right: 2rem;
-            }
         }
     }
 }
