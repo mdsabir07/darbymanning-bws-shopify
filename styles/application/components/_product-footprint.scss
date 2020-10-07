@@ -1,6 +1,6 @@
 .product-footprint {
     background-color: var(--light-gray);
-    padding: var(--padding-lg) 0;
+    padding: 8rem 0;
 
     &__title {
         @media only screen and (max-width: 767px){
@@ -11,10 +11,7 @@
     &__block {
         display: flex;
         flex-direction: row;
-        margin-bottom: var(--padding-lg);
-        @media only screen and (max-width: 767px){
-            flex-wrap: wrap;
-        }
+        margin-bottom: 8rem;
     }
 
     &__col {
@@ -31,7 +28,7 @@
     }
 
     &__info {
-        padding: var(--padding-md);
+        padding: 3rem;
         background-color: var(--blue);
         color: white;
         display: flex;

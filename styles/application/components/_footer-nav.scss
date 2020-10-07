@@ -5,7 +5,7 @@
     }
     &__ul {
         padding: 0;
-        margin-top: var(--padding-sm);
+        margin-top: 2rem;
         list-style: none;
 
         &--col2 {
@@ -13,7 +13,7 @@
         }
     }
     &__li {
-        margin: 0 0 calc(var(--padding-sm) / 2);
+        margin: 0 0 calc(2rem / 2);
     }
     &__a {
         font-size: 1.75rem;

@@ -7,7 +7,7 @@
         {%- assign collection = collections[section.settings.collection] -%}
         {%- assign product_limit = section.settings.grid | times: section.settings.rows -%}
 
-        <div class="home-slide-1">
+        <div class="js-slider " data-items="4" data-gutter="10" data-responsive='{"350": {"items": "2"}, "700": {"items": "3"}, "1000": {"items": "4"}}'>>
           {% for product in collection.products limit: product_limit %}
             <div class="slide__item--{{section.id}}"> 
                 {% include 'product-card-grid', product: product %}                
@@ -41,7 +41,7 @@
             
         </div>
     
-        <ul class="slide__controls  home-slide-1-controls" aria-label="Carousel Navigation" tabindex="0">
+        <ul class="slide__controls js-slider-controls" aria-label="Carousel Navigation" tabindex="0">
             <li class="slide__prev" data-controls="prev" aria-controls="customize" tabindex="-1">
                 <i class="fas fa-angle-left fa-5x"></i>
             </li>

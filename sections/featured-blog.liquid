@@ -29,7 +29,7 @@
                 {% endif %}
               </a>
               <div class="block__info  block__info--white">
-                  <h3 class="article__title block__title block__title--large" id="FeaturedBlogTitle-{{ forloop.index0 }}-{{ section.id }}">                  
+                  <h3 class="block__title block__title--mid" id="FeaturedBlogTitle-{{ forloop.index0 }}-{{ section.id }}">                  
                     {{ article.title }}
                   </h3>    
                   <div class="block__p article__grid-excerpt">
@@ -41,7 +41,7 @@
                   </div>   
 
                   {% if block.settings.button_label != blank and block.settings.button_link != blank %}                   
-                  <div class="article__meta-buttons u-pT-32 ">
+                  <div class="block__buttons u-pT-32 ">
                     <a href="{{ block.settings.button_link }}"
                       class="btn button"
                       aria-label="{{ 'blogs.article.read_more_title' | t: title: article.title }}">
@@ -69,7 +69,7 @@
               {{ 'homepage.onboarding.blog_excerpt' | t }}
             </div>
 
-            <ul class="list--inline article__meta-buttons">
+            <ul class="list--inline block__buttons">
               <li>
                 <a href="{{ blog.url }}" class="btn button">
                   {{ 'blogs.article.read_more' | t }}

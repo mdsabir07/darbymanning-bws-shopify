@@ -40,22 +40,22 @@
             {% if article.image %}
             {%- assign img_url = article.image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
             <img
-                class="article__grid-image lazyload lazypreload"
+                class=" lazyload lazypreload"
                 src="{{ article.image | img_url: 'master' }}"
                 data-src="{{ img_url }}"
                 data-sizes="auto"
                 alt="{{ article.image.alt | escape }}">              
               <noscript>
-                <div class="article__grid-image-wrapper">
-                  {{ article | img_url: '345x345', scale: 2 | img_tag: article.title, 'article__grid-image' }}
+                <div class="-wrapper">
+                  {{ article | img_url: '345x345', scale: 2 | img_tag: article.title, '' }}
                 </div>
               </noscript>
               {% else %}
-                {{ 'image' | placeholder_svg_tag: 'placeholder-svg article__grid-image' }}
+                {{ 'image' | placeholder_svg_tag: 'placeholder-svg ' }}
             {% endif %}                     
 
           <div class="article__grid-meta block__info">
-            <h3 class="article__title block__title block__title--large" id="FeaturedBlogTitle-{{ forloop.index0 }}-{{ section.id }}">                  
+            <h3 class="block__title block__title--mid" id="FeaturedBlogTitle-{{ forloop.index0 }}-{{ section.id }}">                  
               {{ article.title | escape}}
             </h3>   
             {% if section.settings.blog_show_author %}
@@ -83,7 +83,7 @@
       <div class="o-grid--item u-size-12 u-mB-48">
         <div class="block border">          
               <div class="small-slide__shadow article-listing">
-                <h2 class="article__title h3"><a href="{{ article.url }}">{{ article.title }}</a></h2>
+                <h2 class="block__title block__title--mid"><a href="{{ article.url }}">{{ article.title }}</a></h2>
                 {% if section.settings.blog_show_author %}
                   <span class="article__author">{{ 'blogs.article.by_author' | t: author: article.author }}</span>
                 {% endif %}
@@ -91,18 +91,18 @@
                 {% if article.image %}
                 {%- assign img_url = article.image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
                 <img
-                    class="article__grid-image lazyload lazypreload"
+                    class=" lazyload lazypreload"
                     src="{{ article.image | img_url: 'master' }}"
                     data-src="{{ img_url }}"
                     data-sizes="auto"
                     alt="{{ article.image.alt | escape }}">              
                   <noscript>
-                    <div class="article__grid-image-wrapper">
-                      {{ article | img_url: '345x345', scale: 2 | img_tag: article.title, 'article__grid-image' }}
+                    <div class="-wrapper">
+                      {{ article | img_url: '345x345', scale: 2 | img_tag: article.title, '' }}
                     </div>
                   </noscript>
                   {% else %}
-                    {{ 'image' | placeholder_svg_tag: 'placeholder-svg article__grid-image' }}
+                    {{ 'image' | placeholder_svg_tag: 'placeholder-svg ' }}
                 {% endif %}
 
                 <div class="rte">
