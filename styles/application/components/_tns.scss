@@ -9,16 +9,15 @@
     opacity: 1 !important;
 }
 
-
 .tns-nav {
     display: none;
 }
 
 .tns-ovh {
-	padding-right: 21rem;
-	width: calc( 100% + 21rem );
+    padding-right: 21rem;
+    width: calc(100% + 21rem);
 }
 
 .tns-slide-active + .tns-item:not(.tns-slide-active) {
-	opacity: .5 !important;
+    opacity: 0.5 !important;
 }

@@ -1,13 +1,13 @@
 .product-main {
     margin-bottom: 8rem;
     &__img {
-        height: 35rem;
         background-color: tomato;
+        height: 35rem;
         margin-bottom: 3rem;
 
         &--hero {
-            height: 50rem;
             background-color: salmon;
+            height: 50rem;
         }
     }
 
@@ -18,11 +18,11 @@
     }
 
     &__title {
-        margin: 0 0 1rem;
         font-size: 3rem;
+        margin: 0 0 1rem;
 
         &--price {
-            margin: 3rem 0 ; 
+            margin: 3rem 0;
         }
     }
 
@@ -35,53 +35,55 @@
     }
 
     &__buttons {
-        display: flex;
-        flex-wrap: nowrap;
-        flex-direction: row;
         align-items: center;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
         margin: 3rem 0;
     }
 
     &__button {
         margin-left: 2rem;
     }
-    
-    &__colors, &__sizes {
+
+    &__colors,
+    &__sizes {
         margin-bottom: 2rem;
     }
 
     &__color {
-        width: 4rem;
-        height: 4rem;
         background-color: seagreen;
+        display: inline-block;
+        height: 4rem;
         margin-right: 2rem;
         margin-top: 1rem;
-        display: inline-block;
+        width: 4rem;
         .active {
             border: 1px solid var(--dark-blue);
         }
     }
 
     &__sizes {
-        display: flex;
-        flex-wrap: nowrap;
-        flex-direction: row;
         align-items: center;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
     }
 
     &__size {
-        width: 5rem;
-        height: 5rem;
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
         align-items: center;
         background-color: var(--light-gray);
-        transition: 0.3s all;
         color: var(--blue);
+        display: flex;
+        flex-direction: row;
+        height: 5rem;
+        justify-content: center;
         margin-right: 2rem;
         margin-top: 1rem;
-        &:hover, &:active {
+        transition: 0.3s all;
+        width: 5rem;
+        &:hover,
+        &:active {
             background-color: var(--blue);
             color: var(--white);
             cursor: pointer;
@@ -96,8 +98,8 @@
     }
     &__td {
         border: none;
-        padding-right: 2rem;
-        padding-bottom: 2rem;
         color: var(--dark-gray);
+        padding-bottom: 2rem;
+        padding-right: 2rem;
     }
 }

@@ -1,3 +1,4 @@
+/* prettier-ignore start */
 /*!---------------------------------------------------------------------------*\
 
     #YOUR PROJECT NAME
@@ -10,17 +11,13 @@
 
 \*----------------------------------------------------------------------------*/
 
-
-
 /*----------------------------------------------------------------------------*\
     #FUNCTIONS
 
     Globally-available functions.
 \*----------------------------------------------------------------------------*/
 
-@import 'tools/functions/function';           // Example function.
-
-
+@import 'tools/functions/function'; // Example function.
 
 /*----------------------------------------------------------------------------*\
     #MIXINS
@@ -28,9 +25,7 @@
     Globally-available mixins.
 \*----------------------------------------------------------------------------*/
 
-@import 'tools/mixins/mixin';                 // Example Mixin.
-
-
+@import 'tools/mixins/mixin'; // Example Mixin.
 
 /*----------------------------------------------------------------------------*\
     #GENERIC
@@ -38,11 +33,9 @@
     Ground-zero styles. Low-specificity, far-reaching.
 \*----------------------------------------------------------------------------*/
 
-@import 'generic/keyframes';            // CSS Keyframe blocks.
-@import 'generic/fonts';                // Vector icons/fonts includes.
-@import 'generic/shared';               // Shared global commonalities.
-
-
+@import 'generic/keyframes'; // CSS Keyframe blocks.
+@import 'generic/fonts'; // Vector icons/fonts includes.
+@import 'generic/shared'; // Shared global commonalities.
 
 /*----------------------------------------------------------------------------*\
     #ELEMENTS
@@ -50,16 +43,14 @@
     Last layer for type selectors (h1-h6, a).
 \*----------------------------------------------------------------------------*/
 
-@import 'elements/document';            // Page-level styles (HTML, body etc).
-@import 'elements/forms';               // Form inputs, textareas.
-@import 'elements/links';               // Hyperlinks.
-@import 'elements/lists';               // Lists.
-@import 'elements/media';               // Media elements, img, svg, video, etc.
-@import 'elements/quotes';              // Blockquotes, cite, etc.
-@import 'elements/tables';              // Table element styles.
-@import 'elements/type';                // All type styles.
-
-
+@import 'elements/document'; // Page-level styles (HTML, body etc).
+@import 'elements/forms'; // Form inputs, textareas.
+@import 'elements/links'; // Hyperlinks.
+@import 'elements/lists'; // Lists.
+@import 'elements/media'; // Media elements, img, svg, video, etc.
+@import 'elements/quotes'; // Blockquotes, cite, etc.
+@import 'elements/tables'; // Table element styles.
+@import 'elements/type'; // All type styles.
 
 /*----------------------------------------------------------------------------*\
     #OBJECTS
@@ -67,9 +58,7 @@
     Design Patterns. Layout. No cosmetics. Start using agnostic classes only.
 \*----------------------------------------------------------------------------*/
 
-@import 'objects/app';                  // Core UI Wrapper.
-
-
+@import 'objects/app'; // Core UI Wrapper.
 
 /*----------------------------------------------------------------------------*\
     #COMPONENTS
@@ -77,33 +66,33 @@
     Designed pieces of UI. Only using classes. More explicit naming.
 \*----------------------------------------------------------------------------*/
 
-@import 'components/core/head';         // Core header.
-@import 'components/core/main';         // Core main.
-@import 'components/core/foot';         // Core footer.
-@import 'components/core/nav';          // Core Nav.
-@import 'components/block';             // Block.
-@import 'components/join';              // Join.
-@import 'components/social';            // Social.
-@import 'components/footer-nav';        // Footer navigation.
-@import 'components/button';            // Button.
+@import 'components/core/head'; // Core header.
+@import 'components/core/main'; // Core main.
+@import 'components/core/foot'; // Core footer.
+@import 'components/core/nav'; // Core Nav.
+@import 'components/block'; // Block.
+@import 'components/join'; // Join.
+@import 'components/social'; // Social.
+@import 'components/footer-nav'; // Footer navigation.
+@import 'components/button'; // Button.
 
-@import 'components/tns';                // Tiny Slider styles.
-@import 'components/slide';              // Slide.
-@import 'components/small-slide';        // Small Slide.
-@import 'components/home-about';         // Home about.
-@import 'components/home-news';          // Home News.
+@import 'components/tns'; // Tiny Slider styles.
+@import 'components/slide'; // Slide.
+@import 'components/small-slide'; // Small Slide.
+@import 'components/home-about'; // Home about.
+@import 'components/home-news'; // Home News.
 
-@import 'components/collection-items';    // Collection items.
-@import 'components/collection-list';     // Collection small list styles.
-@import 'components/collection-header';   // Collection header.
-@import 'components/collection-buttons';  // Collection  Buttons.
+@import 'components/collection-items'; // Collection items.
+@import 'components/collection-list'; // Collection small list styles.
+@import 'components/collection-header'; // Collection header.
+@import 'components/collection-buttons'; // Collection  Buttons.
 
-@import 'components/product-main';        // Product main styling.
-@import 'components/product-footprint';   // Product footprint styling.
-@import 'components/product-similar';     // Product similar items styling.
-@import 'components/accordion';           // Accordion styling.
-@import 'components/breadcrumbs';         // Breadcrumbs styling.
-@import 'components/blog-hero';                // Blog styling.
+@import 'components/product-main'; // Product main styling.
+@import 'components/product-footprint'; // Product footprint styling.
+@import 'components/product-similar'; // Product similar items styling.
+@import 'components/accordion'; // Accordion styling.
+@import 'components/breadcrumbs'; // Breadcrumbs styling.
+@import 'components/blog-hero'; // Blog styling.
 
 @import 'components/payment-icons';
 @import 'components/product-meta';
@@ -112,8 +101,6 @@
 @import 'components/pagination';
 @import 'components/product-form';
 
-
-
 /*----------------------------------------------------------------------------*\
     #Helpers
 
@@ -121,10 +108,7 @@
 \*----------------------------------------------------------------------------*/
 
 @import 'helpers/text-helpers'; // Text helpers.
-@import 'helpers/border';      // border.
-
-
-
+@import 'helpers/border'; // border.
 
 /*----------------------------------------------------------------------------*\
     #UTILITIES
@@ -132,7 +116,5 @@
     Overrides, helpers, utilities. Only affect one item at a time.
 \*----------------------------------------------------------------------------*/
 
-@import 'utilities/spacing';              // Micro-level spacing.
-@import 'utilities/grid';                 // Grid override.
-
-
+@import 'utilities/spacing'; // Micro-level spacing.
+@import 'utilities/grid'; // Grid override.

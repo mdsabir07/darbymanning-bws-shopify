@@ -1,7 +1,7 @@
 .home-about {
-    padding-top: 8rem;
-    padding-bottom: 0;
     background-color: var(--exlight-gray);
+    padding-bottom: 0;
+    padding-top: 8rem;
 
     &__item {
         display: flex;
@@ -9,20 +9,20 @@
     }
 
     &__icon {
-        min-width: 7rem;
+        border: 0;
+        border-radius: 0;
         display: inline-block;
-        margin-right: 2rem;
         height: auto;
-		border: 0;
-		border-radius: 0;
+        margin-right: 2rem;
+        min-width: 7rem;
     }
     &__info {
         display: inline-block;
     }
     &__title {
-        text-transform: uppercase;
         font-size: 2.5rem;
         margin-bottom: 0.5rem;
+        text-transform: uppercase;
     }
     &__button {
         margin: 8rem auto 0;
