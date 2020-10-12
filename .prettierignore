@@ -1,0 +1,9 @@
+# Ignore artifacts:
+_application.scss
+assets
+
+# Ignore these formats:
+*.css
+*.yaml
+*.yml
+*.json

@@ -1,22 +1,23 @@
 .button {
     background: var(--blue);
-    color: var(--white);
-    text-transform: uppercase;
-    padding: 1rem 3rem;
     box-sizing: unset;
-    transition: 0.3s all;
+    color: var(--white);
+    font-family: urw-din, sans-serif;
     font-size: 1.75rem;
-    font-family: urw-din,sans-serif;
     font-style: normal;
     font-weight: 400;
-    &:hover, &:focus {
+    padding: 1rem 3rem;
+    text-transform: uppercase;
+    transition: 0.3s all;
+    &:hover,
+    &:focus {
         background: var(--dark-blue);
     }
 
     &--dark {
         &:hover {
-            color: var(--dark-blue);
             background-color: white;
+            color: var(--dark-blue);
         }
     }
 
@@ -25,14 +26,13 @@
     }
 
     &--round {
+        align-items: center;
         border-radius: 50%;
-        padding: 0;
-        width: 5rem;
-        height: 5rem;
         display: flex;
         flex-direction: row;
+        height: 5rem;
         justify-content: center;
-        align-items: center;
+        padding: 0;
+        width: 5rem;
     }
-
 }

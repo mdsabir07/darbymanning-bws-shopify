@@ -1,111 +1,107 @@
 .product-form {
-    width: auto;
     padding-top: 2rem;
-	
-	&__item {
-	    flex-grow: 0;
-	    flex-basis: 100%;
-	    margin-bottom: 10px;
-	    padding: 0;
-	    
-	    $item: &;
-	    
-	    @media only screen and (min-width: 1024px) {
-		    flex-basis: 50%;
-		    padding: 0 5px;
-		}
-	    
-	    &--submit {
-		    flex: 1 1 300px;
-		}
-		
-		&--no-variants {
-		    max-width: 400px;
-		}
-		
-		&--payment-button {
-		    flex-basis:100%;
-		    
-		    #{$item}--no-variants {
-		        flex-direction: column;
-				align-items: stretch;
-	        }
-		    
-		}
+    width: auto;
 
-		label {
-		    display: block;
-		    .product-form--hide-variant-labels & {
-			    // sass-lint:disable no-important
-			    position: absolute !important;
-			    overflow: hidden;
-			    clip: rect(0 0 0 0);
-			    height: 1px;
-			    width: 1px;
-			    margin: -1px;
-			    padding: 0;
-			    border: 0;
-		    }
-		}
-		
-	}
-	
-	&__variants {
-	    display: none;  
-	    .no-js & {
-	      display: block;
-	    }
-	}
-	
-	&__input {
-	    display: block;
-	    width: 100%;
-	  
-	    &.input--error {
-	      margin-bottom: 0;
-	    }
-	    
-	    &--quantity {
-		    max-width: 5rem;
-		}
-	}  
-	
-	&__error-message {
-	    margin-left: 0.5rem;
-	    font-size: 1rem;
-	    line-height: 1.2;    
-	}  
-	
-	&__error-message-wrapper {
-	    display: flex;
-	    flex-basis: 100%;
-	    padding: 0.5rem 0;
-	    margin: 0 em(5px) 20px;
-	    
-	    &--hidden {
-		    display: none;
-		} 
-		
-		&--has-payment-button {
-		    padding: 0.5rem 0;
-		} 
-	}
-	
-	&__submit {
-	    display: block;
-	    width: 100%;
-	    line-height: 1.4;
-	    padding-left: 5px;
-	    padding-right: 5px;
-	    white-space: normal;
-	    margin-top: 0;
-	    margin-bottom: 10px;
-	    min-height: 44px;
-	}
-	
-	&--payment-button-no-variants {
-	    max-width: 25rem;
-	}
+    &__item {
+        flex-basis: 100%;
+        flex-grow: 0;
+        margin-bottom: 10px;
+        padding: 0;
 
-	
+        $item: &;
+
+        @media only screen and (min-width: 1024px) {
+            flex-basis: 50%;
+            padding: 0 5px;
+        }
+
+        &--submit {
+            flex: 1 1 300px;
+        }
+
+        &--no-variants {
+            max-width: 400px;
+        }
+
+        &--payment-button {
+            flex-basis: 100%;
+
+            #{$item}--no-variants {
+                align-items: stretch;
+                flex-direction: column;
+            }
+        }
+
+        label {
+            display: block;
+            .product-form--hide-variant-labels & {
+                border: 0;
+                clip: rect(0 0 0 0);
+                height: 1px;
+                margin: -1px;
+                overflow: hidden;
+                padding: 0;
+                // sass-lint:disable no-important
+                position: absolute !important;
+                width: 1px;
+            }
+        }
+    }
+
+    &__variants {
+        display: none;
+        .no-js & {
+            display: block;
+        }
+    }
+
+    &__input {
+        display: block;
+        width: 100%;
+
+        &.input--error {
+            margin-bottom: 0;
+        }
+
+        &--quantity {
+            max-width: 5rem;
+        }
+    }
+
+    &__error-message {
+        font-size: 1rem;
+        line-height: 1.2;
+        margin-left: 0.5rem;
+    }
+
+    &__error-message-wrapper {
+        display: flex;
+        flex-basis: 100%;
+        margin: 0 em(5px) 20px;
+        padding: 0.5rem 0;
+
+        &--hidden {
+            display: none;
+        }
+
+        &--has-payment-button {
+            padding: 0.5rem 0;
+        }
+    }
+
+    &__submit {
+        display: block;
+        line-height: 1.4;
+        margin-bottom: 10px;
+        margin-top: 0;
+        min-height: 44px;
+        padding-left: 5px;
+        padding-right: 5px;
+        white-space: normal;
+        width: 100%;
+    }
+
+    &--payment-button-no-variants {
+        max-width: 25rem;
+    }
 }

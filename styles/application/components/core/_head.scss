@@ -3,41 +3,41 @@
 // \*----------------------------------------------------------------------------*/
 
 .header {
-	margin-bottom: 1rem;
+    margin-bottom: 1rem;
     &__wrap {
-        padding: 1rem 3.5rem;
+        align-items: center;
         display: flex;
         flex-direction: row;
         justify-content: space-between;
+        padding: 1rem 3.5rem;
         position: relative;
-        align-items: center;
 
-        @media all and (max-width : 768px) {
+        @media all and (max-width: 768px) {
             padding: 1rem;
         }
     }
 
     &__logo {
         order: 1;
-        @media all and (max-width : 768px) {
+        @media all and (max-width: 768px) {
             order: 2;
         }
     }
 
     &__col {
         order: 2;
-        width: 60%;
         position: unset;
-        @media all and (max-width : 768px) {
+        width: 60%;
+        @media all and (max-width: 768px) {
             order: 1;
             width: auto;
         }
 
         &--sub {
-            width: 100%;
             display: flex;
             flex-direction: row;
             justify-content: space-between;
+            width: 100%;
         }
     }
 
@@ -45,26 +45,23 @@
         display: inline-block;
         margin-left: 2rem;
 
-        
-        @media all and (max-width : 768px) {
+        @media all and (max-width: 768px) {
             display: none;
         }
-        
     }
 
     &__shipping {
         margin: 0;
-        @media all and (max-width : 768px) {
+        @media all and (max-width: 768px) {
             display: none;
         }
     }
 
     &__m-search {
         display: none;
-        @media all and (max-width : 768px) {
+        @media all and (max-width: 768px) {
             display: inline-block;
             order: 3;
         }
-
     }
 }

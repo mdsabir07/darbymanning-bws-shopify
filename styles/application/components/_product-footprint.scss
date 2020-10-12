@@ -2,12 +2,6 @@
     background-color: var(--light-gray);
     padding: 8rem 0;
 
-    &__title {
-        @media only screen and (max-width: 767px){
-            font-size: 2.1rem;
-        }
-    }
-
     &__block {
         display: flex;
         flex-direction: row;
@@ -15,11 +9,8 @@
     }
 
     &__col {
-        width: 50%;
         height: inherit;
-        @media only screen and (max-width: 767px){
-            width: 100%;
-        }
+        width: 50%;
     }
 
     &__img {
@@ -28,12 +19,12 @@
     }
 
     &__info {
-        padding: 3rem;
         background-color: var(--blue);
         color: white;
         display: flex;
         flex-direction: column;
         justify-content: center;
+        padding: 3rem;
     }
 
     &__title {

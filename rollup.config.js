@@ -4,31 +4,31 @@ import resolve from 'rollup-plugin-node-resolve';
 import { terser } from 'rollup-plugin-terser';
 
 export default () => {
-
     const plugins = [
         babel({
             exclude: [
                 /\/core-js\//,
                 'node_modules/**',
                 './scripts/parties/**',
-                './scripts/polyfills/**'
+                './scripts/polyfills/**',
             ],
-            include: [
-                'node_modules/neuekit/**'
+            include: ['node_modules/neuekit/**'],
+            presets: [
+                [
+                    '@babel/env',
+                    {
+                        useBuiltIns: 'usage',
+                        corejs: {
+                            version: 3,
+                            proposals: true,
+                        },
+                    },
+                ],
             ],
-            presets: [[
-                '@babel/env', {
-                    useBuiltIns: 'usage',
-                    corejs: {
-                        version: 3,
-                        proposals: true
-                    }
-                }
-            ]]
         }),
         commonjs(),
         resolve(),
-        terser({ sourcemap: false })
+        terser({ sourcemap: false }),
     ];
 
     const polyfills = {
@@ -36,13 +36,10 @@ export default () => {
         output: {
             file: './assets/polyfills.js',
             format: 'iife',
-            name: 'Polyfills'
+            name: 'Polyfills',
         },
         context: 'window',
-        plugins: [
-            resolve(),
-            terser({ sourcemap: false })
-        ]
+        plugins: [resolve(), terser({ sourcemap: false })],
     };
 
     const application = {
@@ -50,9 +47,9 @@ export default () => {
         output: {
             file: './assets/application.js',
             format: 'iife',
-            name: 'Application'
+            name: 'Application',
         },
-        plugins
+        plugins,
     };
 
     return [polyfills, application];

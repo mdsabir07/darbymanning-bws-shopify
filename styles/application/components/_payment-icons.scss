@@ -1,22 +1,22 @@
 .payment-icons {
-    user-select: none;
     cursor: default;
     list-style: none;
+    user-select: none;
 }
 
 .payment-icon {
+    display: inline-block;
     margin-bottom: 5px;
     margin-left: 5px;
-    display: inline-block;
     vertical-align: middle;
     &:first-child {
-      margin-left: 0;
-      &__svg {
-        display: inline-block;
-        width: 38px;
-        height: 24px;
-        fill: inherit;    
-        vertical-align: middle;    
-      }
+        margin-left: 0;
+        &__svg {
+            display: inline-block;
+            fill: inherit;
+            height: 24px;
+            vertical-align: middle;
+            width: 38px;
+        }
     }
 }

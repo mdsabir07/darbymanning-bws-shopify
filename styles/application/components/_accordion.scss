@@ -1,33 +1,29 @@
 .accordion {
     &__toggle {
+        align-items: center;
+        border-bottom: 1px solid #8f8f8f;
         display: flex;
         flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
         flex-wrap: nowrap;
-        border-bottom: 1px solid #8f8f8f;
-        padding: 0 0 0.5rem;
+        justify-content: space-between;
         margin: 0 0 1.5rem;
-        @media only screen and (max-width: 767px){
-            font-size: 2.1rem;
-        }
+        padding: 0 0 0.5rem;
     }
 
     &__arrow {
-        font-size: 2.5rem;
-        transition: 0.3s all;
         //transform: rotate(180deg);
         color: var(--gray);
+        font-size: 2.5rem;
+        transition: 0.3s all;
     }
 
     &__content {
+        color: var(--dark-gray);
         display: none;
         transition: 0.3s all;
-        color: var(--dark-gray);
         &--active {
-            margin-bottom: 2rem;
             display: block;
+            margin-bottom: 2rem;
         }
     }
-
 }

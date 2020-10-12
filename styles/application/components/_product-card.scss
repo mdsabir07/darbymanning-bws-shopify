@@ -1,121 +1,119 @@
 .product-card {
-	
     .block__info {
-	    
-        padding: 2rem 1rem;
         display: flex;
         flex-direction: column;
-        min-height: 150px;
-        
-        .collection-brand &, .collection-display-children & {
-            min-height: 190px; 
-        }
-        
+
         justify-content: space-between;
-        
-        .block__p, .small-slide__shop {
+        min-height: 150px;
+
+        padding: 2rem 1rem;
+
+        .collection-brand &,
+        .collection-display-children & {
+            min-height: 190px;
+        }
+
+        .block__p,
+        .small-slide__shop {
             font-size: 1.6rem;
         }
-        
     }
-    
-    .price {
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        font-size: 1.8rem;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        width: 100%;
-        right: 0;
-        padding: 0 1rem;
-        margin-bottom: 0;
-        color: var(--blue);
-        
-        &__regular, &__sale {
-	        
-	        margin-right: 0.625rem;
-	        
-	        dt {
-		        display: none;
-	        }
-	        
-	        dd span {
-				font-weight: bold;
-				margin-bottom: .5rem;
-				display: block;
-	        }
-	        
-        }
-        
-        &__sale, &__unit {
-		    display: none;
-		}
-		
-		&__badges {
-			margin-top: 0;
-			
-			&--listing {
-			    margin-top: 0.5rem;
-			}
-		}
-        
-        &__badge {
-		    display: none;
-		    align-self: center;
-		    text-align:center;
-		    line-height: 1em;
-		    font-weight: bold;
-		    text-transform: uppercase;
-		    letter-spacing: 1px;
-		    border-radius: 2px;
-		    font-size: 0.6em;
-		    padding: 0.25rem 0.55rem;
-		    
-		    &--sale {
-			    color: var(--white);
-			    background-color: var(--blue);
-			}
-			
-			&--sold-out {
-			    color: var(--dark-blue);
-			    border-color: var(--dark-blue);
-			} 
-  
-		}
-		
-		&--on-sale &__sale {    
-			display: flex;
-			flex-direction: row;
-			flex-wrap: wrap;    
-		}
-		
-		&--on-sale &__badge--sale {
-		    display: flex;
-		}
-		
-		&--unit-available &__unit {
-		    flex-basis: 100%;
-		    display: block;
-		} 
-        
-        
-        dd {
-		    margin: 0;
-		}
-		
-		&--sold-out &__badge--sale {
-		    display: none;
-		}
-		
-		&--sold-out &__badge--sold-out {
-		    display: flex;
-		}  
-		
-		&--on-sale &__regular, &--on-sale &__availability {
-		    display: none;
-		}
 
+    .price {
+        align-items: center;
+        bottom: 0;
+        color: var(--blue);
+        display: flex;
+        font-size: 1.8rem;
+        justify-content: space-between;
+        left: 0;
+        margin-bottom: 0;
+        padding: 0 1rem;
+        position: absolute;
+        right: 0;
+        width: 100%;
+
+        &__regular,
+        &__sale {
+            margin-right: 0.625rem;
+
+            dt {
+                display: none;
+            }
+
+            dd span {
+                display: block;
+                font-weight: bold;
+                margin-bottom: 0.5rem;
+            }
+        }
+
+        &__sale,
+        &__unit {
+            display: none;
+        }
+
+        &__badges {
+            margin-top: 0;
+
+            &--listing {
+                margin-top: 0.5rem;
+            }
+        }
+
+        &__badge {
+            align-self: center;
+            border-radius: 2px;
+            display: none;
+            font-size: 0.6em;
+            font-weight: bold;
+            letter-spacing: 1px;
+            line-height: 1em;
+            padding: 0.25rem 0.55rem;
+            text-align: center;
+            text-transform: uppercase;
+
+            &--sale {
+                background-color: var(--blue);
+                color: var(--white);
+            }
+
+            &--sold-out {
+                border-color: var(--dark-blue);
+                color: var(--dark-blue);
+            }
+        }
+
+        &--on-sale &__sale {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+        }
+
+        &--on-sale &__badge--sale {
+            display: flex;
+        }
+
+        &--unit-available &__unit {
+            display: block;
+            flex-basis: 100%;
+        }
+
+        dd {
+            margin: 0;
+        }
+
+        &--sold-out &__badge--sale {
+            display: none;
+        }
+
+        &--sold-out &__badge--sold-out {
+            display: flex;
+        }
+
+        &--on-sale &__regular,
+        &--on-sale &__availability {
+            display: none;
+        }
     }
-} 
+}
