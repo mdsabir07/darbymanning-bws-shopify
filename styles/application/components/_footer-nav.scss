@@ -1,12 +1,12 @@
 .footer-nav {
     &__title {
-        margin: 0;
         font-size: 2rem;
+        margin: 0;
     }
     &__ul {
-        padding: 0;
-        margin-top: 2rem;
         list-style: none;
+        margin-top: 2rem;
+        padding: 0;
 
         &--col2 {
             columns: 2;

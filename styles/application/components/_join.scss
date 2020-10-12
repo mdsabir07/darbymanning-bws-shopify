@@ -12,13 +12,13 @@
         padding: 0 1rem 0.5rem 0;
 
         &::before {
-            content:"•";
+            content: '•';
             padding-right: 1rem;
         }
 
         &:first-child {
             &::before {
-                content:"";
+                content: '';
                 padding-right: 0;
             }
         }

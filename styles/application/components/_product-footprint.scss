@@ -9,8 +9,8 @@
     }
 
     &__col {
-        width: 50%;
         height: inherit;
+        width: 50%;
     }
 
     &__img {
@@ -19,12 +19,12 @@
     }
 
     &__info {
-        padding: 3rem;
         background-color: var(--blue);
         color: white;
         display: flex;
         flex-direction: column;
         justify-content: center;
+        padding: 3rem;
     }
 
     &__title {

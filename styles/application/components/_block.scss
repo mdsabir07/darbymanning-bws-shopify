@@ -37,34 +37,32 @@
         }
     }
     &__message {
-        position: absolute;
-        top: 0.75rem;
-        left: 2rem;
         color: white;
+        font-size: 1.2rem;
+        left: 2rem;
+
+        left: 1rem;
+        position: absolute;
         text-transform: uppercase;
+        top: 0.75rem;
+        z-index: 1;
         &--blue {
             color: var(--dark-blue);
         }
-        
-        left: 1rem;
-		font-size: 1.2rem;
-		z-index: 1;
-		
+
         &--default {
-	        
             color: var(--blue);
-            
+
             .blog__hero & {
                 left: 3rem;
             }
         }
-        
     }
-    
+
     &__title {
         font-size: 2rem;
-        text-transform: uppercase;
         margin-bottom: 0;
+        text-transform: uppercase;
         &--large {
             font-size: 2.75rem;
         }
@@ -72,16 +70,16 @@
             padding-top: 2rem;
         }
         &--mid {
-	        font-size: 2.1rem;
-	        font-weight: normal;
+            font-size: 2.1rem;
+            font-weight: normal;
         }
     }
 
     &__p {
         font-size: 1.75rem;
     }
-    
+
     &__buttons .button {
-	    display: inline-block;
-	}
+        display: inline-block;
+    }
 }

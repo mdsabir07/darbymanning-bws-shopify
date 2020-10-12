@@ -1,23 +1,22 @@
 .small-slide {
-    width: 100%;
     // padding: 0 1rem;
     margin: 3rem 0;
+    width: 100%;
 
     &__shadow {
-        transition: 0.3s all;
-        box-shadow: 0px 0px 7px 2px rgba(0, 0, 0, 0.144);
         background: var(--light-gray);
+        box-shadow: 0px 0px 7px 2px rgba(0, 0, 0, 0.144);
+        transition: 0.3s all;
     }
 
     &__img {
+        background-color: var(--white);
         height: auto;
         padding: 40px 0 0;
-        background-color: var(--white);
-        
-        img {
-		    width: 100%;
-		}
 
+        img {
+            width: 100%;
+        }
     }
 
     &__shop {
@@ -26,7 +25,6 @@
     }
 
     &__a:hover {
-        
         .small-slide__shadow {
             box-shadow: 0px 0px 7px 2px rgba(0, 0, 0, 0.301);
         }
