@@ -1,7 +1,6 @@
 .home-about {
     background-color: var(--exlight-gray);
-    padding-bottom: 0;
-    padding-top: 8rem;
+    padding: 9rem 0 2rem;
 
     &__item {
         display: flex;
@@ -16,15 +15,14 @@
         margin-right: 2rem;
         min-width: 7rem;
     }
+
     &__info {
         display: inline-block;
     }
+
     &__title {
         font-size: 2.5rem;
         margin-bottom: 0.5rem;
         text-transform: uppercase;
-    }
-    &__button {
-        margin: 8rem auto 0;
     }
 }

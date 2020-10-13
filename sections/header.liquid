@@ -3,7 +3,7 @@
  {% capture announcement_message %}
   {% if section.settings.message %}
     {% if section.settings.home_page_only == false or request.page_type == 'index' %}
-      <style>
+      {% style %}
         .announcement-bar {
           background-color: {{ section.settings.color_bg }};
         }
@@ -23,7 +23,7 @@
         .announcement-bar__message {
           color: {{ section.settings.color_text }};
         }
-      </style>
+      {% endstyle %}
 
       <div class="announcement-bar" role="region" aria-label="{{ 'sections.header.announcement_bar_label' | t }}">
         {%- unless section.settings.message_link == blank -%}
@@ -39,37 +39,17 @@
   {% endif %}
 {% endcapture %}
 
-<header class="header  o-grid  o-grid--item  o-grid--item--padding  u-flex">
-    <div class="header__wrap">     
+<header class="header  o-grid  o-grid__item  o-grid__item--padding">
+    <div class="header__wrap">
         <div class="header__logo" id="logo">
-        {% if request.page_type == 'index' %}
-          <h1 class="h2 header__logo">
-        {% else %}
-          <div class="h2 header__logo">
-        {% endif %}
         {% if section.settings.logo %}
             <a href="{{ routes.root_url }}" class="header__logo-image">
-              {% capture logo_alt %}{{ section.settings.logo.alt | default: shop.name }}{% endcapture %}
-              <img src="{{ section.settings.logo | img_url: 'master' }}"                   
-                   alt="{{ logo_alt | escape }}"
-                   style="max-width: {{ section.settings.logo_max_width }}px">
-              <noscript>
-                {% capture image_size %}{{ section.settings.logo_max_width | escape }}x{% endcapture %}
-                <img src="{{ section.settings.logo | img_url: image_size }}"
-                     srcset="{{ section.settings.logo | img_url: image_size }} 1x, {{ section.settings.logo | img_url: image_size, scale: 2 }} 2x"
-                     alt="{{ section.settings.logo.alt | default: shop.name }}"
-                     style="max-width: {{ section.settings.logo_max_width }}px;">
-              </noscript>
+              <img src="{{ 'logo.svg' | asset_url }}" alt="{{ shop.name | escape }}">
             </a>
           {% else %}
             <a class="header__logo-link" href="{{ routes.root_url }}">{{ shop.name }}</a>
           {% endif %}
-        {% if request.page_type == 'index' %}
-          </h1>
-        {% else %}
-          </div>
-        {% endif %}
-        </div> 
+        </div>
 
         <div class="header__col">
             <div class="header__col  header__col--sub">
@@ -89,7 +69,7 @@
                       </a>
                     {% endif %}
                   {% endif %}
-        
+
                   <a href="{{ routes.cart_url }}" class="header__icon">
                     {% include 'icon-cart' %}
                     <div id="CartCount" class="header__cart-count{% if cart.item_count == 0 %} u-hide{% endif %}" data-cart-count-bubble>
@@ -101,357 +81,341 @@
             <nav class="nav">
                 {% include 'site-nav', linklist: section.settings.main_linklist %}
             </nav>
-            
-        </div> 
+
+        </div>
         <div class="header__m-search">
             <a href="#">
                 {% include 'icon-search' %}
             </a>
-        </div>       
+        </div>
     </div>
-  </div>    
-  </header> 
+  </div>
+  </header>
 </div>
 
 
 
 
 <script type="application/ld+json">
-{
-  "@context": "http://schema.org",
-  "@type": "Organization",
-  "name": {{ shop.name | json }},
-  {% if section.settings.logo %}
-    {% assign image_size = section.settings.logo.width | append:'x' %}
-    "logo": {{ section.settings.logo | img_url: image_size | prepend: "https:" | json }},
-  {% endif %}
-  "sameAs": [
-    {{ settings.social_twitter_link | json }},
-    {{ settings.social_facebook_link | json }},
-    {{ settings.social_pinterest_link | json }},
-    {{ settings.social_instagram_link | json }},
-    {{ settings.social_tumblr_link | json }},
-    {{ settings.social_snapchat_link | json }},
-    {{ settings.social_youtube_link | json }},
-    {{ settings.social_vimeo_link | json }}
-  ],
-  "url": {{ shop.url | append: page.url | json }}
-}
+
+
+[36mLine: 2[0m
+[31m(empty line)[0m
+[31m(empty line)[0m
+[31m[36mLine: 2[0m[0m
+[31m[31m(empty line)[0m[0m
+[31m[31m(empty line)[0m[0m
+[31m[31m[36mLine: 1[0m[0m[0m
+[31m[31m[31m[36 mLine : 1 [[0m[0m[0m
+
 </script>
 
 
 {% schema %}
+
 {
-  "name": {
-    "da": "Overskrift",
-    "de": "Titel",
-    "en": "Header",
-    "es": "Encabezado",
-    "fi": "Ylätunniste",
-    "fr": "En-tête",
-    "hi": "हैडर",
-    "it": "Header",
-    "ja": "ヘッダー",
-    "ko": "헤더",
-    "nb": "Header",
-    "nl": "Koptekst",
-    "pt-BR": "Cabeçalho",
-    "pt-PT": "Cabeçalho",
-    "sv": "Rubrik",
-    "th": "ส่วนหัว",
-    "zh-CN": "标头",
-    "zh-TW": "標頭"
-  },
-  "settings": [    
-    {
-      "type": "image_picker",
-      "id": "logo",
-      "label": {
-        "da": "Logobillede",
-        "de": "Logo-Foto",
-        "en": "Logo image",
-        "es": "Logo",
-        "fi": "Logokuva",
-        "fr": "Image du logo",
-        "hi": "लोगो इमेज",
-        "it": "Immagine del logo",
-        "ja": "ロゴ画像",
-        "ko": "로고 이미지",
-        "nb": "Logobilde",
-        "nl": "Afbeelding van logo",
-        "pt-BR": "Imagem do logotipo",
-        "pt-PT": "Imagem do logótipo",
-        "sv": "Logobild",
-        "th": "รูปภาพโลโก้",
-        "zh-CN": "logo 图片",
-        "zh-TW": "標誌圖片"
-      }
+    "name": {
+        "da": "Overskrift",
+        "de": "Titel",
+        "en": "Header",
+        "es": "Encabezado",
+        "fi": "Ylätunniste",
+        "fr": "En-tête",
+        "hi": "हैडर",
+        "it": "Header",
+        "ja": "ヘッダー",
+        "ko": "헤더",
+        "nb": "Header",
+        "nl": "Koptekst",
+        "pt-BR": "Cabeçalho",
+        "pt-PT": "Cabeçalho",
+        "sv": "Rubrik",
+        "th": "ส่วนหัว",
+        "zh-CN": "标头",
+        "zh-TW": "標頭"
     },
-    {
-      "type": "range",
-      "id": "logo_max_width",
-      "label": {
-        "da": "Tilpasset logobredde",
-        "de": "Logobreite",
-        "en": "Custom logo width",
-        "es": "Ancho del logo personalizado",
-        "fi": "Mukautetun logon leveys",
-        "fr": "Largeur personnalisée du logo",
-        "hi": "कस्टम लोगो की चौड़ाई",
-        "it": "Larghezza logo personalizzato",
-        "ja": "ロゴの幅をカスタマイズする",
-        "ko": "사용자 지정 로고 폭",
-        "nb": "Tilpasset logobredde",
-        "nl": "Aangepaste logo-breedte",
-        "pt-BR": "Largura do logotipo personalizado",
-        "pt-PT": "Largura de logótipo personalizada",
-        "sv": "Anpassad logotypsbredd",
-        "th": "ความกว้างของโลโก้แบบกำหนดเอง",
-        "zh-CN": "自定义 logo 宽度",
-        "zh-TW": "自訂商標寬度"
-      },
-      "min": 50,
-      "max": 250,
-      "step": 5,
-      "unit": "px",
-      "default": 100
-    },
-    {
-      "type": "link_list",
-      "id": "main_linklist",
-      "label": {
-        "da": "Menu",
-        "de": "Menü",
-        "en": "Menu",
-        "es": "Menú",
-        "fi": "Valikko",
-        "fr": "Menu",
-        "hi": "मेनू",
-        "it": "Menu",
-        "ja": "メニュー",
-        "ko": "메뉴",
-        "nb": "Meny",
-        "nl": "Menu",
-        "pt-BR": "Menu",
-        "pt-PT": "Menu",
-        "sv": "Meny",
-        "th": "เมนู",
-        "zh-CN": "菜单",
-        "zh-TW": "選單"
-      },
-      "default": "main-menu"
-    },
-    {
-      "type": "header",
-      "content": {
-        "da": "Meddelelseslinje",
-        "de": "Ankündigungsbereich",
-        "en": "Announcement bar",
-        "es": "Barra de anuncios",
-        "fi": "Ilmoituspalkki",
-        "fr": "Barre d'annonces",
-        "hi": "घोषणा बार",
-        "it": "Barra degli annunci",
-        "ja": "告知バー",
-        "ko": "공지 표시줄",
-        "nb": "Kunngjøringslinje",
-        "nl": "Aankondigingsbalk",
-        "pt-BR": "Barra de avisos",
-        "pt-PT": "Barra de comunicado",
-        "sv": "Meddelandefält",
-        "th": "แถบประกาศ",
-        "zh-CN": "公告栏",
-        "zh-TW": "公告列"
-      }
-    },
-    {
-      "type": "checkbox",
-      "id": "message",
-      "label": {
-        "da": "Vis meddelelse",
-        "de": "Ankündigung anzeigen",
-        "en": "Show announcement",
-        "es": "Mostrar anuncio",
-        "fi": "Näytä ilmoitus",
-        "fr": "Afficher l'annonce",
-        "hi": "घोषणा दिखाएं",
-        "it": "Mostra annuncio",
-        "ja": "告知を表示する",
-        "ko": "공지 표시",
-        "nb": "Vis kunngjøring",
-        "nl": "Aankondiging weergeven",
-        "pt-BR": "Exibir anúncio",
-        "pt-PT": "Mostrar comunicado",
-        "sv": "Visa tillkännagivande",
-        "th": "แสดงประกาศ",
-        "zh-CN": "显示公告",
-        "zh-TW": "顯示公告"
-      },
-      "default": false
-    },
-    {
-      "type": "checkbox",
-      "id": "home_page_only",
-      "label": {
-        "da": "Kun startside",
-        "de": "Nur Startseite",
-        "en": "Home page only",
-        "es": "Solo página de inicio",
-        "fi": "Vain etusivu",
-        "fr": "Page d'accueil uniquement",
-        "hi": "केवल होमपेज",
-        "it": "Solo home page",
-        "ja": "ホームページのみ",
-        "ko": "홈페이지만",
-        "nb": "Kun på startsiden",
-        "nl": "Alleen homepage",
-        "pt-BR": "Apenas na página inicial",
-        "pt-PT": "Apenas a página inicial",
-        "sv": "Endast hemsida",
-        "th": "หน้าแรกเท่านั้น",
-        "zh-CN": "仅主页",
-        "zh-TW": "僅限首頁"
-      },
-      "default": true
-    },
-    {
-      "type": "text",
-      "id": "message_text",
-      "label": {
-        "da": "Tekst",
-        "de": "Text",
-        "en": "Text",
-        "es": "Texto",
-        "fi": "Teksti",
-        "fr": "Texte",
-        "hi": "टेक्स्ट",
-        "it": "Testo",
-        "ja": "テキスト",
-        "ko": "텍스트",
-        "nb": "Tekst",
-        "nl": "Tekst",
-        "pt-BR": "Texto",
-        "pt-PT": "Texto",
-        "sv": "Text",
-        "th": "ข้อความ",
-        "zh-CN": "文本",
-        "zh-TW": "文字"
-      },
-      "default": {
-        "da": "Meddel noget her",
-        "de": "Hier etwas ankündigen",
-        "en": "Announce something here",
-        "es": "Anuncia algo aquí",
-        "fi": "Ilmoita jotakin tässä",
-        "fr": "Annoncez quelque chose ici",
-        "hi": "यहां कुछ घोषित करें",
-        "it": "Annuncia qualcosa qui",
-        "ja": "ここで告知してください",
-        "ko": "여기에 공지하십시오",
-        "nb": "Kunngjør noe her",
-        "nl": "Kondig hier iets aan",
-        "pt-BR": "Anuncie algo aqui",
-        "pt-PT": "Anunciar algo aqui",
-        "sv": "Meddela något här",
-        "th": "ประกาศข้อความที่นี่",
-        "zh-CN": "在此处进行公告",
-        "zh-TW": "在此公告資訊"
-      }
-    },
-    {
-      "type": "url",
-      "id": "message_link",
-      "label": {
-        "da": "Link",
-        "de": "Link",
-        "en": "Link",
-        "es": "Enlace",
-        "fi": "Linkki",
-        "fr": "Lien",
-        "hi": "लिंक",
-        "it": "Link",
-        "ja": "リンク",
-        "ko": "링크",
-        "nb": "Kobling",
-        "nl": "Link",
-        "pt-BR": "Link",
-        "pt-PT": "Ligação",
-        "sv": "Länk",
-        "th": "ลิงก์",
-        "zh-CN": "链接",
-        "zh-TW": "連結"
-      },
-      "info": {
-        "da": "Valgfri",
-        "de": "Optional",
-        "en": "Optional",
-        "es": "Opcional",
-        "fi": "Valinnainen",
-        "fr": "Facultatif",
-        "hi": "वैकल्पिक",
-        "it": "Facoltativo",
-        "ja": "オプション",
-        "ko": "선택 사항",
-        "nb": "Valgfritt",
-        "nl": "Optioneel",
-        "pt-BR": "Opcional",
-        "pt-PT": "Opcional",
-        "sv": "Valfritt",
-        "th": "ไม่จำเป็น",
-        "zh-CN": "可选",
-        "zh-TW": "(選填)"
-      }
-    },
-    {
-      "type": "color",
-      "id": "color_bg",
-      "label": {
-        "da": "Bjælke",
-        "de": "Zeile",
-        "en": "Bar",
-        "es": "Barra",
-        "fi": "Palkki",
-        "fr": "Barre",
-        "hi": "बार",
-        "it": "Barra",
-        "ja": "バー",
-        "ko": "바",
-        "nb": "Felt",
-        "nl": "Balk",
-        "pt-BR": "Barra",
-        "pt-PT": "Barra",
-        "sv": "Fält",
-        "th": "แถบ",
-        "zh-CN": "栏",
-        "zh-TW": "橫條"
-      },
-      "default": "#3a3a3a"
-    },
-    {
-      "type": "color",
-      "id": "color_text",
-      "label": {
-        "da": "Tekst",
-        "de": "Text",
-        "en": "Text",
-        "es": "Texto",
-        "fi": "Teksti",
-        "fr": "Texte",
-        "hi": "टेक्स्ट",
-        "it": "Testo",
-        "ja": "テキスト",
-        "ko": "텍스트",
-        "nb": "Tekst",
-        "nl": "Tekst",
-        "pt-BR": "Texto",
-        "pt-PT": "Texto",
-        "sv": "Text",
-        "th": "ข้อความ",
-        "zh-CN": "文本",
-        "zh-TW": "文字"
-      },
-      "default": "#ffffff"
-    }
-  ]
+    "settings": [
+        {
+            "type": "image_picker",
+            "id": "logo",
+            "label": {
+                "da": "Logobillede",
+                "de": "Logo-Foto",
+                "en": "Logo image",
+                "es": "Logo",
+                "fi": "Logokuva",
+                "fr": "Image du logo",
+                "hi": "लोगो इमेज",
+                "it": "Immagine del logo",
+                "ja": "ロゴ画像",
+                "ko": "로고 이미지",
+                "nb": "Logobilde",
+                "nl": "Afbeelding van logo",
+                "pt-BR": "Imagem do logotipo",
+                "pt-PT": "Imagem do logótipo",
+                "sv": "Logobild",
+                "th": "รูปภาพโลโก้",
+                "zh-CN": "logo 图片",
+                "zh-TW": "標誌圖片"
+            }
+        }, {
+            "type": "range",
+            "id": "logo_max_width",
+            "label": {
+                "da": "Tilpasset logobredde",
+                "de": "Logobreite",
+                "en": "Custom logo width",
+                "es": "Ancho del logo personalizado",
+                "fi": "Mukautetun logon leveys",
+                "fr": "Largeur personnalisée du logo",
+                "hi": "कस्टम लोगो की चौड़ाई",
+                "it": "Larghezza logo personalizzato",
+                "ja": "ロゴの幅をカスタマイズする",
+                "ko": "사용자 지정 로고 폭",
+                "nb": "Tilpasset logobredde",
+                "nl": "Aangepaste logo-breedte",
+                "pt-BR": "Largura do logotipo personalizado",
+                "pt-PT": "Largura de logótipo personalizada",
+                "sv": "Anpassad logotypsbredd",
+                "th": "ความกว้างของโลโก้แบบกำหนดเอง",
+                "zh-CN": "自定义 logo 宽度",
+                "zh-TW": "自訂商標寬度"
+            },
+            "min": 50,
+            "max": 250,
+            "step": 5,
+            "unit": "px",
+            "default": 100
+        }, {
+            "type": "link_list",
+            "id": "main_linklist",
+            "label": {
+                "da": "Menu",
+                "de": "Menü",
+                "en": "Menu",
+                "es": "Menú",
+                "fi": "Valikko",
+                "fr": "Menu",
+                "hi": "मेनू",
+                "it": "Menu",
+                "ja": "メニュー",
+                "ko": "메뉴",
+                "nb": "Meny",
+                "nl": "Menu",
+                "pt-BR": "Menu",
+                "pt-PT": "Menu",
+                "sv": "Meny",
+                "th": "เมนู",
+                "zh-CN": "菜单",
+                "zh-TW": "選單"
+            },
+            "default": "main-menu"
+        }, {
+            "type": "header",
+            "content": {
+                "da": "Meddelelseslinje",
+                "de": "Ankündigungsbereich",
+                "en": "Announcement bar",
+                "es": "Barra de anuncios",
+                "fi": "Ilmoituspalkki",
+                "fr": "Barre d'annonces",
+                "hi": "घोषणा बार",
+                "it": "Barra degli annunci",
+                "ja": "告知バー",
+                "ko": "공지 표시줄",
+                "nb": "Kunngjøringslinje",
+                "nl": "Aankondigingsbalk",
+                "pt-BR": "Barra de avisos",
+                "pt-PT": "Barra de comunicado",
+                "sv": "Meddelandefält",
+                "th": "แถบประกาศ",
+                "zh-CN": "公告栏",
+                "zh-TW": "公告列"
+            }
+        }, {
+            "type": "checkbox",
+            "id": "message",
+            "label": {
+                "da": "Vis meddelelse",
+                "de": "Ankündigung anzeigen",
+                "en": "Show announcement",
+                "es": "Mostrar anuncio",
+                "fi": "Näytä ilmoitus",
+                "fr": "Afficher l'annonce",
+                "hi": "घोषणा दिखाएं",
+                "it": "Mostra annuncio",
+                "ja": "告知を表示する",
+                "ko": "공지 표시",
+                "nb": "Vis kunngjøring",
+                "nl": "Aankondiging weergeven",
+                "pt-BR": "Exibir anúncio",
+                "pt-PT": "Mostrar comunicado",
+                "sv": "Visa tillkännagivande",
+                "th": "แสดงประกาศ",
+                "zh-CN": "显示公告",
+                "zh-TW": "顯示公告"
+            },
+            "default": false
+        }, {
+            "type": "checkbox",
+            "id": "home_page_only",
+            "label": {
+                "da": "Kun startside",
+                "de": "Nur Startseite",
+                "en": "Home page only",
+                "es": "Solo página de inicio",
+                "fi": "Vain etusivu",
+                "fr": "Page d'accueil uniquement",
+                "hi": "केवल होमपेज",
+                "it": "Solo home page",
+                "ja": "ホームページのみ",
+                "ko": "홈페이지만",
+                "nb": "Kun på startsiden",
+                "nl": "Alleen homepage",
+                "pt-BR": "Apenas na página inicial",
+                "pt-PT": "Apenas a página inicial",
+                "sv": "Endast hemsida",
+                "th": "หน้าแรกเท่านั้น",
+                "zh-CN": "仅主页",
+                "zh-TW": "僅限首頁"
+            },
+            "default": true
+        }, {
+            "type": "text",
+            "id": "message_text",
+            "label": {
+                "da": "Tekst",
+                "de": "Text",
+                "en": "Text",
+                "es": "Texto",
+                "fi": "Teksti",
+                "fr": "Texte",
+                "hi": "टेक्स्ट",
+                "it": "Testo",
+                "ja": "テキスト",
+                "ko": "텍스트",
+                "nb": "Tekst",
+                "nl": "Tekst",
+                "pt-BR": "Texto",
+                "pt-PT": "Texto",
+                "sv": "Text",
+                "th": "ข้อความ",
+                "zh-CN": "文本",
+                "zh-TW": "文字"
+            },
+            "default": {
+                "da": "Meddel noget her",
+                "de": "Hier etwas ankündigen",
+                "en": "Announce something here",
+                "es": "Anuncia algo aquí",
+                "fi": "Ilmoita jotakin tässä",
+                "fr": "Annoncez quelque chose ici",
+                "hi": "यहां कुछ घोषित करें",
+                "it": "Annuncia qualcosa qui",
+                "ja": "ここで告知してください",
+                "ko": "여기에 공지하십시오",
+                "nb": "Kunngjør noe her",
+                "nl": "Kondig hier iets aan",
+                "pt-BR": "Anuncie algo aqui",
+                "pt-PT": "Anunciar algo aqui",
+                "sv": "Meddela något här",
+                "th": "ประกาศข้อความที่นี่",
+                "zh-CN": "在此处进行公告",
+                "zh-TW": "在此公告資訊"
+            }
+        }, {
+            "type": "url",
+            "id": "message_link",
+            "label": {
+                "da": "Link",
+                "de": "Link",
+                "en": "Link",
+                "es": "Enlace",
+                "fi": "Linkki",
+                "fr": "Lien",
+                "hi": "लिंक",
+                "it": "Link",
+                "ja": "リンク",
+                "ko": "링크",
+                "nb": "Kobling",
+                "nl": "Link",
+                "pt-BR": "Link",
+                "pt-PT": "Ligação",
+                "sv": "Länk",
+                "th": "ลิงก์",
+                "zh-CN": "链接",
+                "zh-TW": "連結"
+            },
+            "info": {
+                "da": "Valgfri",
+                "de": "Optional",
+                "en": "Optional",
+                "es": "Opcional",
+                "fi": "Valinnainen",
+                "fr": "Facultatif",
+                "hi": "वैकल्पिक",
+                "it": "Facoltativo",
+                "ja": "オプション",
+                "ko": "선택 사항",
+                "nb": "Valgfritt",
+                "nl": "Optioneel",
+                "pt-BR": "Opcional",
+                "pt-PT": "Opcional",
+                "sv": "Valfritt",
+                "th": "ไม่จำเป็น",
+                "zh-CN": "可选",
+                "zh-TW": "(選填)"
+            }
+        }, {
+            "type": "color",
+            "id": "color_bg",
+            "label": {
+                "da": "Bjælke",
+                "de": "Zeile",
+                "en": "Bar",
+                "es": "Barra",
+                "fi": "Palkki",
+                "fr": "Barre",
+                "hi": "बार",
+                "it": "Barra",
+                "ja": "バー",
+                "ko": "바",
+                "nb": "Felt",
+                "nl": "Balk",
+                "pt-BR": "Barra",
+                "pt-PT": "Barra",
+                "sv": "Fält",
+                "th": "แถบ",
+                "zh-CN": "栏",
+                "zh-TW": "橫條"
+            },
+            "default": "#3a3a3a"
+        }, {
+            "type": "color",
+            "id": "color_text",
+            "label": {
+                "da": "Tekst",
+                "de": "Text",
+                "en": "Text",
+                "es": "Texto",
+                "fi": "Teksti",
+                "fr": "Texte",
+                "hi": "टेक्स्ट",
+                "it": "Testo",
+                "ja": "テキスト",
+                "ko": "텍스트",
+                "nb": "Tekst",
+                "nl": "Tekst",
+                "pt-BR": "Texto",
+                "pt-PT": "Texto",
+                "sv": "Text",
+                "th": "ข้อความ",
+                "zh-CN": "文本",
+                "zh-TW": "文字"
+            },
+            "default": "#ffffff"
+        }
+    ]
 }
+
 {% endschema %}

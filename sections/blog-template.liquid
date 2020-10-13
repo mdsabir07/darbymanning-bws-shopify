@@ -2,7 +2,7 @@
 <div class="blog-template blog-items">
 {% paginate blog.articles by 11 %}
 
-{% include "collection-buttons" %}    
+{% include "collection-buttons" %}
 
 {% if section.settings.layout == 'grid' %}
     <div class="o-grid">
@@ -32,11 +32,11 @@
       {% when 11 %}
       {% assign width = 'u-size-6@s  u-size-6@m  u-size-3@l' %}
       {% endcase %}
-        <div class="o-grid--item u-size-12 {{width}} u-mB-48 blog-items-filter">
+        <div class="o-grid__item u-size-12 {{width}} u-mB-48 blog-items-filter">
          <article class="block border">
           <div class="small-slide__shadow">
           <p class="block__message"><span>{{blog.title}} </span> | <span>{{ article.published_at | time_tag: '%d %b' }}</span></p>
-          <a href="{{ article.url }}" class="article__link">                      
+          <a href="{{ article.url }}" class="article__link">
             {% if article.image %}
             {%- assign img_url = article.image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
             <img
@@ -44,7 +44,7 @@
                 src="{{ article.image | img_url: 'master' }}"
                 data-src="{{ img_url }}"
                 data-sizes="auto"
-                alt="{{ article.image.alt | escape }}">              
+                alt="{{ article.image.alt | escape }}">
               <noscript>
                 <div class="-wrapper">
                   {{ article | img_url: '345x345', scale: 2 | img_tag: article.title, '' }}
@@ -52,12 +52,12 @@
               </noscript>
               {% else %}
                 {{ 'image' | placeholder_svg_tag: 'placeholder-svg ' }}
-            {% endif %}                     
+            {% endif %}
 
           <div class="article__grid-meta block__info">
-            <h3 class="block__title block__title--mid" id="FeaturedBlogTitle-{{ forloop.index0 }}-{{ section.id }}">                  
+            <h3 class="block__title block__title--mid" id="FeaturedBlogTitle-{{ forloop.index0 }}-{{ section.id }}">
               {{ article.title | escape}}
-            </h3>   
+            </h3>
             {% if section.settings.blog_show_author %}
               <span class="article__author">{{ 'blogs.article.by_author' | t: author: article.author }}</span>
             {% endif %}
@@ -76,18 +76,18 @@
         </div>
       {% endfor %}
     </div>
-  
+
 {% else %}
   <div class="o-grid blog-list-view">
     {% for article in blog.articles %}
-      <div class="o-grid--item u-size-12 u-mB-48">
-        <div class="block border">          
+      <div class="o-grid__item u-size-12 u-mB-48">
+        <div class="block border">
               <div class="small-slide__shadow article-listing">
                 <h2 class="block__title block__title--mid"><a href="{{ article.url }}">{{ article.title }}</a></h2>
                 {% if section.settings.blog_show_author %}
                   <span class="article__author">{{ 'blogs.article.by_author' | t: author: article.author }}</span>
                 {% endif %}
-                
+
                 {% if article.image %}
                 {%- assign img_url = article.image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
                 <img
@@ -95,7 +95,7 @@
                     src="{{ article.image | img_url: 'master' }}"
                     data-src="{{ img_url }}"
                     data-sizes="auto"
-                    alt="{{ article.image.alt | escape }}">              
+                    alt="{{ article.image.alt | escape }}">
                   <noscript>
                     <div class="-wrapper">
                       {{ article | img_url: '345x345', scale: 2 | img_tag: article.title, '' }}
@@ -112,7 +112,7 @@
                     {{ article.content | strip_html | truncate: 100 }}
                   {% endif %}
                 </div>
-              </div>           
+              </div>
         </div>
       </div>
     {% endfor %}

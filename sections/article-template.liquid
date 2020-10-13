@@ -1,13 +1,13 @@
 <article>
 <div class="blog-hero">
-    <div class="o-grid  o-grid--item">
-        <div class="blog-hero">       		        	         
-            <div class="block  block--row border">                
+    <div class="o-grid  o-grid__item">
+        <div class="blog-hero">
+            <div class="block  block--row border">
                 <div class="block__col blog-hero__col u-wrap">
-                  <div class="block__info  block__info--light-gray  block__info--large blog-hero__content" style="background-color : {{section.settings.text_block_bg}}; color: {{section.settings.text_color}};">                    
+                  <div class="block__info  block__info--light-gray  block__info--large blog-hero__content" style="background-color : {{section.settings.text_block_bg}}; color: {{section.settings.text_color}};">
                     <p class="block__message block__message--default"><span>{{blog.title}} </span></p>
-                    <h2 class="article__title nimbus u-textCaps">{{ article.title }}</h2>                                                                               
-                  </div> 
+                    <h2 class="article__title nimbus u-textCaps">{{ article.title }}</h2>
+                  </div>
 
                 {% if section.settings.blog_show_author %}
                 <div class="u-alignSelfEnd">
@@ -24,7 +24,7 @@
                         src="{{ article.image | img_url: 'master' }}"
                         data-src="{{ img_url }}"
                         data-sizes="auto"
-                        alt="{{ article.image.alt | escape }}">              
+                        alt="{{ article.image.alt | escape }}">
                         <noscript>
                         <div class="article__grid-image-wrapper">
                         {{ article | img_url: '345x345', scale: 2 | img_tag: article.title, 'article__grid-image' }}
@@ -34,14 +34,14 @@
                         {{ 'image' | placeholder_svg_tag: 'placeholder-svg article__grid-image' }}
                     {% endif %}
                 </div>
-                                    
+
             </div>
-        </div>     
-    </div>              
+        </div>
+    </div>
 </div>
 <div class="article-content u-mV-48">
     <div class="o-grid">
-        <div class="o-grid--item u-flex u-alignCenter">
+        <div class="o-grid__item u-flex u-alignCenter">
             <div class="u-size-8@m">
                 {{article.content}}
             </div>
@@ -49,7 +49,7 @@
     </div>
     {% if section.settings.show_share_buttons %}
         {% include 'social-sharing', share_title: article.title, share_permalink: article.url, share_image: article.image %}
-    {% endif %}  
+    {% endif %}
 </div>
 </article>
 
