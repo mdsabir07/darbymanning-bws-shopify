@@ -1,5 +1,5 @@
 <section class="collection-items  o-grid  o-grid--p">
-    <div class="o-grid--item  u-size-12@s"> 
+    <div class="o-grid__item  u-size-12@s">
         <span class="caps  h3  h-light  nimbus" for="sort-by">Sort by</span>
         <select id="sort-by">
             <option value="manual">Featured</option>
@@ -10,19 +10,19 @@
             <option value="created-ascending">Oldest to Newest</option>
             <option value="created-descending">Newest to Oldest</option>
             <option value="best-selling">Best Selling</option>
-          </select>                    
+          </select>
     </div>
 
     {% paginate collection.products by 16 %}
-    {% for product in collection.products %} 
+    {% for product in collection.products %}
         {% if template contains 'brands' %}
-        <div class="o-grid--item  u-size-6@s  u-size-4@m  u-size-3@l">
-            {% include 'product-card-grid', product: product %}       
+        <div class="o-grid__item  u-size-6@s  u-size-4@m  u-size-3@l">
+            {% include 'product-card-grid', product: product %}
         </div>
         {% else %}
-            <div class="o-grid--item  u-size-6@s  u-size-4@m  u-size-3@l  collection-items__item"> 
-                {% include 'product-card-list', product: product %}            
-            </div>  
+            <div class="o-grid__item  u-size-6@s  u-size-4@m  u-size-3@l  collection-items__item">
+                {% include 'product-card-list', product: product %}
+            </div>
         {% endif %}
 
     {% else %}

@@ -1,11 +1,11 @@
 <section class="c-hero-slider" data-section-id="{{ section.id }}" data-section-type="hero-section">
     <div class="o-grid  o-grid--item">
-        <div class="hero-slider js-slider">
+        <div class="hero-slider js-slider" data-gutter="1">
         	{% if section.blocks.size == 0 %}
 		    {% include 'no-blocks' %}
 		    {% else %}
 	        	{% for block in section.blocks %}
-		            <div id="{{block.id}}"> 
+		            <div id="{{block.id}}">
 		                <div class="slide  border" style="--border-color: {{block.settings.button_color_bg}}">
 		                	{% capture order %}{% if block.settings.layout == 'left' %}1{% else %}2{% endif %}{% endcapture %}
 		                    <div class="slide__img" style="order: {{ order }}" data-image-loading-animation>
@@ -40,17 +40,17 @@
 								  </a>
 								{% endif %}
 		                    </article>
-		                    
+
 		                </div>
 		            </div>
-	            {% endfor %}  
-	        {% endif %}   
+	            {% endfor %}
+	        {% endif %}
         </div>
         <ul class="slide__controls js-slider-controls" id="hero-controls" aria-label="Carousel Navigation" tabindex="0">
             <li class="slide__dots js-slider-dots">
             	{% for block in section.blocks %}
             		<span class="slide__dot {% if forloop.index == 1 %}active{% endif %}"></span>
-            	{% endfor %} 
+            	{% endfor %}
             </li>
             <li class="slide__next  button" data-controls="next" aria-controls="customize" tabindex="-1">
                 <svg width="17px" height="18px" viewBox="0 0 17 18" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -60,10 +60,10 @@
                             <polygon id="Fill-3" transform="translate(8.500000, 9.000000) rotate(-270.000000) translate(-8.500000, -9.000000) " points="7.58805575 1 0 17 2.34598347 17 8.54454108 3.44934827 14.6540165 17 17 17 9.44133218 1"></polygon>
                         </g>
                     </g>
-                </svg>       
+                </svg>
             </li>
         </ul>
-    </div>  
+    </div>
 </section>
 {% schema %}
 {
@@ -189,7 +189,7 @@
           }
         }
       ]
-    },    
+    },
     {
       "type": "richtext",
       "id": "text",

@@ -1,20 +1,20 @@
 <section class="c-slider-4 u-section-m collection-slider">
-    <div class="o-grid o-grid--item">
+    <div class="o-grid  o-grid--item">
         {% if section.settings.title != blank %}
          <h2 class="nimbus u-textUpper  padding-wrap  h3 section-title">{{ section.settings.title | escape }}</h2>
-        {% endif %}              
+        {% endif %}
 
         {%- assign collection = collections[section.settings.collection] -%}
         {%- assign product_limit = section.settings.grid | times: section.settings.rows -%}
 
-        <div class="js-slider " data-items="4" data-gutter="10" data-responsive='{"350": {"items": "2"}, "700": {"items": "3"}, "1000": {"items": "4"}}'>>
+        <div class="js-slider " data-items="4" data-gutter="1" data-responsive='{"350": {"items": "2"}, "700": {"items": "3"}, "1000": {"items": "4"}}'>>
           {% for product in collection.products limit: product_limit %}
-            <div class="slide__item--{{section.id}}"> 
-                {% include 'product-card-grid', product: product %}                
+            <div class="slide__item--{{section.id}}">
+                {% include 'product-card-grid', product: product %}
             </div>
           {% else %}
 
-          {% for i in (1..product_limit) %}                                    
+          {% for i in (1..product_limit) %}
             <div>
                 <div class="small-slide  block  border">
                     <a href="#" class="small-slide__a">
@@ -37,10 +37,10 @@
                 </div>
             </div>
             {% endfor %}
-        {% endfor %}                      
-            
+        {% endfor %}
+
         </div>
-    
+
         <ul class="slide__controls js-slider-controls" aria-label="Carousel Navigation" tabindex="0">
             <li class="slide__prev" data-controls="prev" aria-controls="customize" tabindex="-1">
                 <i class="fas fa-angle-left fa-5x"></i>
@@ -54,10 +54,10 @@
                             <polygon id="Fill-3" transform="translate(8.500000, 9.000000) rotate(-270.000000) translate(-8.500000, -9.000000) " points="7.58805575 1 0 17 2.34598347 17 8.54454108 3.44934827 14.6540165 17 17 17 9.44133218 1"></polygon>
                         </g>
                     </g>
-                </svg>       
+                </svg>
             </li>
         </ul>
-      {% if section.settings.show_view_all %}        
+      {% if section.settings.show_view_all %}
     <div class="text-center">
       <a href="{{ collection.url }}" class="button" aria-label="{{ 'collections.general.view_all_label' | t: collection_name: collection.title }}">
       {{ 'collections.general.view_all' | t }}
@@ -65,7 +65,7 @@
     </div>
   {% endif %}
 
-    </div>    
+    </div>
 </section>
 
 {% schema %}
@@ -215,7 +215,7 @@
       "max": 5,
       "step": 1,
       "default": 2
-    },    
+    },
     {
       "type": "checkbox",
       "id": "show_view_all",

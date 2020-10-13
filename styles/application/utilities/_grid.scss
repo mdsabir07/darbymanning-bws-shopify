@@ -1,11 +1,22 @@
 .o-grid {
+    $b: &;
+
     max-width: 125rem;
+
     &--p {
         padding: 0 calc(1rem + 0.8rem);
     }
+
     &--small-item {
         display: block;
         flex-direction: column;
         padding: 0 0.25rem;
+    }
+
+    &--small-pad {
+        #{$b}__item {
+            padding-left: 0.1rem;
+            padding-right: 0.1rem;
+        }
     }
 }

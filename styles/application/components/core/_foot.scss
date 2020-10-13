@@ -4,6 +4,7 @@
 
 .footer {
     margin-top: 8rem;
+    overflow: hidden;
 
     &__section {
         padding: 8rem 0;
@@ -19,35 +20,45 @@
     }
 
     .search-form {
+        &__input-wrapper {
+            display: flex;
+        }
+
         &__input {
-            background-color: #fff;
+            background-color: var(--white);
+            box-shadow: none;
         }
         &__submit {
-            margin-top: 5px;
             padding: 1rem;
         }
     }
 
     .legal-nav {
         &__ul {
+            line-height: 1em;
             list-style: none;
             padding-left: 2rem;
+
             @media only screen and (max-width: 767px) {
                 padding-left: 0;
             }
         }
+
         &__li {
             border-right: 1px solid #4a4a4a;
             color: #4a4a4a;
             display: inline-block;
             font-size: 1.8rem;
             padding: 0 1rem;
+
             &:first-child {
                 padding-left: 0;
+
                 @media only screen and (max-width: 767px) {
                     border: 0;
                 }
             }
+
             &:last-child {
                 border: 0;
             }
