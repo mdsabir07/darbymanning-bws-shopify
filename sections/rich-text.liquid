@@ -1,10 +1,10 @@
-<section class="o-grid  o-grid--item  u-section-m rich-text">    
+<section class="o-grid  o-grid__item  u-section-m rich-text">
     {% if section.settings.section_title != blank %}
         <h1 class="h-text-center h-light">{{ section.settings.section_title | escape }}</h1>
     {% endif %}
     {% if section.settings.text != blank %}
      <div class="rich-text__text text-center">{{ section.settings.text }}</div>
-    {% endif %}    
+    {% endif %}
 </section>
 {% schema %}
 {
@@ -29,7 +29,7 @@
     "zh-TW": "RTF 文字"
   },
   "class": "index-section",
-  "settings": [    
+  "settings": [
     {
       "type": "text",
       "id": "section_title",

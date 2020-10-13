@@ -1,10 +1,17 @@
 .collection-list {
     padding: 0 2rem 3rem;
+
     &__wrap {
         background-color: var(--exlight-gray);
     }
+
     &__img {
-        background-color: lightcoral;
+        background-color: var(--white);
+        display: flex;
         height: 10rem;
+
+        > img {
+            align-self: center;
+        }
     }
 }

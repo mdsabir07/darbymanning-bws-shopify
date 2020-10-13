@@ -1,12 +1,12 @@
 <div class="collection-display-children">
     {% include "collection-list-slider" %}
     {% include "collection-header" %}
-    
+
     {%- assign blocks = section.blocks | sort: 'collection.all_products_count' -%}
     {%- capture contentForQuerystring -%}{{ content_for_header }}{%- endcapture -%}
     {%- assign pageUrl = contentForQuerystring | split:'"pageurl":"' | last | split:'"' | first | split:'.myshopify.com' | last |
-	   replace:'\/','/' | 
-	   replace:'%20',' ' | 
+	   replace:'\/','/' |
+	   replace:'%20',' ' |
 	   replace:'\u0026','&'
 	-%}
 	{%- assign pageQuerystring = pageUrl | split:'?' | last -%}
@@ -15,15 +15,15 @@
 	{%- for part in parts -%}
 		{%- assign keyAndValue = part | split:'=' -%}
 		{%- if keyAndValue.size > 1 -%}
-			{%- if keyAndValue[0] == 'sort_by' -%}			
+			{%- if keyAndValue[0] == 'sort_by' -%}
 			    {%- assign sort = keyAndValue[1] -%}
 			 {% endif %}
-		{% endif %} 
+		{% endif %}
 	{% endfor %}
-	
+
     <section class="collection-items">
     	<div class="o-grid">
-	    	<div class="o-grid--item  u-size-12@s"> 
+	    	<div class="o-grid__item  u-size-12@s">
 		        <span class="caps  h3  h-light  nimbus" for="sort-by">Sort by</span>
 		        <select id="sort-by">
 		            <option {%if sort == 'alphabetical' %}selected="selected"{% endif %} value="alphabetical">Alphabetical</option>
@@ -31,7 +31,7 @@
 		            <option {%if sort == 'products_low' %}selected="selected"{% endif %} value="products_low">No of Products: Low to High</option>
 		            <option {%if sort == 'date' %}selected="selected"{% endif %} value="date">Oldest to Newest</option>
 		            <option {%if sort == 'date_reversed' %}selected="selected"{% endif %} value="date_reversed">Newest to Oldest</option>
-		          </select>                    
+		          </select>
 		    </div>
 		</div>
 		{% case sort %}
@@ -54,7 +54,7 @@
 	        {% for collection in collections %}
 	        	{%- assign filtered = blocks | where: collection.handle -%}
 	            	{% if filtered.size > 0 %}
-						<div class="o-grid u-mB-48">      
+						<div class="o-grid u-mB-48">
 	            			{% include 'collection-grid-item', collection: collection %}
 						</div>
 					{% endif %}
@@ -106,7 +106,7 @@
               "zh-CN": "默认情况下列出您的所有产品系列。若要自定义列表，请选择“已选择”并添加产品系列。",
               "zh-TW": "系統預設會將您所有的商品系列都列入清單。如果想自訂清單，請點選「已選取」並新增商品系列。"
             }
-        },    
+        },
         {
             "type": "radio",
             "id": "display_type",
@@ -364,7 +364,7 @@
                 }
                 }
             ]
-        }       
+        }
     ],
     "blocks": [
     {

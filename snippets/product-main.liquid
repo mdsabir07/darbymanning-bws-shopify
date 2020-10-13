@@ -1,15 +1,15 @@
 <section class="o-grid  o-grid--p  product-main">
 
-    <div class="o-grid--item  u-size-12@s u-mB-20">
+    <div class="o-grid__item  u-size-12@s u-mB-20">
        {% include 'breadcrumbs' %}
     </div>
 
-  {%- assign current_variant = product.selected_or_first_available_variant -%}  
+  {%- assign current_variant = product.selected_or_first_available_variant -%}
   {%- assign product_image_scale = '2' -%}
   {%- assign compare_at_price = current_variant.compare_at_price -%}
   {%- assign price = current_variant.price -%}
 
-    <div class="o-grid--item  u-size-6@m  u-size-7@l" data-product-single-media-group>
+    <div class="o-grid__item  u-size-6@m  u-size-7@l" data-product-single-media-group>
         {%- assign featured_media = product.selected_or_first_available_variant.featured_media | default: product.featured_media -%}
 
       {%- for media in product.media -%}
@@ -17,10 +17,10 @@
       {%- endfor -%}
 
       {% if product.media.size > 1 %}
-         <div class="thumbnails-wrapper  u-mT-32">          
+         <div class="thumbnails-wrapper  u-mT-32">
           <ul class="o-grid product-single__thumbnails product-single__thumbnails-{{ section.id }}">
             {% for media in product.media %}
-              <li class="o-grid--item u-size-4  u-size-2@s u-size-2@m  u-size-2@l product-single__thumbnails-item js">
+              <li class="o-grid__item u-size-4  u-size-2@s u-size-2@m  u-size-2@l product-single__thumbnails-item js">
                 <a href="{{ media.preview_image | img_url: product_image_zoom_size, scale: product_image_scale }}"
                    class="text-link product-single__thumbnail product-single__thumbnail--{{ section.id }}"
                    data-thumbnail-id="{{ section.id }}-{{ media.id }}"
@@ -28,7 +28,7 @@
 
                     {%- capture thumbnailAlt -%}
                       {%- if media.media_type == 'video' or media.media_type == 'external_video' -%}
-                        {{ 'sections.featured_product.video_thumbnail_alt' | t: imageAlt: media.alt | escape }}                     
+                        {{ 'sections.featured_product.video_thumbnail_alt' | t: imageAlt: media.alt | escape }}
                       {%- else -%}
                         {{ 'sections.featured_product.gallery_thumbnail_alt' | t: imageAlt: media.alt | escape }}
                       {%- endif -%}
@@ -39,19 +39,19 @@
                       <div class="product-single__thumbnail-badge">
                         {% include 'icon-video-badge-full-color' %}
                       </div>
-                    {%- endif -%}                    
+                    {%- endif -%}
                 </a>
               </li>
             {% endfor %}
-          </ul>          
+          </ul>
         </div>
       {% endif %}
       {% if section.settings.show_share_buttons %}
-        {% include 'social-sharing', share_title: product.title, share_permalink: product.url, share_image: product.featured_media %}          
-      {% endif %}  
+        {% include 'social-sharing', share_title: product.title, share_permalink: product.url, share_image: product.featured_media %}
+      {% endif %}
     </div>
 
-    <div class="o-grid--item  u-size-6@m  u-size-5@l">        
+    <div class="o-grid__item  u-size-6@m  u-size-5@l">
         <h1 class="product-main__title  gray  caps  h3">{{product.title}}</h1>
         <div class="product__price">
           {% if product.compare_at_price_max > product.price %}
@@ -69,9 +69,9 @@
           {% endif %}
 
           <span id="ProductPrice" class="product-main__title  product-main__title--price  blue  caps  h3  h-light product-single__price{% if product.compare_at_price > product.price %} on-sale{% endif %}" itemprop="price" content="{{ current_variant.price | divided_by: 100.00 }}">
-            {{ current_variant.price | money }} 
+            {{ current_variant.price | money }}
           </span>
-        </div>     
+        </div>
         {%- if shop.taxes_included or shop.shipping_policy.body != blank -%}
             <div class="product__policies rte" data-product-policies>
               {%- if shop.taxes_included -%}
@@ -81,7 +81,7 @@
                 {{ 'products.product.shipping_policy_html' | t: link: shop.shipping_policy.url }}
               {%- endif -%}
             </div>
-        {%- endif -%}    
+        {%- endif -%}
         {% form 'product', product, data-product-form: '', data-product-handle: product.handle %}
           {% unless product.has_only_default_variant %}
           {% for option in product.options_with_values %}
@@ -151,7 +151,7 @@
           {% comment %}
           Line Item property inputs with `name="properties[NAME]"` will be picked up
           by ProductForm and registered as a properties input.
-          {% endcomment %}     
+          {% endcomment %}
 
           <button
           type="submit"
@@ -161,17 +161,17 @@
 
           {% if section.settings.enable_payment_button %}
             {{ form | payment_button }}
-          {% endif %}        
+          {% endif %}
         {% endform %}
-                               
+
         <!--Metafields start here  -->
-        <div class="product-meta">          
+        <div class="product-meta">
           {% assign custom_attributes = product.metafields.instructions %}
            {% if custom_attributes.size > 0 %}
            {% for field in custom_attributes %}
               {% assign attribute_code = field | first %}
               {% assign attribute_value = field | last %}
-              
+
               <div class="product-meta__content">
                 <div class="product-meta__icon">
                 {% if attribute_code contains 'made_with' %}
@@ -189,9 +189,9 @@
                   {% if attribute_code contains 'made_in' %}
                   <p><a href="#footprint">see product footprint</a></p>
                   {% endif %}
-                </div>        
-              </div>        
-           {% endfor %}            
+                </div>
+              </div>
+           {% endfor %}
           {% endif %}
           <div class="product-meta__content">
             <div class="product-meta__icon">
@@ -210,13 +210,13 @@
           <div class="product-meta__icon">
             {% include 'icon-envelope' %}
           </div>
-          <div class="product-meta__detail">            
+          <div class="product-meta__detail">
               <p>{{section.settings.question}}</p>
-              <p>Email &nbsp;<span><a href="mailto:{{section.settings.email}}">{{section.settings.email}}</a></span></p>                        
+              <p>Email &nbsp;<span><a href="mailto:{{section.settings.email}}">{{section.settings.email}}</a></span></p>
           </div>
         </div>
         {% endif %}
-        </div>        
+        </div>
         <!--Metafields ends here  -->
 
         <div class="product-single__description rte">
@@ -229,7 +229,7 @@
             <div class="product-main__color"></div>
             <div class="product-main__color"></div>
         </div>
-        
+
         <h3 class="product-main__detail  h5  gray">Size</h3>
         <div class="product-main__sizes">
             <div class="product-main__size  caps">s</div>
@@ -252,8 +252,8 @@
                     F
                 </button>
             </a>
-        </div>        
-        <p class="gray  h-bold">Brothers notes: Good quality organic t-shirt made to last in a premium weight.</p>        
+        </div>
+        <p class="gray  h-bold">Brothers notes: Good quality organic t-shirt made to last in a premium weight.</p>
     </div>
 </section>
 

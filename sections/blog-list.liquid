@@ -1,7 +1,7 @@
 <section class="blog-hero">
-    <div class="o-grid  o-grid--item">
-        <div class="blog__hero">       		        	         
-            <div class="block  block--row border" style="--border-color: {{section.settings.button_color_bg}}">                
+    <div class="o-grid  o-grid__item">
+        <div class="blog__hero">
+            <div class="block  block--row border" style="--border-color: {{section.settings.button_color_bg}}">
                 <article class="block__col blog__hero__col">
                     <div class="block__info  block__info--light-gray  block__info--large blog__hero__content" style="background-color : {{section.settings.text_block_bg}}; color: {{section.settings.text_color}};">
                     <h1 class="block__title  block__title--p-t  nimbus u-textCaps">
@@ -27,28 +27,28 @@
                         {{- section.settings.button_label | escape -}}
                         </a>
                     {% endif %}
-                  </div> 
+                  </div>
                 </article>
                 <div class="block__col blog__hero__img">
-                    {% if section.settings.image != blank %}                        
+                    {% if section.settings.image != blank %}
                         <img
                             class="lazyload lazypreload"
-                            src="{{section.settings.image | img_url: 'master'}}"                            
+                            src="{{section.settings.image | img_url: 'master'}}"
                             alt="{{ section.settings.image.alt | escape }}">
                     {% else %}
                         {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
                     {% endif %}
                 </div>
-                                    
+
             </div>
-        </div>     
-    </div>      
-    {% include "collection-buttons" %}    
+        </div>
+    </div>
+    {% include "collection-buttons" %}
 </section>
 <section class="blog-items o-grid--p">
     {% for block in section.blocks %}
     {% capture order %}{{ forloop.index }}{% endcapture %}
-        <div class="o-grid u-mB-48 {{order}}">                      
+        <div class="o-grid u-mB-48 {{order}}">
             {%- assign blog = blogs[block.settings.blog] -%}
             {% include 'blog-grid', blog: blog, order: order %}
         </div>
@@ -57,7 +57,7 @@
 {% schema %}
 {
   "name": "Hero",
-  "settings": [      
+  "settings": [
      {
       "type": "image_picker",
       "id": "image",
@@ -85,7 +85,7 @@
         "zh-CN": "图片",
         "zh-TW": "圖片"
       }
-    },    
+    },
     {
       "type": "text",
       "id": "title",

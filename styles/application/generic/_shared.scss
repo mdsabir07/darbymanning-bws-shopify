@@ -5,3 +5,8 @@
 * {
     outline: none;
 }
+
+::selection {
+    background: var(--blue);
+    color: var(--white);
+}

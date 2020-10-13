@@ -135,7 +135,7 @@
         &__toggle {
             background-color: #254441;
             border: none;
-            color: #fff;
+            color: var(--white);
             display: block;
             font-size: 17px;
             padding: 14px 20px;
@@ -186,7 +186,7 @@
     // 	display: block;
     // 	background-color: #254441;
     // 	padding:14px 20px;
-    // 	color:#FFF;
+    // 	color:var(--white);
     // 	font-size:17px;
     // 	text-decoration:none;
     // 	border:none;
@@ -231,7 +231,7 @@
 
     /* Hide Dropdowns by Default */
     .nav__ul--sub {
-        color: #ffffff;
+        color: var(--white);
         float: none;
         position: static;
     }

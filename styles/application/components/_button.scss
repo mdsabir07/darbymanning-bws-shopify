@@ -2,6 +2,7 @@
     background: var(--blue);
     box-sizing: unset;
     color: var(--white);
+    display: inline-flex;
     font-family: urw-din, sans-serif;
     font-size: 1.75rem;
     font-style: normal;
@@ -9,6 +10,7 @@
     padding: 1rem 3rem;
     text-transform: uppercase;
     transition: 0.3s all;
+
     &:hover,
     &:focus {
         background: var(--dark-blue);

@@ -3,12 +3,12 @@
         <h2 class="h-text-center h-light">{{ section.settings.title | escape }}</h2>
     {% endif %}
     {% unless blog.articles_count == 0 %}
-    <div class="o-grid  u-flex o-grid--blog">    
+    <div class="o-grid  o-grid--small-pad">
       {% for block in section.blocks limit: section.settings.post_limit %}
-      <div class="o-grid--item  u-size-6@m {% if forloop.first %}u-mB-20{% endif %}">
+      <div class="o-grid__item  u-size-6@m {% if forloop.first %}u-mB-20{% endif %}">
       {%- assign blog = blogs[block.settings.blog] -%}
-      {% for article in blog.articles limit: 1 %}              
-          <article class="block border" aria-labelledby="FeaturedBlogTitle-{{ forloop.index0 }}-{{ section.id }}">           
+      {% for article in blog.articles limit: 1 %}
+          <article class="block border" aria-labelledby="FeaturedBlogTitle-{{ forloop.index0 }}-{{ section.id }}">
               <a href="{{ blog.url }}" class="article__link">
                 {% if article.image %}
                 <div class="home-news__img">
@@ -25,22 +25,22 @@
                     {{ article | img_url: '345x345', scale: 2 | img_tag: article.title, 'article__grid-image' }}
                     </div>
                   </noscript>
-                </div>                                    
+                </div>
                 {% endif %}
               </a>
               <div class="block__info  block__info--white">
-                  <h3 class="block__title block__title--mid" id="FeaturedBlogTitle-{{ forloop.index0 }}-{{ section.id }}">                  
+                  <h3 class="block__title block__title--mid" id="FeaturedBlogTitle-{{ forloop.index0 }}-{{ section.id }}">
                     {{ article.title }}
-                  </h3>    
+                  </h3>
                   <div class="block__p article__grid-excerpt">
                     {% if article.excerpt.size > 0 %}
                       {{ article.excerpt }}
                     {% else %}
                      {{ article.content | strip_html | truncate: 150 }}
                     {% endif %}
-                  </div>   
+                  </div>
 
-                  {% if block.settings.button_label != blank and block.settings.button_link != blank %}                   
+                  {% if block.settings.button_label != blank and block.settings.button_link != blank %}
                   <div class="block__buttons u-pT-32 ">
                     <a href="{{ block.settings.button_link }}"
                       class="btn button"
@@ -48,17 +48,17 @@
                       {{- block.settings.button_label | escape -}}
                     </a>
                   </div>
-                {% endif %} 
-              </div>              
+                {% endif %}
+              </div>
           </article>
           {% endfor %}
-        </div>      
+        </div>
       {% endfor %}
     </div>
   {% else %}
-    <div class="o-grid  u-flex o-grid--blog">
+    <div class="o-grid  o-grid--small-pad">
       {% for i in (1..section.settings.post_limit) %}
-        <div class="o-grid--item  u-size-6@m">
+        <div class="o-grid__item  u-size-6@m">
           <div class="article__grid-meta">
             <h3 class="block__title">
               <a href="#">{{ 'homepage.onboarding.blog_title' | t }}</a>
@@ -81,9 +81,9 @@
       {% endfor %}
     </div>
   {% endunless %}
-    
+
 </section>
- 
+
 {% schema %}
 {
   "name": {
@@ -156,7 +156,7 @@
         "type": "color",
         "id": "bg_color",
         "label": "Backgound"
-    },    
+    },
     {
       "type": "range",
       "id": "post_limit",
@@ -288,15 +288,15 @@
         "th": "บล็อก",
         "zh-CN": "博客",
         "zh-TW": "部落格"
-      },      
+      },
         "blocks": [
         {
           "type": "blog_category"
         },
         {
           "type": "blog_category"
-        }     
-      ]      
+        }
+      ]
     }
   ]
 }

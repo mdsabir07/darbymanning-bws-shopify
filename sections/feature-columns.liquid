@@ -2,21 +2,21 @@
     {% if section.settings.title != blank %}
         <h2 class="h-text-center h-light">{{ section.settings.title | escape }}</h2>
     {% endif %}
-    <div class="o-grid  u-flex">
+    <div class="o-grid ">
      {% if section.blocks.size == 0 %}
         {% include 'no-blocks' %}
      {% else %}
-        {%- assign grid_item_width = 'u-size-4@m u-size-12 u-size-4@s' -%}             
+        {%- assign grid_item_width = 'u-size-4@m u-size-12 u-size-4@s' -%}
         {% case section.blocks.size %}
         {% when 1 %}
             {%- assign grid_item_width = 'u-size-6@m u-size-12' -%}
         {% when 2 %}
-            {%- assign grid_item_width = 'u-size-6@m u-size-12' -%}            
+            {%- assign grid_item_width = 'u-size-6@m u-size-12' -%}
         {% when 4 %}
-            {%- assign grid_item_width = 'u-size-6@m u-size-12' -%}            
-        {% endcase %}       
-        {% for block in section.blocks %}        
-            <div class="o-grid--item {{ grid_item_width }} text-{{ section.settings.align_text }}" {{ block.shopify_attributes }}>
+            {%- assign grid_item_width = 'u-size-6@m u-size-12' -%}
+        {% endcase %}
+        {% for block in section.blocks %}
+            <div class="o-grid__item {{ grid_item_width }} text-{{ section.settings.align_text }}" {{ block.shopify_attributes }}>
             <div class="home-about__item_wrapper" style="background-color:{{ block.settings.bg_color}};">
             <article class="home-about__item">
             {% if block.settings.enable_image %}
@@ -37,8 +37,8 @@
                     {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
                 {% endif %}
                 </div>
-                {% endif %}  
-                 {% if block.settings.text != blank or block.settings.title != blank %}              
+                {% endif %}
+                 {% if block.settings.text != blank or block.settings.title != blank %}
                   <div class="home-about__info">
                     {% if block.settings.title != blank %}
                         <h3 class="home-about__title">{{ block.settings.title | escape }}</h1>
@@ -53,7 +53,7 @@
             </article>
             </div>
         </div>
-       {% endfor %}             
+       {% endfor %}
     </div>
     {% if section.settings.button_label != blank and section.settings.button_link != blank %}
           {%- capture ariaLabel -%}

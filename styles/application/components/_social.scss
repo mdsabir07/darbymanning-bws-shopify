@@ -1,17 +1,21 @@
 .social {
     height: 100%;
+
     &__wrap {
         height: 100%;
     }
+
     &__img {
-        background-color: mediumspringgreen;
-        height: inherit;
+        height: 100%;
+        object-fit: cover;
     }
+
     &__ul {
         list-style: none;
         margin: 2rem 0;
         padding: 0;
     }
+
     &__li {
         padding: 0.5rem 0;
     }
@@ -19,6 +23,7 @@
     &__a {
         color: var(--dark-gray);
         transition: 0.3s all;
+
         &:hover {
             color: var(--blue);
         }
