@@ -1,8 +1,12 @@
 .footer-nav {
     &__title {
+        font-family: nimbus-sans-extended;
         font-size: 2rem;
+        font-weight: 700;
         margin: 0;
+        text-transform: uppercase;
     }
+
     &__ul {
         list-style: none;
         margin-top: 2rem;
@@ -12,9 +16,11 @@
             columns: 2;
         }
     }
+
     &__li {
         margin: 0 0 calc(2rem / 2);
     }
+
     &__a {
         font-size: 1.75rem;
         text-transform: capitalize;

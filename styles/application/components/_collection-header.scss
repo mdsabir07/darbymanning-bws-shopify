@@ -4,11 +4,18 @@
 
     &__img {
         background-color: rgb(130, 128, 240);
+        display: flex;
         height: inherit;
+
+        > img {
+            object-fit: cover;
+        }
     }
+
     &__info {
-        margin-bottom: 3rem;
+        margin-bottom: 1.6rem;
     }
+
     &__title {
         margin-bottom: 2rem;
     }
