@@ -12,9 +12,13 @@
     <div class="o-grid__item  u-size-6@m  u-size-7@l" data-product-single-media-group>
         {%- assign featured_media = product.selected_or_first_available_variant.featured_media | default: product.featured_media -%}
 
-      {%- for media in product.media -%}
-        {% include 'media', media: media, featured_media: featured_media, height: 720, image_scale: product_image_scale %}
-      {%- endfor -%}
+	  <div class="js-product-images">
+
+	      {%- for media in product.media -%}
+	        {% include 'media', media: media, featured_media: featured_media, height: 720, image_scale: product_image_scale %}
+	      {%- endfor -%}
+	      
+	  </div>
 
       {% if product.media.size > 1 %}
          <div class="thumbnails-wrapper  u-mT-32">
@@ -23,8 +27,7 @@
               <li class="o-grid__item u-size-4  u-size-2@s u-size-2@m  u-size-2@l product-single__thumbnails-item js">
                 <a href="{{ media.preview_image | img_url: product_image_zoom_size, scale: product_image_scale }}"
                    class="text-link product-single__thumbnail product-single__thumbnail--{{ section.id }}"
-                   data-thumbnail-id="{{ section.id }}-{{ media.id }}"
-                   {% if enable_image_zoom %}data-zoom="{{ media.preview_image | img_url: product_image_zoom_size, scale: product_image_scale }}"{% endif %}>
+                   data-thumbnail-id="{{ section.id }}-{{ media.id }}">
 
                     {%- capture thumbnailAlt -%}
                       {%- if media.media_type == 'video' or media.media_type == 'external_video' -%}

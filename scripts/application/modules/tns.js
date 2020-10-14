@@ -1,6 +1,6 @@
 import { tns } from 'tiny-slider/src/tiny-slider';
 
-export default function () {
+const Slider = function () {
     const sliders = () => Array.from(document.querySelectorAll('.js-slider'));
 
     const init = () => {
@@ -49,3 +49,7 @@ export default function () {
 
     return { destroy, reinit, init };
 }
+
+const slider = new Slider();
+
+document.addEventListener('DOMContentLoaded', slider.init);
