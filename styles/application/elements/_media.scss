@@ -1,3 +1,27 @@
 /*----------------------------------------------------------------------------*\
     #IMAGE & SVG ELEMENT STYLES
 \*----------------------------------------------------------------------------*/
+
+.o-media {
+  display: flex;
+}
+
+/* Body */
+
+.o-media__body {
+  flex: 1;
+
+  > :last-child {
+    margin-bottom: 0;
+  }
+}
+
+/* Image */
+
+.o-media__img {
+  margin-right: 1rem;
+
+  > img {
+    display: block;
+  }
+}

@@ -12,6 +12,7 @@ import './modules/tns.js';
 import './modules/product-form.js';
 import './modules/product-images.js';
 import './modules/accordion.js';
+import './modules/custom.js';
 
 /* Neue Kit */
 const neuekit = new NeueKit();

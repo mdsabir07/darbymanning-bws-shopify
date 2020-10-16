@@ -7,6 +7,15 @@
 }
 
 ::selection {
-    background: var(--blue);
-    color: var(--white);
+  background: $color-blue;
+  color: $color-white;
+}
+
+::-moz-selection {
+  background: $color-blue;
+  color: $color-white;
+}
+
+* {
+  -webkit-tap-highlight-color: rgba($color-red, 0.2);
 }

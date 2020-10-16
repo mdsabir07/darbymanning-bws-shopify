@@ -2,16 +2,50 @@
     #COLOUR SETTINGS
 \*----------------------------------------------------------------------------*/
 
-:root {
-    --blue: #54add3;
-    --dark-blue: #234766;
-    --light-gray: #f2f2f2;
-    --exlight-gray: #f7f7f7;
-    --gray: #818181;
-    --dark-gray: #353535;
-    --white: #fff;
-    --black: #000000;
+/*:root {
+  --blue: #54add3;
+  --dark-blue: #234766;
+  --light-gray: #f2f2f2;
+  --exlight-gray: #f7f7f7;
+  --gray: #818181;
+  --dark-gray: #353535;
+  --white: #fff;
+  --black: #000000;
 
-    --container-width: calc(160rem + 8rem * 2);
-    --radius: 2.5rem;
+  --container-width: calc(160rem + 8rem * 2);
+  --radius: 2.5rem;
+}*/
+
+/*----------------------------------------------------------------------------*\
+#COLOUR SETTINGS
+\*----------------------------------------------------------------------------*/
+
+$color-blue: #54add3;
+$color-dark-blue: #234766;
+$color-light-gray: #f2f2f2;
+$color-exlight-gray: #f7f7f7;
+$color-gray: #818181;
+$color-dark-gray: #353535;
+$color-white: #fff;
+$color-black: #000000;
+$color-red: red;
+$color-green: green;
+$color-dove-gray: #6E6C6C;
+$color-transparent: transparent;
+
+
+:root {
+  -colorPrimary: $color-blue;
+  -colorSecondary: $color-dark-blue;
+  -colorLightGray: $color-light-gray;
+  -colorExlightGray: $color-exlight-gray;
+  -colorGray: $color-gray;
+  -colorDarkGray: $color-dark-gray;
+  -colorWhite: $color-white;
+  -colorBlack: $color-black;
+  -colorRed: $color-red;
+  -colorGreen: $color-green;
+
+  --container-width: calc(160rem + 8rem * 2);
+  --radius: 2.5rem;
 }

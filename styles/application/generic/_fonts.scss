@@ -2,7 +2,14 @@
     #FONT DECLARATIONS
 \*----------------------------------------------------------------------------*/
 
-body {
-    color: var(--dark-blue);
-    font-family: urw-din, sans-serif;
+@mixin font-face($fontname, $path, $weight: normal, $style: normal) {
+  @font-face {
+    font-family: quote($fontname);
+    src: url($path+".woff") format("woff");
+    font-weight: $weight;
+    font-style: $style;
+  }
 }
+
+/* Include Font With Real Value Like below Example */
+/* @include font-face(NimbusSan, "./assets/NimbusSan-Reg", normal, normal); */

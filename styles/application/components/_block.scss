@@ -47,11 +47,11 @@
         top: 0.325rem;
         z-index: 1;
         &--blue {
-            color: var(--dark-blue);
+            color:$color-dark-blue;
         }
 
         &--default {
-            color: var(--blue);
+            color: $color-blue;
 
             .blog__hero & {
                 left: 3rem;

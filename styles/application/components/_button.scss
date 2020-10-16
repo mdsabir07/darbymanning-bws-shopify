@@ -1,40 +1,57 @@
 .button {
-    background: var(--blue);
-    box-sizing: unset;
-    color: var(--white);
-    display: inline-flex;
-    font-family: urw-din, sans-serif;
-    font-size: 1.75rem;
-    font-style: normal;
-    font-weight: 400;
-    padding: 1rem 3rem;
-    text-transform: uppercase;
-    transition: 0.3s all;
+  @include font-face(NimbusSan, "./fonts/NimbusSan-Reg", normal, normal);
+  @include basic-transition((transform, color, border-color, background-color));
 
-    &:hover,
-    &:focus {
-        background: var(--dark-blue);
-    }
+  box-sizing: unset;
+  display: inline-flex;
+  font-size: 1.8rem;
+  font-style: normal;
+  font-weight: 400;
+  padding: 1rem 3rem;
+  text-transform: uppercase;
 
-    &--dark {
-        &:hover {
-            background-color: white;
-            color: var(--dark-blue);
-        }
-    }
+  @include on-event {
+    color: $color-gray;
+    border-color: currentColor;
+  }
 
-    &--w100 {
-        width: 100%;
-    }
+  &--block {
+    display: block;
+    width: 100%;
+  }
 
-    &--round {
-        align-items: center;
-        border-radius: 50%;
-        display: flex;
-        flex-direction: row;
-        height: 5rem;
-        justify-content: center;
-        padding: 0;
-        width: 5rem;
+  &--round {
+    align-items: center;
+    border-radius: 50%;
+    display: flex;
+    flex-direction: row;
+    height: 5rem;
+    justify-content: center;
+    padding: 0;
+    width: 5rem;
+  }
+
+  &--primary {
+    border-color: $color-blue;
+    color: $color-white;
+    background-color: $color-blue;
+
+    @include on-event {
+      border-color: $color-dark-blue;
+      color: $color-white;
+      background-color: $color-dark-blue;
     }
+  }
+
+  &--secondary {
+    border-color: $color-dark-blue;
+    color: $color-white;
+    background-color: $color-dark-blue;
+
+    @include on-event {
+      border-color: $color-blue;
+      color: $color-white;
+      background-color: $color-blue;
+    }
+  }
 }

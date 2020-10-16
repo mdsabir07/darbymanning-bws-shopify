@@ -43,14 +43,14 @@
 
     &__button {
         align-self: flex-end;
-        background: var(--blue);
+        background: $color-blue;
         font-size: 2rem;
         padding: 1rem 3rem;
         transition: 0.3s all;
 
         &:hover,
         &:hover {
-            background: var(--dark-blue);
+            background:$color-dark-blue;
         }
     }
 
@@ -101,7 +101,7 @@
         width: 1.3rem;
 
         &.is-active {
-            background-color: var(--blue);
+            background-color: $color-blue;
         }
     }
 }

@@ -4,6 +4,8 @@
     Globally-available variables, settings & config switches.
 \*----------------------------------------------------------------------------*/
 
+@import 'settings/animation'; // Basic Animations variables.
+@import 'settings/breakpoints'; // Breakpoints code variables.
 @import 'settings/colours'; // Colour code variables.
 @import 'settings/global'; // Global variables & config.
 @import 'settings/type'; // Type setup & config.

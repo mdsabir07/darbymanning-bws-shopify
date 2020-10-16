@@ -1,5 +1,9 @@
 {% unless linklists[section.settings.main_linklist] == blank %}
-      <label for="drop" class="nav__toggle  nav__toggle--main">M</label>
+      <label for="drop" onclick="toggleNavMenu()" class="nav__toggle  nav__toggle--main">
+        <span></span>
+        <span></span>
+        <span></span>
+      </label>
 {% endunless %}
 
 <ul class="nav__menu  nav__ul" id="SiteNav">

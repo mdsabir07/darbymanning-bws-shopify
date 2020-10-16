@@ -19,7 +19,7 @@
     }
 
     &__info {
-        background-color: var(--blue);
+        background-color: $color-blue;
         color: white;
         display: flex;
         flex-direction: column;

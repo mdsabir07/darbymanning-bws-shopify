@@ -1,6 +1,6 @@
 .join {
     &__wrap {
-        background: var(--dark-blue);
+        background:$color-dark-blue;
     }
     &__ul {
         margin: 0 0 2rem;

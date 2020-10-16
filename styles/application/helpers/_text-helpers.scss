@@ -3,7 +3,7 @@
     text-align: center;
 }
 .h-underline {
-    border-bottom: 0.25rem solid var(--blue);
+    border-bottom: 0.25rem solid $color-blue;
 }
 
 .h-light {
@@ -19,7 +19,7 @@
 }
 
 .blue {
-    color: var(--blue);
+    color: $color-blue;
 }
 .white {
     color: var(--white);
@@ -27,3 +27,15 @@
 .gray {
     color: var(--dark-gray);
 }
+
+/*.u-text-upper {
+  text-transform: uppercase !important;
+}
+
+.u-text-right {
+  text-align: right !important;
+}
+
+.u-color-dark {
+  color: $color-dark !important;
+}*/

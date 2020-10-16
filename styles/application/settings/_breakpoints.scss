@@ -1,0 +1,93 @@
+/*----------------------------------------------------------------------------*\
+    #BREAK POINTS
+\*----------------------------------------------------------------------------*/
+
+// A map of breakpoints.
+$breakpoints: (
+  xs: 0, // Phone
+  sm: 36rem, // Tablet
+  md: 48rem, // Notebook
+  lg: 62rem, // Laptop 
+  xl: 75rem // Desktop
+);
+
+/*----------------------------------------------------------------------------*\
+		#RESPOND ABOVE
+\*----------------------------------------------------------------------------*/
+
+// @include respond-above(xs) {}
+@mixin respond-above($breakpoint) {
+
+  @if map-has-key($breakpoints, $breakpoint) {
+
+    $breakpoint-value: map-get($breakpoints, $breakpoint);
+
+    @media (min-width: $breakpoint-value) {
+      @content;
+    }
+  
+  } @else {
+
+    @warn 'Invalid breakpoint: #{$breakpoint}.';
+  }
+}
+
+/*----------------------------------------------------------------------------*\
+		#RESPOND BELOW
+\*----------------------------------------------------------------------------*/
+
+// @include respond-below(xs) {}
+@mixin respond-below($breakpoint) {
+
+  // If the breakpoint exists in the map.
+  @if map-has-key($breakpoints, $breakpoint) {
+
+    // Get the breakpoint value.
+    $breakpoint-value: map-get($breakpoints, $breakpoint);
+
+    // Write the media query.
+    @media (max-width: ($breakpoint-value - 1)) {
+      @content;
+    }
+  
+  // If the breakpoint doesn't exist in the map.
+  } @else {
+
+    // Log a warning.
+    @warn 'Invalid breakpoint: #{$breakpoint}.';
+  }
+}
+
+
+/*----------------------------------------------------------------------------*\
+		#RESPOND BETWEEN
+\*----------------------------------------------------------------------------*/
+
+// @include respond-between(xs, md) {}
+@mixin respond-between($lower, $upper) {
+
+  @if map-has-key($breakpoints, $lower) and map-has-key($breakpoints, $upper) {
+
+    $lower-breakpoint: map-get($breakpoints, $lower);
+    $upper-breakpoint: map-get($breakpoints, $upper);
+
+    @media (min-width: $lower-breakpoint) and (max-width: ($upper-breakpoint - 1)) {
+      @content;
+    }
+  
+  } @else {
+
+    @if (map-has-key($breakpoints, $lower) == false) {
+
+      @warn 'Your lower breakpoint was invalid: #{$lower}.';
+    }
+
+    @if (map-has-key($breakpoints, $upper) == false) {
+
+      @warn 'Your upper breakpoint was invalid: #{$upper}.';
+    }
+  }
+}
+
+/* HOW USE */
+/* @include respond-below(xs) { } */
