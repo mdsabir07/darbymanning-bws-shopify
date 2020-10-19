@@ -2,97 +2,36 @@
     #TYPE ELEMENT STYLES
 \*----------------------------------------------------------------------------*/
 
-/* FONT FAMILY WEIGHT */
-
-$fontWeight300: 300;
-$fontWeight400: 400;
-$fontWeight500: 500;
-$fontWeight600: 600;
-$fontWeight700: 700;
-$fontWeight800: 800;
-
-
-/* FONT SIZE */
-
-$font12: 12px;
-$font14: 14px;
-$font18: 18px;
-
-
 /* HEADING TITLE */
 
+.h1 {
+    font-size: 3.5rem;
+}
+
+.h2 {
+    font-size: 3rem;
+}
+
+.h3 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.h4 {
+    font-size: 1.25rem;
+    margin: 0;
+}
+
+.h5 {
+    font-size: 2rem;
+    margin: 0;
+}
+
+.nimbus {
+    font-family: nimbus-sans-extended, sans-serif;
+}
+
 .section-title {
-  position: relative;
-  h1 {
-    display: block;
-    position: relative;
-    &.title-xl {
-      font-size: 2.25rem;
-    }
-    &.title-lg {
-      font-size: 1.875rem;
-    }
-    &.title-md {
-      font-size: 1.5rem;
-    }
-    &.title-sm {
-      font-size: 1.25rem;
-    }
-  }
-  h2 {
-    display: block;
-    position: relative;
-    &.title-xl {
-      font-size: 2.25rem;
-    }
-    &.title-lg {
-      font-size: 1.875rem;
-    }
-    &.title-md {
-      font-size: 1.5rem;
-    }
-    &.title-sm {
-      font-size: 1.25rem;
-    }
-  }
-  h3 {
-    display: block;
-    position: relative;
-    &.title-xl {
-      font-size: 2.25rem;
-    }
-    &.title-lg {
-      font-size: 1.875rem;
-    }
-    &.title-md {
-      font-size: 1.5rem;
-    }
-    &.title-sm {
-      font-size: 1.25rem;
-    }
-  }
-  h4 {
-    display: block;
-    position: relative;
-    &.title-xl {
-      font-size: 2.25rem;
-    }
-    &.title-lg {
-      font-size: 1.875rem;
-    }
-    &.title-md {
-      font-size: 1.5rem;
-    }
-    &.title-sm {
-      font-size: 1.25rem;
-    }
-  }
-  h5 {
-    display: block;
-    position: relative;
-  }
-  h6 {
-    display: block;
-    position: relative;
-  }
+    font-size: 2.1rem;
+    font-weight: bold;
 }
