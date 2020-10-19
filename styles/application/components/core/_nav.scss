@@ -21,7 +21,7 @@
     }
 
     &__dd-wrap {
-        background:$color-dark-blue;
+        background: var(--dark-blue);
         display: flex;
         flex-direction: row;
         flex-wrap: nowrap;
@@ -38,6 +38,23 @@
         margin: 0;
         padding: 0;
         position: unset;
+
+        @include respond-below(md) {
+            background: var(--dark-blue);
+            position: fixed;
+            height: 100%;
+            width: 90%;
+            left: 0;
+            top: 0;
+            z-index: 10;
+            transform: translateX(-100%);
+            transition: transform .5s ease-in-out,-webkit-transform .5s ease-in-out;
+            display:block;
+        }
+
+        &.toggled {
+            transform: translateX(0);
+        }
     }
 
     &__dropdown {
@@ -66,10 +83,15 @@
         &--sub {
             display: list-item;
         }
+
+        @include respond-below(md) {
+            padding: 10px;
+            border-bottom: 1px solid #fff;
+        }
     }
 
     &__a {
-        color:$color-dark-blue;
+        color: var(--dark-blue);
         display: block;
         font-size: 2.25rem;
         font-weight: 500;
@@ -84,7 +106,11 @@
         }
 
         &:hover {
-            color: $color-blue;
+            color: var(--blue);
+        }
+
+        @include respond-below(md) {
+            font-size: 16px;
         }
     }
 
@@ -118,8 +144,7 @@
 @media all and (max-width: 768px) {
     .nav {
         display: inline-block;
-        &__toggle + a,
-        &__menu {
+        &__toggle + a {
             display: none;
         }
         &__toggle {
@@ -133,33 +158,27 @@
 
             &--main {
                 /*background-color: $color-transparent;
-                color:$color-dark-blue;*/
+                color: var(--dark-blue);*/
                 display: flex;
                 flex-direction: column;
                 justify-content: space-between;
                 padding: 0;
                 z-index: 6;
-                height: 15px;
-                width: 25px;
+                /*height: 15px;
+                width: 25px;*/
+                overflow: hidden;
+                cursor: pointer;
             }
 
             span {
-                background-color: $color-dove-gray;
+                background-color: #6E6C6C;
                 height: 1px;
-                width: 100px;
+                width: 100%;
             }
         }
 
         [id^='drop']:checked + .nav__ul {
             display: block;
-        }
-
-        &__ul {
-            background:$color-dark-blue;
-            left: 0;
-            position: absolute;
-            right: 0;
-            z-index: 5;
         }
 
         &__li {
@@ -191,7 +210,7 @@
     // 	&--main {
     // 		display: inline-block;
     // 		background-color: yellow;
-    // 		color:$color-dark-blue;
+    // 		color: var(--dark-blue);
     // 		padding: 0;
     // 	}
     // }

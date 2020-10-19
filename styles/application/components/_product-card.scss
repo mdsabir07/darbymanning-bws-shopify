@@ -22,7 +22,7 @@
     .price {
         align-items: center;
         bottom: 0;
-        color: $color-blue;
+        color: var(--blue);
         display: flex;
         font-size: 1.8rem;
         justify-content: space-between;
@@ -74,13 +74,13 @@
             text-transform: uppercase;
 
             &--sale {
-                background-color: $color-blue;
+                background-color: var(--blue);
                 color: var(--white);
             }
 
             &--sold-out {
-                border-color:$color-dark-blue;
-                color:$color-dark-blue;
+                border-color:var(--dark-blue);
+                color:var(--dark-blue);
             }
         }
 

@@ -47,11 +47,11 @@
         top: 0.325rem;
         z-index: 1;
         &--blue {
-            color:$color-dark-blue;
+            color:var(--dark-blue);
         }
 
         &--default {
-            color: $color-blue;
+            color: var(--blue);
 
             .blog__hero & {
                 left: 3rem;
@@ -77,7 +77,7 @@
 
     &__p {
         font-size: 1.75rem;
-        color: $color-dark-blue;
+        color: var(--dark-blue);
     }
 
     &__buttons .button {

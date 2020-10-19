@@ -1,6 +1,6 @@
 .border {
     &::before {
-        background: $color-blue;
+        background: var(--blue);
         content: '';
         display: block;
         height: 0.6rem;
@@ -43,6 +43,6 @@
     }
 
     &--darkblue::before {
-        background:$color-dark-blue;
+        background:var(--dark-blue);
     }
 }

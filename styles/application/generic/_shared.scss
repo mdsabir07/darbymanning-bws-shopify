@@ -7,13 +7,13 @@
 }
 
 ::selection {
-  background: $color-blue;
-  color: $color-white;
+  background: var(--blue);
+  color: var(--white);
 }
 
 ::-moz-selection {
-  background: $color-blue;
-  color: $color-white;
+  background: var(--blue);
+  color: var(--white);
 }
 
 * {

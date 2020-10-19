@@ -27,10 +27,10 @@
     }
 
     &__a {
-        color: $color-blue;
+        color: var(--blue);
         transition: 0.3s all;
         &:hover {
-            color:$color-dark-blue;
+            color:var(--dark-blue);
         }
     }
 
@@ -59,7 +59,7 @@
         margin-top: 1rem;
         width: 4rem;
         .active {
-            border: 1px solid$color-dark-blue;
+            border: 1px solid var(--dark-blue);
         }
     }
 
@@ -73,7 +73,7 @@
     &__size {
         align-items: center;
         background-color: var(--light-gray);
-        color: $color-blue;
+        color: var(--blue);
         display: flex;
         flex-direction: row;
         height: 5rem;
@@ -84,7 +84,7 @@
         width: 5rem;
         &:hover,
         &:active {
-            background-color: $color-blue;
+            background-color: var(--blue);
             color: var(--white);
             cursor: pointer;
         }

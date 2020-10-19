@@ -3,7 +3,7 @@
     text-align: center;
 }
 .h-underline {
-    border-bottom: 0.25rem solid $color-blue;
+    border-bottom: 0.25rem solid var(--blue);
 }
 
 .h-light {
@@ -19,7 +19,7 @@
 }
 
 .blue {
-    color: $color-blue;
+    color: var(--blue);
 }
 .white {
     color: var(--white);

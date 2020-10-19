@@ -12,7 +12,7 @@
             margin: 0;
         }
         a {
-            color: $color-blue;
+            color: var(--blue);
         }
     }
     &__list {

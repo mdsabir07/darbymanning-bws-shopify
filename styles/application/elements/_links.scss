@@ -5,8 +5,8 @@
 a {
   @include basic-transition(color);
   @include on-event {
-    color: $color-dark-blue;
+    color: var(--dark-blue);
   }
 
-  color: $color-blue;
+  color: var(--blue);
 }

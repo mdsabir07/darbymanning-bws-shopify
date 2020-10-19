@@ -19,7 +19,7 @@
         box-sizing: inherit;
         width: 100%;
         .active & {
-            background-color:$color-dark-blue;
+            background-color:var(--dark-blue);
         }
     }
 }

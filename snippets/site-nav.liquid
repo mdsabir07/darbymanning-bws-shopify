@@ -1,8 +1,11 @@
 {% unless linklists[section.settings.main_linklist] == blank %}
-      <label for="drop" onclick="toggleNavMenu()" class="nav__toggle  nav__toggle--main">
-        <span></span>
-        <span></span>
-        <span></span>
+      <label for="drop" id="nav__toggle" class="nav__toggle  nav__toggle--main">
+        <?xml version="1.0" encoding="UTF-8"?>
+        <svg id="ToggleMenu" xmlns="http://www.w3.org/2000/svg" width="25" height="15" viewBox="0 0 25 15">
+          <rect width="25" height="1" fill="#6e6c6c"/>
+          <rect width="25" height="1" transform="translate(0 7)" fill="#6e6c6c"/>
+          <rect width="25" height="1" transform="translate(0 14)" fill="#6e6c6c"/>
+        </svg>
       </label>
 {% endunless %}
 
