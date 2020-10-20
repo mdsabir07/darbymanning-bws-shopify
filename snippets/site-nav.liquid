@@ -10,6 +10,10 @@
 {% endunless %}
 
 <ul class="nav__menu  nav__ul" id="SiteNav">
+    <li class="nav__li nav__li_close">
+      <button class="nav__a nav__close"  type="button" aria-expanded="false" aria-controls="sitenav_close"></button>
+    </li>
+
     {% for link in linklists[linklist].links %}
       {%- assign child_list_handle = link.title | handleize -%}
       {% comment %}
@@ -25,7 +29,7 @@
       {% if link.links != blank %}
         <li class="nav__li{% if three_level_nav %} site-nav--has-centered-dropdown{% endif %}{% if link.active %} site-nav--active{% endif %}" data-has-dropdowns>
           <button class="nav__a{% if link.child_active %} site-nav__link--active{% endif %}" type="button" aria-expanded="false" aria-controls="SiteNavLabel-{{ child_list_handle }}">
-            {{ link.title | escape }}
+            {{ link.title | escape }} <i class="icon-arrow"></i>
           </button>
   
           <div class="nav__dropdown" id="SiteNavLabel-{{ child_list_handle }}">

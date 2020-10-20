@@ -9,6 +9,11 @@
     &--bottom {
         margin-top: 0;
     }
+
+    @include respond-below(md) {
+    	margin-top: 4rem;
+    	margin-bottom: 4rem;
+    }
 }
 
 .padding-wrap {

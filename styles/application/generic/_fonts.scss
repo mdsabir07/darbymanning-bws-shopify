@@ -12,4 +12,51 @@
 }
 
 /* Include Font With Real Value Like below Example */
-/* @include font-face(NimbusSan, "./assets/NimbusSan-Reg", normal, normal); */
+/* @include font-face(NimbusSan, "./fonts/NimbusSan-Reg", normal, normal); */
+
+@include font-face(AG_Helvetica, "./fonts/AGHelvetica", normal, normal);
+@include font-face(AvenirNextRegular, "./fonts/AvenirNext-Regular", normal, normal);
+@include font-face(AvenirNextMedium, "./fonts/AvenirNext-Medium", 500, normal);
+@include font-face(AvenirNextBold, "./fonts/AvenirNext-Bold", bold, normal);
+@include font-face(DINMedium, "./fonts/DIN-Meduim", 500, normal);
+@include font-face(DINOTBold, "./fonts/DINOT-Bold", bold, normal);
+@include font-face(DINOTRegular, "./fonts/DINOT-Regular", normal, normal);
+@include font-face(NimbusSan, "./fonts/NimbusSan-Reg", normal, normal);
+@include font-face(NimbusSanExt, "./fonts/NimbusSanExt-Bol", bold, normal);
+
+
+@mixin Helvetica {
+  font-family: AG_Helvetica;
+}
+
+@mixin AvenirNextRegular {
+  font-family: AvenirNextRegular;
+}
+
+@mixin AvenirNextMedium {
+  font-family: AvenirNextMedium;
+}
+
+@mixin AvenirNextBold {
+  font-family: AvenirNextBold;
+}
+
+@mixin DINMedium {
+  font-family: DINMedium;
+}
+
+@mixin DINOTBold {
+  font-family: DINOTBold;
+}
+
+@mixin DINOTRegular {
+  font-family: DINOTRegular;
+}
+
+@mixin NimbusSanExt {
+  font-family: NimbusSanExt;
+}
+
+@mixin NimbusSan {
+  font-family: NimbusSan;
+}

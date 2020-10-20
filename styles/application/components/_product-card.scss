@@ -16,6 +16,12 @@
         .block__p,
         .small-slide__shop {
             font-size: 1.6rem;
+
+
+            @include respond-below(md) {
+                font-size: 1.3rem;
+                @include Helvetica;
+            }
         }
     }
 
@@ -114,6 +120,10 @@
         &--on-sale &__regular,
         &--on-sale &__availability {
             display: none;
+        }
+
+        @include respond-below(md) {
+            font-size: 1.3rem;
         }
     }
 }
