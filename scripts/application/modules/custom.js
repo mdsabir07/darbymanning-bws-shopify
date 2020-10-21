@@ -1,4 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
+	
+	document.querySelector('#SiteNav').classList.toggle('loaded');
+  
 	/* Toggle Menu Mobile */
 	const toggleMenu = () => {
   const menu = document.querySelector('#SiteNav');
