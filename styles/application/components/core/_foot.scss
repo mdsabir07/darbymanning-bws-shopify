@@ -6,6 +6,12 @@
     margin-top: 8rem;
     overflow: hidden;
 
+    > div {
+        &:first-child {
+            background-color: var(--alto);
+        }
+    }
+
     &__section {
         padding: 8rem 0;
         &--pt0 {
@@ -22,14 +28,29 @@
     .search-form {
         &__input-wrapper {
             display: flex;
+            flex-direction: column
         }
 
         &__input {
             background-color: var(--white);
             box-shadow: none;
+            height: 50px;
+            border-radius: 0;     
         }
         &__submit {
-            padding: 1rem;
+            padding: 0rem;
+            color: var(--dark-blue);
+            width: 4rem;
+            height: 4rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-left: auto;
+
+            &:hover,
+            &:focus {
+                color: var(--white);
+            }
         }
     }
 
@@ -37,16 +58,16 @@
         &__ul {
             line-height: 1em;
             list-style: none;
-            padding-left: 2rem;
+            padding-left: 0;
 
-            @media only screen and (max-width: 767px) {
-                padding-left: 0;
+            @include respond-below(md) {
             }
         }
 
         &__li {
-            border-right: 1px solid #4a4a4a;
-            color: #4a4a4a;
+            @include AvenirNextRegular;
+            border-right: 1px solid var(--tundora);
+            color: var(--tundora);
             display: inline-block;
             font-size: 1.8rem;
             padding: 0 1rem;
@@ -54,14 +75,61 @@
             &:first-child {
                 padding-left: 0;
 
-                @media only screen and (max-width: 767px) {
+                @include respond-below(md) {
                     border: 0;
+                    display: block;
+                    padding-right: 0;
+                    margin-bottom: .5rem;
                 }
             }
 
             &:last-child {
                 border: 0;
             }
+
+            a {
+                color: var(--tundora);
+
+                &:hover {
+                    color: var(--blue);
+                }
+            }
+
+
+            @include respond-below(md) {
+                font-size: 1.4rem;
+
+                &:nth-child(2) {
+                    padding-left: 0;
+                }
+            }
+        }
+    }
+
+    .block__info {
+        margin: 3.2rem 0;
+        padding: 0 1rem;
+
+        .block-spacer {
+            margin: -3.2rem -50vh;
+        }
+
+        @include respond-below(md) {
+            padding: 0;
+            margin: 2.5rem 0;
+
+            &.block-spacer {
+                margin-top: 0;
+                margin-bottom: 0;
+            }
+        }
+    }
+
+    &__bottom {
+        padding: 4rem 0 8rem;
+
+        @include respond-below(md) {
+            padding: 2.5rem 0 6rem;
         }
     }
 }

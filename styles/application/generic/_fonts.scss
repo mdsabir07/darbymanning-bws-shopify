@@ -12,51 +12,69 @@
 }
 
 /* Include Font With Real Value Like below Example */
-/* @include font-face(NimbusSan, "./fonts/NimbusSan-Reg", normal, normal); */
+/* @include font-face(NimbusSan, "./NimbusSan-Reg", normal, normal); */
 
-@include font-face(AG_Helvetica, "./fonts/AGHelvetica", normal, normal);
-@include font-face(AvenirNextRegular, "./fonts/AvenirNext-Regular", normal, normal);
-@include font-face(AvenirNextMedium, "./fonts/AvenirNext-Medium", 500, normal);
-@include font-face(AvenirNextBold, "./fonts/AvenirNext-Bold", bold, normal);
-@include font-face(DINMedium, "./fonts/DIN-Meduim", 500, normal);
-@include font-face(DINOTBold, "./fonts/DINOT-Bold", bold, normal);
-@include font-face(DINOTRegular, "./fonts/DINOT-Regular", normal, normal);
-@include font-face(NimbusSan, "./fonts/NimbusSan-Reg", normal, normal);
-@include font-face(NimbusSanExt, "./fonts/NimbusSanExt-Bol", bold, normal);
+@include font-face(AG_Helvetica, "./AGHelvetica", normal, normal);
+@include font-face(AvenirNextRegular, "./AvenirNext-Regular", normal, normal);
+@include font-face(AvenirNextMedium, "./AvenirNext-Medium", 500, normal);
+@include font-face(AvenirNextBold, "./AvenirNext-Bold", bold, normal);
+@include font-face(DINMedium, "./DIN-Medium", 500, normal);
+@include font-face(DINOTBold, "./DINOT-Bold", bold, normal);
+@include font-face(DINOTRegular, "./DINOT-Regular", normal, normal);
+@include font-face(NimbusSan, "./NimbusSan-Reg", normal, normal);
+@include font-face(NimbusSanExt, "./NimbusSanExt-Bol", bold, normal);
 
 
 @mixin Helvetica {
   font-family: AG_Helvetica;
+  font-weight: normal;
+  font-style: normal;
 }
 
 @mixin AvenirNextRegular {
   font-family: AvenirNextRegular;
+  font-weight: normal;
+  font-style: normal;
 }
 
 @mixin AvenirNextMedium {
   font-family: AvenirNextMedium;
+  font-weight: 500;
+  font-style: normal;
 }
 
 @mixin AvenirNextBold {
   font-family: AvenirNextBold;
+  font-weight: bold;
+  font-style: normal;
 }
 
 @mixin DINMedium {
   font-family: DINMedium;
+  font-weight: 500;
+  font-style: normal
 }
 
 @mixin DINOTBold {
   font-family: DINOTBold;
+  font-weight: bold;
+  font-style: normal;
 }
 
 @mixin DINOTRegular {
   font-family: DINOTRegular;
+  font-weight: normal;
+  font-style: normal;
 }
 
 @mixin NimbusSanExt {
   font-family: NimbusSanExt;
+  font-weight: normal;
+  font-style: normal;
 }
 
 @mixin NimbusSan {
   font-family: NimbusSan;
+  font-weight: bold;
+  font-style: normal;
 }

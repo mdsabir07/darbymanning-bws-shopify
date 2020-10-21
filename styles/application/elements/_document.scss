@@ -3,6 +3,7 @@
 \*----------------------------------------------------------------------------*/
 
 body {
+	@include NimbusSanExt;
 	color: var(--dark-blue);
-	font-family: urw-din, sans-serif;
+	overflow-x: hidden;
 }

@@ -1,10 +1,26 @@
 .home-about {
-    background-color: var(--exlight-gray);
-    padding: 9rem 0 7rem;
+    /*padding: 9rem 0 7rem;*/
 
     &__item {
         display: flex;
         flex-direction: row;
+        padding: 20px;
+        background-color: var(--alto);
+        height: 100%;
+
+        &_wrapper {
+            height: 100%;
+            width: 100%;
+            margin: 0 .8rem;
+
+            @include respond-below(md) {
+                width: auto;
+            }
+        }
+
+        @include respond-below(md) {
+            padding: 20px 10px;
+        }
     }
 
     &__icon {
@@ -14,15 +30,45 @@
         height: auto;
         margin-right: 2rem;
         min-width: 7rem;
+
+        img {
+            margin: 0 auto;
+        }
+
+        @include respond-below(md) {
+            min-width: 5rem;
+        }
     }
 
     &__info {
+        @include DINOTRegular;
+
         display: inline-block;
+        margin-top: 10px;
+
+        p {
+            font-size: 1.8rem;
+
+            @include respond-below(md) {
+                font-size: 1.4rem;
+            }
+        }
     }
 
     &__title {
-        font-size: 2.5rem;
+        @include DINMedium;
+        font-size: 2.4rem;
         margin-bottom: 0.5rem;
         text-transform: uppercase;
+
+        @include respond-below(md) {
+            font-size: 1.8rem;
+        }
+    }
+}
+
+.rich-text {
+    &__text {
+        @include DINOTRegular;
     }
 }

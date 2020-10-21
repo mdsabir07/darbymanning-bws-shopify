@@ -6,4 +6,8 @@
         background-color: var(--white);
         height: auto;
     }
+
+    @include respond-below(md) {
+    	padding: 2rem 0;
+    }
 }

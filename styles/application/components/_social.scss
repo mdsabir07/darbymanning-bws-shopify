@@ -3,21 +3,42 @@
 
     &__wrap {
         height: 100%;
+        @include respond-below(md) {
+            flex-direction: column;
+
+            .block__col {
+                width: 100%;
+            }
+        }
     }
 
     &__img {
         height: 100%;
         object-fit: cover;
+
+        @include respond-below(md) {
+            order: 1;
+        }
     }
 
     &__ul {
         list-style: none;
-        margin: 2rem 0;
+        margin: 0 0 2rem;
         padding: 0;
+        @include Helvetica;
+
+        @include respond-below(md) {
+            margin-top: 1rem;
+        }
     }
 
     &__li {
-        padding: 0.5rem 0;
+        padding: 0.30rem 0;
+        font-size: 1.8rem;
+
+        @include respond-below(md) {
+            font-size: 1.4rem;
+        }
     }
 
     &__a {
@@ -27,5 +48,15 @@
         &:hover {
             color: var(--blue);
         }
+    }
+
+    &__link {
+        @include respond-below(md) {
+            order: 2;
+        }    
+    }
+
+    @include respond-below(md) {
+        margin-top: 3rem;
     }
 }

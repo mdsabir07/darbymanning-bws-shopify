@@ -12,14 +12,14 @@
         padding: 1rem 3.5rem;
         position: relative;
 
-        @media all and (max-width: 768px) {
+        @include respond-below(md) {
             padding: 1rem;
         }
     }
 
     &__logo {
         order: 1;
-        @media all and (max-width: 768px) {
+        @include respond-below(md) {
             order: 2;
         }
     }
@@ -28,7 +28,7 @@
         order: 2;
         position: unset;
         width: 60%;
-        @media all and (max-width: 768px) {
+        @include respond-below(md) {
             order: 1;
             width: auto;
         }
@@ -44,22 +44,23 @@
     &__icon {
         display: inline-block;
         margin-left: 2rem;
+        color: var(--dark-blue);
 
-        @media all and (max-width: 768px) {
+        @include respond-below(md) {
             display: none;
         }
     }
 
     &__shipping {
         margin: 0;
-        @media all and (max-width: 768px) {
+        @include respond-below(md) {
             display: none;
         }
     }
 
     &__m-search {
         display: none;
-        @media all and (max-width: 768px) {
+        @include respond-below(md) {
             display: inline-block;
             order: 3;
         }

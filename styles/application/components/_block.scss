@@ -12,7 +12,7 @@
     }
 
     &__info {
-        padding: 2rem;
+        padding: 2rem 1rem 1rem;
 
         &--center {
             text-align: center;
@@ -28,6 +28,10 @@
         }
         &--p-tb {
             padding: 3rem 2rem;
+
+            @include respond-below(md) {
+                padding: 0 2rem 3rem;
+            }
         }
         &--large {
             padding: 8rem 3rem;
@@ -35,16 +39,25 @@
         &--p-tb0 {
             padding: 0 2rem;
         }
+        .rte_settings {
+            p {
+                @include DINOTRegular;
+                font-size: 1.8rem;    
+
+                @include respond-below(md) {
+                    font-size: 1.4rem;
+                }            
+            }
+        }
     }
     &__message {
+        @include NimbusSanExt;
         color: white;
         font-size: 1.2rem;
-        left: 2rem;
-
         left: 1rem;
         position: absolute;
         text-transform: uppercase;
-        top: 0.325rem;
+        top: 0.5rem;
         z-index: 1;
         &--blue {
             color:var(--dark-blue);
@@ -64,20 +77,33 @@
         margin-bottom: 0;
         text-transform: uppercase;
         &--large {
-            font-size: 2.75rem;
+            font-size: 2.1rem;
+
+            @include respond-below(md) {
+                font-size: 1.8rem;
+            }
         }
         &--p-t {
-            padding-top: 2rem;
+            padding-top: 1.5rem;
         }
         &--mid {
             font-size: 2.1rem;
             font-weight: normal;
+
+            @include respond-below(md) {
+                font-size: 1.6rem;
+            }
         }
     }
 
     &__p {
-        font-size: 1.75rem;
+        @include DINOTRegular;
+        font-size: 1.6rem;
         color: var(--dark-blue);
+
+        @include respond-below(md) {
+            font-size: 1.4rem;
+        }
     }
 
     &__buttons .button {

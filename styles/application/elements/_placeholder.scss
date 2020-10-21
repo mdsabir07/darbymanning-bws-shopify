@@ -2,7 +2,7 @@
     #PLACEHOLDER ELEMENT STYLES
 \*----------------------------------------------------------------------------*/
 
-@mixin placeholder-color($color: #000) {
+/*@mixin placeholder-color($color: #000) {
   ::-webkit-input-placeholder {
     color: $color;
   }
@@ -18,4 +18,13 @@
   ::-ms-input-placeholder {
     color: $color;
   }
+}*/
+
+@mixin placeholder {
+  &.placeholder { @content }
+  &:-moz-placeholder { @content }
+  &::-moz-placeholder { @content }
+  &::-webkit-input-placeholder { @content }
+  &:-ms-input-placeholder { @content }
+  &::-ms-input-placeholder { @content }
 }

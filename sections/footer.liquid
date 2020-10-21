@@ -52,7 +52,7 @@
                         {%- assign block_width_mobile = 'u-size-12' -%}
                 {% endcase %}
 
-                <div class="o-grid__item{% if section.blocks.size == 1 %} u-textCenter{% endif %} {% if block.type == 'spacer'%}u-size-12{% else%}{{ block_width }} {{block_width_mobile}} u-pT-32{% endif %}" {{ block.shopify_attributes }}>
+                <div class="o-grid__item{% if section.blocks.size == 1 %} u-textCenter{% endif %} {% if block.type == 'spacer'%}u-size-12{% else%}{{ block_width }} {{block_width_mobile}} {% endif %}" {{ block.shopify_attributes }}>
                     <div class="block  block__info  block__info--p-tb0 {% unless block.type == 'spacer'%}border  border--darkblue{% endunless %}">
                         {%- if block.settings.title -%}
                             <p class="footer-nav__title">{{ block.settings.title | escape }}</p>
@@ -99,27 +99,29 @@
             {%- endfor -%}
         </div>
     </div>
-    <div class="o-grid  u-pV-32">
-        <div class="o-grid__item {% if show_payment_icons %}u-size-6@m{% else %}u-size-12@m{% endif %}">
-            <div class="site-footer-legal">
-                {%- assign legal_linklist = section.settings.legal_menu -%}
-                <ul class="legal-nav__ul">
-                    <li class="site-footer__copyright-content legal-nav__li">&copy;
-                        {{ 'now' | date: "%Y" }},
-                        {{ shop.name | link_to: routes.root_url }}</li>
-                    {%- for link in linklists[legal_linklist].links -%}
-                        <li class="legal-nav__li">
-                            <a href="{{ link.url }}" {% if link.current %} aria-current="page" {% endif %} class="legal-nav__a">
-                                {{ link.title | escape }}
-                            </a>
-                        </li>
-                    {%- endfor -%}
-                </ul>
+    <div class="footer__bottom">
+        <div class="o-grid">
+            <div class="o-grid__item {% if show_payment_icons %}u-size-6@m{% else %}u-size-12@m{% endif %}">
+                <div class="site-footer-legal">
+                    {%- assign legal_linklist = section.settings.legal_menu -%}
+                    <ul class="legal-nav__ul">
+                        <li class="site-footer__copyright-content legal-nav__li">&copy;
+                            {{ 'now' | date: "%Y" }},
+                            {{ shop.name | link_to: routes.root_url }}</li>
+                        {%- for link in linklists[legal_linklist].links -%}
+                            <li class="legal-nav__li">
+                                <a href="{{ link.url }}" {% if link.current %} aria-current="page" {% endif %} class="legal-nav__a">
+                                    {{ link.title | escape }}
+                                </a>
+                            </li>
+                        {%- endfor -%}
+                    </ul>
+                </div>
             </div>
+            {%- if show_payment_icons -%}
+                <div class="o-grid__item u-size-6@m">{{ payment_icon_markup }}</div>
+            {% endif %}
         </div>
-        {%- if show_payment_icons -%}
-            <div class="o-grid__item u-size-6@m">{{ payment_icon_markup }}</div>
-        {% endif %}
     </div>
 
 </footer>

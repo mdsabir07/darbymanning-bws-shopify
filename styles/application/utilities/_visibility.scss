@@ -14,3 +14,7 @@
   white-space: nowrap !important;
   width: 1px !important;
 }
+
+.u-visually-hidden {
+  @include hidden-visually;
+}

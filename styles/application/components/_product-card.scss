@@ -20,8 +20,13 @@
 
             @include respond-below(md) {
                 font-size: 1.3rem;
-                @include Helvetica;
             }
+        }
+        .block__p {        
+            @include DINOTBold;
+        }
+        .small-slide__shop {        
+            @include NimbusSanExt;
         }
     }
 

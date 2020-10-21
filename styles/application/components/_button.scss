@@ -37,4 +37,8 @@
         padding: 0;
         width: 5rem;
     }
+
+    @include respond-below(md) {
+        font-size: 1.2rem;
+    }
 }
