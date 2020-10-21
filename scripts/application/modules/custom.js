@@ -22,11 +22,13 @@ document.addEventListener('DOMContentLoaded', () => {
 	var dropdown = document.querySelectorAll('.site-nav--has-centered-dropdown');
 	var dropdownArray = Array.prototype.slice.call(dropdown,0);
 	dropdownArray.forEach(function(el){
-		var button = el.querySelector('button[aria-expanded="false"]'),
-				menu = el.querySelector('.nav__dropdown'),
-				arrow = button.querySelector('i.icon-arrow');
+		var button = el.querySelector('button[aria-expanded="false"]')
+				
 
 		button.onclick = function(event) {
+			let menu = el.querySelector('.nav__dropdown'),
+				arrow = button.querySelector('i.icon-arrow');
+				console.log(menu)
 			if(!menu.hasClass('show')) {
 				menu.classList.add('show');
 				menu.classList.remove('hide');

@@ -5,12 +5,10 @@
 .footer {
     margin-top: 8rem;
     overflow: hidden;
-
-    > div {
-        &:first-child {
-            background-color: var(--alto);
-        }
-    }
+	
+	&__top {
+		background-color: $color-midlight-gray;
+	}
 
     &__section {
         padding: 8rem 0;
@@ -51,25 +49,24 @@
             &:focus {
                 color: var(--white);
             }
+            
+            svg {
+	            color: white;
+            }
         }
     }
 
     .legal-nav {
-        &__ul {
             line-height: 1em;
             list-style: none;
             padding-left: 0;
-
-            @include respond-below(md) {
-            }
-        }
 
         &__li {
             @include AvenirNextRegular;
             border-right: 1px solid var(--tundora);
             color: var(--tundora);
             display: inline-block;
-            font-size: 1.8rem;
+            font-size: 1.7rem;
             padding: 0 1rem;
 
             &:first-child {
@@ -105,31 +102,53 @@
             }
         }
     }
+    
+    &__spacer {
+        margin: -3.2rem -50vh;
+        background-color: white;
+        height: 4rem;
+    }
 
     .block__info {
         margin: 3.2rem 0;
         padding: 0 1rem;
 
-        .block-spacer {
-            margin: -3.2rem -50vh;
-        }
+        
 
         @include respond-below(md) {
             padding: 0;
             margin: 2.5rem 0;
-
-            &.block-spacer {
-                margin-top: 0;
-                margin-bottom: 0;
-            }
         }
+    }
+    
+    &__methods {
+	    @include respond-below(md) {
+		    order: 1;
+		}
+    }
+    
+    &__payment {
+	    display: flex;
+	    align-items: center;
+	    
+	    @include respond-below(md) {
+		    flex-direction: column;
+		    align-items: flex-start;
+		}
+    }
+    
+    &__legal {
+	    @include respond-below(md) {
+		    order: 2;
+		}
     }
 
     &__bottom {
-        padding: 4rem 0 8rem;
+        padding: 4rem 0;
+        background-color: white;
 
         @include respond-below(md) {
-            padding: 2.5rem 0 6rem;
+            padding: 2.5rem 0;
         }
     }
 }

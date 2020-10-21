@@ -51,24 +51,25 @@
         }
     }
     &__message {
-        @include NimbusSanExt;
-        color: white;
+	    @include DINOTRegular;
         font-size: 1.2rem;
         left: 1rem;
         position: absolute;
         text-transform: uppercase;
         top: 0.5rem;
         z-index: 1;
+        color: var(--dark-blue);
+        
         &--blue {
-            color:var(--dark-blue);
+            color: var(--blue);
         }
 
-        &--default {
-            color: var(--blue);
-
-            .blog__hero & {
-                left: 3rem;
-            }
+        .blog__hero & {
+            left: 3rem;
+        }
+        
+        .home-news & {
+	        color: white;
         }
     }
 
@@ -89,6 +90,7 @@
         &--mid {
             font-size: 2.1rem;
             font-weight: normal;
+                margin-bottom: .5rem;
 
             @include respond-below(md) {
                 font-size: 1.6rem;

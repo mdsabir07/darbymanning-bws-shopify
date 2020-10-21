@@ -1,12 +1,17 @@
 .home-about {
-    /*padding: 9rem 0 7rem;*/
+    padding: 9rem 0 7rem;
+    
+    @include respond-below(md) {
+	    padding: 3.5rem 2.5rem;
+	}
+    
+    background-color: $color-midlight-gray;
 
     &__item {
         display: flex;
         flex-direction: row;
-        padding: 20px;
-        background-color: var(--alto);
         height: 100%;
+        margin-bottom: 2rem;
 
         &_wrapper {
             height: 100%;
@@ -16,10 +21,6 @@
             @include respond-below(md) {
                 width: auto;
             }
-        }
-
-        @include respond-below(md) {
-            padding: 20px 10px;
         }
     }
 
@@ -44,7 +45,6 @@
         @include DINOTRegular;
 
         display: inline-block;
-        margin-top: 10px;
 
         p {
             font-size: 1.8rem;
