@@ -51,16 +51,22 @@
             left: 0;
             top: 0;
             z-index: 10;
+            opacity: 0;
             transform: translateX(-100%);
-            transition: transform .5s ease-in-out,-webkit-transform .5s ease-in-out;
+            transition: transform .5s ease;
             flex-direction: column;
             justify-content: inherit;
             overflow-y: scroll;
             padding: 2rem;
         }
+        
+        &.loaded {
+	        transition: transform .5s ease, opacity .5s ease;
+        }
 
         &.is-active {
             transform: translateX(0);
+            opacity: 1;
         }
     }
 
