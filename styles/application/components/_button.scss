@@ -3,11 +3,11 @@
     box-sizing: unset;
     color: var(--white);
     display: inline-flex;
-    font-family: urw-din, sans-serif;
+    font-family: nimbus-sans-extended,sans-serif;
     font-size: 1.75rem;
     font-style: normal;
     font-weight: 400;
-    padding: 1rem 3rem;
+    padding: .5rem 3rem;
     text-transform: uppercase;
     transition: 0.3s all;
 
@@ -39,6 +39,6 @@
     }
 
     @include respond-below(md) {
-        font-size: 1.2rem;
+        font-size: 1.5rem;
     }
 }

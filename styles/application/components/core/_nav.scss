@@ -21,7 +21,6 @@
     }
 
     &__dd-wrap {
-        background: var(--dark-blue);
         display: flex;
         flex-direction: row;
         flex-wrap: nowrap;
@@ -45,10 +44,10 @@
         position: unset;
 
         @include respond-below(md) {
-            background: var(--dark-blue);
+            background: rgb(35 71 102 / 90%);
             position: fixed;
             height: 100%;
-            width: 80%;
+            width: 100%;
             left: 0;
             top: 0;
             z-index: 10;
@@ -57,6 +56,7 @@
             flex-direction: column;
             justify-content: inherit;
             overflow-y: scroll;
+            padding: 2rem;
         }
 
         &.is-active {
@@ -91,10 +91,14 @@
         margin: 0;
         position: unset;
 
-        &:hover > .nav__dropdown {
-            display: inherit;
-            opacity: 1;
-        }
+		@include respond-above(md) {
+
+	        &:hover > .nav__dropdown {
+	            display: inherit;
+	            opacity: 1;
+	        }
+	    
+	    }
 
         &--sub {
             display: list-item;
@@ -103,18 +107,23 @@
                 padding: 0.4rem 0;            
             }
         }
+        
+        @include respond-below(md) {
+            padding: 10px;
+            border-bottom: 1px solid var(--white);
+        }
 
         &_close {
             display: none;
+			justify-content: flex-end;
+			padding: 0;
+			margin-bottom: 3rem;
+			border-bottom: 0;
             @include respond-below(md) {
-                display: block;            
+                display: flex;            
             }
         }
-
-        @include respond-below(md) {
-            padding: 10px;
-            border-bottom: 1px solid var(--white)
-        }
+        
     }
 
 
@@ -143,6 +152,15 @@
             width: 100%;
             text-align: left;
             position: relative;
+            padding: .5rem;
+            font-weight: normal;
+            font-family: nimbus-sans-extended,sans-serif;
+            
+            &:hover {
+	            font-weight: normal;
+	            background-color: transparent;
+	            color: white;
+            }
         }
 
         .icon-arrow {
@@ -240,7 +258,6 @@
         width: 24px;
         display: inline-block;
         vertical-align: text-bottom;
-        width: 100%;
 
         &:before, 
         &:after {
@@ -304,63 +321,9 @@
             display: block;
         }
 
-        &__li {
-            display: block;
-            width: 100%;
-        }
-
         &__a {
             color: white;
         }
-    }
-    /* Hide the navigation menu by default */
-    /* Also hide the  */
-    // .nav__toggle + a,
-    // .nav__menu {
-    // 	display: none;
-    // }
-
-    /* Stylinf the toggle lable */
-    // .nav__toggle {
-    // 	display: block;
-    // 	background-color: #254441;
-    // 	padding:14px 20px;
-    // 	color:var(--white);
-    // 	font-size:17px;
-    // 	text-decoration:none;
-    // 	border:none;
-
-    // 	&--main {
-    // 		display: inline-block;
-    // 		background-color: yellow;
-    // 		color: var(--dark-blue);
-    // 		padding: 0;
-    // 	}
-    // }
-
-    // .nav__toggle:hover {
-    // 	background-color: #000000;
-    // }
-
-    /* Display Dropdown when clicked on Parent Lable */
-    // [id^=drop]:checked + .nav__ul {
-    // 	display: block;
-    // }
-
-    /* Change menu item's width to 100% */
-    // .nav__li {
-    // 	display: block;
-    // 	width: 100%;
-    // }
-
-    // .nav__ul--sub .nav__toggle,
-    // .nav__a--sub {
-    //     padding: 0 40px;
-    //     background-color: violet;
-    // }
-
-    .nav__a:hover {
-        background-color: #000000;
     }
 
     .nav__li--sub .nav__toggle,

@@ -4,6 +4,11 @@
 
 .header {
     margin-bottom: 1rem;
+    
+    @include respond-below(md) {
+	    margin-bottom: .75rem;
+	}
+	
     &__wrap {
         align-items: center;
         display: flex;
@@ -13,8 +18,9 @@
         position: relative;
 
         @include respond-below(md) {
-            padding: 1rem;
+            padding: 1.8rem;
         }
+        
     }
 
     &__logo {
@@ -22,22 +28,39 @@
         @include respond-below(md) {
             order: 2;
         }
+        
+        img {
+	        width: 20.6rem;
+	        height: 6.2rem;
+        }
+        
+        @include respond-below(md) {
+	        img {
+		        width: 14.5rem;
+		        height: 4.4rem;
+	        }
+	    }
     }
 
-    &__col {
+    &__menu {
         order: 2;
         position: unset;
         width: 60%;
         @include respond-below(md) {
             order: 1;
             width: auto;
-        }
-
-        &--sub {
-            display: flex;
-            flex-direction: row;
-            justify-content: space-between;
-            width: 100%;
+            width: 25%;
+        } 
+    }
+    
+    &__icons {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        width: 100%;
+        
+        @include respond-below(md) {
+            display: none;
         }
     }
 
@@ -45,24 +68,30 @@
         display: inline-block;
         margin-left: 2rem;
         color: var(--dark-blue);
-
-        @include respond-below(md) {
-            display: none;
-        }
     }
 
     &__shipping {
         margin: 0;
+        font-size: 1.4rem;
+        font-family: nimbus-sans-extended,sans-serif;
+        letter-spacing: 3px;
         @include respond-below(md) {
             display: none;
         }
     }
 
-    &__m-search {
+    &__mobile-icons {
         display: none;
+        align-items: center;
+        order: 3;
+        width: 25%;
+        
+        svg {
+	        color: var(--dark-blue);
+        }
+        
         @include respond-below(md) {
-            display: inline-block;
-            order: 3;
+            display: flex;
         }
     }
 }
