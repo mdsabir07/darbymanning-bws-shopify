@@ -68,6 +68,9 @@
         display: inline-block;
         margin-left: 2.5rem;
         color: var(--dark-blue);
+        @include respond-below(md) {
+            margin-left: 1rem;
+        }
     }
 
     &__shipping {
@@ -92,6 +95,7 @@
         
         @include respond-below(md) {
             display: flex;
+            justify-content: flex-end;
         }
     }
 }

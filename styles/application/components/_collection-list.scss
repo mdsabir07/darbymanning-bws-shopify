@@ -3,6 +3,7 @@
 
     &__wrap {
         background-color: var(--exlight-gray);
+        margin-bottom: 1rem;
     }
 
     &__img {
@@ -13,5 +14,27 @@
         > img {
             align-self: center;
         }
+    }
+
+    &__title {
+        @include NimbusSan;
+        font-size: 1.2rem;
+        margin-top: .5rem;
+        margin-bottom: 0;
+        line-height: normal;
+
+        a {
+            color: var(--dark-blue);
+        }
+    }
+
+    .o-grid--small-item {
+        padding: 0 .15rem;
+    }
+
+    @include respond-below(xlg) {
+        flex-wrap: nowrap;
+        overflow-y: auto;
+        padding-bottom: 1rem;
     }
 }

@@ -1,22 +1,58 @@
 .collection-header {
     padding-bottom: 3rem;
     padding-top: 3rem;
+    margin-bottom: 3rem;
 
     &__img {
-        background-color: rgb(130, 128, 240);
+        /*background-color: rgb(130, 128, 240);*/
         display: flex;
+        justify-content: center;
         height: inherit;
 
         > img {
             object-fit: cover;
         }
+
+        @include respond-below(md) {
+            order: 2;
+        }
     }
 
     &__info {
         margin-bottom: 1.6rem;
+        padding-top: 5rem;
+
+        @include respond-below(md) {
+            padding: 2rem;
+            margin-bottom: 0;
+        }
     }
 
     &__title {
-        margin-bottom: 2rem;
+        margin-bottom: 0;
+        font-size: 3.6rem;
+
+        @include respond-below(md) {
+            font-size: 2.4rem;
+            margin-bottom: 1rem;
+        }
+    }
+
+    &__content {
+        @include DINOTRegular;
+        font-size: 18px;
+    }
+
+    @include respond-below(md) {
+        margin-top: 3rem;
+
+        .block {
+            flex-direction: column;
+
+            &__col {
+                width: 100%;
+                order: 2;
+            }
+        }
     }
 }

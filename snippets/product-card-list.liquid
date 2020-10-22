@@ -1,16 +1,22 @@
-<a href="{{ product.url | within: collection }}">
-    <div class="collection-items__img">
-        <img src="{{ product.featured_image.src | img_url: 'large' }}" alt="{{ product.featured_image.alt | escape }}">
-    </div>
-    <h2 class="collection-items__title  collection-items__title--brand">{{ product.vendor }}</h2>
-    <h1 class="collection-items__title">{{ product.title }}</h1>
-    <h3 class="collection-items__title  collection-items__title--price">
-        {% if product.compare_at_price %}
-            <s>{{ product.price | money }}</s>
-            <span class="sale-price">{{ product.compare_at_price | money }}</span>
-            {% else %}     
-            {{ product.price | money }}                   
-        {% endif %}
-        {% unless product.available %}<br><strong>sold out</strong>{% endunless %}
-    </h3>
-</a>
+<div class="product-card small-slide block  border">
+    <a href="{{ product.url | within: collection }}" class="small-slide__a">
+        <div class="small-slide__shadow">
+            <div class="small-slide__img" data-image-loading-animation>
+                <p class="block__message  block__message--blue">{{product.type}}</p>
+                <div class="collection-items__img">
+                    <img src="{{ product.featured_image.src | img_url: 'large' }}" alt="{{ product.featured_image.alt | escape }}">
+
+                    <div class="price__wrapper">
+                        {% include 'product-price-listing', product: product %}
+                    </div>
+                </div>
+            </div>
+        
+            <article class="block__info">  
+                <h2 class="collection-items__title  collection-items__title--brand">{{ product.vendor }}</h2>
+                <p class="block__p">{{ product.title }}</p>
+                <h5 class="small-slide__shop  nimbus">Shop now</h5>
+            </article>
+        </div>
+    </a>
+</div>

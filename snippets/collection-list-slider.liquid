@@ -14,7 +14,7 @@
                     <img src="{{ linkCollection.products.first.featured_image.src | product_img_url: 'large' }}" alt="{{ linkCollection.title | escape  }}" />
                 {% endif %}
                 </div>
-                <h1 class="h4  caps  h-light"><a href="{{ link.url }}">{{ link.title }}</a></h1>
+                <h4 class="collection-list__title caps h-light"><a href="{{ link.url }}">{{ link.title }}</a></h4>
             </div>
         </div>
     </article>

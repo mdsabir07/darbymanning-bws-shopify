@@ -2,9 +2,11 @@
     margin-bottom: 8rem;
     &__item {
         margin: 3rem 0;
+        padding: 0 .1rem;
     }
     &__img {
-        background-color: chartreuse;
+        /*background-color: chartreuse;*/
+        padding: 0 .8rem;
     }
     &__title {
         color: var(--dark-gray);
