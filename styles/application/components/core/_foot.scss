@@ -68,6 +68,7 @@
             display: inline-block;
             font-size: 1.7rem;
             padding: 0 1rem;
+            margin-bottom: .5rem;
 
             &:first-child {
                 padding-left: 0;
@@ -128,9 +129,17 @@
     }
     
     &__payment {
+        @include AvenirNextRegular;
+        font-size: 1.8rem;
 	    display: flex;
 	    align-items: center;
-	    
+        color: var(--tundora);
+        
+	   
+        @include respond-above(xlg) {
+            padding-left: 6rem;
+        }
+
 	    @include respond-below(md) {
 		    flex-direction: column;
 		    align-items: flex-start;
