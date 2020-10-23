@@ -26,7 +26,7 @@
         {% endif %}
 
     {% else %}
-        <p>no matches</p>
+        <p class="no-matches">no matches</p>
     {% endfor %}
     {% if paginate.pages > 1 %}
         {% include 'pagination', paginate: paginate %}

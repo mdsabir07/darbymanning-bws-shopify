@@ -30,6 +30,11 @@
 
     .o-grid--small-item {
         padding: 0 .15rem;
+
+        .block {
+            display: flex;
+            height: 100%;
+        }
     }
 
     @include respond-below(xlg) {
@@ -37,4 +42,14 @@
         overflow-y: auto;
         padding-bottom: 1rem;
     }
+}
+
+.no-matches {
+    min-height: 150px;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    width: 100%;
+    justify-content: center;
+    text-transform: capitalize;
 }
