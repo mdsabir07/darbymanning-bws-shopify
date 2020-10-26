@@ -86,7 +86,7 @@
         width: calc(100% - 4.4rem);
         z-index: 4;
         background-color: var(--dark-blue);
-        margin-top: .5rem;
+        margin-top: 0;
 
         @include respond-below(md) {
             position: inherit;
@@ -149,6 +149,7 @@
         padding: 0;
         text-transform: uppercase;
         transition: 0.3s all;
+        margin-bottom: .5rem;
 
         &--sub {
             color: white;
@@ -172,6 +173,7 @@
             padding: .5rem;
             font-weight: normal;
             font-family: nimbus-sans-extended,sans-serif;
+            margin-bottom: 0;
             
             &:hover {
 	            font-weight: normal;

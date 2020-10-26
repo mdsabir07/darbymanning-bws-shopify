@@ -7,17 +7,19 @@
     font-size: 1.75rem;
     font-style: normal;
     font-weight: 400;
-    padding: .5rem 3rem;
+    padding: .70rem 3rem;
     text-transform: uppercase;
     transition: 0.3s all;
 
     &:hover,
     &:focus {
         background: var(--dark-blue);
+        color: var(--white);
     }
 
     &--dark {
-        &:hover {
+        &:hover,
+        &:focus {
             background-color: white;
             color: var(--dark-blue);
         }

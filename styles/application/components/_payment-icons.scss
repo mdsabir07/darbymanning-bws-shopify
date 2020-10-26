@@ -11,13 +11,10 @@
 
 .payment-icon {
     display: inline-block;
-    margin-left: 5px;
+    margin-right: 1.5rem;
     vertical-align: middle;
+    margin-bottom: .5rem;
     
-    @include respond-below(md) {
-	    margin-bottom: 5px;
-	}
-	
     &:first-child {
         margin-left: 0;
         &__svg {

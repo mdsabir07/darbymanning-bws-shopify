@@ -1,6 +1,6 @@
 .collection-buttons {
     margin-bottom: 8rem;
-    margin-top: 8rem;
+    margin-top: 0;
 
     &__wrap {
         width: 100%;
@@ -18,8 +18,20 @@
     &__button {
         box-sizing: inherit;
         width: 100%;
+        justify-content: center;
+
         .active & {
             background-color:var(--dark-blue);
+        }
+    }
+
+    &.o-grid--p {
+        padding: 0 calc(0.3rem + 0.8rem);
+    }
+
+    @include respond-below(md) {
+        .u-mT-32.u-mT-32 {
+            margin-top: 1.6rem;
         }
     }
 }
