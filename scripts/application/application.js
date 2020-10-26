@@ -12,7 +12,8 @@ import './modules/tns.js';
 import './modules/product-form.js';
 import './modules/product-images.js';
 import './modules/accordion.js';
-import './modules/custom.js';
+import './modules/mobile-nav.js';
+import './modules/see-more.js';
 import './modules/search.js';
 
 /* Neue Kit */
