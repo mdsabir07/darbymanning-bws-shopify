@@ -8,20 +8,28 @@ data-limit="3"
     {%- if recommendations.products_count > 0 -%}
         <div class="o-grid  o-grid--p">
             <div class="o-grid__item  u-size-12@s">
-                <p class="h2  caps h-bold">Something else?</p>
+                <div class="nimbus u-textUpper h3 section-title">Something else?</div>
             </div>
 
             {%- for product in recommendations.products -%}
                  <div class="o-grid__item  u-size-6@s  u-size-4@m  collection-items__item product">
-                    <a href="{{ product.url }}">
-                    <img
-                        class="product__img"
-                        src="{{ product.featured_image | img_url: '300x300' }}"
-                        alt="{{ product.featured_image.alt }}"
-                    />
-                    <p class="collection-items__title">{{ product.title }}</p>
-                    <p class="collection-items__title  collection-items__title--price">{{ product.price | money}}</p>
-                    </a>
+                    <div class="product-card small-slide block  border">
+                      <a href="{{ product.url }}" class="small-slide__a">
+                        <div class="small-slide__shadow">
+                          <div class="collection-items__img">
+                            <img class="product__img" src="{{ product.featured_image | img_url: '300x300' }}" alt="{{ product.featured_image.alt }}" />
+                            
+                            <div class="price__wrapper">
+                              {% include 'product-price-listing', product: product %}
+                            </div>
+                          </div>
+
+                          <article class="block__info">  
+                            <p class="block__p">{{ product.title }}</p>
+                          </article>                        
+                        </div>
+                      </a>
+                    </div>
                 </div>
             {%- endfor -%}
 
