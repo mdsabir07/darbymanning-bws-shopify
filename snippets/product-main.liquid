@@ -1,6 +1,6 @@
 <section class="o-grid  o-grid--p  product-main">
 
-    <div class="o-grid__item  u-size-12@s u-mB-20">
+    <div class="o-grid__item  u-size-12@s u-mB-200">
        {% include 'breadcrumbs' %}
     </div>
 
@@ -56,40 +56,16 @@
 
     <div class="o-grid__item  u-size-6@m  u-size-6@l">
       <div class="product-main__right">
-        <h1 class="product-main__title  gray  caps  h3">{{product.title}}</h1>
+        <h1 class="product-main__title  gray  u-textUpper  h3">{{product.title}}</h1>
         <div class="product__price">
-          {% if product.compare_at_price_max > product.price %}
-            <span>{{ 'products.general.regular_price' | t }}</span>
-            <span class="product-single__price--wrapper">
-              <span id="ComparePrice" class="product-single__price--compare-at">
-                {% if current_variant.compare_at_price > current_variant.price %}
-                  {{ current_variant.compare_at_price | money }}
-                {% endif %}
-              </span>
-            </span>
-            <span>{{ 'products.general.sale_price' | t }}</span>
-          {% else %}
-            <span>{{ 'products.general.regular_price' | t }}</span>
-          {% endif %}
-
-          <span id="ProductPrice" class="product-main__title  product-main__title--price  blue  caps  h3  h-light product-single__price{% if product.compare_at_price > product.price %} on-sale{% endif %}" itemprop="price" content="{{ current_variant.price | divided_by: 100.00 }}">
+          <span id="ProductPrice" class="product-main__title  product-main__title--price  blue  u-textUpper  h3 product-single__price{% if product.compare_at_price > product.price %} on-sale{% endif %}" itemprop="price" content="{{ current_variant.price | divided_by: 100.00 }}">
             {{ current_variant.price | money }}
           </span>
         </div>
-        {%- if shop.taxes_included or shop.shipping_policy.body != blank -%}
-            <div class="product__policies rte" data-product-policies>
-              {%- if shop.taxes_included -%}
-                {{ 'products.product.include_taxes' | t }}
-              {%- endif -%}
-              {%- if shop.shipping_policy.body != blank -%}
-                {{ 'products.product.shipping_policy_html' | t: link: shop.shipping_policy.url }}
-              {%- endif -%}
-            </div>
-        {%- endif -%}
         {% form 'product', product, data-product-form: '', data-product-handle: product.handle %}
           {% unless product.has_only_default_variant %}
           {% for option in product.options_with_values %}
-          <div class="js-enabled selector-wrapper">
+          <div class="js-enabled selector-wrapper u-hide">
 
           <label for="Option{{ option.position }}">
             {{ option.name }}
@@ -143,26 +119,35 @@
           {% if product.available and product.variants.size > 1 %}
             {% render 'swatch' for product.options as swatch %}
           {% endif %}
+          
+          <a href="#measurements" class="product-main__a">
+            See Product Measurements
+        </a>
 
           {% comment %}
           Any input with `name="quantity"` will be picked up by ProductForm and
           registered as a quantity input. If a quantity input is not included, a
           default quantity of 1 is assumed.
           {% endcomment %}
-          <label for="Quantity">{{ 'products.product.quantity' | t }}</label>
           
-          <div class="input-group">
-            <input type="number" id="Quantity" name="quantity" value="1" min="1">
+            <input type="hidden" name="quantity" value="1">
 
             {% comment %}
             Line Item property inputs with `name="properties[NAME]"` will be picked up
             by ProductForm and registered as a properties input.
             {% endcomment %}
-
-            <button type="submit" class="button button-primary" {% unless current_variant.available %}disabled="disabled"{% endunless %}>
+            
+            <div class="product-main__buttons">
+             <button type="submit" class="button button-primary" {% unless current_variant.available %}disabled="disabled"{% endunless %}>
             {{ 'products.product.add_to_cart' | t }}
             </button>
-          </div>
+            <a href="#footprint" class="button  button--round  product-main__button">
+                F
+            </a>
+        </div>
+
+           
+
 
           {% if section.settings.enable_payment_button %}
             {{ form | payment_button }}
@@ -192,7 +177,7 @@
                 <div class="product-meta__detail">
                   <span class="custom-attribute-value gray">{{attribute_value}}</span>
                   {% if attribute_code contains 'made_in' %}
-                  <p><a href="#footprint">see product footprint</a></p>
+                  <p><a href="#footprint">See product footprint</a></p>
                   {% endif %}
                 </div>
               </div>
@@ -227,38 +212,7 @@
         <div class="product-single__description rte">
             {{ product.description }}
         </div>
-
-        <h3 class="product-main__detail  h5  gray">Color - <span class="h-light">White</span></h3>
-        <div class="product-main__colors">
-            <div class="product-main__color"></div>
-            <div class="product-main__color"></div>
-            <div class="product-main__color"></div>
-        </div>
-
-        <h3 class="product-main__detail  h5  gray">Size</h3>
-        <div class="product-main__sizes">
-            <div class="product-main__size  caps">s</div>
-            <div class="product-main__size  caps">m</div>
-            <div class="product-main__size  caps">l</div>
-            <div class="product-main__size  caps">xl</div>
-        </div>
-        <a href="#" class="product-main__a">
-            Size Help and Product Measurements
-        </a>
-
-        <div class="product-main__buttons">
-            <a href="#">
-                <button class="button">
-                    Add to bag
-                </button>
-            </a>
-            <a href="#">
-                <button class="button  button--round  product-main__button">
-                    F
-                </button>
-            </a>
-        </div>
-        <p class="gray  h-bold">Brothers notes: Good quality organic t-shirt made to last in a premium weight.</p>
+        
       </div>
     </div>
 </section>

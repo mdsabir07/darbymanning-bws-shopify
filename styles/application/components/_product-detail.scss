@@ -32,7 +32,7 @@
 		}
 
 		table {
-			@include respond-below(xlg) {
+			@include respond-below(md) {
 				width: 100% !important;
 			}
 		}

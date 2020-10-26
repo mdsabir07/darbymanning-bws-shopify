@@ -9,10 +9,6 @@
         position: unset;
     }
 
-    &__logo {
-        display: block;
-    }
-
     &__toggle {
         display: none;
         
@@ -20,21 +16,20 @@
 	        display: block;
 	    }
     }
-    &[id^='drop'] {
-        display: none;
-    }
 
     &__dd-wrap {
         display: flex;
         flex-direction: row;
         flex-wrap: nowrap;
-        margin: 0.625rem 0 0;
+        margin: 0;
         padding-bottom: 2rem;
         padding-left: 0;
+        background-color: var(--dark-blue);
 
         @include respond-below(md) {
             flex-direction: column;
             padding-bottom: 0;
+            background-color: transparent;
         }
     }
 
@@ -80,18 +75,16 @@
         justify-content: space-between;
         left: 2.1rem;
         margin: 0;
-        padding: 0;
+        padding: 1.1rem 0 0;
         position: absolute;
         right: 0;
         width: calc(100% - 4.4rem);
         z-index: 4;
-        background-color: var(--dark-blue);
-        margin-top: 0;
+        
 
         @include respond-below(md) {
             position: inherit;
             width: 100%;
-            background-color: transparent;
 			margin-top: 0;
 
             &.show {
@@ -149,14 +142,13 @@
         padding: 0;
         text-transform: uppercase;
         transition: 0.3s all;
-        margin-bottom: .5rem;
 
         &--sub {
             color: white;
 			font-size: 1.75rem;
 			text-transform: capitalize;
 			font-weight: normal;
-			font-family: nimbus-sans-extended,sans-serif;
+			@include NimbusExt;
         }
 
         &:hover {
@@ -172,7 +164,7 @@
             position: relative;
             padding: .5rem;
             font-weight: normal;
-            font-family: nimbus-sans-extended,sans-serif;
+            @include NimbusExt;
             margin-bottom: 0;
             
             &:hover {

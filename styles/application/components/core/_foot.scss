@@ -134,11 +134,7 @@
 	    display: flex;
 	    align-items: center;
         color: var(--tundora);
-        
-	   
-        @include respond-above(xlg) {
-            padding-left: 6rem;
-        }
+        padding-left: 6rem;
 
 	    @include respond-below(md) {
 		    flex-direction: column;

@@ -14,7 +14,7 @@
         display: flex;
         flex-direction: row;
         justify-content: space-between;
-        padding: 1rem 3.5rem;
+        padding: 2.6rem 3.5rem;
         position: relative;
 
         @include respond-below(md) {
@@ -76,9 +76,9 @@
     }
 
     &__shipping {
+	    @include NimbusExt;
         margin: 0;
         font-size: 1.4rem;
-        font-family: nimbus-sans-extended,sans-serif;
         letter-spacing: 3px;
         @include respond-below(md) {
             display: none;

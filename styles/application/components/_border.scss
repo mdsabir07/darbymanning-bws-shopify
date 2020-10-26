@@ -12,12 +12,24 @@
         z-index: 3;
         .collection-header &,
         .blog-listing &,
-        .blog-template & {
+        .blog-template &, {
             top: 1.8rem;
         }
         .footer & {
 	        top: 2.7rem;
         }
+    }
+    
+    &--small:before {
+	    top: 1.8rem;
+    }
+    
+    &--large:before {
+	    top: 2.7rem;
+    }
+    
+    &--xlarge:before {
+	    top: 3.5rem;
     }
     
     &.nav__col {

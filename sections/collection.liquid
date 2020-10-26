@@ -1,7 +1,7 @@
-<section class="c-slider-4 u-section-m collection-slider">
+<section class="c-slider-4 u-mV-80 sm-u-mV-50 collection-slider">
     <div class="o-grid  o-grid--item">
         {% if section.settings.title != blank %}
-         <h2 class="nimbus u-textUpper h3 section-title">{{ section.settings.title | escape }}</h2>
+         <h4 class="nimbus u-textUpper">{{ section.settings.title | escape }}</h4>
         {% endif %}
 
         {%- assign collection = collections[section.settings.collection] -%}

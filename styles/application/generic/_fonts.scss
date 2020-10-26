@@ -21,8 +21,6 @@
 @include font-face(DINMedium, "./DIN-Medium", 500, normal);
 @include font-face(DINOTBold, "./DINOT-Bold", bold, normal);
 @include font-face(DINOTRegular, "./DINOT-Regular", normal, normal);
-@include font-face(NimbusSan, "./NimbusSan-Reg", normal, normal);
-@include font-face(NimbusSanExt, "./NimbusSanExt-Bol", bold, normal);
 
 
 @mixin Helvetica {
@@ -67,14 +65,10 @@
   font-style: normal;
 }
 
-@mixin NimbusSanExt {
-  font-family: NimbusSanExt;
-  font-weight: normal;
-  font-style: normal;
-}
+@mixin NimbusExt {
+  font-family: $nu-fontstack;
+}	
 
-@mixin NimbusSan {
-  font-family: NimbusSan;
-  font-weight: bold;
-  font-style: normal;
+.nimbus {
+    @include NimbusExt
 }

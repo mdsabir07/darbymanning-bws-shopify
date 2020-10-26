@@ -1,0 +1,17 @@
+.rich-text {
+    &__text {
+        @include DINOTRegular;
+    }
+    
+    .h-light {
+	    font-weight: normal;
+    }
+    
+    .h-underline {
+	    border-bottom: 0.25rem solid var(--blue);
+	
+	    @include respond-below(md) {
+	      display: inline-block;
+	    }
+	}
+}

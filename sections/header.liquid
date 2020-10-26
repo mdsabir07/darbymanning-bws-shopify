@@ -1,5 +1,4 @@
 
-<div data-section-id="{{ section.id }}" data-section-type="header-section" data-header-section>
  {% capture announcement_message %}
   {% if section.settings.message %}
     {% if section.settings.home_page_only == false or request.page_type == 'index' %}
@@ -39,7 +38,9 @@
   {% endif %}
 {% endcapture %}
 
-<header class="header  o-grid  o-grid__item  o-grid__item--padding">
+<header class="header">
+	<div class="o-grid">
+		<div class="o-grid__item">
     <div class="header__wrap">
         <div class="header__logo" id="logo">
         {% if section.settings.logo %}
@@ -55,7 +56,7 @@
             <div class="header__icons">
                 <p class="header__shipping">{{ section.settings.message_text | escape }}</p>
                 <div class="header__details">
-                    <a href="/search" class="header__icon">
+                    <a href="/search" class="header__icon js-search-icon">
                         {% include 'icon-search' %}
                     </a>
                     {% if shop.customer_accounts_enabled %}
@@ -84,7 +85,7 @@
 
         </div>
         <div class="header__mobile-icons">
-            <a href="/search" class="header__icon">
+            <a href="/search" class="header__icon js-search-icon">
                 {% include 'icon-search' %}
             </a>
             <a href="{{ routes.cart_url }}" class="header__icon">
@@ -96,26 +97,29 @@
         </div>
     </div>
   </div>
+  </div>
+  </div>
   </header>
-</div>
+  
+  <div class="search-overlay" id="search-overlay">
 
-
-
-
-<script type="application/ld+json">
-
-
-[36mLine: 2[0m
-[31m(empty line)[0m
-[31m(empty line)[0m
-[31m[36mLine: 2[0m[0m
-[31m[31m(empty line)[0m[0m
-[31m[31m(empty line)[0m[0m
-[31m[31m[36mLine: 1[0m[0m[0m
-[31m[31m[31m[36 mLine : 1 [[0m[0m[0m
-
-</script>
-
+	<a href="#" id="search-close" class="search-overlay__close">
+	
+		{% include 'icon-close' %}
+		
+	</a>
+	
+	<div class="u-textCenter">
+	
+		<h4 class="search-overlay__title">Search Website:</h4>
+		
+		<form action="/search" method="get" role="search">
+	    	<input type="search" name="q" class="search-overlay__field" placeholder="Search Website...">
+		</form>
+		
+	</div>
+  
+ </div>
 
 {% schema %}
 

@@ -1,15 +1,16 @@
 .button {
     background: var(--blue);
-    box-sizing: unset;
     color: var(--white);
     display: inline-flex;
-    font-family: nimbus-sans-extended,sans-serif;
+    @include NimbusExt;
     font-size: 1.75rem;
     font-style: normal;
     font-weight: 400;
     padding: .70rem 3rem;
     text-transform: uppercase;
     transition: 0.3s all;
+    justify-content: center;
+    box-sizing: border-box;
 
     &:hover,
     &:focus {
@@ -23,10 +24,6 @@
             background-color: white;
             color: var(--dark-blue);
         }
-    }
-
-    &--w100 {
-        width: 100%;
     }
 
     &--round {

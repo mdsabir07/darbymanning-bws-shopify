@@ -1,10 +1,7 @@
 <section class="c-hero-slider" data-section-id="{{ section.id }}" data-section-type="hero-section">
     <div class="o-grid  o-grid--item">
         <div class="hero-slider js-slider" data-gutter="1">
-        	{% if section.blocks.size == 0 %}
-		    {% include 'no-blocks' %}
-		    {% else %}
-	        	{% for block in section.blocks %}
+        	{% for block in section.blocks %}
 		            <div id="{{block.id}}">
 		                <div class="slide  border" style="--border-color: {{block.settings.button_color_bg}}">
 		                	{% capture order %}{% if block.settings.layout == 'left' %}1{% else %}2{% endif %}{% endcapture %}
@@ -44,7 +41,6 @@
 		                </div>
 		            </div>
 	            {% endfor %}
-	        {% endif %}
         </div>
         <ul class="slide__controls js-slider-controls" id="hero-controls" aria-label="Carousel Navigation" tabindex="0">
             <li class="slide__dots js-slider-dots">

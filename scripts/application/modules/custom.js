@@ -15,7 +15,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
 	for(let i = 0; i < buttons.length; i++) {
 		buttons[i].addEventListener('click', toggleMenu);
-		console.log('cliked' + i);
 	}
 })
 
@@ -55,7 +54,6 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 document.addEventListener('DOMContentLoaded', () => {
-	document.querySelector('.collection-header__more').classList.toggle('loaded');
 	
 	/* Toggle Content */
 	const toggleContent = () => {

@@ -1,10 +1,12 @@
 {% assign collection_handle = section.settings.col_nav %}
 {% if linklists[collection_handle].handle != blank %}
-<section class="o-grid  collection-list">
+<section class="o-grid o-grid--small-pad   collection-list">
     {% for link in linklists[collection_handle].links %}
     {% if link.type == 'collection_link' %}
     {% assign linkCollection = link.object %}
-     <article class="o-grid__item  o-grid--small-item  u-size-1@m">
+    
+     <article class="o-grid__item  u-size-1@m">
+     	<a href="{{ link.url }}">
         <div class="block  border  border--top">
             <div class="block__info  block__info--small  block__info--center  collection-list__wrap">
                 <div class="collection-list__img">
@@ -14,10 +16,12 @@
                     <img src="{{ linkCollection.products.first.featured_image.src | product_img_url: 'large' }}" alt="{{ linkCollection.title | escape  }}" />
                 {% endif %}
                 </div>
-                <h4 class="collection-list__title caps h-light"><a href="{{ link.url }}">{{ link.title }}</a></h4>
+                <h4 class="collection-list__title u-textUpper">{{ link.title }}</h4>
             </div>
         </div>
+        </a>
     </article>
+    
     {% endif %}
     {% endfor %}
 </section>
