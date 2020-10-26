@@ -1,22 +1,62 @@
-{% paginate search.results by 10 %}
-  <form action="/search" method="get" role="search">
+<div class="o-grid pd-v-4">
+
+<div class="o-grid__item mg-b-2">
+	<div class="o-grid u-alignCenter mg-b-2">
+		<div class="o-grid__item u-size-3">
+		<h1 class="mg-0">Search</h1>
+		</div>
+		<div class="o-grid__item u-size-9">
+			{% if search.performed %}
+			   <p class="mg-0">{{ search.results_count }} {{ search.results_count | pluralize: 'result', 'results' }} for <strong>"{{search.terms | escape}}"</strong></p> 
+			  {% endif %}
+			 </div>
+			 </div>
+	  <form action="/search" method="get" role="search">
     <input type="search" name="q" value="{{ search.terms | escape }}">
-    <button type="submit">search</button>
   </form>
+</div>
+
+
+{% paginate search.results by 10 %}
+  
 
   {% if search.performed %}
     {% for item in search.results %}
+    	<div class="o-grid__item">
+    		<div class="o-grid">
       {% if item.featured_image %}
-        <a href="{{ item.url | within: collection }}" title="{{ item.title | escape }}">
-          {{ item.featured_image.src | img_url: 'medium' | img_tag: item.featured_image.alt }}
-        </a>
+      	<div class="o-grid__item u-size-3">
+	        <a href="{{ item.url | within: collection }}" title="{{ item.title | escape }}">
+	          {{ item.featured_image.src | img_url: 'medium' | img_tag: item.featured_image.alt }}
+	        </a>
+	    </div>
       {% endif %}
-      <h5>{{ item.title | link_to: item.url }}</h5>
-      <p>{{ item.content | strip_html | truncatewords: 50 }}</p>
+      <div class="o-grid__item u-size-9">
+	      <h5>{{ item.title | link_to: item.url }}</h5>
+	      <p>{{ item.content | strip_html | truncatewords: 50 }}</p>
+	   </div>
+      </div>
     {% else %}
-      no results
+    	<div class="o-grid__item">
+      <p>No results for <strong>"{{search.terms | escape}}"</strong></p>
+      </div>
     {% endfor %}
   {% endif %}
 
   {% if paginate.pages > 1 %}{{ paginate | default_pagination }}{% endif %}
 {% endpaginate %}
+
+<div>
+
+<style>
+.pd-v-4 {
+	padding: 4rem 0;
+}
+.mg-0 {
+	margin: 0;
+}
+.mg-b-2.mg-b-2 {
+	margin-bottom: 2rem;
+}
+</style>
+
