@@ -4,10 +4,6 @@
         margin: 3rem 0;
         padding: 0 .1rem;
     }
-    &__img {
-        /*background-color: chartreuse;
-        padding: 0 .8rem;*/
-    }
     &__title {
         @include DINOTRegular;
         color: var(--dark-gray);
@@ -26,6 +22,11 @@
                 color:var(--dark-blue);
                 font-weight: 700;
             }
+            
+            @include NimbusExt;
+            font-weight: bold;
+            color: var(--dark-blue);
+            text-transform: uppercase;
         }
         &--price {
             font-weight: 700;

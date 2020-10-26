@@ -36,7 +36,7 @@
     }
 
     &__input {
-        @include NimbusSan;
+        @include NimbusExt;
         @include placeholder {
             color: var(--silver);
         }

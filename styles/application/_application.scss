@@ -26,6 +26,8 @@
 \*----------------------------------------------------------------------------*/
 
 @import 'tools/mixins/mixin'; // Example Mixin.
+@import 'tools/mixins/breakpoints'; // Breakpoints code variables.
+@import 'tools/mixins/placeholder'; // Placeholder.
 
 /*----------------------------------------------------------------------------*\
     #GENERIC
@@ -48,7 +50,6 @@
 @import 'elements/links'; // Hyperlinks.
 @import 'elements/lists'; // Lists.
 @import 'elements/media'; // Media elements, img, svg, video, etc.
-@import 'elements/placeholder'; // Placeholder.
 @import 'elements/quotes'; // Blockquotes, cite, etc.
 @import 'elements/tables'; // Table element styles.
 @import 'elements/type'; // All type styles.
@@ -103,14 +104,20 @@
 @import 'components/pagination';
 @import 'components/product-form';
 
+@import 'components/cart-notice';
+@import 'components/search-overlay';
+@import 'components/search-result';
+@import 'components/page-content';
+@import 'components/cloudzoom';
+@import 'components/border';
+@import 'components/rich-text';
+
 /*----------------------------------------------------------------------------*\
     #Helpers
 
     Designed pieces of UI. Only using classes. More explicit naming.
 \*----------------------------------------------------------------------------*/
 
-@import 'helpers/text-helpers'; // Text helpers.
-@import 'helpers/border'; // border.
 
 /*----------------------------------------------------------------------------*\
     #UTILITIES
@@ -119,6 +126,4 @@
 \*----------------------------------------------------------------------------*/
 
 @import 'utilities/spacing'; // Micro-level spacing.
-//@import 'utilities/reset'; // Reset Style.
 @import 'utilities/grid'; // Grid override.
-@import 'utilities/visibility'; // Visibility.

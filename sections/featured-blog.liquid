@@ -1,11 +1,8 @@
  <section class="home-news" style="background-color: {{ section.settings.bg_color }};">
-    {% if section.settings.title != blank %}
-        <h2 class="h-text-center h-light">{{ section.settings.title | escape }}</h2>
-    {% endif %}
     {% unless blog.articles_count == 0 %}
     <div class="o-grid  o-grid--small-pad">
       {% for block in section.blocks limit: section.settings.post_limit %}
-      <div class="o-grid__item  u-size-6@m {% if forloop.first %}u-mB-20{% endif %}">
+      <div class="o-grid__item  u-size-6@m {% if forloop.first %}u-mB-200{% endif %}">
       {%- assign blog = blogs[block.settings.blog] -%}
       {% for article in blog.articles limit: 1 %}
           <article class="block border" aria-labelledby="FeaturedBlogTitle-{{ forloop.index0 }}-{{ section.id }}">

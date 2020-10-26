@@ -1,6 +1,6 @@
 .footer-nav {
     &__title {
-        font-family: nimbus-sans-extended;
+        @include NimbusExt;
         font-size: 2rem;
         font-weight: 700;
         margin: 0;

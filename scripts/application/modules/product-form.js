@@ -37,4 +37,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 });
             });
     }
+    
+    
+    Array.from(document.querySelectorAll('.swatch [type="radio"]')).forEach(el => el.addEventListener('change', () => {
+	   
+	    const optionIndex = el.closest('.swatch').getAttribute('data-option-index')
+	    
+	    el.closest('form').querySelector(`select#Option${parseInt(optionIndex)+1}`).value = el.value
+	    
+    }))
+    
 });

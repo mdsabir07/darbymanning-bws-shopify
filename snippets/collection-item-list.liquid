@@ -1,6 +1,6 @@
 <section class="collection-items  o-grid  o-grid--p">
     <div class="o-grid__item  u-size-12@s">
-        <span class="caps  h3  h-light  nimbus" for="sort-by">Sort by</span>
+        <span class="u-textUpper  h3  nimbus" for="sort-by">Sort by</span>
         <select id="sort-by">
             <option value="manual">Featured</option>
             <option value="price-ascending">Price: Low to High</option>
@@ -26,7 +26,9 @@
         {% endif %}
 
     {% else %}
-        <p class="no-matches">no matches</p>
+    	<div class="u-flex u-size-12 u-justifyCenter u-pV-40">
+        	<p>No results</p>
+        </div>
     {% endfor %}
     {% if paginate.pages > 1 %}
         {% include 'pagination', paginate: paginate %}
