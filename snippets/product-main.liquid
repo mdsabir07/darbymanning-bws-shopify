@@ -9,7 +9,7 @@
   {%- assign compare_at_price = current_variant.compare_at_price -%}
   {%- assign price = current_variant.price -%}
 
-    <div class="o-grid__item  u-size-6@m  u-size-7@l" data-product-single-media-group>
+    <div class="o-grid__item  u-size-6@m  u-size-6@l" data-product-single-media-group>
         {%- assign featured_media = product.selected_or_first_available_variant.featured_media | default: product.featured_media -%}
 
 	  <div class="js-product-images">
@@ -24,7 +24,7 @@
          <div class="thumbnails-wrapper  u-mT-32">
           <ul class="o-grid product-single__thumbnails product-single__thumbnails-{{ section.id }}">
             {% for media in product.media %}
-              <li class="o-grid__item u-size-4  u-size-2@s u-size-2@m  u-size-2@l product-single__thumbnails-item js">
+              <li class="o-grid__item u-size-2  u-size-2@s u-size-2@m  u-size-2@l product-single__thumbnails-item js">
                 <a href="{{ media.preview_image | img_url: product_image_zoom_size, scale: product_image_scale }}"
                    class="text-link product-single__thumbnail product-single__thumbnail--{{ section.id }}"
                    data-thumbnail-id="{{ section.id }}-{{ media.id }}">
@@ -54,7 +54,8 @@
       {% endif %}
     </div>
 
-    <div class="o-grid__item  u-size-6@m  u-size-5@l">
+    <div class="o-grid__item  u-size-6@m  u-size-6@l">
+      <div class="product-main__right">
         <h1 class="product-main__title  gray  caps  h3">{{product.title}}</h1>
         <div class="product__price">
           {% if product.compare_at_price_max > product.price %}
@@ -121,7 +122,7 @@
           right value set if it already exists) on form submit based on the
           currently selected variant. However, if JS is disabled we need a fallback.
 
-          Include a single <select> element which allows users to select all variants
+          Include a single element which allows users to select all variants
           as a fallback and present it only when JS is disabled. In addition,
           make sure you hide the option inputs declared above, like we do with the
           `.js-enabled` class which only shows its contents when JS is enabled.
@@ -149,18 +150,19 @@
           default quantity of 1 is assumed.
           {% endcomment %}
           <label for="Quantity">{{ 'products.product.quantity' | t }}</label>
-          <input type="number" id="Quantity" name="quantity" value="1" min="1">
+          
+          <div class="input-group">
+            <input type="number" id="Quantity" name="quantity" value="1" min="1">
 
-          {% comment %}
-          Line Item property inputs with `name="properties[NAME]"` will be picked up
-          by ProductForm and registered as a properties input.
-          {% endcomment %}
+            {% comment %}
+            Line Item property inputs with `name="properties[NAME]"` will be picked up
+            by ProductForm and registered as a properties input.
+            {% endcomment %}
 
-          <button
-          type="submit"
-          {% unless current_variant.available %}disabled="disabled"{% endunless %}>
-          {{ 'products.product.add_to_cart' | t }}
-          </button>
+            <button type="submit" class="button button-primary" {% unless current_variant.available %}disabled="disabled"{% endunless %}>
+            {{ 'products.product.add_to_cart' | t }}
+            </button>
+          </div>
 
           {% if section.settings.enable_payment_button %}
             {{ form | payment_button }}
@@ -257,6 +259,7 @@
             </a>
         </div>
         <p class="gray  h-bold">Brothers notes: Good quality organic t-shirt made to last in a premium weight.</p>
+      </div>
     </div>
 </section>
 
