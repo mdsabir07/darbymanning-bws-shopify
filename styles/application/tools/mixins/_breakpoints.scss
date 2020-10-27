@@ -4,7 +4,8 @@
 
 // A map of breakpoints.
 $breakpoints: (
-  md: 64em, // Tablet Portrait
+    md: 64em,
+    // Tablet Portrait
 );
 
 /*----------------------------------------------------------------------------*\
@@ -13,19 +14,15 @@ $breakpoints: (
 
 // @include respond-above(xs) {}
 @mixin respond-above($breakpoint) {
+    @if map-has-key($breakpoints, $breakpoint) {
+        $breakpoint-value: map-get($breakpoints, $breakpoint);
 
-  @if map-has-key($breakpoints, $breakpoint) {
-
-    $breakpoint-value: map-get($breakpoints, $breakpoint);
-
-    @media (min-width: $breakpoint-value) {
-      @content;
+        @media (min-width: $breakpoint-value) {
+            @content;
+        }
+    } @else {
+        @warn 'Invalid breakpoint: #{$breakpoint}.';
     }
-  
-  } @else {
-
-    @warn 'Invalid breakpoint: #{$breakpoint}.';
-  }
 }
 
 /*----------------------------------------------------------------------------*\
@@ -34,22 +31,19 @@ $breakpoints: (
 
 // @include respond-below(xs) {}
 @mixin respond-below($breakpoint) {
+    // If the breakpoint exists in the map.
+    @if map-has-key($breakpoints, $breakpoint) {
+        // Get the breakpoint value.
+        $breakpoint-value: map-get($breakpoints, $breakpoint);
 
-  // If the breakpoint exists in the map.
-  @if map-has-key($breakpoints, $breakpoint) {
+        // Write the media query.
+        @media (max-width: ($breakpoint-value - 0.01)) {
+            @content;
+        }
 
-    // Get the breakpoint value.
-    $breakpoint-value: map-get($breakpoints, $breakpoint);
-
-    // Write the media query.
-    @media (max-width: ($breakpoint-value - 0.01)) {
-      @content;
+        // If the breakpoint doesn't exist in the map.
+    } @else {
+        // Log a warning.
+        @warn 'Invalid breakpoint: #{$breakpoint}.';
     }
-  
-  // If the breakpoint doesn't exist in the map.
-  } @else {
-
-    // Log a warning.
-    @warn 'Invalid breakpoint: #{$breakpoint}.';
-  }
 }

@@ -11,10 +11,10 @@
 
     &__toggle {
         display: none;
-        
+
         @include respond-below(md) {
-	        display: block;
-	    }
+            display: block;
+        }
     }
 
     &__dd-wrap {
@@ -52,15 +52,15 @@
             z-index: 10;
             opacity: 0;
             transform: translateX(-100%);
-            transition: transform .5s ease;
+            transition: transform 0.5s ease;
             flex-direction: column;
             justify-content: inherit;
             overflow-y: scroll;
             padding: 2rem;
         }
-        
+
         &.loaded {
-	        transition: transform .5s ease, opacity .5s ease;
+            transition: transform 0.5s ease, opacity 0.5s ease;
         }
 
         &.is-active {
@@ -80,15 +80,14 @@
         right: 0;
         width: calc(100% - 4.4rem);
         z-index: 4;
-        
 
         @include respond-below(md) {
             position: inherit;
             width: 100%;
-			margin-top: 0;
+            margin-top: 0;
 
             &.show {
-                display:block;
+                display: block;
             }
         }
     }
@@ -98,23 +97,21 @@
         margin: 0;
         position: unset;
 
-		@include respond-above(md) {
-
-	        &:hover > .nav__dropdown {
-	            display: inherit;
-	            opacity: 1;
-	        }
-	    
-	    }
+        @include respond-above(md) {
+            &:hover > .nav__dropdown {
+                display: inherit;
+                opacity: 1;
+            }
+        }
 
         &--sub {
             display: list-item;
 
             @include respond-below(md) {
-                padding: 0.4rem 0;            
+                padding: 0.4rem 0;
             }
         }
-        
+
         @include respond-below(md) {
             padding: 10px;
             border-bottom: 1px solid var(--white);
@@ -122,17 +119,15 @@
 
         &_close {
             display: none;
-			justify-content: flex-end;
-			padding: 0;
-			margin-bottom: 3rem;
-			border-bottom: 0;
+            justify-content: flex-end;
+            padding: 0;
+            margin-bottom: 3rem;
+            border-bottom: 0;
             @include respond-below(md) {
-                display: flex;            
+                display: flex;
             }
         }
-        
     }
-
 
     &__a {
         color: var(--dark-blue);
@@ -145,10 +140,10 @@
 
         &--sub {
             color: white;
-			font-size: 1.75rem;
-			text-transform: capitalize;
-			font-weight: normal;
-			@include NimbusExt;
+            font-size: 1.75rem;
+            text-transform: capitalize;
+            font-weight: normal;
+            @include NimbusExt;
         }
 
         &:hover {
@@ -156,21 +151,21 @@
         }
 
         @include respond-below(md) {
-	        color: white;
+            color: white;
             font-size: 16px;
             display: block;
             width: 100%;
             text-align: left;
             position: relative;
-            padding: .5rem;
+            padding: 0.5rem;
             font-weight: normal;
             @include NimbusExt;
             margin-bottom: 0;
-            
+
             &:hover {
-	            font-weight: normal;
-	            background-color: transparent;
-	            color: white;
+                font-weight: normal;
+                background-color: transparent;
+                color: white;
             }
         }
 
@@ -181,7 +176,8 @@
             top: 50%;
             transform: translateY(-50%);
 
-            &:before, &:after {
+            &:before,
+            &:after {
                 content: '';
                 position: absolute;
                 width: 10px;
@@ -207,7 +203,6 @@
                 &:after {
                     transform: rotate(45deg);
                 }
-
             }
 
             @include respond-below(md) {
@@ -238,14 +233,13 @@
         @include respond-below(md) {
             padding: 0;
             margin: 0;
-            
+
             &.border {
                 &:before {
                     content: none;
                 }
             }
         }
-
     }
 
     &__sub-title {
@@ -270,7 +264,7 @@
         display: inline-block;
         vertical-align: text-bottom;
 
-        &:before, 
+        &:before,
         &:after {
             content: '';
             position: absolute;

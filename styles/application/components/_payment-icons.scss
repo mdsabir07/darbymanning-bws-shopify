@@ -2,19 +2,19 @@
     cursor: default;
     list-style: none;
     user-select: none;
-    
+
     @include respond-below(md) {
-	    margin-left: 0;
-	    padding-left: 0;
-	}
+        margin-left: 0;
+        padding-left: 0;
+    }
 }
 
 .payment-icon {
     display: inline-block;
     margin-right: 1.5rem;
     vertical-align: middle;
-    margin-bottom: .5rem;
-    
+    margin-bottom: 0.5rem;
+
     &:first-child {
         margin-left: 0;
         &__svg {

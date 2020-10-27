@@ -48,7 +48,7 @@ const Slider = function () {
     };
 
     return { destroy, reinit, init };
-}
+};
 
 const slider = new Slider();
 

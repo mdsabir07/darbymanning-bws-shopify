@@ -3,10 +3,10 @@
 \*----------------------------------------------------------------------------*/
 
 a {
-  @include basic-transition(color);
-  @include on-event {
-    color: var(--dark-blue);
-  }
+    @include basic-transition(color);
+    @include on-event {
+        color: var(--dark-blue);
+    }
 
-  color: var(--blue);
+    color: var(--blue);
 }

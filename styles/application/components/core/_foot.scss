@@ -5,10 +5,10 @@
 .footer {
     margin-top: 8rem;
     overflow: hidden;
-	
-	&__top {
-		background-color: $color-midlight-gray;
-	}
+
+    &__top {
+        background-color: $color-midlight-gray;
+    }
 
     &__section {
         padding: 8rem 0;
@@ -26,14 +26,14 @@
     .search-form {
         &__input-wrapper {
             display: flex;
-            flex-direction: column
+            flex-direction: column;
         }
 
         &__input {
             background-color: var(--white);
             box-shadow: none;
             height: 50px;
-            border-radius: 0;     
+            border-radius: 0;
         }
         &__submit {
             padding: 0rem;
@@ -49,17 +49,17 @@
             &:focus {
                 color: var(--white);
             }
-            
+
             svg {
-	            color: white;
+                color: white;
             }
         }
     }
 
     .legal-nav {
-            line-height: 1em;
-            list-style: none;
-            padding-left: 0;
+        line-height: 1em;
+        list-style: none;
+        padding-left: 0;
 
         &__li {
             @include AvenirNextRegular;
@@ -68,7 +68,7 @@
             display: inline-block;
             font-size: 1.7rem;
             padding: 0 1rem;
-            margin-bottom: .5rem;
+            margin-bottom: 0.5rem;
 
             &:first-child {
                 padding-left: 0;
@@ -77,7 +77,7 @@
                     border: 0;
                     display: block;
                     padding-right: 0;
-                    margin-bottom: .5rem;
+                    margin-bottom: 0.5rem;
                 }
             }
 
@@ -93,7 +93,6 @@
                 }
             }
 
-
             @include respond-below(md) {
                 font-size: 1.4rem;
 
@@ -103,7 +102,7 @@
             }
         }
     }
-    
+
     &__spacer {
         margin: -3.2rem -50vh;
         background-color: white;
@@ -114,38 +113,36 @@
         margin: 3.2rem 0;
         padding: 0 1rem;
 
-        
-
         @include respond-below(md) {
             padding: 0;
             margin: 2.5rem 0;
         }
     }
-    
+
     &__methods {
-	    @include respond-below(md) {
-		    order: 1;
-		}
+        @include respond-below(md) {
+            order: 1;
+        }
     }
-    
+
     &__payment {
         @include AvenirNextRegular;
         font-size: 1.8rem;
-	    display: flex;
-	    align-items: center;
+        display: flex;
+        align-items: center;
         color: var(--tundora);
         padding-left: 6rem;
 
-	    @include respond-below(md) {
-		    flex-direction: column;
-		    align-items: flex-start;
-		}
+        @include respond-below(md) {
+            flex-direction: column;
+            align-items: flex-start;
+        }
     }
-    
+
     &__legal {
-	    @include respond-below(md) {
-		    order: 2;
-		}
+        @include respond-below(md) {
+            order: 2;
+        }
     }
 
     &__bottom {

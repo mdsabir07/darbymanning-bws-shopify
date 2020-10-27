@@ -25,7 +25,7 @@
         margin: 0 0 calc(2rem / 2);
 
         @include respond-below(md) {
-            margin: 0 0 calc(1rem / 2);        
+            margin: 0 0 calc(1rem / 2);
         }
     }
 
