@@ -25,6 +25,17 @@
         vertical,
     )
 );
+@include nu-utility__spacing(
+    $attrs: (
+        margin,
+    ),
+    $steps: (
+        2,
+    ),
+    $directions: (
+        left
+    )
+);
 
 @include respond-below(md) {
     .sm-u-mV-50.sm-u-mV-50 {

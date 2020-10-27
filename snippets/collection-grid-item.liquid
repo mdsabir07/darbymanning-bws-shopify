@@ -1,48 +1,31 @@
 {% assign count = collection.products_count %}
-<div class="o-grid__item u-size-12">
-    <p class="collection-items__main-title u-textUpper nimbus">{{collection.title}}</p>
-</div>
-{% if count > 4 %}
-    <div class="o-grid js-slider" data-items="4" data-gutter="1" data-responsive='{"350": {"items": "2"}, "700": {"items": "3"}, "1000": {"items": "4"}}'>
-{% endif %}
-{% for product in collection.products %}
-    <div class="o-grid__item {% if count > 4 %}slide__item--{{block.id}}{%else%}u-size-6@s  u-size-4@m  u-size-3@l{% endif %}">
-        {% include 'product-card-grid', product: product %}
-    </div>
-{% else %}
-	<div class="o-grid__item u-size-12">
-    	<p>no products in collections.</p>
-    </div>
-{% endfor %}
-{% if count > 4 %}
-    </div>
-{% endif %}
-{% if count > 4 %}
-<div class="o-grid u-justifyEnd u-alignCenter">
-	<div>
-		{% if block.settings.show_view_all %}
-		    <a href="{{ collection.url }}" class="button" aria-label="{{ 'collections.general.view_all_label' | t: collection_name: collection.title }}">
-		    {{ 'collections.general.view_all' | t }}
-		    </a>
-		{% endif %}
+<div class="o-grid__item u-size-12 collection-slider">
+   	<h4 class="nimbus u-textUpper">{{collection.title}}</h4>
+	<div class="js-slider" data-items="4" data-gutter="1" data-responsive='{"350": {"items": "2"}, "700": {"items": "3"}, "1000": {"items": "4"}}'>
+		{% for product in collection.products %}
+		    <div class="slide__item--{{product.id}}">
+		        {% include 'product-card-grid', product: product %}
+		    </div>
+		{% else %}
+			<div class="o-grid__item u-size-12">
+		    	<p class="u-mL-2">No products in collections.</p>
+		    </div>
+		{% endfor %}
 	</div>
-	<div>
-		<ul class="slide__controls js-slider-controls" aria-label="Carousel Navigation" tabindex="0">
-		    <li class="slide__prev" data-controls="prev" aria-controls="customize" tabindex="-1">
-		        <i class="fas fa-angle-left fa-5x"></i>
-		    </li>
-		    <li class="slide__next  button" data-controls="next" aria-controls="customize" tabindex="-1">
-		        <?xml version="1.0" encoding="UTF-8"?>
-		        <svg width="17px" height="18px" viewBox="0 0 17 18" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-		            <title>Fill 3</title>
-		            <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-		                <g id="Arrow" fill="#FFFFFF">
-		                    <polygon id="Fill-3" transform="translate(8.500000, 9.000000) rotate(-270.000000) translate(-8.500000, -9.000000) " points="7.58805575 1 0 17 2.34598347 17 8.54454108 3.44934827 14.6540165 17 17 17 9.44133218 1"></polygon>
-		                </g>
-		            </g>
-		        </svg>
-		    </li>
-		</ul>
-	</div>
+	<ul class="slide__controls js-slider-controls" aria-label="Carousel Navigation" tabindex="0">
+	    <li class="slide__prev" data-controls="prev" aria-controls="customize" tabindex="-1">
+	        <i class="fas fa-angle-left fa-5x"></i>
+	    </li>
+	    <li class="slide__next  button" data-controls="next" aria-controls="customize" tabindex="-1">
+	        <?xml version="1.0" encoding="UTF-8"?>
+	        <svg width="17px" height="18px" viewBox="0 0 17 18" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+	            <title>Fill 3</title>
+	            <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+	                <g id="Arrow" fill="#FFFFFF">
+	                    <polygon id="Fill-3" transform="translate(8.500000, 9.000000) rotate(-270.000000) translate(-8.500000, -9.000000) " points="7.58805575 1 0 17 2.34598347 17 8.54454108 3.44934827 14.6540165 17 17 17 9.44133218 1"></polygon>
+	                </g>
+	            </g>
+	        </svg>
+	    </li>
+	</ul>
 </div>
-{% endif %}
