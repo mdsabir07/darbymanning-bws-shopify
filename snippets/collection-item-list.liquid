@@ -1,6 +1,6 @@
-<section class="collection-items  o-grid  o-grid--p">
-    <div class="o-grid__item  u-size-12@s">
-        <span class="u-textUpper  h3  nimbus" for="sort-by">Sort by</span>
+<section class="o-grid  o-grid--p">
+    <div class="o-grid__item  u-size-12@s u-mB-48">
+        <span class="u-textUpper  h3  nimbus u-mL-16" for="sort-by">Sort by</span>
         <select id="sort-by">
             <option value="manual">Featured</option>
             <option value="price-ascending">Price: Low to High</option>
@@ -20,7 +20,7 @@
             {% include 'product-card-grid', product: product %}
         </div>
         {% else %}
-            <div class="o-grid__item  u-size-6@s  u-size-4@m  u-size-3@l  collection-items__item">
+            <div class="o-grid__item  u-size-6@s  u-size-4@m  u-size-3@l u-mB-32">
                 {% include 'product-card-list', product: product %}
             </div>
         {% endif %}
