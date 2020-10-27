@@ -7,12 +7,12 @@
         {%- assign collection = collections[section.settings.collection] -%}
         {%- assign product_limit = section.settings.grid | times: section.settings.rows -%}
 
-        <div class="js-slider " data-items="4" data-gutter="1" data-responsive='{"350": {"items": "2"}, "768": {"items": "3"}, "1024": {"items": "4"}}'>>
+        <div class="js-slider " data-items="4" data-gutter="1" data-responsive='{"350": {"items": "2"}, "768": {"items": "3"}, "1024": {"items": "4"}}'>
           {% for product in collection.products limit: product_limit %}
             <div class="slide__item--{{section.id}}">
                 {% include 'product-card-grid', product: product %}
             </div>
-          {% else %}
+          {% endfor %}
 
         </div>
 
@@ -42,6 +42,7 @@
 
     </div>
 </section>
+
 
 {% schema %}
 {

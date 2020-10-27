@@ -12,10 +12,10 @@
     <div class="o-grid__item  u-size-6@m  u-size-6@l" data-product-single-media-group>
         {%- assign featured_media = product.selected_or_first_available_variant.featured_media | default: product.featured_media -%}
 
-	  <div class="js-product-images">
+	  <div class="product-main__gallery">
 
-	      {%- for media in product.media -%}
-	        {% include 'media', media: media, featured_media: featured_media, height: 720, image_scale: product_image_scale %}
+	      {%- for media in product.images -%}
+	        {% include 'media', media: media, featured_media: featured_media, height: 720, image_scale: product_image_scale, product: product %}
 	      {%- endfor -%}
 	      
 	  </div>
@@ -25,7 +25,7 @@
           <ul class="o-grid product-single__thumbnails product-single__thumbnails-{{ section.id }}">
             {% for media in product.media %}
               <li class="o-grid__item u-size-2  u-size-2@s u-size-2@m  u-size-2@l product-single__thumbnails-item js">
-                <a data-fancybox="preview" data-width="500" data-height="500" href="{{ media.preview_image | img_url: product_image_zoom_size, scale: product_image_scale }}"
+                <a href="{{ media.preview_image | img_url: product_image_zoom_size, scale: product_image_scale }}"
                    class="text-link product-single__thumbnail product-single__thumbnail--{{ section.id }}"
                    data-thumbnail-id="{{ section.id }}-{{ media.id }}">
 
@@ -56,7 +56,7 @@
 
     <div class="o-grid__item  u-size-6@m  u-size-6@l">
       <div class="product-main__right">
-        <h1 class="product-main__title  gray  u-textUpper  h3">{{product.title}}</h1>
+        <h1 class="product-main__title  dark-blue  u-textUpper  h3">{{product.title}}</h1>
         <div class="product__price">
           <span id="ProductPrice" class="product-main__title  product-main__title--price  blue  u-textUpper  h3 product-single__price{% if product.compare_at_price > product.price %} on-sale{% endif %}" itemprop="price" content="{{ current_variant.price | divided_by: 100.00 }}">
             {{ current_variant.price | money }}
@@ -79,6 +79,8 @@
 
           <select
             id="Option{{ option.position }}"
+            class="js-product-option"
+            data-option="{{option.name}}"
             name="options[{{ option.name | escape }}]" >
             {% for value in option.values %}
               <option

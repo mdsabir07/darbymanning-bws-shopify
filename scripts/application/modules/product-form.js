@@ -52,4 +52,17 @@ document.addEventListener('DOMContentLoaded', () => {
                     ).value = el.value;
             })
     );
+    
+    const options = Array.from(document.querySelectorAll('.js-product-option'))
+    
+    options.forEach((el) => el.addEventListener('change', () => {
+	    
+	   const product = window.meta.product
+	   const variantName = `${product.name} ${options.map(o => o.value).join(' / ')}`
+	   console.log(variantName)
+	   const variant = window.meta.product.variants.find(v => v.name === variantName) 
+	   
+	   console.log(variant)
+	    
+    }))
 });

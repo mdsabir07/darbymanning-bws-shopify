@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             document
                 .querySelectorAll('[data-media-id]')
-                .forEach((el) => el.classList.add('u-hide'));
+                .forEach((el) => el.classList.add('invisible'));
 
             document
                 .querySelector(
@@ -13,7 +13,16 @@ document.addEventListener('DOMContentLoaded', () => {
                         'data-thumbnail-id'
                     )}]`
                 )
-                .classList.remove('u-hide');
+                .classList.remove('invisible');
         })
     );
+    
+  
 });
+
+window.addEventListener('load', () => {
+	
+	  /* Product Zoom */
+	CloudZoom.quickStart();
+	
+})

@@ -4,11 +4,11 @@ data-base-url="{{ routes.product_recommendations_url }}"
 data-product-id="{{ product.id }}"
 data-limit="3"
 >
-<section class="product-similar">
+<section class="product-similar  u-mB-48">
   {%- if recommendations.products_count > 0 -%}
     <div class="o-grid  o-grid--p">
       <div class="o-grid__item  u-size-12@s">
-        <h4 class="nimbus u-textUpper">Something else?</h4>
+        <h4 class="nimbus u-textUpper u-mB-48">Something else?</h4>
       </div>
 
       {%- for product in recommendations.products -%}
@@ -19,8 +19,8 @@ data-limit="3"
               src="{{ product.featured_image | img_url: '300x300' }}"
               alt="{{ product.featured_image.alt }}"
           />
-          <p class="collection-items__title">{{ product.title }}</p>
-          <p class="collection-items__title  collection-items__title--price">{{ product.price | money}}</p>
+          <h5 class="dark-blue  u-mT-20">{{ product.title }}</h5>
+          <strong class="dark-blue">{{ product.price | money}}</strong>
           </a>
         </div>
       {%- endfor -%}
@@ -28,6 +28,7 @@ data-limit="3"
   {%- endif -%}
 </section>
 </div>
+
 
 {% javascript %}
 var loadProductRecommendationsIntoSection = function() {

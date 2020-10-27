@@ -9,8 +9,6 @@
 /* Imports */
 import NeueKit from '@neuekit/neuekit/src/scripts/neuekit';
 import SmoothScroll from 'smoothscroll-polyfill';
-import $ from "jquery";
-import FancyBox from "fancybox";
 
 import './modules/tns.js';
 import './modules/product-form.js';
