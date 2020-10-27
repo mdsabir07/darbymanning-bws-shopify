@@ -31,12 +31,10 @@
     }
 
     &__title {
-        margin-bottom: 0;
         font-size: 3.6rem;
 
         @include respond-below(md) {
             font-size: 2.4rem;
-            margin-bottom: 1rem;
         }
     }
 

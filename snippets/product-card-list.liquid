@@ -3,17 +3,15 @@
         <div class="small-slide__shadow">
             <div class="small-slide__img" data-image-loading-animation>
                 <p class="block__message  block__message--blue">{{product.type}}</p>
-                <div class="collection-items__img">
                     <img src="{{ product.featured_image.src | img_url: 'large' }}" alt="{{ product.featured_image.alt | escape }}">
 
                     <div class="price__wrapper">
                         {% include 'product-price-listing', product: product %}
                     </div>
-                </div>
             </div>
         
             <article class="block__info">  
-                <h2 class="collection-items__title  collection-items__title--brand">{{ product.vendor }}</h2>
+                <h5 class="dark-blue u-textUpper">{{ product.vendor }}</h5>
                 <p class="block__p">{{ product.title }}</p>
                 <h5 class="small-slide__shop  nimbus">Shop now</h5>
             </article>
