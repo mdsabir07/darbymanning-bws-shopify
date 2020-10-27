@@ -43,7 +43,9 @@
     "watch:js": "rollup --config --watch",
     "watch:theme": "theme open --allow-live && theme watch --allow-live",
     "watch": "run-p 'watch:theme' 'watch:css' 'watch:js'",
-    "start": "npm run watch"
+    "start": "npm run watch",
+    "prettier": "prettier --check '**/*.{js,scss,css,html,json,md,yml,yaml}'",
+    "prettier:fix": "prettier --write '**/*.{js,scss,css,html,json,md,yml,yaml}'"
   },
   "dependencies": {
     "@shopify/theme-product": "^4.0.2",
