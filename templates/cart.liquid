@@ -1,8 +1,8 @@
-  <div class="o-grid u-justifyCenter pd-v-4 mg-b-2">
+  <div class="o-grid u-justifyCenter pd-v-4 u-mB-20 ">
   	<div class="o-grid__item u-size-10">
-  	  <div class="o-grid mg-b-2">
+  	  <div class="o-grid u-mB-20">
   	<div class="o-grid__item u-size-4 u-size-6@m">
-    <h1 class="mg-0">Bag</h1>
+    <h1 class="u-m-0">Bag</h1>
     </div>
 
     {% if cart.item_count > 0 %}
@@ -26,7 +26,7 @@
   <form action="/cart" method="post" id="cart_form" class="o-grid">        
       <div class="o-grid__item u-size-7@m">
       	<div class="border border--xlarge">
-        <h4 class="mg-b-2">Products</h4>
+        <h4 class="u-mB-20">Products</h4>
 
         {% for item in cart.items %}
         	<div class="search-result">
@@ -78,7 +78,7 @@
 
       <div class="o-grid__item u-size-5@m">
       	<div class="border border--xlarge">
-        <h4 class="mg-b-2">
+        <h4 class="u-mB-20">
           Subtotal
         </h4>
 
@@ -87,7 +87,7 @@
         </p>
 
           <label for="note">Note to {{ shop.name }}:</label>
-          <textarea class="mg-b-2" name="note" rows="2">{{ cart.note }}</textarea>        
+          <textarea class="u-mB-20" name="note" rows="2">{{ cart.note }}</textarea>        
 
         <p>
           <button class="button u-size-12" name="checkout" type="submit">Checkout</button>
