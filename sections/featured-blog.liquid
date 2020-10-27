@@ -2,7 +2,7 @@
     {% unless blog.articles_count == 0 %}
     <div class="o-grid  o-grid--small-pad">
       {% for block in section.blocks limit: section.settings.post_limit %}
-      <div class="o-grid__item  u-size-6@m {% if forloop.first %}u-mB-200{% endif %}">
+      <div class="o-grid__item  u-size-6@m {% if forloop.first %}u-mB-20{% endif %}">
       {%- assign blog = blogs[block.settings.blog] -%}
       {% for article in blog.articles limit: 1 %}
           <article class="block border" aria-labelledby="FeaturedBlogTitle-{{ forloop.index0 }}-{{ section.id }}">

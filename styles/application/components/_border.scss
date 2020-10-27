@@ -12,49 +12,47 @@
         z-index: 3;
         .collection-header &,
         .blog-listing &,
-        .blog-template &, {
+        .blog-template & {
             top: 1.8rem;
         }
         .footer & {
-	        top: 2.7rem;
+            top: 2.7rem;
         }
     }
-    
+
     &--small:before {
-	    top: 1.8rem;
+        top: 1.8rem;
     }
-    
+
     &--large:before {
-	    top: 2.7rem;
+        top: 2.7rem;
     }
-    
+
     &--xlarge:before {
-	    top: 3.5rem;
+        top: 3.5rem;
     }
-    
+
     &.nav__col {
-	    
-	    &::before {
-		    top: 3.5rem;
-	    }
-	    
-	    &:first-child::before {
-		    left: -1.4rem;
-		    width: calc(100% + 1.4rem);
-	    }
-	    
-	    &:last-child::before {
-		    right: -1.4rem;
-		    width: calc(100% + 1.4rem);
-	    }
-	    
-	}
+        &::before {
+            top: 3.5rem;
+        }
+
+        &:first-child::before {
+            left: -1.4rem;
+            width: calc(100% + 1.4rem);
+        }
+
+        &:last-child::before {
+            right: -1.4rem;
+            width: calc(100% + 1.4rem);
+        }
+    }
 
     &--top::before {
         top: 0;
     }
 
     &--darkblue::before {
-        background:var(--dark-blue);
+        background: var(--dark-blue);
     }
 }

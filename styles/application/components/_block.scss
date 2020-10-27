@@ -42,16 +42,16 @@
         .rte_settings {
             p {
                 @include DINOTRegular;
-                font-size: 1.8rem;    
+                font-size: 1.8rem;
 
                 @include respond-below(md) {
                     font-size: 1.4rem;
-                }            
+                }
             }
         }
     }
     &__message {
-	    @include DINOTRegular;
+        @include DINOTRegular;
         font-size: 1.2rem;
         left: 1rem;
         position: absolute;
@@ -59,7 +59,7 @@
         top: 0.5rem;
         z-index: 1;
         color: var(--dark-blue);
-        
+
         &--blue {
             color: var(--blue);
         }
@@ -67,14 +67,14 @@
         .blog__hero & {
             left: 3rem;
         }
-        
+
         .home-news & {
-	        color: white;
+            color: white;
         }
     }
 
     &__title {
-	    font-weight: bold;
+        font-weight: bold;
         font-size: 2rem;
         margin-bottom: 0;
         text-transform: uppercase;
@@ -91,7 +91,7 @@
         &--mid {
             font-size: 2.1rem;
             font-weight: normal;
-                margin-bottom: .5rem;
+            margin-bottom: 0.5rem;
 
             @include respond-below(md) {
                 font-size: 1.6rem;

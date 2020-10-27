@@ -19,4 +19,3 @@ import './modules/search.js';
 /* Neue Kit */
 const neuekit = new NeueKit();
 window.neuekit = neuekit;
-

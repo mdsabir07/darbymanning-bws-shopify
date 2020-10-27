@@ -17,12 +17,11 @@
         .small-slide__shop {
             font-size: 1.6rem;
 
-
             @include respond-below(md) {
                 font-size: 1.3rem;
             }
         }
-        .small-slide__shop {        
+        .small-slide__shop {
             @include NimbusExt;
         }
     }
@@ -89,8 +88,8 @@
             }
 
             &--sold-out {
-                border-color:var(--dark-blue);
-                color:var(--dark-blue);
+                border-color: var(--dark-blue);
+                color: var(--dark-blue);
             }
         }
 
