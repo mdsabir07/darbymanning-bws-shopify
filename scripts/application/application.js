@@ -8,6 +8,10 @@
 \*----------------------------------------------------------------------------*/
 /* Imports */
 import NeueKit from '@neuekit/neuekit/src/scripts/neuekit';
+import SmoothScroll from 'smoothscroll-polyfill';
+import $ from "jquery";
+import FancyBox from "fancybox";
+
 import './modules/tns.js';
 import './modules/product-form.js';
 import './modules/product-images.js';
@@ -15,6 +19,7 @@ import './modules/accordion.js';
 import './modules/mobile-nav.js';
 import './modules/see-more.js';
 import './modules/search.js';
+import './modules/smooth-scrolling.js';
 
 /* Neue Kit */
 const neuekit = new NeueKit();

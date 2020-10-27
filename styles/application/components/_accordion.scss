@@ -1,4 +1,6 @@
 .accordion {
+    padding: 0 4rem;
+
     &__toggle {
         align-items: center;
         border-bottom: 1px solid #8f8f8f;
@@ -8,6 +10,14 @@
         justify-content: space-between;
         margin: 0 0 1.5rem;
         padding: 0 0 0.5rem;
+        @include NimbusExt;
+        font-size: 2.4rem;
+        font-weight: 600;
+        color: var(--dark-blue);
+
+        @include respond-below(md) {
+            font-size: 1.7rem;
+        }
     }
 
     &__arrow {
@@ -21,9 +31,16 @@
         color: var(--dark-gray);
         display: none;
         transition: 0.3s all;
+        font-size: 1.4rem;
+        
         &--active {
             display: block;
             margin-bottom: 2rem;
         }
+    }
+
+    @include respond-below(md) {
+        padding: 0 .8rem;
+        margin-bottom: 3rem;
     }
 }

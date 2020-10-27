@@ -19,7 +19,7 @@
     {% when 'image' %}            
       <div
          class="product-single__media{% if product.media.size > 1 %} product-single__media--has-thumbnails{% endif %}">
-        <img id="{{ media_id }}"
+        <img id="{{ media_id }}" data-fancybox-trigger="preview"
           class="feature-row__image {{ media_class }} lazyload{% unless featured_media == media %} lazypreload{% endunless %} cloudzoom"
           data-cloudzoom="zoomImage: '{{ media | product_img_url: 'master' }}', zoomPosition: 'inside', zoomOffsetX: 0, hoverIntentDelay: 100, touchStartDelay: 250" 
           src="{{ media | img_url: 'master' }}"          
