@@ -18,3 +18,24 @@
         width: 60%;
     }
 }
+
+.blog-grid-view {
+    .article {
+        &__link {
+            &.placeholder-svg,
+            img {
+                top: 0;
+            }
+        }
+    }
+    .product-card {
+        .block {
+            &__message {
+                top: 0;
+            }
+            &__info {
+                justify-content: flex-start;
+            }
+        }
+    }
+}

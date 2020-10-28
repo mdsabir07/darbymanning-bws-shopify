@@ -1,11 +1,12 @@
 
 <div class="blog-template blog-items">
+
 {% paginate blog.articles by 11 %}
 
 {% include "collection-buttons" %}
 
 {% if section.settings.layout == 'grid' %}
-    <div class="o-grid">
+    <div class="o-grid blog-grid-view">
       {% for article in blog.articles %}
       {% assign handle = forloop.index %}
       {% case handle %}
@@ -33,46 +34,48 @@
       {% assign width = 'u-size-6@s  u-size-6@m  u-size-3@l' %}
       {% endcase %}
         <div class="o-grid__item u-size-12 {{width}} u-mB-48 blog-items-filter">
-         <article class="block border">
-          <div class="small-slide__shadow">
-          <p class="block__message"><span>{{blog.title}} </span> | <span>{{ article.published_at | time_tag: '%d %b' }}</span></p>
-          <a href="{{ article.url }}" class="article__link">
-            {% if article.image %}
-            {%- assign img_url = article.image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
-            <img
-                class=" lazyload lazypreload"
-                src="{{ article.image | img_url: 'master' }}"
-                data-src="{{ img_url }}"
-                data-sizes="auto"
-                alt="{{ article.image.alt | escape }}">
-              <noscript>
-                <div class="-wrapper">
-                  {{ article | img_url: '345x345', scale: 2 | img_tag: article.title, '' }}
+          <article class="product-card small-slide block  border">
+            <a href="{{ article.url }}" class="article__link small-slide__a">
+              <div class="small-slide__shadow">
+                <div class="small-slide__img">
+                  <p class="block__message  block__message--blue"><span>{{blog.title}} </span> | <span>{{ article.published_at | time_tag: '%d %b' }}</span></p>
+                  {% if article.image %}
+                  {%- assign img_url = article.image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
+                  <img
+                      class=" lazyload lazypreload"
+                      src="{{ article.image | img_url: 'master' }}"
+                      data-src="{{ img_url }}"
+                      data-sizes="auto"
+                      alt="{{ article.image.alt | escape }}">
+                    <noscript>
+                      <div class="-wrapper">
+                        {{ article | img_url: '345x345', scale: 2 | img_tag: article.title, '' }}
+                      </div>
+                    </noscript>
+                    {% else %}
+                      {{ 'image' | placeholder_svg_tag: 'placeholder-svg ' }}
+                  {% endif %}
                 </div>
-              </noscript>
-              {% else %}
-                {{ 'image' | placeholder_svg_tag: 'placeholder-svg ' }}
-            {% endif %}
 
-          <div class="article__grid-meta block__info">
-            <h3 class="block__title block__title--mid" id="FeaturedBlogTitle-{{ forloop.index0 }}-{{ section.id }}">
-              {{ article.title | escape}}
-            </h3>
-            {% if section.settings.blog_show_author %}
-              <span class="article__author">{{ 'blogs.article.by_author' | t: author: article.author }}</span>
-            {% endif %}
+                <div class="article__grid-meta block__info">
+                  <h3 class="block__title block__title--mid dark-blue u-textUpper" id="FeaturedBlogTitle-{{ forloop.index0 }}-{{ section.id }}">
+                    {{ article.title | escape}}
+                  </h3>
+                  {% if section.settings.blog_show_author %}
+                    <span class="article__author">{{ 'blogs.article.by_author' | t: author: article.author }}</span>
+                  {% endif %}
 
-            <div class="rte article__grid-excerpt">
-              {% if article.excerpt.size > 0 %}
-                {{ article.excerpt }}
-              {% else %}
-                {{ article.content | strip_html | truncate: 80 }}
-              {% endif %}
-            </div>
-          </div>
-         </a>
-        </div>
-        </article>
+                  <div class="rte article__grid-excerpt small-slide__shop  nimbus">
+                    {% if article.excerpt.size > 0 %}
+                      {{ article.excerpt }}
+                    {% else %}
+                      {{ article.content | strip_html | truncate: 80 }}
+                    {% endif %}
+                  </div>
+                </div>
+              </div>
+            </a>
+          </article>
         </div>
       {% endfor %}
     </div>

@@ -19,6 +19,10 @@
     
     &__gallery {
 	    height: 60rem;
+
+        @include respond-below(md) {
+            height: 40rem;
+        }
     }
     
     &__media {
@@ -29,6 +33,18 @@
 		    opacity: 0;
 		    z-index: -1;
 	    }
+
+        @include respond-below(md) {
+            height: 100%;
+            width: 100%;
+
+            img {
+                height: 100%;
+                width: 100%;
+                object-fit: contain;
+                object-position: center
+            }
+        }
     }
 
     &__link {
