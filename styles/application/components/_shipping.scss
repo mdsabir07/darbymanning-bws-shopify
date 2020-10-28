@@ -1,0 +1,13 @@
+.shipping {
+
+	&__calculator {
+		label {
+			display: block;
+			margin-bottom: .5rem;
+		}
+
+		select, input {
+			width: 100%;
+		}
+	}
+}
