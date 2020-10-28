@@ -3,7 +3,7 @@
 
     &__links {
         padding-left: 0;
-        margin-top: 3rem;
+        margin-top: 4.5rem;
     }
 
     &__img {
@@ -19,6 +19,7 @@
     
     &__gallery {
 	    height: 60rem;
+	    position: relative;
 
         @include respond-below(md) {
             height: 40rem;
@@ -28,10 +29,22 @@
     &__media {
 	    transition: opacity .5s ease;
 	    position: absolute;
+		height: 100%;
+		display: flex;
+		justify-content: center;
+		width: 100%;
 	    
 	    &.invisible {
 		    opacity: 0;
 		    z-index: -1;
+	    }
+	    
+	    a {
+		    height: 100%;
+	    }
+	    
+	    img {
+		    max-height: 100%;
 	    }
 
         @include respond-below(md) {
@@ -56,7 +69,7 @@
             text-align: center;
 
             svg {
-                height: 2rem;
+                height: 2.4rem;
                 margin: 0 auto;
             }
 
@@ -123,58 +136,29 @@
     .swatch {
         margin-top: 1.5rem;
 
-        .swatch-element {
+        &__element {
             display: inline-block;
             width: auto;
             position: relative;
 
-            .tooltip {
-                font-size: 1.2rem;
-                display: none;
-            }
-
-            input {
-                position: absolute;
-                height: 100%;
-                width: 100%;
-                left: 0;
-                top: 0;
-                opacity: 0;
-                visibility: hidden;
-
-                &:checked {
-                    + label {
-                        border: 1px solid var(--dark-blue);
-                    }
-                }
-            }
-
             label {
-                height: 40px;
-                width: 40px;
-                border: 1px solid var(--light-gray);
+                height: 4rem;
+                width: 4rem;
                 position: relative;
                 display: flex;
                 align-items: center;
                 justify-content: center;
-                font-size: 1.2rem;
+                font-size: 1.5rem;
                 background-color: var(--blue);
                 color: var(--white);
-
-                &:before {
-                    content: none;
-                    box-shodow: none;
+				margin-right: 2rem;
+                margin-top: 1rem;
+                cursor: pointer;
+                
+                &.active {
+	                border: 1px solid var(--dark-blue);
                 }
 
-                .crossed-out {
-                    height: 100%;
-                    width: 100%;
-                    position: absolute;
-                    object-fit: cover;
-                    top: 0;
-                    left: 0;
-                    opacity: 0;
-                }
             }
 
             &.size {
@@ -182,23 +166,29 @@
                     align-items: center;
                     background-color: var(--light-gray);
                     color: var(--blue);
-                    display: flex;
-                    flex-direction: row;
                     height: 5rem;
                     justify-content: center;
-                    margin-right: 2rem;
-                    margin-top: 1rem;
                     transition: 0.3s all;
                     width: 5rem;
                     text-transform: uppercase;
-                    &:hover,
-                    &:active {
+                    
+                    &:hover, &.active {
                         background-color: var(--blue);
                         color: var(--white);
-                        cursor: pointer;
+                       
                     }
                 }
             }
+        }
+        
+        &__crossed-out {
+            height: 100%;
+            width: 100%;
+            position: absolute;
+            object-fit: cover;
+            top: 0;
+            left: 0;
+            opacity: 0;
         }
     }
 

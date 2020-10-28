@@ -3,7 +3,15 @@
 
 {% paginate blog.articles by 11 %}
 
-{% include "collection-buttons" %}
+<div class="o-grid u-justifyCenter u-pV-40">
+
+	<div class="u-size-12 u-size-10@m u-grid__item u-mB-48">
+
+		{% include "collection-buttons", blog: blog %}
+		
+	</div>
+	
+</div>
 
 {% if section.settings.layout == 'grid' %}
     <div class="o-grid blog-grid-view">
@@ -47,11 +55,6 @@
                       data-src="{{ img_url }}"
                       data-sizes="auto"
                       alt="{{ article.image.alt | escape }}">
-                    <noscript>
-                      <div class="-wrapper">
-                        {{ article | img_url: '345x345', scale: 2 | img_tag: article.title, '' }}
-                      </div>
-                    </noscript>
                     {% else %}
                       {{ 'image' | placeholder_svg_tag: 'placeholder-svg ' }}
                   {% endif %}

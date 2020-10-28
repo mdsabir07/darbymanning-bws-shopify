@@ -9,7 +9,7 @@
 
     &__item {
         display: inline-block;
-        a {
+        a, span {
             color: #5078a0;
             padding: 0 0.5rem;
             font-size: 1.4rem;
@@ -34,7 +34,7 @@
         }
     }
 
-    &__link[aria-current='page'] {
+    &__link[aria-current='page'], span {
         color: inherit;
         color: #404040;
         font-weight: normal;

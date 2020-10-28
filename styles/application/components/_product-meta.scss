@@ -15,8 +15,10 @@
     }
     &__detail {
         width: calc(100% - 50px);
+        display: flex;
+        flex-direction: column;
 
-        p {
+        p, span {
             color: #404040;
             margin: 0;
             font-size: 1.4rem;

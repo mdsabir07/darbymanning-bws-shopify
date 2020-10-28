@@ -1,3 +1,11 @@
+{% paginate collection.products by settings.pagination_limit %}
+	<section class="o-grid">
+		<div class="o-grid__item  u-size-12@s u-mB-20">
+		   {% include 'breadcrumbs', paginate: paginate %}
+		</div>
+	</section>
+{% endpaginate %}
+
 <section class="collection-header  o-grid">
     <div class="o-grid__item  u-size-12@s">
         <div class="block  block--row  border">
@@ -8,6 +16,9 @@
                         <div class="collection-header__content">
                             {{ collection.description }}
                         </div>
+                        {% if collection.description.size > 480 %}
+                        	<button class="collection-header__more js-see-more">See More</button>
+                        {% endif %}
                     {% endif %}
                 </div>
             </div>

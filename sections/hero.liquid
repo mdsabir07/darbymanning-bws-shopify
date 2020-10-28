@@ -45,7 +45,7 @@
         <ul class="slide__controls js-slider-controls" id="hero-controls" aria-label="Carousel Navigation" tabindex="0">
             <li class="slide__dots js-slider-dots">
             	{% for block in section.blocks %}
-            		<span class="slide__dot {% if forloop.index == 1 %}active{% endif %}"></span>
+            		<span class="slide__dot {% if forloop.first == true %}is-active{% endif %}"></span>
             	{% endfor %}
             </li>
             <li class="slide__next  button" data-controls="next" aria-controls="customize" tabindex="-1">

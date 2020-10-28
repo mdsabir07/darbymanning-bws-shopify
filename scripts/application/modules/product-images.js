@@ -6,12 +6,14 @@ document.addEventListener('DOMContentLoaded', () => {
             document
                 .querySelectorAll('[data-media-id]')
                 .forEach((el) => el.classList.add('invisible'));
+                
+            const id = e.currentTarget.getAttribute(
+                        'data-thumbnail-id'
+                    )
 
             document
                 .querySelector(
-                    `[data-media-id=${e.currentTarget.getAttribute(
-                        'data-thumbnail-id'
-                    )}]`
+                    `[data-media-id="${id}"]`
                 )
                 .classList.remove('invisible');
         })

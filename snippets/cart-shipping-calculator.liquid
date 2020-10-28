@@ -1,29 +1,28 @@
-<div class="o-grid__item u-size-7@m">
-  <div id="shipping-calculator" class="shipping__calculator">
-      
-    <h3>Get shipping estimates</h3>
-
-    <div>
-      <p class="field">
-        <label for="address_country">Country</label>
-      <select id="address_country" name="address[country]" data-default="{% if shop.customer_accounts_enabled and customer %}{{ customer.default_address.country }}{% elsif settings.shipping_calculator_default_country != '' %}{{ settings.shipping_calculator_default_country }}{% endif %}">{{ country_option_tags }}</select>
-       
-      </p>
-      <p class="field" id="address_province_container" style="display:none;">
-        <label for="address_province" id="address_province_label">Province</label>
-        <select id="address_province" name="address[province]" data-default=""></select>
-      </p>  
-      <p class="field">
-        <label for="address_zip">Zip/Postal Code</label>
-        <input type="text" id="address_zip" name="address[zip]" />
-      </p>
-      <p class="field">
-        <input type="button" class="get-rates btn button" value="Calculate shipping" />
-      </p>
-    </div>
-
-    <div id="wrapper-response"></div>
-  </div>
+<div id="shipping-calculator" class="shipping__calculator border border--xlarge">
+  
+	<h4 class="u-mB-20">Get shipping estimates</h4>
+	
+	<div>
+	  <p class="field">
+	    <label for="address_country">Country</label>
+	  <select id="address_country" name="address[country]" data-default="{% if shop.customer_accounts_enabled and customer %}{{ customer.default_address.country }}{% elsif settings.shipping_calculator_default_country != '' %}{{ settings.shipping_calculator_default_country }}{% endif %}">{{ country_option_tags }}</select>
+	   
+	  </p>
+	  <p class="field" id="address_province_container" style="display:none;">
+	    <label for="address_province" id="address_province_label">Province</label>
+	    <select id="address_province" name="address[province]" data-default=""></select>
+	  </p>  
+	  <p class="field">
+	    <label for="address_zip">Zip/Postal Code</label>
+	    <input type="text" id="address_zip" name="address[zip]" />
+	  </p>
+	  <p class="field">
+	    <input type="button" class="get-rates btn button" value="Calculate shipping" />
+	  </p>
+	</div>
+	
+	<div id="wrapper-response"></div>
+	
 </div>
 
 <script id="shipping-calculator-response-template" type="text/template">
@@ -47,13 +46,8 @@
   </ul> 
 </script>
 
-<!--[if lte IE 8]> 
-<style> #shipping-calculator { display: none; } </style> 
-<![endif]--> 
-
 <script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.7.0/underscore-min.js" type="text/javascript"></script>
 <script src="/services/javascripts/countries.js" type="text/javascript"></script>
-<script src="//cdn.shopify.com/shopifycloud/shopify/assets/themes_support/shopify_common-8ea6ac3faf357236a97f5de749df4da6e8436ca107bc3a4ee805cbf08bc47392.js" type="text/javascript"></script>
 <script src="//cdn.shopify.com/s/files/1/0231/9963/t/32/assets/jquery.cart.min.js?v=2809076966391425147" type="text/javascript"></script>
 
 <script>

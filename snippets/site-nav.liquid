@@ -1,12 +1,12 @@
 {% unless linklists[section.settings.main_linklist] == blank %}
-      <label for="drop" id="nav__toggle" class="nav__toggle  nav__toggle--main">
+      <button class="nav__toggle  nav__toggle--main js-nav-toggle">
         <img src="{{ 'menu.svg' | asset_url }}" alt="menu">
-      </label>
+      </button>
 {% endunless %}
 
-<ul class="nav__menu  nav__ul" id="SiteNav">
-    <li class="nav__li nav__li_close">
-      <button class="nav__a nav__close"  type="button" aria-expanded="false" aria-controls="sitenav_close"></button>
+<ul class="nav__menu  nav__ul" id="siteNav">
+    <li class="nav__li nav__li--close">
+      <button class="nav__a nav__close js-nav-toggle"  type="button"></button>
     </li>
 
     {% for link in linklists[linklist].links %}
@@ -23,11 +23,11 @@
   
       {% if link.links != blank %}
         <li class="nav__li{% if three_level_nav %} site-nav--has-centered-dropdown{% endif %}{% if link.active %} site-nav--active{% endif %}" data-has-dropdowns>
-          <a href="{{ link.url }}" class="nav__a{% if link.child_active %} site-nav__link--active{% endif %}" type="button" aria-expanded="false" aria-controls="SiteNavLabel-{{ child_list_handle }}">
+          <a href="{{ link.url }}" class="nav__a{% if link.child_active %} site-nav__link--active{% endif %} js-top-level-menu" type="button">
             {{ link.title | escape }} <i class="icon-arrow"></i>
           </a>
   
-          <div class="nav__dropdown" id="SiteNavLabel-{{ child_list_handle }}">
+          <div class="nav__dropdown js-menu-dropdown">
             {% if three_level_nav %}
                              
              <ul class="nav__dd-wrap site-nav__childlist-grid">

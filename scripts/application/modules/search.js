@@ -4,17 +4,17 @@ document.addEventListener('DOMContentLoaded', () => {
             el.addEventListener('click', (e) => {
                 e.preventDefault();
 
-                const overlay = document.getElementById('search-overlay');
+                const overlay = document.getElementById('searchOverlay');
 
                 overlay.classList.add('visible');
                 overlay.classList.add('opaque');
             })
     );
 
-    document.getElementById('search-close').addEventListener('click', (e) => {
+    document.getElementById('searchClose').addEventListener('click', (e) => {
         e.preventDefault();
 
-        const overlay = document.getElementById('search-overlay');
+        const overlay = document.getElementById('searchOverlay');
 
         overlay.classList.remove('opaque');
 
