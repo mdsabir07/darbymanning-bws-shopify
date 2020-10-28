@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
     );
     var dropdownArray = Array.prototype.slice.call(dropdown, 0);
     dropdownArray.forEach(function (el) {
-        var button = el.querySelector('button[aria-expanded="false"]');
+        var button = el.querySelector('a[aria-expanded="false"]');
 
         button.onclick = function (event) {
             let menu = el.querySelector('.nav__dropdown'),

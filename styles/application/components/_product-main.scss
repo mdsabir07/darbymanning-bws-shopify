@@ -16,6 +16,20 @@
             height: 50rem;
         }
     }
+    
+    &__gallery {
+	    height: 60rem;
+    }
+    
+    &__media {
+	    transition: opacity .5s ease;
+	    position: absolute;
+	    
+	    &.invisible {
+		    opacity: 0;
+		    z-index: -1;
+	    }
+    }
 
     &__link {
         display: inline-block;
