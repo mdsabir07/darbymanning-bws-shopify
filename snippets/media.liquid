@@ -1,26 +1,13 @@
 {% capture image_size %}{{ height }}x{{ height }}{% endcapture %}
 
-<div id="{{ media_wrapper_id }}"
-    class="product-main__media {% unless featured_media == media %} invisible{% endunless %}"
-    {% if media.media_type == 'video' or media.media_type == 'external_video' %} data-product-media-type-video data-enable-video-looping="{{ section.settings.enable_video_looping }}"{% endif %}    
-    {% if media.media_type == 'external_video' %} data-video-id="{{ media.external_id }}"{% endif %}
-    data-product-single-media-wrapper
-    data-media-id="{{ section.id }}-{{ media.id }}"
-    tabindex="-1">
-  {% if image.alt contains 'youtube' or image.alt contains 'vimeo' %}
-      {% assign src = image.alt | split: 'src="' %}
-      {% assign src = src[1] | split: '"' | first %}
-
-      {% if src contains '?' %}
-        {% assign src = src | append: '&amp;autoplay=1' %}
-      {% else %}
-        {% assign src = src | append: '?autoplay=1' %}
-      {% endif %}
-      <div class="product-main__media product-single__media--video product-single__media--{{ media.id }}">
-        {{ media | video_tag: class: 'media-video', image_size: image_size }}
-      </div> 
-    {% else %}
-	<a
+<div class="product-main__media {% unless featured_media == media %} invisible{% endunless %}" data-media-id="{{ section.id }}-{{ media.id }}">
+  {% case media.media_type %}
+  	{% when 'external_video' %}
+      <div class="product-single__media">
+        {{ media | external_video_tag }}
+      </div>
+    {% when 'image' %} 
+	  <a
          data-fancybox="preview" 
          href="{{ media | product_img_url: 'master' }}"
          data-fancybox-group="{{ product.id }}" 
@@ -34,5 +21,9 @@
           data-sizes="auto"          
           alt="{{ media.alt | escape }}">
       </a>
-      {% endif %}
+    {% else %}
+      <div class="product-main__media">
+        {{ media | image_size: image_size }}
+      </div>
+    {% endcase %}
 </div>

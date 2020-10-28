@@ -10,18 +10,16 @@
         width: 100%;
     }
 
-    &__a {
+    &__button {
         position: relative;
         width: 100%;
-    }
-
-    &__button {
         box-sizing: inherit;
         width: 100%;
         justify-content: center;
-
-        .active & {
-            background-color: var(--dark-blue);
+        
+        
+        &.active {
+	        background-color: var(--dark-blue);
         }
     }
 }

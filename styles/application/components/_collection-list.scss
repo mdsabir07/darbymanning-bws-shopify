@@ -4,6 +4,9 @@
     &__wrap {
         background-color: var(--exlight-gray);
         margin-bottom: 1rem;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
     }
 
     &__img {

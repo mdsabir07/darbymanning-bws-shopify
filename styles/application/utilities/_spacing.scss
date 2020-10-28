@@ -38,6 +38,9 @@
 );
 
 @include respond-below(md) {
+	.sm-u-mL-0.sm-u-mL-0 {
+		margin-left: 0;
+	}
     .sm-u-mV-50.sm-u-mV-50 {
         margin-top: 5rem;
         margin-bottom: 5rem;

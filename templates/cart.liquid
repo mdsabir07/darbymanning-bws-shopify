@@ -77,26 +77,25 @@
       </div>
 
       <div class="o-grid__item u-size-5@m">
-      	<div class="border border--xlarge">
-        <h4 class="u-mB-20">
-          Subtotal
-        </h4>
-
-        <p>
-          <strong>{{ cart.total_price | money_with_currency }}</strong> 
-        </p>
-
-          <label for="note">Note to {{ shop.name }}:</label>
-          <textarea class="u-mB-20" name="note" rows="2">{{ cart.note }}</textarea>        
-
-        <p>
-          <button class="button u-size-12" name="checkout" type="submit">Checkout</button>
-        </p>
+      	<div class="border border--xlarge u-mB-40">
+	        <h4 class="u-mB-20">
+	          Subtotal
+	        </h4>
+	
+	        <p>
+	          <strong>{{ cart.total_price | money_with_currency }}</strong> 
+	        </p>
+	
+	          <label for="note">Note to {{ shop.name }}:</label>
+	          <textarea class="u-mB-20" name="note" rows="2">{{ cart.note }}</textarea>        
+	
+	        <p>
+	          <button class="button u-size-12" name="checkout" type="submit">Checkout</button>
+	        </p>
         </div>
+        {% include 'cart-shipping-calculator' %}
       </div>
   </form>
-  
-  {% include 'cart-shipping-calculator' %}
   
   {% endif %}
   

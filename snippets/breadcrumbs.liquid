@@ -1,6 +1,6 @@
 {%- unless template == 'index' or template == 'cart' or template == 'list-collections' or template == '404' -%}
 {%- assign t = template | split: '.' | first -%}
-<nav class="breadcrumbs u-mL-20" role="navigation" aria-label="breadcrumbs">
+<nav class="breadcrumbs u-mL-20 sm-u-mL-0" role="navigation" aria-label="breadcrumbs">
     <ol class="breadcrumbs__list">
       <li class="breadcrumbs__item">
         <a class="breadcrumbs__link" href="/">Home</a>
@@ -59,6 +59,12 @@
             <a class="breadcrumbs__link" href="{{ request.path }}" aria-current="page">{{ page_title }}</a>
           </li>
       {%- endcase -%}
+      {% if paginate.pages > 1 %}
+      	  <li class="breadcrumbs__item">
+            <span>Page {{ paginate.current_page }} of {{ paginate.pages }}</span>
+          </li>
+        
+      {% endif %}
     </ol>
   </nav>
   {%- endunless -%}

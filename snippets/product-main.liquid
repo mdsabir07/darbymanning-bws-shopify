@@ -14,7 +14,7 @@
 
 	  <div class="product-main__gallery">
 
-	      {%- for media in product.images -%}
+	      {%- for media in product.media -%}
 	        {% include 'media', media: media, featured_media: featured_media, height: 720, image_scale: product_image_scale, product: product %}
 	      {%- endfor -%}
 	      
@@ -94,36 +94,12 @@
           {% endfor %}
           {% endunless %}
 
-          {% comment %}
-          In order for this form to submit, it needs to contain an input with name="id".
-          ProductForm() will automatically create this input (or make sure it has the
-          right value set if it already exists) on form submit based on the
-          currently selected variant. However, if JS is disabled we need a fallback.
-
-          Include a single element which allows users to select all variants
-          as a fallback and present it only when JS is disabled. In addition,
-          make sure you hide the option inputs declared above, like we do with the
-          `.js-enabled` class which only shows its contents when JS is enabled.
-          {% endcomment %}
-          <noscript>
-            <select name="id">
-              {% for variant in product.variants %}
-                <option
-                  {% if variant == current_variant %}selected="selected"{% endif %}
-                  {% unless variant.available %}disabled="disabled"{% endunless %}
-                  value="{{ variant.id }}">
-                    {{ variant.title }}
-                </option>
-              {% endfor %}
-            </select>
-          </noscript>
-
           {% if product.available and product.variants.size > 1 %}
             {% render 'swatch' for product.options as swatch %}
           {% endif %}
           
           <a href="#measurements" class="product-main__a">
-            See Product Measurements
+            <small>See Product Measurements</small>
         </a>
 
           {% comment %}
@@ -143,9 +119,11 @@
              <button type="submit" class="button button-primary" {% unless current_variant.available %}disabled="disabled"{% endunless %}>
             {{ 'products.product.add_to_cart' | t }}
             </button>
-            <a href="#footprint" class="product-main__button">
-                <span><img class="u-inblock" src="https://cdn.shopify.com/s/files/1/0463/1927/2092/files/footprint.png?v=1602055246"></span>
-            </a>
+            {% if product.metafields.global.footprint_img != blank or product.metafields.global.footprint_point != blank or custom_attributes.size > 0 %}
+	            <a href="#footprint" class="product-main__button js-smooth-scroll">
+	                <span><img class="u-inblock" src="{{ 'footprint.svg' | asset_url }}"></span>
+	            </a>
+	        {% endif %}
         </div>
 
            

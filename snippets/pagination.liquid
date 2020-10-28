@@ -1,15 +1,6 @@
-{% comment %}
-    Renders a pagination bar
-
-    Accepts:
-    - paginate: {Object} Paginate Liquid object (required)
-
-    Usage:
-    {% include 'pagination', paginate: paginate %}
-{% endcomment %}
 <ul class="list--inline pagination">  
-  {% for part in paginate.parts limit: cunt %}
-  <li class="pagination__count">{{ part.title | link_to: part.url }}</li>
+  {% for part in paginate.parts limit: count %}
+  <li class="pagination__count {% unless part.is_link %}active{% endunless %}">{{ part.title | link_to: part.url }}</li>
   {% endfor %}  
   {% comment %}
   <li class="pagination__text">

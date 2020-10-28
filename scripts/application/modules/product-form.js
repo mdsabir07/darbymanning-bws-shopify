@@ -38,12 +38,13 @@ document.addEventListener('DOMContentLoaded', () => {
             });
     }
 
-    Array.from(document.querySelectorAll('.swatch [type="radio"]')).forEach(
+    Array.from(document.getElementsByClassName('js-swatch-item')).forEach(
         (el) =>
-            el.addEventListener('change', () => {
-                const optionIndex = el
-                    .closest('.swatch')
-                    .getAttribute('data-option-index');
+            el.addEventListener('click', () => {
+	            const swatch = el.closest('.js-swatch')
+	            Array.from(swatch.getElementsByClassName('js-swatch-item')).forEach(el => el.classList.remove('active'))
+	            el.classList.add('active')
+                const optionIndex = swatch.getAttribute('data-option-index');
 
                 el
                     .closest('form')
@@ -53,7 +54,7 @@ document.addEventListener('DOMContentLoaded', () => {
             })
     );
     
-    const options = Array.from(document.querySelectorAll('.js-product-option'))
+    const options = Array.from(document.getElementsByClassName('js-product-option'))
     
     options.forEach((el) => el.addEventListener('change', () => {
 	    
@@ -65,4 +66,35 @@ document.addEventListener('DOMContentLoaded', () => {
 	   console.log(variant)
 	    
     }))
+    
+    const loadProductRecommendationsIntoSection = function() {
+	  // Look for an element with class 'product-recommendations'
+	  const productRecommendationsSection = document.querySelector(".product-recommendations");
+	  if (productRecommendationsSection === null) { return; }
+	  // Read product id from data attribute
+	  const productId = productRecommendationsSection.dataset.productId;
+	  // Read base URL from data attribute
+	  const baseUrl = productRecommendationsSection.dataset.baseUrl;
+	  // Read limit from data attribute
+	  const limit = productRecommendationsSection.dataset.limit;
+	  // Build request URL
+	  const requestUrl = baseUrl + "?section_id=product-recommendations&product_id=" + productId + "&limit=" + limit;
+	  // Create request and submit it using Fetch
+	  fetch(requestUrl).then(res => res.text()).then(html => {
+		  let container = document.createElement("div")
+		  container.innerHTML = html
+	      productRecommendationsSection.parentElement.innerHTML = container.querySelector(".product-recommendations").innerHTML
+	  })
+	};
+
+	// Listen for changes done in the Theme Editor
+	document.addEventListener("shopify:section:load", function(event) {
+	  if (event.detail.sectionId === "product-recommendations") {
+	    loadProductRecommendationsIntoSection();
+	  }
+	});
+	
+	// Fetching the recommendations on page load
+	loadProductRecommendationsIntoSection();
+    
 });
