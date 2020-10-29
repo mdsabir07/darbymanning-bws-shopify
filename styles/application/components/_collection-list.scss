@@ -1,5 +1,9 @@
 .collection-list {
     padding: 1rem 2rem 3rem;
+    
+    &__item {
+	    min-width: 10rem;
+    }
 
     &__wrap {
         background-color: var(--exlight-gray);
@@ -29,7 +33,7 @@
         font-weight: normal;
     }
 
-    @include respond-below(md) {
+    @include respond-below(lg) {
         flex-wrap: nowrap;
         overflow-y: auto;
         padding-bottom: 1rem;

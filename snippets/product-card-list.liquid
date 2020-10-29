@@ -4,7 +4,7 @@
             <p class="block__message  block__message--blue">{{product.type}}</p>
             <div class="block__wrap">
                 <img src="{{ product.featured_image.src | img_url: 'large' }}" alt="{{ product.featured_image.alt | escape }}">
-			<div>
+			</div>
             <div class="price__wrapper">
                 {% include 'product-price-listing', product: product %}
             </div>

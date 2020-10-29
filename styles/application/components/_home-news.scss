@@ -5,7 +5,7 @@
     &__img {
         background-color: var(--white);
         height: auto;
-        max-height: 280px;
+        max-height: 28rem;
         overflow: hidden;
         position: relative;
         
@@ -15,6 +15,10 @@
             object-fit: cover;
             object-position: center;
         }
+        
+        @include respond-below(md) {
+	        max-height: 17rem;
+	    }
     }
 
     @include respond-below(md) {

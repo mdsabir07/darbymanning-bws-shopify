@@ -18,6 +18,8 @@
 
         @include respond-below(md) {
             order: 2;
+            height: 32rem;
+            order: 1;
         }
     }
 
@@ -45,10 +47,15 @@
         @include DINOTRegular;
         font-size: 1.8rem;
         overflow: hidden;
-		text-overflow: ellipsis;
-		display: -webkit-box;
-		-webkit-line-clamp: 8; /* number of lines to show */
-		-webkit-box-orient: vertical;
+        
+        @include respond-above(md) {
+        
+			text-overflow: ellipsis;
+			display: -webkit-box;
+			-webkit-line-clamp: 8; /* number of lines to show */
+			-webkit-box-orient: vertical;
+			
+		}
 		
 		&.is-active {
 			-webkit-line-clamp: 999;

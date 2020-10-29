@@ -23,7 +23,7 @@
   
       {% if link.links != blank %}
         <li class="nav__li{% if three_level_nav %} site-nav--has-centered-dropdown{% endif %}{% if link.active %} site-nav--active{% endif %}" data-has-dropdowns>
-          <a href="{{ link.url }}" class="nav__a{% if link.child_active %} site-nav__link--active{% endif %} js-top-level-menu" type="button">
+          <a href="{{ link.url }}" class="nav__a{% if link.child_active %} site-nav__link--active{% endif %} js-top-level-menu">
             {{ link.title | escape }} <i class="icon-arrow"></i>
           </a>
   
