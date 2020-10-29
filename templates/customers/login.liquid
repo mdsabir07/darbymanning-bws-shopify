@@ -1,1 +1,61 @@
 <!-- /templates/customers/login.liquid -->
+<div class="section-account u-pV-40">
+	<div class="o-grid u-justifyCenter">
+		<div class="o-grid__item u-size-12@m">
+			<h3 class="nimbus u-textUpper u-mB-40">Customer Login</h3>
+		</div>
+
+		<div class="o-grid__item u-size-4@m u-size-6@s">
+		{%- form 'customer_login' -%}
+		  {{ form.errors | default_errors }}
+
+		  <div>
+		    <label for="customerEmail">Email Address</label>
+		    <input type="email" name="customer[email]" id="customerEmail" autocorrect="off" 		      autocapitalize="off" autocomplete="email">
+		  </div>
+
+		  <div>
+		    <label for="customerPassword">Password</label>
+		    <em><a href="#recover">Forgot your password?</a></em>
+		    <input type="password" name="customer[password]" id="customerPassword">
+		  </div>
+
+		  <div class="u-flex u-alignCenter u-between">
+			  <input type="submit" class="button" value="Sign In" />
+			  <p class="u-mB-0">
+			    New Customer? {{ 'Sign Up' | customer_register_link }}
+			  </p>
+		  </div>
+
+		{%- endform -%}
+
+		<!-- If accounts are set as optional, the following will be shown as an option when coming from checkout, not on the default /login page. -->
+		{%- if shop.checkout.guest_login -%}
+		  {%- form 'guest_login' -%}
+		    <input type="submit" value="Continue as Guest" />
+		  {%- endform -%}
+		{%- endif -%}
+
+		<!-- Use JavaScript to show/hide this form -->
+		{%- form 'recover_customer_password' -%}
+
+		  {%- if form.posted_successfully? -%}
+		    <div role="status">
+		      <p>We've sent you an email with a link to update your password.</p>
+		    </div>
+		  {%- endif -%}
+
+		  <div id="recover"{% unless form.errors %} style="display: none;"{% endunless %}>
+		    <p>We will send you an email to reset your password.</p>
+
+		    {{ form.errors | default_errors }}
+
+		    <label for="customerEmail">Email Address</label>
+		    <input type="email" name="email" id="customerEmail" autocorrect="off" autocapitalize="off"
+		      autocomplete="email">
+		    <input type="submit" class="button" value="Submit">
+		  </div>
+		{%- endform -%}
+		</div>
+	</div>
+</div>
