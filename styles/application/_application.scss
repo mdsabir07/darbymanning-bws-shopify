@@ -68,6 +68,7 @@
     Designed pieces of UI. Only using classes. More explicit naming.
 \*----------------------------------------------------------------------------*/
 
+@import 'components/border';
 @import 'components/core/head'; // Core header.
 @import 'components/core/main'; // Core main.
 @import 'components/core/foot'; // Core footer.
@@ -81,28 +82,25 @@
 
 @import 'components/tns'; // Tiny Slider styles.
 @import 'components/slide'; // Slide.
-@import 'components/small-slide'; // Small Slide.
+@import 'components/slider'; // Slider.
 @import 'components/home-about'; // Home about.
 @import 'components/home-news'; // Home News.
 
 @import 'components/collection-list'; // Collection small list styles.
-@import 'components/collection-header'; // Collection header.
-@import 'components/collection-buttons'; // Collection  Buttons.
+@import 'components/section-header'; // Collection header.
+@import 'components/section-buttons'; // Collection  Buttons.
 
 @import 'components/product-main'; // Product main styling.
 @import 'components/product-footprint'; // Product footprint styling.
 @import 'components/product-similar'; // Product similar items styling.
-@import 'components/product-detail'; // Product detail styling.
 @import 'components/accordion'; // Accordion styling.
 @import 'components/breadcrumbs'; // Breadcrumbs styling.
-@import 'components/blog-hero'; // Blog styling.
 
 @import 'components/payment-icons';
 @import 'components/product-meta';
-@import 'components/product-card';
+@import 'components/price';
 @import 'components/block-spacer';
 @import 'components/pagination';
-@import 'components/product-form';
 @import 'components/fancybox';
     
 @import 'components/cart-notice';
@@ -110,9 +108,12 @@
 @import 'components/search-result';
 @import 'components/page-content';
 @import 'components/cloudzoom';
-@import 'components/border';
 @import 'components/rich-text';
-@import 'components/shipping';
+@import 'components/shipping-calculator';
+@import 'components/search-form';
+@import 'components/legal-nav';
+@import 'components/swatch';
+@import 'components/article';
 
 /*----------------------------------------------------------------------------*\
     #Helpers

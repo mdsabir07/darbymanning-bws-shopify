@@ -1,168 +1,74 @@
-<article>
-<div class="blog-hero">
-    <div class="o-grid  o-grid__item">
-        <div class="blog-hero">
-            <div class="block  block--row border">
-                <div class="block__col blog-hero__col u-wrap">
-                  <div class="block__info  block__info--light-gray  block__info--large blog-hero__content" style="background-color : {{section.settings.text_block_bg}}; color: {{section.settings.text_color}};">
-                    <p class="block__message block__message--default"><span>{{blog.title}} </span></p>
-                    <h2 class="article__title nimbus u-textCaps">{{ article.title }}</h2>
-                  </div>
-
-                {% if section.settings.blog_show_author %}
+<section class="section-header  o-grid">
+    <div class="o-grid__item  u-size-12">
+        <div class="block  block--row  border">
+            <div class="block__col">
+                <div class="block__info  block__info--light-gray  block__info--large  section-header__info">
+                	<p class="block__message block__message--default"><span>{{blog.title}} </span></p>
+                    <h1 class="section-header__title  nimbus u-mB-32">{{ article.title | escape }}</h1>
+                </div>
                 <div class="u-alignSelfEnd">
-                    <p class="article__date">{{ article.published_at | date: "%B %d %Y" }}</p>
+                	{% assign d = article.published_at | date: "%-d" %}
+					{% capture day %}
+						{% case d %}
+						  {% when "1" or "21" or "31" %}{{ d }}st
+						  {% when "2" or "22" %}{{ d }}nd
+						  {% when "3" or "23" %}{{ d }}rd
+						  {% else %}{{ d }}th
+						{% endcase %}
+					{% endcapture %}
+                    <p class="article__date">{{ article.published_at | date: "%B" }} {{ day }} {{ article.published_at | date: "%Y" }}</p>
                     <p class="article__author">{{ 'blogs.article.by_author' | t: author: article.author }}</p>
                 </div>
-                {% endif %}
-                </div>
-                <div class="block__col blog-hero__img">
-                    {% if article.image %}
-                        {%- assign img_url = article.image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
-                        <img
-                        class="article__grid-image lazyload lazypreload"
-                        src="{{ article.image | img_url: 'master' }}"
-                        data-src="{{ img_url }}"
-                        data-sizes="auto"
-                        alt="{{ article.image.alt | escape }}">
-                        <noscript>
-                        <div class="article__grid-image-wrapper">
-                        {{ article | img_url: '345x345', scale: 2 | img_tag: article.title, 'article__grid-image' }}
-                        </div>
-                        </noscript>
-                    {% else %}
-                        {{ 'image' | placeholder_svg_tag: 'placeholder-svg article__grid-image' }}
-                    {% endif %}
-                </div>
+            </div>
 
+            <div class="section-header__img  block__col">
+            	{% if article.image %}
+                    {%- assign img_url = article.image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
+                    <img
+                    class="lazyload lazypreload"
+                    src="{{ article.image | img_url: 'master' }}"
+                    data-src="{{ img_url }}"
+                    data-sizes="auto"
+                    alt="{{ article.image.alt | escape }}">
+                    <noscript>
+                    <div class="article__grid-image-wrapper">
+                    {{ article | img_url: '345x345', scale: 2 | img_tag: article.title }}
+                    </div>
+                    </noscript>
+                {% else %}
+                    {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+                {% endif %}
             </div>
         </div>
     </div>
-</div>
-<div class="article-content u-mV-48">
-    <div class="o-grid">
-        <div class="o-grid__item u-flex u-alignCenter">
-            <div class="u-size-8@m">
-                {{article.content}}
-            </div>
+</section>
+
+<article class="article u-pV-48 o-grid u-justifyCenter">
+    <div class="o-grid__item u-size-12 u-size-8@m u-alignCenter u-flex">
+        {{article.content}}
+        
+        <div class="u-flex u-justifyCenter">
+        	{% include 'social-sharing', share_title: article.title, share_permalink: article.url, share_image: article.image %}
         </div>
     </div>
-    {% if section.settings.show_share_buttons %}
-        {% include 'social-sharing', share_title: article.title, share_permalink: article.url, share_image: article.image %}
-    {% endif %}
-</div>
 </article>
 
-{% schema %}
-{
-  "name": {
-    "da": "Opslag",
-    "de": "Posts",
-    "en": "Posts",
-    "es": "Publicaciones",
-    "fi": "Julkaisut",
-    "fr": "Articles",
-    "hi": "पोस्ट",
-    "it": "Articoli",
-    "ja": "投稿",
-    "ko": "게시물",
-    "nb": "Innlegg",
-    "nl": "Berichten",
-    "pt-BR": "Posts",
-    "pt-PT": "Publicações",
-    "sv": "Inlägg",
-    "th": "โพสต์",
-    "zh-CN": "文章",
-    "zh-TW": "貼文"
-  },
-  "settings": [
-    {
-        "type": "color",
-        "id": "text_block_bg",
-        "label": "Text Block background",
-        "default": "#ffffff"
-    },
-    {
-        "type": "color",
-        "id": "text_color",
-        "label": "Text color",
-        "default": "#ffffff"
-    },
-    {
-      "type": "checkbox",
-      "id": "blog_show_author",
-      "label": {
-        "da": "Vis forfatter",
-        "de": "Autor anzeigen",
-        "en": "Show author",
-        "es": "Mostrar autor",
-        "fi": "Näytä tekijä",
-        "fr": "Afficher l'auteur",
-        "hi": "लेखक दिखाएं",
-        "it": "Mostra autore",
-        "ja": "執筆者を表示する",
-        "ko": "작성자 표시",
-        "nb": "Vis forfatter",
-        "nl": "Auteur weergeven",
-        "pt-BR": "Exibir autor",
-        "pt-PT": "Mostrar autor",
-        "sv": "Visa författare",
-        "th": "แสดงผู้เขียน",
-        "zh-CN": "显示作者",
-        "zh-TW": "顯示作者"
-      },
-      "default": true
-    },
-    {
-      "type": "checkbox",
-      "id": "blog_show_date",
-      "label": {
-        "da": "Vis dato",
-        "de": "Datum anzeigen",
-        "en": "Show date",
-        "es": "Mostrar fecha",
-        "fi": "Näytä päivämäärä",
-        "fr": "Afficher la date",
-        "hi": "दिनांक दिखाएं",
-        "it": "Mostra data",
-        "ja": "日付を表示する",
-        "ko": "날짜 표시",
-        "nb": "Vis dato",
-        "nl": "Datum weergeven",
-        "pt-BR": "Exibir data",
-        "pt-PT": "Mostrar data",
-        "sv": "Visa datum",
-        "th": "แสดงวันที่",
-        "zh-CN": "显示日期",
-        "zh-TW": "顯示日期"
-      },
-      "default": true
-    },
-    {
-      "type": "checkbox",
-      "id": "show_share_buttons",
-      "label": {
-        "da": "Vis knapper til deling på sociale medier",
-        "de": "Buttons für Social Media anzeigen",
-        "en": "Show social sharing buttons",
-        "es": "Mostrar botones para compartir en redes sociales",
-        "fi": "Näytä sosiaalisen median jakamispainikkeet",
-        "fr": "Afficher les boutons de partage sur les médias sociaux",
-        "hi": "सोशल शेयरिंग बटन दिखाएं",
-        "it": "Mostra i pulsanti per la condivisione sui social",
-        "ja": "ソーシャルメディアでの共有ボタンを表示する",
-        "ko": "소셜 공유 버튼 표시",
-        "nb": "Vis knapper for deling på sosiale medier",
-        "nl": "Knoppen voor sociaal delen weergeven",
-        "pt-BR": "Exibir botões de compartilhamento em redes sociais",
-        "pt-PT": "Mostrar botões de partilha nas redes sociais",
-        "sv": "Visa knappar för delning i sociala medier",
-        "th": "แสดงปุ่มสำหรับแชร์ลงโซเชียล",
-        "zh-CN": "显示社交分享按钮",
-        "zh-TW": "顯示社群分享按鈕"
-      },
-      "default": true
-    }
-  ]
-}
-{% endschema %}
+<section class="o-grid u-justifyCenter u-mB-48">
+    <div class="o-grid__item u-size-12 u-size-8@m">
+
+		<div id="disqus_thread"></div>
+		<script type="text/javascript">
+		    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+		    var disqus_shortname = 'BrothersWeStand'; // required: replace example with your forum shortname
+		
+		    /* * * DON'T EDIT BELOW THIS LINE * * */
+		    (function() {
+		        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+		        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+		        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+		    })();
+		</script>
+		<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+		
+	</div>
+</section>

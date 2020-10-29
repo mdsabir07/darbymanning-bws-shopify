@@ -1,9 +1,9 @@
-<section class="c-hero-slider" data-section-id="{{ section.id }}" data-section-type="hero-section">
+<section class="slider" data-section-id="{{ section.id }}" data-section-type="hero-section">
     <div class="o-grid  o-grid--item">
         <div class="hero-slider js-slider" data-gutter="1">
         	{% for block in section.blocks %}
 		            <div id="{{block.id}}">
-		                <div class="slide  border" style="--border-color: {{block.settings.button_color_bg}}">
+		                <div class="slide  border border--close" style="--border-color: {{block.settings.button_color_bg}}">
 		                	{% capture order %}{% if block.settings.layout == 'left' %}1{% else %}2{% endif %}{% endcapture %}
 		                    <div class="slide__img" style="order: {{ order }}" data-image-loading-animation>
 		                    	{% if block.settings.image != blank %}
@@ -42,13 +42,13 @@
 		            </div>
 	            {% endfor %}
         </div>
-        <ul class="slide__controls js-slider-controls" id="hero-controls" aria-label="Carousel Navigation" tabindex="0">
-            <li class="slide__dots js-slider-dots">
+        <ul class="slider__controls slider__controls--thin js-slider-controls" id="hero-controls" aria-label="Carousel Navigation" tabindex="0">
+            <li class="slider__dots js-slider-dots">
             	{% for block in section.blocks %}
-            		<span class="slide__dot {% if forloop.first == true %}is-active{% endif %}"></span>
+            		<span class="slider__dot {% if forloop.first == true %}is-active{% endif %}"></span>
             	{% endfor %}
             </li>
-            <li class="slide__next  button" data-controls="next" aria-controls="customize" tabindex="-1">
+            <li class="slider__next  button" data-controls="next" aria-controls="customize" tabindex="-1">
                 <svg width="17px" height="18px" viewBox="0 0 17 18" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                     <title>NEXT</title>
                     <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">

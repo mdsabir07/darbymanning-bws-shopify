@@ -17,12 +17,6 @@
         }
     }
 
-    article {
-        &__grid-image {
-            width: 100%;
-        }
-    }
-
     @include respond-below(md) {
         padding: 2rem 0;
     }

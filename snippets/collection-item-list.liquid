@@ -36,7 +36,7 @@
     {% for product in collection.products %}
         {% if template contains 'brands' %}
         <div class="o-grid__item  u-size-6@s  u-size-4@m  u-size-3@l">
-            {% include 'product-card-grid', product: product %}
+            {% include 'product-card-grid', product: product, show_vendor: true %}
         </div>
         {% else %}
             <div class="o-grid__item  u-size-6@s  u-size-4@m  u-size-3@l u-mB-32">
