@@ -1,27 +1,21 @@
  <section class="home-news" style="background-color: {{ section.settings.bg_color }};">
-    {% unless blog.articles_count == 0 %}
     <div class="o-grid  o-grid--small-pad">
       {% for block in section.blocks limit: section.settings.post_limit %}
       <div class="o-grid__item  u-size-6@m {% if forloop.first %}u-mB-20{% endif %}">
       {%- assign blog = blogs[block.settings.blog] -%}
       {% for article in blog.articles limit: 1 %}
           <article class="block border" aria-labelledby="FeaturedBlogTitle-{{ forloop.index0 }}-{{ section.id }}">
-              <a href="{{ blog.url }}" class="article__link">
+              <a href="{{ blog.url }}">
                 {% if article.image %}
                 <div class="home-news__img">
-                  <p class="block__message">{{blog.title}}</p>
+                  <p class="block__message block__message--white">{{blog.title}}</p>
                   {%- assign img_url = article.image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
                     <img
-                        class="article__grid-image lazyload lazypreload"
+                        class="lazyload lazypreload"
                         src="{{ article.image | img_url: 'master' }}"
                         data-src="{{ img_url }}"
                         data-sizes="auto"
                         alt="{{ block.settings.image.alt | escape }}">
-                  <noscript>
-                    <div class="article__grid-image-wrapper">
-                    {{ article | img_url: '345x345', scale: 2 | img_tag: article.title, 'article__grid-image' }}
-                    </div>
-                  </noscript>
                 </div>
                 {% endif %}
               </a>
@@ -29,7 +23,7 @@
                   <h3 class="block__title block__title--mid" id="FeaturedBlogTitle-{{ forloop.index0 }}-{{ section.id }}">
                     {{ article.title }}
                   </h3>
-                  <div class="block__p article__grid-excerpt">
+                  <div class="block__p">
                     {% if article.excerpt.size > 0 %}
                       {{ article.excerpt }}
                     {% else %}
@@ -52,57 +46,11 @@
         </div>
       {% endfor %}
     </div>
-  {% else %}
-    <div class="o-grid  o-grid--small-pad">
-      {% for i in (1..section.settings.post_limit) %}
-        <div class="o-grid__item  u-size-6@m">
-          <div class="article__grid-meta">
-            <h3 class="block__title">
-              <a href="#">{{ 'homepage.onboarding.blog_title' | t }}</a>
-            </h3>
-
-
-            <div class="rte article__grid-excerpt">
-              {{ 'homepage.onboarding.blog_excerpt' | t }}
-            </div>
-
-            <ul class="list--inline block__buttons">
-              <li>
-                <a href="{{ blog.url }}" class="btn button">
-                  {{ 'blogs.article.read_more' | t }}
-                </a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      {% endfor %}
-    </div>
-  {% endunless %}
-
 </section>
 
 {% schema %}
 {
-  "name": {
-    "da": "Blogopslag",
-    "de": "Blogposts",
-    "en": "Blog posts",
-    "es": "Entradas del blog",
-    "fi": "Blogijulkaisut",
-    "fr": "Articles de blog",
-    "hi": "ब्लॉग पोस्ट",
-    "it": "Articoli del blog",
-    "ja": "ブログ記事",
-    "ko": "블로그 게시물",
-    "nb": "Blogginnlegg",
-    "nl": "Blogberichten",
-    "pt-BR": "Posts do blog",
-    "pt-PT": "Publicações no blogue",
-    "sv": "Blogginlägg",
-    "th": "โพสต์บล็อก",
-    "zh-CN": "博客文章",
-    "zh-TW": "部落格文章"
-  },
+  "name": "Featured Blog Posts",
   "class": "index-section",
   "settings": [
     {

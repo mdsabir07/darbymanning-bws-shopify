@@ -53,7 +53,7 @@
                 {% endcase %}
 
                 <div class="o-grid__item{% if section.blocks.size == 1 %} u-textCenter{% endif %} {% if block.type == 'spacer'%}u-size-12{% else%}{{ block_width }} {{block_width_mobile}} {% endif %}" {{ block.shopify_attributes }}>
-                    <div class="block  block__info  block__info--p-tb0 {% unless block.type == 'spacer'%}border  border--darkblue{% endunless %}">
+                    <div class="block  block__info  block__info--transparent block__info--p-tb01 block__info--margin {% unless block.type == 'spacer'%}border border--large  border--darkblue{% endunless %}">
                         {%- if block.settings.title -%}
                             <p class="footer-nav__title">{{ block.settings.title | escape }}</p>
                         {%- endif -%}

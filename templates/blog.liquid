@@ -1,6 +1,11 @@
-{% comment %}
-  The contents of the blog.liquid template can be found in /sections/blog-template.liquid
-{% endcomment %}
+{%  if blog.title == 'Blog' %}
 
-{% section 'blog-template' %}
+	{% section 'blog-list-header' %}
+	{% section 'blog-list-categories' %}
+
+{% else %}
+
+	{% section 'blog-template' %}
+	
+{% endif %}
 

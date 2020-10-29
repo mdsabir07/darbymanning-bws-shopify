@@ -1,262 +1,67 @@
+<section>
 
-<div class="blog-template blog-items">
-
-{% paginate blog.articles by 11 %}
-
-<div class="o-grid u-justifyCenter u-pV-40">
-
-	<div class="u-size-12 u-size-10@m u-grid__item u-mB-48">
-
-		{% include "collection-buttons", blog: blog %}
-		
-	</div>
+	{% paginate blog.articles by 11 %}
 	
-</div>
+	<div class="o-grid u-justifyCenter u-pV-40">
+	
+		<div class="u-size-12 u-size-10@m u-grid__item u-mB-48">
+	
+			{% include "collection-buttons", blog: blog %}
+			
+		</div>
+	
+	</div>
 
-{% if section.settings.layout == 'grid' %}
-    <div class="o-grid blog-grid-view">
-      {% for article in blog.articles %}
-      {% assign handle = forloop.index %}
-      {% case handle %}
-      {% when 1 %}
-      {% assign width = 'u-size-6@s  u-size-6@m  u-size-3@l' %}
-      {% when 2 %}
-      {% assign width = 'u-size-6@s  u-size-6@m  u-size-6@l' %}
-      {% when 3 %}
-      {% assign width = 'u-size-6@s  u-size-6@m  u-size-3@l' %}
-      {% when 4 %}
-      {% assign width = 'u-size-6@s  u-size-6@m  u-size-3@l' %}
-      {% when 5 %}
-      {% assign width = 'u-size-6@s  u-size-6@m  u-size-3@l' %}
-      {% when 6 %}
-      {% assign width = 'u-size-6@s  u-size-6@m  u-size-6@l' %}
-      {% when 7 %}
-      {% assign width = 'u-size-6@s  u-size-6@m  u-size-6@l' %}
-      {% when 8 %}
-      {% assign width = 'u-size-6@s  u-size-6@m  u-size-6@l' %}
-      {% when 9 %}
-      {% assign width = 'u-size-6@s  u-size-6@m  u-size-6@l' %}
-      {% when 10 %}
-      {% assign width = 'u-size-6@s  u-size-6@m  u-size-3@l' %}
-      {% when 11 %}
-      {% assign width = 'u-size-6@s  u-size-6@m  u-size-3@l' %}
-      {% endcase %}
-        <div class="o-grid__item u-size-12 {{width}} u-mB-48 blog-items-filter">
-          <article class="product-card small-slide block  border">
-            <a href="{{ article.url }}" class="article__link small-slide__a">
-              <div class="small-slide__shadow">
-                <div class="small-slide__img">
-                  <p class="block__message  block__message--blue"><span>{{blog.title}} </span> | <span>{{ article.published_at | time_tag: '%d %b' }}</span></p>
-                  {% if article.image %}
-                  {%- assign img_url = article.image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
-                  <img
-                      class=" lazyload lazypreload"
-                      src="{{ article.image | img_url: 'master' }}"
-                      data-src="{{ img_url }}"
-                      data-sizes="auto"
-                      alt="{{ article.image.alt | escape }}">
-                    {% else %}
-                      {{ 'image' | placeholder_svg_tag: 'placeholder-svg ' }}
-                  {% endif %}
-                </div>
+	<div class="o-grid blog-grid-view">
+	  {% for article in blog.articles %}
+	  {% assign handle = forloop.index %}
+	  {% case handle %}
+	  {% when 1 %}
+	  {% assign width = 'u-size-6@s  u-size-6@m  u-size-3@l' %}
+	  {% when 2 %}
+	  {% assign width = 'u-size-6@s  u-size-6@m  u-size-6@l' %}
+	  {% when 3 %}
+	  {% assign width = 'u-size-6@s  u-size-6@m  u-size-3@l' %}
+	  {% when 4 %}
+	  {% assign width = 'u-size-6@s  u-size-6@m  u-size-3@l' %}
+	  {% when 5 %}
+	  {% assign width = 'u-size-6@s  u-size-6@m  u-size-3@l' %}
+	  {% when 6 %}
+	  {% assign width = 'u-size-6@s  u-size-6@m  u-size-6@l' %}
+	  {% when 7 %}
+	  {% assign width = 'u-size-6@s  u-size-6@m  u-size-6@l' %}
+	  {% when 8 %}
+	  {% assign width = 'u-size-6@s  u-size-6@m  u-size-6@l' %}
+	  {% when 9 %}
+	  {% assign width = 'u-size-6@s  u-size-6@m  u-size-6@l' %}
+	  {% when 10 %}
+	  {% assign width = 'u-size-6@s  u-size-6@m  u-size-3@l' %}
+	  {% when 11 %}
+	  {% assign width = 'u-size-6@s  u-size-6@m  u-size-3@l' %}
+	  {% endcase %}
+	    <div class="o-grid__item u-size-12 {{width}} u-mB-48 u-flex">
+	      {% include 'blog-card-grid', article: article, blog: blog %}
+	    </div>
+	  {% endfor %}
+	</div>
 
-                <div class="article__grid-meta block__info">
-                  <h3 class="block__title block__title--mid dark-blue u-textUpper" id="FeaturedBlogTitle-{{ forloop.index0 }}-{{ section.id }}">
-                    {{ article.title | escape}}
-                  </h3>
-                  {% if section.settings.blog_show_author %}
-                    <span class="article__author">{{ 'blogs.article.by_author' | t: author: article.author }}</span>
-                  {% endif %}
+	{%- if paginate.pages > 1 -%}
+	  {% include 'pagination', paginate: paginate %}
+	{%- endif -%}
+	
+	{% endpaginate %}
+	
+</section>
 
-                  <div class="rte article__grid-excerpt small-slide__shop  nimbus">
-                    {% if article.excerpt.size > 0 %}
-                      {{ article.excerpt }}
-                    {% else %}
-                      {{ article.content | strip_html | truncate: 80 }}
-                    {% endif %}
-                  </div>
-                </div>
-              </div>
-            </a>
-          </article>
-        </div>
-      {% endfor %}
-    </div>
-
-{% else %}
-  <div class="o-grid blog-list-view">
-    {% for article in blog.articles %}
-      <div class="o-grid__item u-size-12 u-mB-48">
-        <div class="block border">
-              <div class="small-slide__shadow article-listing">
-                <h2 class="block__title block__title--mid"><a href="{{ article.url }}">{{ article.title }}</a></h2>
-                {% if section.settings.blog_show_author %}
-                  <span class="article__author">{{ 'blogs.article.by_author' | t: author: article.author }}</span>
-                {% endif %}
-
-                {% if article.image %}
-                {%- assign img_url = article.image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
-                <img
-                    class=" lazyload lazypreload"
-                    src="{{ article.image | img_url: 'master' }}"
-                    data-src="{{ img_url }}"
-                    data-sizes="auto"
-                    alt="{{ article.image.alt | escape }}">
-                  <noscript>
-                    <div class="-wrapper">
-                      {{ article | img_url: '345x345', scale: 2 | img_tag: article.title, '' }}
-                    </div>
-                  </noscript>
-                  {% else %}
-                    {{ 'image' | placeholder_svg_tag: 'placeholder-svg ' }}
-                {% endif %}
-
-                <div class="rte">
-                  {% if article.excerpt.size > 0 %}
-                    {{ article.excerpt }}
-                  {% else %}
-                    {{ article.content | strip_html | truncate: 100 }}
-                  {% endif %}
-                </div>
-              </div>
-        </div>
-      </div>
-    {% endfor %}
-    </div>
-{% endif %}
-
-{%- if paginate.pages > 1 -%}
-  {% include 'pagination', paginate: paginate %}
-{%- endif -%}
-
-{% endpaginate %}
-</div>
 
 {% schema %}
 {
-  "name": {
-    "da": "Blogsider",
-    "de": "Blogseiten",
-    "en": "Blog pages",
-    "es": "Páginas del blog",
-    "fi": "Blogisivut",
-    "fr": "Pages du blog",
-    "hi": "ब्लॉग पेज",
-    "it": "Pagine del blog",
-    "ja": "ブログページ",
-    "ko": "블로그 페이지",
-    "nb": "Bloggsider",
-    "nl": "Blogpagina's",
-    "pt-BR": "Páginas do blog",
-    "pt-PT": "Páginas do blogue",
-    "sv": "Bloggsidor",
-    "th": "หน้าบล็อก",
-    "zh-CN": "博客页面",
-    "zh-TW": "部落格頁面"
-  },
+  "name": "Blog Category",
   "settings": [
     {
         "type": "link_list",
         "id": "col_nav_bottom",
         "label": "Button Bar Navigation"
-    },
-    {
-      "type": "select",
-      "id": "layout",
-      "label": {
-        "da": "Layout",
-        "de": "Layout",
-        "en": "Layout",
-        "es": "Diseño",
-        "fi": "Asettelu",
-        "fr": "Mise en page",
-        "hi": "लेआउट",
-        "it": "Layout",
-        "ja": "レイアウト",
-        "ko": "레이아웃",
-        "nb": "Oppsett",
-        "nl": "Opmaak",
-        "pt-BR": "Layout",
-        "pt-PT": "Esquema",
-        "sv": "Layout",
-        "th": "เลย์เอาต์",
-        "zh-CN": "布局",
-        "zh-TW": "版面配置"
-      },
-      "default": "list",
-      "options": [
-        {
-          "value": "grid",
-          "label": {
-            "da": "Gitter",
-            "de": "Raster",
-            "en": "Grid",
-            "es": "Cuadrícula",
-            "fi": "Ruudukko",
-            "fr": "Grille",
-            "hi": "ग्रिड",
-            "it": "Griglia",
-            "ja": "グリッド",
-            "ko": "그리드",
-            "nb": "Rutenett",
-            "nl": "Raster",
-            "pt-BR": "Grade",
-            "pt-PT": "Grelha",
-            "sv": "Rutnät",
-            "th": "กริด",
-            "zh-CN": "网格",
-            "zh-TW": "網格"
-          }
-        },
-        {
-          "value": "list",
-          "label": {
-            "da": "Liste",
-            "de": "Liste",
-            "en": "List",
-            "es": "Lista",
-            "fi": "Luettelo",
-            "fr": "Liste",
-            "hi": "सूची",
-            "it": "Elenco",
-            "ja": "リスト",
-            "ko": "목록",
-            "nb": "Liste",
-            "nl": "Lijst",
-            "pt-BR": "Lista",
-            "pt-PT": "Lista",
-            "sv": "Lista",
-            "th": "รายการ",
-            "zh-CN": "列表",
-            "zh-TW": "清單"
-          }
-        }
-      ]
-    },
-    {
-      "type": "checkbox",
-      "id": "blog_show_author",
-      "label": {
-        "da": "Vis forfatter",
-        "de": "Autor anzeigen",
-        "en": "Show author",
-        "es": "Mostrar autor",
-        "fi": "Näytä tekijä",
-        "fr": "Afficher l'auteur",
-        "hi": "लेखक दिखाएं",
-        "it": "Mostra autore",
-        "ja": "執筆者を表示する",
-        "ko": "작성자 표시",
-        "nb": "Vis forfatter",
-        "nl": "Auteur weergeven",
-        "pt-BR": "Exibir autor",
-        "pt-PT": "Mostrar autor",
-        "sv": "Visa författare",
-        "th": "แสดงผู้เขียน",
-        "zh-CN": "显示作者",
-        "zh-TW": "顯示作者"
-      },
-      "default": true
     }
   ]
 }

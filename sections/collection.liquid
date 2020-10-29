@@ -1,7 +1,7 @@
-<section class="c-slider-4 u-mV-80 sm-u-mV-50 collection-slider">
+<section class="slider u-mV-80 sm-u-mV-50">
     <div class="o-grid  o-grid--item">
         {% if section.settings.title != blank %}
-         <h4 class="nimbus u-textUpper">{{ section.settings.title | escape }}</h4>
+         <h4 class="nimbus u-textUpper slider__title">{{ section.settings.title | escape }}</h4>
         {% endif %}
 
         {%- assign collection = collections[section.settings.collection] -%}
@@ -16,11 +16,11 @@
 
         </div>
 
-        <ul class="slide__controls js-slider-controls" aria-label="Carousel Navigation" tabindex="0">
-            <li class="slide__prev" data-controls="prev" aria-controls="customize" tabindex="-1">
+        <ul class="slider__controls slider__controls--wide js-slider-controls" aria-label="Carousel Navigation" tabindex="0">
+            <li class="slider__prev" data-controls="prev" aria-controls="customize" tabindex="-1">
                 <i class="fas fa-angle-left fa-5x"></i>
             </li>
-            <li class="slide__next  button" data-controls="next" aria-controls="customize" tabindex="-1">
+            <li class="slider__next  button" data-controls="next" aria-controls="customize" tabindex="-1">
                 <?xml version="1.0" encoding="UTF-8"?>
                 <svg width="17px" height="18px" viewBox="0 0 17 18" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                     <title>Fill 3</title>
@@ -31,14 +31,13 @@
                     </g>
                 </svg>
             </li>
+            {% if section.settings.show_view_all %}
+            	<li class="slider__more">
+			    	<a class="button" href="{{ collection.url }}">View All</a>
+			    </li>
+		  {% endif %}
         </ul>
-      {% if section.settings.show_view_all %}
-    <div class="text-center">
-      <a href="{{ collection.url }}" class="button" aria-label="{{ 'collections.general.view_all_label' | t: collection_name: collection.title }}">
-      {{ 'collections.general.view_all' | t }}
-      </a>
-    </div>
-  {% endif %}
+      
 
     </div>
 </section>

@@ -6,12 +6,6 @@
     width: 100%;
     z-index: 2;
 
-    &.border::before {
-        background-color: var(--dark-blue);
-        background-color: var(--border-color);
-        top: 1rem;
-    }
-
     &__info {
         background-color: var(--light-gray);
         display: flex;
@@ -72,70 +66,8 @@
         }
     }
 
-    &__controls {
-        display: flex;
-        flex-direction: row;
-        justify-content: flex-end;
-        list-style: none;
-        margin: 0;
-        padding: 0 1.5rem 0 1rem;
-        width: 100%;
-
-        .collection-slider & {
-            align-items: center;
-            position: relative;
-            top: -1rem;
-            padding: 0 1rem 0 1rem;
-        }
-
-        @include respond-below(md) {
-            padding: 0 0.75rem;
-        }
-    }
-
-    &__prev {
-        display: none;
-    }
-
-    &__next {
-        width: 4rem;
-        text-align: center;
-        height: 4rem;
-        padding: 0;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-
-    &__dots {
-        align-items: center;
-        display: flex;
-        margin-right: 1.5rem;
-    }
-
-    &__dot {
-        background-color: var(--light-gray);
-        border-radius: 50%;
-        display: inline-block;
-        height: 1.3rem;
-        margin-right: 0.8rem;
-        transition: background-color 0.5s ease;
-        width: 1.3rem;
-
-        &.is-active {
-            background-color: var(--blue);
-        }
-    }
-
     @include respond-below(md) {
         flex-direction: column;
         padding: 0 0.625rem;
-    }
-}
-
-.collection-slider {
-    h4 {
-        margin-bottom: 0.5rem;
-        padding-left: 1rem;
     }
 }

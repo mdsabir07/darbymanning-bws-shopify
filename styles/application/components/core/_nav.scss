@@ -1,6 +1,8 @@
 .nav {
     margin-top: 1rem;
     position: unset;
+    
+    $b: &;
 
     &:after {
         clear: both;
@@ -98,7 +100,7 @@
         position: unset;
 
         @include respond-above(md) {
-            &:hover > .nav__dropdown {
+            &:hover > #{$b}__dropdown {
                 display: inherit;
                 opacity: 1;
             }
@@ -169,7 +171,7 @@
             }
         }
 
-        .icon-arrow {
+        i {
             display: none;
             position: absolute;
             right: 5px;
@@ -229,15 +231,23 @@
                 margin: 0;
             }
         }
+        
+        &:first-child::before {
+            left: -1.4rem;
+            width: calc(100% + 1.4rem);
+        }
+
+        &:last-child::before {
+            right: -1.4rem;
+            width: calc(100% + 1.4rem);
+        }
 
         @include respond-below(md) {
             padding: 0;
             margin: 0;
 
-            &.border {
-                &:before {
-                    content: none;
-                }
+            &:before {
+                content: none;
             }
         }
     }

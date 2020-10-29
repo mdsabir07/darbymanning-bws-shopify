@@ -59,6 +59,39 @@
             }
         }
     }
+    
+    &__thumbnails {
+        justify-content: center;
+
+        li {
+            list-style: none;
+            margin: 15px 15px 0 0;
+
+            @include respond-below(md) {
+                margin: 1rem 0.5rem 0 0;
+                padding: 0 0.5rem;
+            }
+        }
+    }
+
+    &__thumbnail {
+        margin-top: 15px;
+        display: block;
+    }
+
+    &__description {
+        @include DINOTRegular;
+
+        p {
+            font-size: 1.6rem;
+        }
+
+        table {
+            @include respond-below(md) {
+                width: 100% !important;
+            }
+        }
+    }
 
     &__link {
         display: inline-block;
@@ -115,9 +148,11 @@
     &__table {
         margin: 3rem 0;
     }
+    
     &__tr {
         vertical-align: top;
     }
+    
     &__td {
         border: none;
         color: var(--dark-gray);
@@ -130,77 +165,6 @@
 
         @include respond-below(md) {
             padding-left: 0;
-        }
-    }
-
-    .swatch {
-        margin-top: 1.5rem;
-
-        &__element {
-            display: inline-block;
-            width: auto;
-            position: relative;
-
-            label {
-                height: 4rem;
-                width: 4rem;
-                position: relative;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                font-size: 1.5rem;
-                background-color: var(--blue);
-                color: var(--white);
-				margin-right: 2rem;
-                margin-top: 1rem;
-                cursor: pointer;
-                
-                &.active {
-	                border: 1px solid var(--dark-blue);
-                }
-
-            }
-
-            &.size {
-                label {
-                    align-items: center;
-                    background-color: var(--light-gray);
-                    color: var(--blue);
-                    height: 5rem;
-                    justify-content: center;
-                    transition: 0.3s all;
-                    width: 5rem;
-                    text-transform: uppercase;
-                    
-                    &:hover, &.active {
-                        background-color: var(--blue);
-                        color: var(--white);
-                       
-                    }
-                }
-            }
-        }
-        
-        &__crossed-out {
-            height: 100%;
-            width: 100%;
-            position: absolute;
-            object-fit: cover;
-            top: 0;
-            left: 0;
-            opacity: 0;
-        }
-    }
-
-    .input-group {
-        margin-top: 1.5rem;
-        margin-bottom: 3rem;
-        display: flex;
-
-        [type='number'] {
-            width: 10rem;
-            margin-right: 1rem;
-            border-radius: 0;
         }
     }
 }

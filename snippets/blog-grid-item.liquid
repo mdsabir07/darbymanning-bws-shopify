@@ -1,14 +1,16 @@
-{% assign count = collection.products_count %}
+{% assign count = blog.articles_count %}
+
 <div class="o-grid__item u-size-12 slider">
-   	<h4 class="nimbus u-textUpper slider__title">{{collection.title}}</h4>
-	<div class="js-slider" data-items="4" data-gutter="1" data-responsive='{"350": {"items": "2"}, "768": {"items": "3"}, "1024": {"items": "4"}}'>
-		{% for product in collection.products %}
-		    <div>
-		        {% include 'product-card-grid', product: product, show_vendor: true %}
+   	<h4 class="nimbus u-textUpper slider__title">{{blog.title}}</h4>
+	<div class="js-slider" data-items="4" data-gutter="1" data-responsive='{"350": {"items": "1"}, "768": {"items": "2"}, "1024": {"items": "3"}}'>
+		{% for article in blog.articles %}
+			{% assign iremainder = forloop.index | modulo:3 %}
+		    <div class="slider__index--{{ remainder }}-{{ iremainder }}">
+		        {% include 'blog-card-grid', article: article, blog: blog %}
 		    </div>
 		{% else %}
 			<div class="o-grid__item u-size-12">
-		    	<p class="u-mL-2">No products in collections.</p>
+		    	<p class="u-mL-2">No articles in blog.</p>
 		    </div>
 		{% endfor %}
 	</div>
@@ -28,7 +30,7 @@
 	        </svg>
 	    </li>
 	    <li class="slider__more">
-	    	<a class="button" href="{{ collection.url }}">View All</a>
+	    	<a class="button" href="{{ blog.url }}">View All</a>
 	    </li>
 	</ul>
 </div>
