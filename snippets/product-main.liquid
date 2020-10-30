@@ -98,7 +98,7 @@
             {% render 'swatch' for product.options as swatch %}
           {% endif %}
           
-          <a href="#measurements" class="product-main__a">
+          <a href="#measurements" class="product-main__a js-modal__open">
             <small>See Product Measurements</small>
         </a>
 
@@ -196,6 +196,22 @@
       </div>
     </div>
 </section>
+
+<div class="c-modal" id="measurements">
+
+	<div class="c-modal__content">
+	
+		<div class="c-modal__close js-modal__close"></div>
+	
+		<div class="product-main__sizing">
+	
+			{{ product.metafields.global.sizing_info }}
+			
+		</div>
+	
+	</div>
+
+</div>
 
 <!-- Product footprint section -->
 {% include "product-footprint" %}
