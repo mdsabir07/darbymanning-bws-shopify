@@ -3,36 +3,38 @@
     {% include "collection-header" %}
 
     {%- assign blocks = section.blocks | sort: 'collection.all_products_count' -%}
-    {%- capture contentForQuerystring -%}{{ content_for_header }}{%- endcapture -%}
-    {%- assign pageUrl = contentForQuerystring | split:'"pageurl":"' | last | split:'"' | first | split:'.myshopify.com' | last |
-	   replace:'\/','/' |
-	   replace:'%20',' ' |
-	   replace:'\u0026','&'
-	-%}
-	{%- assign pageQuerystring = pageUrl | split:'?' | last -%}
-	{%- assign parts = pageQuerystring | split:'&' -%}
-	{%- assign sort = section.settings.sort -%}
-	{%- for part in parts -%}
-		{%- assign keyAndValue = part | split:'=' -%}
-		{%- if keyAndValue.size > 1 -%}
-			{%- if keyAndValue[0] == 'sort_by' -%}
-			    {%- assign sort = keyAndValue[1] -%}
-			 {% endif %}
-		{% endif %}
-	{% endfor %}
 
     <section class="collection-items">
-    	<div class="o-grid">
-	    	<div class="o-grid__item  u-size-12@s">
-		        <span class="caps  h3  h-light  nimbus" for="sort-by">Sort by</span>
-		        <select id="sort-by">
+    	<div class="o-grid u-mB-48">
+	    	<form class="o-grid__item  u-size-12@s">
+		        <span class="u-textUpper  h3  nimbus u-mL-8 u-mR-8" for="sort-by">Sort by</span>
+		        
+		        {%- capture contentForQuerystring -%}{{ content_for_header }}{%- endcapture -%}
+			    {%- assign pageUrl = contentForQuerystring | split:'"pageurl":"' | last | split:'"' | first | split:'.myshopify.com' | last |
+				   replace:'\/','/' |
+				   replace:'%20',' ' |
+				   replace:'\u0026','&'
+				-%}
+				{%- assign pageQuerystring = pageUrl | split:'?' | last -%}
+				{%- assign parts = pageQuerystring | split:'&' -%}
+				{%- assign sort = section.settings.sort -%}
+				{%- for part in parts -%}
+					{%- assign keyAndValue = part | split:'=' -%}
+					{%- if keyAndValue.size > 1 -%}
+						{%- if keyAndValue[0] == 'sort_by' -%}
+						    {%- assign sort = keyAndValue[1] -%}
+						 {% endif %}
+					{% endif %}
+				{% endfor %}
+	
+		        <select name="sort_by" onchange="this.form.submit()">
 		            <option {%if sort == 'alphabetical' %}selected="selected"{% endif %} value="alphabetical">Alphabetical</option>
 		            <option {%if sort == 'products_high' %}selected="selected"{% endif %} value="products_high">No of Products: High to Low</option>
 		            <option {%if sort == 'products_low' %}selected="selected"{% endif %} value="products_low">No of Products: Low to High</option>
 		            <option {%if sort == 'date' %}selected="selected"{% endif %} value="date">Oldest to Newest</option>
 		            <option {%if sort == 'date_reversed' %}selected="selected"{% endif %} value="date_reversed">Newest to Oldest</option>
 		          </select>
-		    </div>
+		    </form>
 		</div>
 		{% case sort %}
             {% when 'products_high' or 'products_low' %}

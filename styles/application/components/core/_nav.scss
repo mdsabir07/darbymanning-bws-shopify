@@ -1,6 +1,8 @@
 .nav {
     margin-top: 1rem;
     position: unset;
+    
+    $b: &;
 
     &:after {
         clear: both;
@@ -9,24 +11,28 @@
         position: unset;
     }
 
-    &__logo {
-        display: block;
-    }
-
     &__toggle {
         display: none;
-    }
-    &[id^='drop'] {
-        display: none;
+
+        @include respond-below(md) {
+            display: block;
+        }
     }
 
     &__dd-wrap {
-        background: var(--dark-blue);
         display: flex;
         flex-direction: row;
         flex-wrap: nowrap;
-        margin: 2.2rem 0 0;
+        margin: 0;
         padding-bottom: 2rem;
+        padding-left: 0;
+        background-color: var(--dark-blue);
+
+        @include respond-below(md) {
+            flex-direction: column;
+            padding-bottom: 0;
+            background-color: transparent;
+        }
     }
 
     &__ul {
@@ -37,29 +43,54 @@
         margin: 0;
         padding: 0;
         position: unset;
+
+        @include respond-below(md) {
+            background: rgb(35 71 102 / 90%);
+            position: fixed;
+            height: 100%;
+            width: 100%;
+            left: 0;
+            top: 0;
+            z-index: 10;
+            opacity: 0;
+            transform: translateX(-100%);
+            transition: transform 0.5s ease;
+            flex-direction: column;
+            justify-content: inherit;
+            overflow-y: scroll;
+            padding: 2rem;
+        }
+
+        &.loaded {
+            transition: transform 0.5s ease, opacity 0.5s ease;
+        }
+
+        &.is-active {
+            transform: translateX(0);
+            opacity: 1;
+        }
     }
 
     &__dropdown {
         display: none;
         flex-direction: row;
         justify-content: space-between;
-        left: 1rem;
+        left: 2.1rem;
         margin: 0;
-        padding: 0;
+        padding: 1.1rem 0 0;
         position: absolute;
         right: 0;
-        width: calc(100% - 2rem);
+        width: calc(100% - 4.4rem);
         z-index: 4;
-        &::before {
-            background: var(--blue);
-            content: '';
-            display: block;
-            height: 0.6rem;
-            left: -1rem;
-            position: absolute;
-            right: -1rem;
-            top: 5.75rem;
-            z-index: 1;
+
+        @include respond-below(md) {
+            position: inherit;
+            width: 100%;
+            margin-top: 0;
+
+            &.show {
+                display: block;
+            }
         }
     }
 
@@ -68,13 +99,35 @@
         margin: 0;
         position: unset;
 
-        &:hover > .nav__dropdown {
-            display: inherit;
-            opacity: 1;
+        @include respond-above(md) {
+            &:hover > #{$b}__dropdown {
+                display: inherit;
+                opacity: 1;
+            }
         }
 
         &--sub {
             display: list-item;
+
+            @include respond-below(md) {
+                padding: 0.4rem 0;
+            }
+        }
+
+        @include respond-below(md) {
+            padding: 10px;
+            border-bottom: 1px solid var(--white);
+        }
+
+        &--close {
+            display: none;
+            justify-content: flex-end;
+            padding: 0;
+            margin-bottom: 3rem;
+            border-bottom: 0;
+            @include respond-below(md) {
+                display: flex;
+            }
         }
     }
 
@@ -89,162 +142,153 @@
 
         &--sub {
             color: white;
-            font-size: 2rem;
+            font-size: 1.75rem;
             text-transform: capitalize;
+            font-weight: normal;
+            @include NimbusExt;
         }
 
         &:hover {
             color: var(--blue);
         }
+
+        @include respond-below(md) {
+            color: white;
+            font-size: 16px;
+            display: block;
+            width: 100%;
+            text-align: left;
+            position: relative;
+            padding: 0.5rem;
+            font-weight: normal;
+            @include NimbusExt;
+            margin-bottom: 0;
+
+            &:hover {
+                font-weight: normal;
+                background-color: transparent;
+                color: white;
+            }
+        }
+
+        i {
+            display: none;
+            position: absolute;
+            right: 5px;
+            top: 50%;
+            transform: translateY(-50%);
+
+            &:before,
+            &:after {
+                content: '';
+                position: absolute;
+                width: 10px;
+                height: 2px;
+                display: inline-block;
+                background-color: #fff;
+                border-radius: 2px;
+                transform: rotate(45deg);
+                top: 50%;
+                right: 0;
+                @include basic-transition(all);
+            }
+
+            &:after {
+                transform: rotate(-45deg);
+                left: -4px;
+            }
+
+            &.open {
+                &:before {
+                    transform: rotate(-45deg);
+                }
+                &:after {
+                    transform: rotate(45deg);
+                }
+            }
+
+            @include respond-below(md) {
+                display: block;
+            }
+        }
     }
 
     &__col {
         margin: 0 0.25rem;
-        padding: 0 2rem;
+        padding: 0 1rem;
         width: 100%;
         &:nth-child(1) {
             margin: 0 0.25rem 0 0;
+
+            @include respond-below(md) {
+                margin: 0;
+            }
         }
         &:nth-child(4) {
             margin: 0 0 0 0.25rem;
+
+            @include respond-below(md) {
+                margin: 0;
+            }
+        }
+        
+        &:first-child::before {
+            left: -1.4rem;
+            width: calc(100% + 1.4rem);
+        }
+
+        &:last-child::before {
+            right: -1.4rem;
+            width: calc(100% + 1.4rem);
+        }
+
+        @include respond-below(md) {
+            padding: 0;
+            margin: 0;
+
+            &:before {
+                content: none;
+            }
         }
     }
 
     &__sub-title {
         color: white;
-        font-size: 2.25rem;
+        font-size: 2rem;
         margin-bottom: 2rem;
         text-transform: uppercase;
+
+        @include respond-below(md) {
+            display: none;
+        }
     }
 
     &__sub-ul {
         padding: 0;
     }
-}
 
-/* Media Queries
---------------------------------------------- */
-
-@media all and (max-width: 768px) {
-    .nav {
+    &__close {
+        position: relative;
+        height: 22px;
+        width: 24px;
         display: inline-block;
-        &__toggle + a,
-        &__menu {
-            display: none;
-        }
-        &__toggle {
-            background-color: #254441;
-            border: none;
-            color: var(--white);
-            display: block;
-            font-size: 17px;
-            padding: 14px 20px;
-            text-decoration: none;
+        vertical-align: text-bottom;
 
-            &--main {
-                background-color: yellow;
-                color: var(--dark-blue);
-                display: inline-block;
-                padding: 0;
-                z-index: 6;
-            }
-            &:hover {
-                background-color: #000000;
-            }
-        }
-
-        [id^='drop']:checked + .nav__ul {
-            display: block;
-        }
-
-        &__ul {
-            background: var(--dark-blue);
-            left: 0;
+        &:before,
+        &:after {
+            content: '';
             position: absolute;
-            right: 0;
-            z-index: 5;
-        }
-
-        &__li {
+            height: 2px;
+            width: 26px;
+            background-color: var(--white);
+            top: 50%;
+            left: 0;
+            transform: rotate(45deg);
             display: block;
-            width: 100%;
+            border-radius: 2px;
         }
-
-        &__a {
-            color: white;
+        &:after {
+            transform: rotate(-45deg);
         }
-    }
-    /* Hide the navigation menu by default */
-    /* Also hide the  */
-    // .nav__toggle + a,
-    // .nav__menu {
-    // 	display: none;
-    // }
-
-    /* Stylinf the toggle lable */
-    // .nav__toggle {
-    // 	display: block;
-    // 	background-color: #254441;
-    // 	padding:14px 20px;
-    // 	color:var(--white);
-    // 	font-size:17px;
-    // 	text-decoration:none;
-    // 	border:none;
-
-    // 	&--main {
-    // 		display: inline-block;
-    // 		background-color: yellow;
-    // 		color: var(--dark-blue);
-    // 		padding: 0;
-    // 	}
-    // }
-
-    // .nav__toggle:hover {
-    // 	background-color: #000000;
-    // }
-
-    /* Display Dropdown when clicked on Parent Lable */
-    // [id^=drop]:checked + .nav__ul {
-    // 	display: block;
-    // }
-
-    /* Change menu item's width to 100% */
-    // .nav__li {
-    // 	display: block;
-    // 	width: 100%;
-    // }
-
-    // .nav__ul--sub .nav__toggle,
-    // .nav__a--sub {
-    //     padding: 0 40px;
-    //     background-color: violet;
-    // }
-
-    .nav__a:hover {
-        background-color: #000000;
-    }
-
-    .nav__li--sub .nav__toggle,
-    .nav__ul--sub a {
-        background-color: #212121;
-    }
-
-    /* Hide Dropdowns by Default */
-    .nav__ul--sub {
-        color: var(--white);
-        float: none;
-        position: static;
-    }
-
-    /* Hide menus on hover */
-    nav ul ul li:hover > ul,
-    nav ul li:hover > ul {
-        display: none;
-    }
-
-    /* Fisrt Tier Dropdown */
-    .nav__li--sub {
-        display: block;
-        width: 100%;
     }
 }

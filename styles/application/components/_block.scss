@@ -5,14 +5,61 @@
         display: flex;
         flex-direction: row;
         flex-wrap: nowrap;
+        
+        @include respond-below(md) {	
+	        flex-direction: column;
+	    }
+    }
+    
+    > a {
+		flex-grow: 1;
+		display: flex;
+		flex-direction: column;
+    }
+    
+    &--shadow > a {
+        box-shadow: 0px 0px 7px 2px rgba(0, 0, 0, 0.144);
+        transition: 0.3s all;
+        
+        &:hover {
+	        box-shadow: 0px 0px 7px 2px rgba(0, 0, 0, 0.301);
+	    }
+    }
+    
+    &--slide {
+	    margin: 1rem 0;
+	    width: 100%;
+		flex-grow: 1;
+		display: flex;
+		flex-direction: column;
     }
 
     &__col {
         width: 50%;
+        
+        @include respond-below(md) {	
+        	width: 100%;
+			order: 2;
+	    }
+    }
+    
+    @include respond-above(sm) {
+    
+	    &__link {
+		    
+		    &--landscape {
+			    
+			    flex-direction: row !important;
+			    
+		    }
+		    
+    	}
+    	
     }
 
     &__info {
-        padding: 2rem;
+        padding: 2rem 1rem 1rem;
+        background: var(--light-gray);
 
         &--center {
             text-align: center;
@@ -20,14 +67,18 @@
         &--white {
             background: white;
         }
-        &--light-gray {
-            background: var(--light-gray);
+        &--transparent {
+            background: transparent;
         }
         &--small {
             padding: 0 0.5rem 0.5rem;
         }
         &--p-tb {
             padding: 3rem 2rem;
+
+            @include respond-below(md) {
+                padding: 0 2rem 3rem;
+            }
         }
         &--large {
             padding: 8rem 3rem;
@@ -35,51 +86,178 @@
         &--p-tb0 {
             padding: 0 2rem;
         }
-    }
-    &__message {
-        color: white;
-        font-size: 1.2rem;
-        left: 2rem;
+        &--p-tb01 {
+            padding: 0 1rem;
+            
+            @include respond-below(md) {
+	            padding: 0;
+			}
+        }
+        &--margin {
+	        margin: 3.2rem 0;
 
+	        @include respond-below(md) {
+	            margin: 2.5rem 0;
+	        }
+        }
+        &--160 {
+	        min-height: 16rem;
+        }
+        &--190 {
+	        min-height: 22rem;
+        }
+        &--flexed {
+	        display: flex;
+	        flex-direction: column;
+	        justify-content: space-between;
+	        padding: 2rem 1rem;
+	        flex-grow: 1;
+        }
+        @include respond-above(sm) {
+	        &--landscape {
+		        width: 50%;
+		        order: 2;
+		        padding: 5rem 1.5rem 2rem;
+	        }
+	    }
+    }
+    
+    &__message {
+        @include DINOTRegular;
+        font-size: 1.2rem;
         left: 1rem;
         position: absolute;
         text-transform: uppercase;
-        top: 0.75rem;
+        top: 0.5rem;
         z-index: 1;
+        color: var(--dark-blue);
+
         &--blue {
-            color: var(--dark-blue);
-        }
-
-        &--default {
             color: var(--blue);
-
-            .blog__hero & {
-                left: 3rem;
-            }
         }
+        
+        &--pushed {
+	        left: 2rem;
+        }
+        
+        &--left {
+	        left: 3rem;
+        }
+        
+        &--white {
+	        color: white;
+        }
+    }
+    
+    &__img {
+        background-color: var(--white);
+        padding: 3rem 0 0;
+		height: 32rem;
+		overflow: hidden;
+		position: relative;
+
+        img {
+			object-fit: cover;
+			object-position: center;
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			transition: transform 2s ease;
+			
+			a:hover & {
+				transform: scale(1.1) rotate(2deg);
+			}
+        }
+        
+        @include respond-below(md) {
+	        height: 28rem;
+		}
+		
+		&--transparent {
+			background-color: transparent;
+		}
+		
+		@include respond-above(sm) {
+		
+			&--landscape {
+		        width: 50%;
+		        order: 1;
+		        height: 100%;
+	        }
+	        
+	    }
+    }
+    
+    &__wrap {
+	    overflow: hidden;
+	    height: 100%;
+		width: 100%;
     }
 
     &__title {
+        font-weight: bold;
         font-size: 2rem;
-        margin-bottom: 0;
         text-transform: uppercase;
+        transition: color .5s ease;
+        color: var(--dark-blue);
+        
         &--large {
-            font-size: 2.75rem;
+            font-size: 2.1rem;
+
+            @include respond-below(md) {
+                font-size: 1.8rem;
+            }
         }
+        
         &--p-t {
-            padding-top: 2rem;
+            padding-top: 1.5rem;
         }
+        
         &--mid {
             font-size: 2.1rem;
             font-weight: normal;
+            margin-bottom: 0.5rem;
+
+            @include respond-below(md) {
+                font-size: 1.6rem;
+            }
         }
+        
+        &--small {
+	        font-size: 1.6rem;
+        }
+        
+        a:hover & {
+	        color: var(--blue);
+        }
+        
     }
 
     &__p {
-        font-size: 1.75rem;
+        @include DINOTRegular;
+        font-size: 1.6rem;
+        color: var(--dark-blue);
+
+        @include respond-below(md) {
+            font-size: 1.4rem;
+        }
     }
 
     &__buttons .button {
         display: inline-block;
     }
+    
+    &__cta {
+	    font-size: 1.6rem;
+	    color: var(--blue);
+	    @include NimbusExt;
+	    @include respond-below(md) {
+            font-size: 1.3rem;
+        }
+        
+        a:hover & {
+	        color: var(--blue);
+	        text-decoration: underline;
+        }
+    }  
 }

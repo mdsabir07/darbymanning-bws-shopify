@@ -1,0 +1,101 @@
+.section-header {
+    padding-bottom: 3rem;
+    padding-top: 3rem;
+    margin-bottom: 3rem;
+
+    &__img {
+		height: 50rem;
+		position: relative;
+		overflow: hidden;
+
+        > img {
+			object-fit: cover;
+			width: 100%;
+			position: absolute;
+			object-position: center;
+			height: 100%;
+        }
+
+        @include respond-below(md) {
+            order: 2;
+            height: 32rem;
+            order: 1;
+        }
+    }
+
+    &__info {
+        margin-bottom: 1.6rem;
+        padding-top: 5rem;
+        padding-bottom: 5rem;
+
+        @include respond-below(md) {
+            padding: 2rem;
+            margin-bottom: 0;
+        }
+    }
+
+    &__title {
+        font-size: 3.6rem;
+        padding-top: 1.5rem;
+
+        @include respond-below(md) {
+            font-size: 2.4rem;
+        }
+    }
+
+    &__content {
+        @include DINOTRegular;
+        font-size: 1.8rem;
+        overflow: hidden;
+        
+        @include respond-above(md) {
+        
+			text-overflow: ellipsis;
+			display: -webkit-box;
+			-webkit-line-clamp: 8; /* number of lines to show */
+			-webkit-box-orient: vertical;
+			
+		}
+		
+		&.is-active {
+			-webkit-line-clamp: 999;
+		}
+    }
+
+    &__more {
+	    @include NimbusExt;
+        color: var(--blue);
+        display: block;
+        border-bottom: 1px solid var(--blue);
+        padding-bottom: 20px;
+        text-align: right;
+        line-height: normal;
+        position: relative;
+        padding-right: 30px;
+        width: 100%;
+        text-transform: uppercase;
+
+        &:after {
+            content: '>';
+            position: absolute;
+            font-size: 24px;
+            top: -3px;
+            right: 0;
+            transform: rotate(90deg);
+            transition: transform .5s ease;
+        }
+        
+        &.is-active:after {
+	        transform: rotate(-90deg);
+        }
+    }
+    
+    
+    &__button {
+	    margin-top: 5rem;
+    }
+
+    @include respond-below(md) {
+        padding-top: 0;
+    }
+}

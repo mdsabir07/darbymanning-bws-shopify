@@ -1,15 +1,18 @@
 .join {
     &__wrap {
         background: var(--dark-blue);
+        padding: 2.5rem;
     }
     &__ul {
         margin: 0 0 2rem;
         padding: 0;
+        @include DINOTRegular;
     }
     &__li {
         color: white;
         display: inline-block;
         padding: 0 1rem 0.5rem 0;
+        font-size: 1.8rem;
 
         &::before {
             content: '•';
@@ -22,9 +25,31 @@
                 padding-right: 0;
             }
         }
+
+        @include respond-below(md) {
+            font-size: 1.4rem;
+        }
     }
 
     &__button {
         margin-top: 2rem;
+    }
+
+    &__input {
+        @include NimbusExt;
+        @include placeholder {
+            color: var(--silver);
+        }
+        font-size: 1.8rem;
+        border-radius: 0;
+        height: 4.3rem;
+
+        @include respond-below(md) {
+            font-size: 1.4rem;
+        }
+    }
+    
+    &__title {
+	    color: var(--blue);
     }
 }

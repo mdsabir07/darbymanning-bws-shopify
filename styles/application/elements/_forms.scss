@@ -1,3 +1,13 @@
 /*----------------------------------------------------------------------------*\
     #FORM ELEMENT STYLES
 \*----------------------------------------------------------------------------*/
+
+select {
+    height: 4rem;
+    padding: 0 3.2rem 0 1rem;
+    border: 1px solid var(--dark-blue);
+    border-radius: 0;
+    background-color: var(--white);
+    text-transform: uppercase;
+    max-width: 100%;
+}

@@ -1,51 +1,26 @@
-<section class="c-slider-4 u-section-m collection-slider">
+<section class="slider u-mV-80 sm-u-mV-50">
     <div class="o-grid  o-grid--item">
         {% if section.settings.title != blank %}
-         <h2 class="nimbus u-textUpper  padding-wrap  h3 section-title">{{ section.settings.title | escape }}</h2>
+         <h4 class="nimbus u-textUpper slider__title">{{ section.settings.title | escape }}</h4>
         {% endif %}
 
         {%- assign collection = collections[section.settings.collection] -%}
         {%- assign product_limit = section.settings.grid | times: section.settings.rows -%}
 
-        <div class="js-slider " data-items="4" data-gutter="1" data-responsive='{"350": {"items": "2"}, "700": {"items": "3"}, "1000": {"items": "4"}}'>>
+        <div class="js-slider " data-items="4" data-gutter="1" data-responsive='{"350": {"items": "2"}, "768": {"items": "3"}, "1024": {"items": "4"}}'>
           {% for product in collection.products limit: product_limit %}
             <div class="slide__item--{{section.id}}">
                 {% include 'product-card-grid', product: product %}
             </div>
-          {% else %}
-
-          {% for i in (1..product_limit) %}
-            <div>
-                <div class="small-slide  block  border">
-                    <a href="#" class="small-slide__a">
-                        <div class="small-slide__shadow">
-
-                            <div class="small-slide__img">
-                                <p class="block__message  block__message--blue">Message</p>
-                            </div>
-
-                            <article class="block__info">
-                                <h1 class="block__title">
-                                    Knowledge Cotton Apparel
-                                </h1>
-                                <p class="block__p">Decades Of Scandanavian Sustainable Innovation</p>
-                                <h5 class="small-slide__shop  nimbus">Shop now</h5>
-                            </article>
-
-                        </div>
-                    </a>
-                </div>
-            </div>
-            {% endfor %}
-        {% endfor %}
+          {% endfor %}
 
         </div>
 
-        <ul class="slide__controls js-slider-controls" aria-label="Carousel Navigation" tabindex="0">
-            <li class="slide__prev" data-controls="prev" aria-controls="customize" tabindex="-1">
+        <ul class="slider__controls slider__controls--wide js-slider-controls" aria-label="Carousel Navigation" tabindex="0">
+            <li class="slider__prev" data-controls="prev" aria-controls="customize" tabindex="-1">
                 <i class="fas fa-angle-left fa-5x"></i>
             </li>
-            <li class="slide__next  button" data-controls="next" aria-controls="customize" tabindex="-1">
+            <li class="slider__next  button" data-controls="next" aria-controls="customize" tabindex="-1">
                 <?xml version="1.0" encoding="UTF-8"?>
                 <svg width="17px" height="18px" viewBox="0 0 17 18" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                     <title>Fill 3</title>
@@ -56,17 +31,17 @@
                     </g>
                 </svg>
             </li>
+            {% if section.settings.show_view_all %}
+            	<li class="slider__more">
+			    	<a class="button" href="{{ collection.url }}">View All</a>
+			    </li>
+		  {% endif %}
         </ul>
-      {% if section.settings.show_view_all %}
-    <div class="text-center">
-      <a href="{{ collection.url }}" class="button" aria-label="{{ 'collections.general.view_all_label' | t: collection_name: collection.title }}">
-      {{ 'collections.general.view_all' | t }}
-      </a>
-    </div>
-  {% endif %}
+      
 
     </div>
 </section>
+
 
 {% schema %}
 {

@@ -1,12 +1,6 @@
 <section class="home-about">
-    {% if section.settings.title != blank %}
-        <h2 class="h-text-center h-light">{{ section.settings.title | escape }}</h2>
-    {% endif %}
     <div class="o-grid ">
-     {% if section.blocks.size == 0 %}
-        {% include 'no-blocks' %}
-     {% else %}
-        {%- assign grid_item_width = 'u-size-4@m u-size-12 u-size-4@s' -%}
+     {%- assign grid_item_width = 'u-size-4@m u-size-12 u-size-4@s' -%}
         {% case section.blocks.size %}
         {% when 1 %}
             {%- assign grid_item_width = 'u-size-6@m u-size-12' -%}
@@ -17,27 +11,20 @@
         {% endcase %}
         {% for block in section.blocks %}
             <div class="o-grid__item {{ grid_item_width }} text-{{ section.settings.align_text }}" {{ block.shopify_attributes }}>
-            <div class="home-about__item_wrapper" style="background-color:{{ block.settings.bg_color}};">
+            <div class="home-about__item_wrapper">
             <article class="home-about__item">
-            {% if block.settings.enable_image %}
                 <div class="home-about__icon">
-                {% if block.settings.image != blank %}
-                    {%- assign img_url = block.settings.image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
-                    <img
-                        class="lazyload lazypreload"
-                        data-src="{{ img_url }}"
-                        data-sizes="auto"
-                        alt="{{ block.settings.image.alt | escape }}">
-                <noscript>
-                    <p>
-                        {{ block.settings.image | img_url: '480x480', scale: 2 | img_tag: block.settings.image.alt }}
-                    </p>
-                </noscript>
-                {% else %}
-                    {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
-                {% endif %}
+	                {% if block.settings.image != blank %}
+	                    {%- assign img_url = block.settings.image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
+	                    <img
+	                        class="lazyload lazypreload"
+	                        data-src="{{ img_url }}"
+	                        data-sizes="auto"
+	                        alt="{{ block.settings.image.alt | escape }}">
+	                {% else %}
+	                    {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+	                {% endif %}
                 </div>
-                {% endif %}
                  {% if block.settings.text != blank or block.settings.title != blank %}
                   <div class="home-about__info">
                     {% if block.settings.title != blank %}
@@ -74,7 +61,6 @@
           </a>
         </div>
     {% endif %}
-  {% endif %}
 </section>
 
 {% schema %}
@@ -101,123 +87,6 @@
   },
   "class": "index-section",
   "settings": [
-    {
-      "type": "text",
-      "id": "title",
-      "label": {
-        "da": "Overskrift",
-        "de": "Titel",
-        "en": "Heading",
-        "es": "Título",
-        "fi": "Otsake",
-        "fr": "En-tête",
-        "hi": "शीर्षक",
-        "it": "Heading",
-        "ja": "見出し",
-        "ko": "제목",
-        "nb": "Overskrift",
-        "nl": "Kop",
-        "pt-BR": "Título",
-        "pt-PT": "Título",
-        "sv": "Rubrik",
-        "th": "ส่วนหัว",
-        "zh-CN": "标题",
-        "zh-TW": "標題"
-      },
-      "default": {
-        "da": "Tekstkolonner med billeder",
-        "de": "Textspalten mit Fotos",
-        "en": "Text columns with images",
-        "es": "Columnas de texto con imágenes",
-        "fi": "Tekstisarakkeet kuvilla",
-        "fr": "Colonnes de texte et images",
-        "hi": "इमेज के साथ टेक्स्ट कॉलम",
-        "it": "Colonne di testo con foto",
-        "ja": "画像付きテキスト列",
-        "ko": "이미지 포함 텍스트 열",
-        "nb": "Tekstkolonner med bilder",
-        "nl": "Tekstkolommen met afbeeldingen",
-        "pt-BR": "Texto em coluna com imagens",
-        "pt-PT": "Colunas texto c/ imagens",
-        "sv": "Textkolumner med bilder",
-        "th": "คอลัมน์ข้อความพร้อมรูปภาพ",
-        "zh-CN": "带有图片的文本列",
-        "zh-TW": "附圖片的文字欄"
-      }
-    },
-    {
-      "type": "select",
-      "id": "align_text",
-      "label": {
-        "da": "Tekstjustering",
-        "de": "Textausrichtung",
-        "en": "Text alignment",
-        "es": "Alineación de texto",
-        "fi": "Tekstin tasaus",
-        "fr": "Alignement du texte",
-        "hi": "टेक्स्ट पंक्तिबद्ध",
-        "it": "Allineamento del testo",
-        "ja": "テキストアラインメント",
-        "ko": "텍스트 정렬",
-        "nb": "Tekstjustering",
-        "nl": "Tekstuitlijning",
-        "pt-BR": "Alinhamento de texto",
-        "pt-PT": "Alinhamento de texto",
-        "sv": "Textjustering",
-        "th": "การจัดตำแหน่งข้อความ",
-        "zh-CN": "文本对齐方式",
-        "zh-TW": "文字對齊"
-      },
-      "default": "left",
-      "options": [
-        {
-          "value": "left",
-          "label": {
-            "da": "Venstre",
-            "de": "Links",
-            "en": "Left",
-            "es": "Izquierda",
-            "fi": "Vasen",
-            "fr": "Gauche",
-            "hi": "बाएँ",
-            "it": "Sinistra",
-            "ja": "左",
-            "ko": "왼쪽",
-            "nb": "Venstre",
-            "nl": "Links",
-            "pt-BR": "Esquerda",
-            "pt-PT": "Esquerda",
-            "sv": "Vänster",
-            "th": "ด้านซ้าย",
-            "zh-CN": "左侧",
-            "zh-TW": "左方"
-          }
-        },
-        {
-          "value": "center",
-          "label": {
-            "da": "Centreret",
-            "de": "Mittig",
-            "en": "Centered",
-            "es": "Centrado",
-            "fi": "Keskitetty",
-            "fr": "Centré",
-            "hi": "केंद्र",
-            "it": "Centrato",
-            "ja": "中央揃え",
-            "ko": "센터 맞추기",
-            "nb": "Sentrert",
-            "nl": "Gecentreerd",
-            "pt-BR": "Centralizado",
-            "pt-PT": "Centrado",
-            "sv": "Centrera",
-            "th": "ตรงกลาง",
-            "zh-CN": "居中",
-            "zh-TW": "置中"
-          }
-        }
-      ]
-    },
     {
       "type": "text",
       "id": "button_label",
@@ -291,31 +160,6 @@
         "zh-TW": "欄"
       },
       "settings": [
-        {
-          "type": "checkbox",
-          "id": "enable_image",
-          "label": {
-            "da": "Vis billede",
-            "de": "Foto anzeigen",
-            "en": "Show image",
-            "es": "Mostrar imagen",
-            "fi": "Näytä kuva",
-            "fr": "Afficher l'image",
-            "hi": "इमेज दिखाएं",
-            "it": "Mostra immagine",
-            "ja": "画像を表示する",
-            "ko": "이미지 표시",
-            "nb": "Vis bilde",
-            "nl": "Toon afbeelding",
-            "pt-BR": "Exibir imagem",
-            "pt-PT": "Mostrar imagem",
-            "sv": "Visa bild",
-            "th": "แสดงรูปภาพ",
-            "zh-CN": "显示图片",
-            "zh-TW": "顯示圖片"
-          },
-          "default": true
-        },
         {
           "type": "image_picker",
           "id": "image",
@@ -427,11 +271,6 @@
             "zh-CN": "<p>与您的客户分享博客文章、产品或促销信息。使用此文本描述产品、分享有关供货情况和风格的详细信息，或将此文本作为显示最近评论或常见问题解答的区域。</p>",
             "zh-TW": "<p>與顧客分享部落格貼文、產品或宣傳活動。請使用這段文字描述商品、分享庫存和樣式的詳細資訊，或顯示近期評論及常見問題。</p>"
           }
-        },
-        {
-          "type": "color",
-          "id": "bg_color",
-          "label": "Backgound"
         }
       ]
     }
