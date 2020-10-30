@@ -155,6 +155,11 @@
 		height: 32rem;
 		overflow: hidden;
 		position: relative;
+		
+		&--top {
+			padding-top: 0;
+			height: 28rem;
+		}
 
         img {
 			object-fit: cover;
