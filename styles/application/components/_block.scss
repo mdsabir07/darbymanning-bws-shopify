@@ -160,6 +160,10 @@
 			padding-top: 0;
 			height: 28rem;
 		}
+		
+		&--shrink {
+			height: 28rem;
+		}
 
         img {
 			object-fit: cover;
