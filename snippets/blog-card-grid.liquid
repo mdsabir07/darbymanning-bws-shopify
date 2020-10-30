@@ -8,8 +8,10 @@
 
 <div class="block block--slide border block--shadow">
     <a href="{{ article.url }}" class="block__link block__link--{{ orientation }}">
-    	<p class="block__message  block__message--blue"><span>{{blog.title}} </span> | <span>{{ article.published_at | time_tag: '%d %b' }}</span></p>
-        <div class="block__img block__img--transparent block__img--{{ orientation }}" data-image-loading-animation>
+    	{% if hide_message == null %}
+    		<p class="block__message  block__message--blue"><span>{{blog.title}} </span> | <span>{{ article.published_at | time_tag: '%d %b' }}</span></p>
+    	{% endif %}
+        <div class="block__img block__img--transparent block__img--{{ orientation }} {% if hide_message %}block__img--top{% endif %}" data-image-loading-animation>
         	<div class="block__wrap">
 	            {%- assign img_url = article.image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
 	            <img
@@ -30,6 +32,9 @@
 	                  {% endif %}
 	            </div>
 	        </div>
+	        {%if display_btn %}
+	        	<h5 class="block__cta  nimbus">Read Blog</h5>
+	        {% endif %}
         </article>
     </a>
 </div>
