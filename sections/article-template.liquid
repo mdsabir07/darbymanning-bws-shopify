@@ -1,12 +1,12 @@
 <section class="section-header  o-grid">
     <div class="o-grid__item  u-size-12">
         <div class="block  block--row  border">
+        	<p class="block__message block__message--pushed"><span>{{blog.title}} </span></p>
             <div class="block__col">
                 <div class="block__info  block__info--light-gray  block__info--large  section-header__info">
-                	<p class="block__message block__message--default"><span>{{blog.title}} </span></p>
                     <h1 class="section-header__title  nimbus u-mB-32">{{ article.title | escape }}</h1>
                 </div>
-                <div class="u-alignSelfEnd">
+                <div class="u-alignSelfEnd u-mT-20">
                 	{% assign d = article.published_at | date: "%-d" %}
 					{% capture day %}
 						{% case d %}
@@ -44,7 +44,7 @@
 </section>
 
 <article class="article u-pV-48 o-grid u-justifyCenter">
-    <div class="o-grid__item u-size-12 u-size-8@m u-alignCenter u-flex">
+    <div class="o-grid__item u-size-11 u-size-8@m u-alignCenter u-flex">
         {{article.content}}
         
         <div class="u-flex u-justifyCenter">
@@ -54,7 +54,7 @@
 </article>
 
 <section class="o-grid u-justifyCenter u-mB-48">
-    <div class="o-grid__item u-size-12 u-size-8@m">
+    <div class="o-grid__item u-size-11 u-size-8@m">
 
 		<div id="disqus_thread"></div>
 		<script type="text/javascript">
