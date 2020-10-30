@@ -1,0 +1,72 @@
+<section class="o-grid  o-grid--p">
+    {% for block in section.blocks %}
+    	{%- assign blog = blogs[block.settings.blog] -%}
+	    <div class="o-grid__item u-mT-32 sm-u-mV-16 u-size-12 {% if forloop.length == 4 %}u-size-3@m{% elsif forloop.length == 6 %} u-size-4@m{% else %}u-size-4@m{% endif %} u-size-6 u-size-4@s">
+	        <a href="{{ blog.url }}" class="button u-size-12 section-buttons__button {% if link.url == blog.url %}active{% endif %}">{{ blog.title }}</a>
+	    </div>
+    {% endfor %}
+</section>
+
+{% assign layouts = "3-6-3,3-3-6,6-6,6-6,6-3-3,6-6" | split: ',' %}
+
+<section class="u-pV-48">
+	{% for block in section.blocks %}
+		{%- assign blog = blogs[block.settings.blog] -%}
+		{% assign remainder = forloop.index | modulo:3 %}
+		{% assign layoutIndex = forloop.index | modulo:layouts.size %}
+		{% if layoutIndex == 0 %}
+			{% assign layoutIndex = layouts.size %}
+		{% endif %}
+		{% assign layoutIndex = layoutIndex | minus: 1 %}
+		{% assign columns = layouts[layoutIndex] | split: '-' %}
+		<div class="{% if remainder == 0 %}bg-grey{% endif %}">
+	        <div class="o-grid u-pV-32">
+	            {% include 'blog-grid-item', blog: blog, remainder: remainder, columns: columns %}
+	        </div>
+	    </div>
+	{% endfor %}
+</section>
+
+{% schema %}
+{
+  "name": "Categories",
+  "blocks": [
+    {
+      "type": "blog",
+      "name": "Categories",
+      "settings": [
+        {
+          "label": "Blog",
+          "id": "blog",
+          "type": "blog"
+        },
+        {
+            "type": "checkbox",
+            "id": "show_view_all",
+            "label": {
+              "da": "Vis knappen \"Se flere\"",
+              "de": "'Alle anzeigen' Button anzeigen",
+              "en": "Show 'View all' button",
+              "es": "Mostrar el botón 'Ver todo'",
+              "fi": "Näytä \"Näytä kaikki\" -painike",
+              "fr": "Afficher le bouton “Tout voir”",
+              "hi": "'सभी देखें' बटन दिखाएं",
+              "it": "Mostra il pulsante \"Visualizza tutto\"",
+              "ja": "「すべて表示」ボタンを表示する",
+              "ko": "'모두 보기' 버튼 표시",
+              "nb": "Vis «Se alle»-knapp",
+              "nl": "Knop 'Alles weergeven' weergeven",
+              "pt-BR": "Exibir botão 'Visualizar tudo'",
+              "pt-PT": "Mostrar botão 'Ver tudo'",
+              "sv": "Visa \"Visa alla\"-knappen",
+              "th": "แสดงปุ่ม 'ดูทั้งหมด'",
+              "zh-CN": "显示“查看全部”按钮",
+              "zh-TW": "顯示「檢視全部」按鈕"
+            },
+            "default": false
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

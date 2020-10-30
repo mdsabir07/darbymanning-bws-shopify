@@ -5,5 +5,23 @@
     &__img {
         background-color: var(--white);
         height: auto;
+        max-height: 28rem;
+        overflow: hidden;
+        position: relative;
+        
+        img {
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+        
+        @include respond-below(md) {
+	        max-height: 17rem;
+	    }
+    }
+
+    @include respond-below(md) {
+        padding: 2rem 0;
     }
 }

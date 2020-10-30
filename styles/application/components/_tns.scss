@@ -2,6 +2,7 @@
 
 .tns-slider {
     overflow: visible !important;
+    display: flex;
 }
 
 .tns-slide-cloned {
@@ -23,6 +24,11 @@
     &:not(.tns-slide-active) {
         opacity: 0.5 !important;
     }
+    @include respond-above(sm) {
+	    display: flex !important;
+	    flex-direction: column;
+	    flex-grow: 1;
+	}
 }
 
 .tns-outer {

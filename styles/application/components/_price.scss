@@ -1,0 +1,107 @@
+.price {
+    align-items: center;
+    bottom: 0;
+    color: var(--blue);
+    display: flex;
+    font-size: 1.8rem;
+    justify-content: space-between;
+    left: 0;
+    margin-bottom: 0;
+    padding: 0 1rem;
+    
+    &__wrapper {
+		position: absolute;
+		right: 0;
+		width: 100%;
+		bottom: 0;
+    }
+
+    &__regular,
+    &__sale {
+        margin-right: 0.625rem;
+
+        dt {
+            display: none;
+        }
+
+        dd span {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            @include NimbusExt;
+            font-weight: normal;
+        }
+    }
+
+    &__sale,
+    &__unit {
+        display: none;
+    }
+
+    &__badges {
+        margin-top: 0;
+
+        &--listing {
+            margin-top: 0.5rem;
+        }
+    }
+
+    &__badge {
+        align-self: center;
+        border-radius: 2px;
+        display: none;
+        font-size: 0.6em;
+        font-weight: bold;
+        letter-spacing: 1px;
+        line-height: 1em;
+        padding: 0.25rem 0.55rem;
+        text-align: center;
+        text-transform: uppercase;
+
+        &--sale {
+            background-color: var(--blue);
+            color: var(--white);
+        }
+
+        &--sold-out {
+            border-color: var(--dark-blue);
+            color: var(--dark-blue);
+        }
+    }
+
+    &--on-sale &__sale {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    &--on-sale &__badge--sale {
+        display: flex;
+    }
+
+    &--unit-available &__unit {
+        display: block;
+        flex-basis: 100%;
+    }
+
+    dd {
+        margin: 0;
+    }
+
+    &--sold-out &__badge--sale {
+        display: none;
+    }
+
+    &--sold-out &__badge--sold-out {
+        display: flex;
+    }
+
+    &--on-sale &__regular,
+    &--on-sale &__availability {
+        display: none;
+    }
+
+    @include respond-below(md) {
+        font-size: 1.3rem;
+    }
+}

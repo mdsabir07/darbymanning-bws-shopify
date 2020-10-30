@@ -18,12 +18,12 @@
 <div class="pre-footer">
     <div class="o-grid  o-grid--small-pad">
         {%- for block in section.blocks -%}
-            <div class="o-grid__item{% if section.blocks.size == 1 %} u-textCenter u-size-12@m{% endif %} u-size-6@m" {{ block.shopify_attributes }}>
+            <div class="o-grid__item{% if section.blocks.size == 1 %} u-textCenter u-size-12{% endif %} u-size-6@s" {{ block.shopify_attributes }}>
                 {%- case block.type -%}
                     {%- when 'newsletter' -%}
                         <article class="block join {% if block.settings.show_border %}border{% endif %} site-footer__newsletter">
                             <div class="join__wrap  block__info  block__info--p-tb" style="background-color:{{block.settings.bg_color}};">
-                                <p class="h4 block__title  block__title--large  block__title--p-t blue caps">{{ block.settings.title }}</p>
+                                <h4 class="join__title block__title  block__title--large  block__title--p-t blue u-textUpper">{{ block.settings.title }}</h4>
                                 <div class="rte_settings">
                                     {{block.settings.text}}
                                 </div>
@@ -62,7 +62,7 @@
                                 <div class="block__col social__link">
                                     <div class="block__info  block__info--p-tb">
                                         {%- if block.settings.title -%}
-                                            <p class="h4 block__title block__title--large  block__title--p-t blue caps">{{ block.settings.title | escape }}</p>
+                                            <p class="h4 block__title block__title--large  block__title--p-t dark-blue u-textUpper">{{ block.settings.title | escape }}</p>
                                         {%- endif -%}
                                         {%- if social_icons -%}
                                             <ul class="social__ul site-footer__social-icons">

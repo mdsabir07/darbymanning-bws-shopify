@@ -8,3 +8,7 @@ pnpm-debug.log
 .env
 .vscode
 config/settings_data.json
+config.yml
+config/settings_schema.json
+package.json
+config/frames.json

@@ -1,16 +1,20 @@
 .footer-nav {
     &__title {
-        font-family: nimbus-sans-extended;
+        @include NimbusExt;
         font-size: 2rem;
         font-weight: 700;
         margin: 0;
         text-transform: uppercase;
+
+        @include respond-below(md) {
+            font-size: 1.8rem;
+        }
     }
 
     &__ul {
         list-style: none;
         margin-top: 2rem;
-        padding: 0;
+        padding: 0 1rem;
 
         &--col2 {
             columns: 2;
@@ -19,14 +23,24 @@
 
     &__li {
         margin: 0 0 calc(2rem / 2);
+
+        @include respond-below(md) {
+            margin: 0 0 calc(1rem / 2);
+        }
     }
 
     &__a {
+        @include DINOTRegular;
         font-size: 1.75rem;
         text-transform: capitalize;
         transition: 0.3s all;
+        color: var(--dark-blue);
         &:hover {
             color: var(--blue);
+        }
+
+        @include respond-below(md) {
+            font-size: 1.4rem;
         }
     }
 }

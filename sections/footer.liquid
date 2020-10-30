@@ -7,9 +7,9 @@
 
 {%- capture payment_icon_markup -%}
     {%- if show_payment_icons -%}
-        <div class="site-footer__payment-icons">
+        <div class="footer__payment">
             <span>{{ 'general.payment.method' | t }}</span>
-            <ul class="payment-icons list--inline site-footer__icon-list">
+            <ul class="payment-icons">
                 {%- for type in shop.enabled_payment_types -%}
                     <li class="payment-icon">
                         {{ type | payment_type_svg_tag: class: 'payment-icon__svg' }}
@@ -22,8 +22,8 @@
 
 
 <footer class="footer" data-section-id="{{ section.id }}" data-section-type="footer-section">
-    <div style="background-color:{{section.settings.color_footer_bg}};">
-        <div class="o-grid  o-grid--small-pad  u-pB-32">
+    <div class="footer__top">
+        <div class="o-grid  u-pB-32">
             {%- for block in section.blocks -%}
                 {% case block.settings.width %}
                     {% when '16%' %}
@@ -52,8 +52,8 @@
                         {%- assign block_width_mobile = 'u-size-12' -%}
                 {% endcase %}
 
-                <div class="o-grid__item{% if section.blocks.size == 1 %} u-textCenter{% endif %} {% if block.type == 'spacer'%}u-size-12{% else%}{{ block_width }} {{block_width_mobile}} u-pT-32{% endif %}" {{ block.shopify_attributes }}>
-                    <div class="block  block__info  block__info--p-tb0 {% unless block.type == 'spacer'%}border  border--darkblue{% endunless %}">
+                <div class="o-grid__item{% if section.blocks.size == 1 %} u-textCenter{% endif %} {% if block.type == 'spacer'%}u-size-12{% else%}{{ block_width }} {{block_width_mobile}} {% endif %}" {{ block.shopify_attributes }}>
+                    <div class="block  block__info  block__info--transparent block__info--p-tb01 block__info--margin {% unless block.type == 'spacer'%}border border--large  border--darkblue{% endunless %}">
                         {%- if block.settings.title -%}
                             <p class="footer-nav__title">{{ block.settings.title | escape }}</p>
                         {%- endif -%}
@@ -81,7 +81,6 @@
                                                     <input aria-hidden="true" name="options[prefix]" type="hidden" value="last"/>
                                                     <button class="search-bar__submit button search-form__submit" data-search-form-submit type="submit">
                                                         {% include 'icon-search' %}
-                                                        <span class="u-visually-hidden">{{ 'general.search.submit' | t }}</span>
                                                     </button>
                                                 </div>
 
@@ -91,7 +90,7 @@
                                     </div>
                                 </div>
                             {%- when 'spacer' -%}
-                                <div class="block-spacer" style="background-color:{{block.settings.bg_color}};"></div>
+                                <div class="footer__spacer"></div>
 
                         {%- endcase -%}
                     </div>
@@ -99,12 +98,12 @@
             {%- endfor -%}
         </div>
     </div>
-    <div class="o-grid  u-pV-32">
-        <div class="o-grid__item {% if show_payment_icons %}u-size-6@m{% else %}u-size-12@m{% endif %}">
-            <div class="site-footer-legal">
+    <div class="footer__bottom">
+        <div class="o-grid u-alignCenter">
+            <div class="o-grid__item footer__legal {% if show_payment_icons %}u-size-6@m{% else %}u-size-12@m{% endif %}">
                 {%- assign legal_linklist = section.settings.legal_menu -%}
-                <ul class="legal-nav__ul">
-                    <li class="site-footer__copyright-content legal-nav__li">&copy;
+                <ul class="legal-nav">
+                    <li class="legal-nav__li">&copy;
                         {{ 'now' | date: "%Y" }},
                         {{ shop.name | link_to: routes.root_url }}</li>
                     {%- for link in linklists[legal_linklist].links -%}
@@ -116,10 +115,10 @@
                     {%- endfor -%}
                 </ul>
             </div>
+            {%- if show_payment_icons -%}
+                <div class="o-grid__item u-size-6@m footer__methods">{{ payment_icon_markup }}</div>
+            {% endif %}
         </div>
-        {%- if show_payment_icons -%}
-            <div class="o-grid__item u-size-6@m">{{ payment_icon_markup }}</div>
-        {% endif %}
     </div>
 
 </footer>
@@ -234,54 +233,6 @@
                 "zh-CN": "颜色",
                 "zh-TW": "顏色"
             }
-        }, {
-            "type": "color",
-            "id": "color_footer_bg",
-            "label": {
-                "da": "Baggrund",
-                "de": "Hintergrund",
-                "en": "Background",
-                "es": "Fondo",
-                "fi": "Tausta",
-                "fr": "Couleur de fond",
-                "hi": "पृष्ठभूमि",
-                "it": "Sfondo",
-                "ja": "背景",
-                "ko": "배경",
-                "nb": "Bakgrunn",
-                "nl": "Achtergrond",
-                "pt-BR": "Plano de fundo",
-                "pt-PT": "Fundo",
-                "sv": "Bakgrund",
-                "th": "พื้นหลัง",
-                "zh-CN": "背景",
-                "zh-TW": "背景"
-            },
-            "default": "#f6f6f6"
-        }, {
-            "type": "color",
-            "id": "color_footer_text",
-            "label": {
-                "da": "Tekst",
-                "de": "Text",
-                "en": "Text",
-                "es": "Texto",
-                "fi": "Teksti",
-                "fr": "Texte",
-                "hi": "टेक्स्ट",
-                "it": "Testo",
-                "ja": "テキスト",
-                "ko": "텍스트",
-                "nb": "Tekst",
-                "nl": "Tekst",
-                "pt-BR": "Texto",
-                "pt-PT": "Texto",
-                "sv": "Text",
-                "th": "ข้อความ",
-                "zh-CN": "文本",
-                "zh-TW": "文字"
-            },
-            "default": "#333232"
         }, {
             "type": "link_list",
             "id": "legal_menu",

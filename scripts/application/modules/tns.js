@@ -1,55 +1,35 @@
 import { tns } from 'tiny-slider/src/tiny-slider';
 
-const Slider = function () {
-    const sliders = () => Array.from(document.querySelectorAll('.js-slider'));
+document.addEventListener('DOMContentLoaded', () => {
+    Array.from(document.getElementsByClassName('js-slider')).forEach((container) => {
+        const controls = container.parentNode.querySelector(
+            '.js-slider-controls'
+        );
+        const dots = controls.querySelector('.js-slider-dots');
+        const responsive = container.dataset.responsive;
 
-    const init = () => {
-        sliders().forEach((container) => {
-            const controls = container.parentNode.querySelector(
-                '.js-slider-controls'
-            );
-            const dots = controls.querySelector('.js-slider-dots');
-            const responsive = container.dataset.responsive;
-
-            const slider = tns({
-                container: container,
-                items: container.dataset.items || 1,
-                gutter: container.dataset.gutter || 0,
-                slideBy: 'page',
-                controlsContainer: controls,
-                responsive: responsive ? JSON.parse(responsive) : null,
-                mouseDrag: true,
-            });
-
-            container.__tns__ = slider;
-
-            slider.events.on('transitionEnd', (info) => {
-                if (dots) {
-                    const active = dots.querySelector('.is-active');
-
-                    active && active.classList.remove('is-active');
-
-                    const dot = Array.from(dots.children)[
-                        info.displayIndex - 1
-                    ];
-
-                    dot && dot.classList.add('is-active');
-                }
-            });
+        const slider = tns({
+            container: container,
+            items: container.dataset.items || 1,
+            gutter: container.dataset.gutter || 0,
+            slideBy: 'page',
+            controlsContainer: controls,
+            responsive: responsive ? JSON.parse(responsive) : null,
+            mouseDrag: true,
         });
-    };
 
-    const destroy = () => {
-        sliders().forEach((el) => el.__tns__.destroy());
-    };
-    const reinit = () => {
-        destroy();
-        sliders().forEach((el) => el.__tns__.destroy());
-    };
+        slider.events.on('transitionEnd', (info) => {
+            if (dots) {
+                const active = dots.querySelector('.is-active');
 
-    return { destroy, reinit, init };
-}
+                active && active.classList.remove('is-active');
 
-const slider = new Slider();
+                const dot = Array.from(dots.children)[
+                    info.displayIndex - 1
+                ];
 
-document.addEventListener('DOMContentLoaded', slider.init);
+                dot && dot.classList.add('is-active');
+            }
+        });
+    });
+});

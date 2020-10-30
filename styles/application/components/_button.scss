@@ -1,30 +1,29 @@
 .button {
     background: var(--blue);
-    box-sizing: unset;
     color: var(--white);
     display: inline-flex;
-    font-family: urw-din, sans-serif;
+    @include NimbusExt;
     font-size: 1.75rem;
     font-style: normal;
     font-weight: 400;
-    padding: 1rem 3rem;
+    padding: 0.7rem 3rem;
     text-transform: uppercase;
     transition: 0.3s all;
+    justify-content: center;
+    box-sizing: border-box;
 
     &:hover,
     &:focus {
         background: var(--dark-blue);
+        color: var(--white);
     }
 
     &--dark {
-        &:hover {
+        &:hover,
+        &:focus {
             background-color: white;
             color: var(--dark-blue);
         }
-    }
-
-    &--w100 {
-        width: 100%;
     }
 
     &--round {
@@ -36,5 +35,13 @@
         justify-content: center;
         padding: 0;
         width: 5rem;
+    }
+    
+    @include respond-below(lg) {
+        padding: 0.7rem 2.5rem;
+    }
+
+    @include respond-below(md) {
+        font-size: 1.5rem;
     }
 }

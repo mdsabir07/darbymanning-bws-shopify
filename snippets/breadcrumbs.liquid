@@ -59,6 +59,12 @@
             <a class="breadcrumbs__link" href="{{ request.path }}" aria-current="page">{{ page_title }}</a>
           </li>
       {%- endcase -%}
+      {% if paginate.pages > 1 %}
+      	  <li class="breadcrumbs__item">
+            <span>Page {{ paginate.current_page }} of {{ paginate.pages }}</span>
+          </li>
+        
+      {% endif %}
     </ol>
   </nav>
   {%- endunless -%}

@@ -1,1 +1,61 @@
 <!-- /templates/customers/account.liquid -->
+<div class="section-account u-pV-40 u-mB-40">
+	<div class="o-grid u-justifyCenter">
+		<div class="o-grid__item u-size-12@m u-size-12@s">
+			<h3 class="nimbus u-textUpper u-textCenter u-mB-40">Account Details</h3>
+		</div>
+
+		<div class="o-grid__item u-size-8@m u-size-6@s">
+			<h3 class="nimbus u-textUpper u-mB-40">Order List</h3>
+
+			{% for order in customer.orders %}
+			  <!-- order details here -->
+			{% endfor %}
+
+			<div id="customer_orders">
+			  {% paginate customer.orders by 10 %}
+			  {% if customer.orders.size != 0 %}
+			    <table class="responsive-table">
+			      <thead>
+			        <tr>
+			          <th>{{ 'customer.orders.order_number' | t }}</th>
+			          <th>{{ 'customer.orders.date' | t }}</th>
+			          <th>{{ 'customer.orders.payment_status' | t }}</th>
+			          <th>{{ 'customer.orders.fulfillment_status' | t }}</th>
+			          <th>{{ 'customer.orders.total' | t }}</th>
+			        </tr>
+			      </thead>
+			      <tbody>
+			        {% for order in customer.orders %}
+			          <tr class="responsive-table-row">
+			            <td data-label="{{ 'customer.orders.order_number' | t }}">{{ order.name | link_to: order.customer_url }}</td>
+			            <td data-label="{{ 'customer.orders.date' | t }}">{{ order.created_at | date: format: 'month_day_year' }}</td>
+			            <td data-label="{{ 'customer.orders.payment_status' | t }}">{{ order.financial_status_label }}</td>
+			            <td data-label="{{ 'customer.orders.fulfillment_status' | t }}">{{ order.fulfillment_status_label }}</td>
+			            <td data-label="{{ 'customer.orders.total' | t }}">{{ order.total_price | money }}</td>
+			          </tr>
+			        {% endfor %}
+			      </tbody>
+			    </table>
+
+			  {% else %}
+			    <p class="u-textCenter">You haven't placed any orders yet.</p>
+			  {% endif %}
+			  {{ paginate | default_pagination }}
+			  {% endpaginate %}
+			</div>
+		</div>
+
+		<div class="o-grid__item u-size-4@m u-size-6@s">
+			{% if customer.default_address %}
+			  <p>{{ customer.default_address.address1 }}</p>
+			  {% if customer.default_address.address2 != "" %}
+			    <p>{{ customer.default_address.address2 }}</p>
+			  {% endif %}
+			  <p>{{ customer.default_address.city}}, {% if address.province_code %}{{ customer.default_address.province_code }}, {% endif %}{{ customer.default_address.country }}</p>
+			  <p>{{ customer.default_address.zip }}</p>
+			  <p>{{ customer.default_address.phone }}</p>
+			{% endif %}
+		</div>
+	</div>
+</div>

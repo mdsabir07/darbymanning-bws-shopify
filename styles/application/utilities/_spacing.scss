@@ -2,16 +2,51 @@
     #SPACING UTILITIES
 \*----------------------------------------------------------------------------*/
 
-.u-section-m {
-    margin-bottom: 8rem;
-    margin-top: 8rem;
+@include nu-utility__spacing(
+    $attrs: (
+        padding,
+    ),
+    $steps: (
+        80,
+    ),
+    $directions: (
+        vertical,
+    )
+);
+@include nu-utility__spacing(
+    $attrs: (
+        margin,
+    ),
+    $steps: (
+        80,
+    ),
+    $directions: (
+        top,
+        vertical,
+    )
+);
+@include nu-utility__spacing(
+    $attrs: (
+        margin,
+    ),
+    $steps: (
+        2,
+    ),
+    $directions: (
+        left
+    )
+);
 
-    &--bottom {
-        margin-top: 0;
+@include respond-below(md) {
+	.sm-u-mL-0.sm-u-mL-0 {
+		margin-left: 0;
+	}
+    .sm-u-mV-50.sm-u-mV-50 {
+        margin-top: 5rem;
+        margin-bottom: 5rem;
     }
-}
-
-.padding-wrap {
-    padding-left: 2rem;
-    padding-right: 2rem;
+    .sm-u-mV-16.sm-u-mV-16 {
+        margin-top: 1.6rem;
+        margin-bottom: 1.6rem;
+    }
 }

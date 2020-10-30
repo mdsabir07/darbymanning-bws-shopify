@@ -1,0 +1,17 @@
+.section-buttons {
+    margin-bottom: 8rem;
+    margin-top: 0;
+
+    &__button {
+        position: relative;
+        width: 100%;
+        box-sizing: inherit;
+        width: 100%;
+        justify-content: center;
+        
+        
+        &.active {
+	        background-color: var(--dark-blue);
+        }
+    }
+}

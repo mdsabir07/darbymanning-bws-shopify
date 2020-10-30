@@ -1,11 +1,11 @@
 {% assign custom_attributes = product.metafields.f_accordion %}
 {% if product.metafields.global.footprint_img != blank or product.metafields.global.footprint_point != blank or custom_attributes.size > 0 %}
- <section class="product-footprint  u-section-m" id="footprint">
+ <section class="product-footprint  u-mV-80 sm-u-mV-50" id="footprint">
         <div class="o-grid  o-grid--p">
             {% if product.metafields.global.footprint_img != blank or  product.metafields.global.footprint_point != blank %}
             <div class="o-grid__item  u-size-12@s">
-                <h1 class="h2  caps product-footprint__title">
-                    <span><img class="u-inblock" src="https://cdn.shopify.com/s/files/1/0463/1927/2092/files/footprint.png?v=1602055246"></span>
+                <h1 class="h2  u-textUpper product-footprint__title">
+                    <span><img class="u-inblock" src="{{ 'footprint.svg' | asset_url }}"></span>
                     <span>PRODUCT FOOTPRINT</span>
                 </h1>
                 <div class="product-footprint__block">
@@ -15,16 +15,16 @@
                         </div>
                     </div>
                     <div class="product-footprint__col  product-footprint__info">
-                        <h2 class="h2  caps  product-footprint__title">STRONG POINTS</h2>
+                        <h2 class="h2  u-textUpper  product-footprint__title">STRONG POINTS</h2>
                         {{ product.metafields.global.footprint_point }}
                     </div>
                 </div>
             </div>
             {% endif %}
-            <div class="o-grid__item  u-size-6@m u-size-12 accordion">
+            <div class="o-grid__item  u-size-6@m u-size-12 accordion js-accordion">
                 {% if product.metafields.f_accordion.accordion_title_1 != blank %}
                 <div class="accordion__item">
-                    <a href="#content-1" class="accordion__toggle  h2  caps  h-bold">
+                    <a href="#content-1" class="accordion__toggle js-accordion-toggle  h2  u-textUpper">
                         {{ product.metafields.f_accordion.accordion_title_1 }}
                         <div class="accordion__arrow">&#9661;</div>
                     </a>
@@ -35,7 +35,7 @@
                 {% endif %}
                 {% if product.metafields.f_accordion.accordion_title_2 != blank %}
                 <div class="accordion__item">
-                    <a href="#content-2" class="accordion__toggle  h2  caps  h-bold">
+                    <a href="#content-2" class="accordion__toggle js-accordion-toggle h2  u-textUpper  ">
                         {{ product.metafields.f_accordion.accordion_title_2 }} <div class="accordion__arrow">&#9661;</div>
                     </a>
                     <div class="accordion__content" id="content-2">
@@ -45,7 +45,7 @@
                 {% endif %}
                 {% if product.metafields.f_accordion.accordion_title_3 != blank %}
                 <div class="accordion__item">
-                    <a href="#content-3" class="accordion__toggle  h2  caps  h-bold">
+                    <a href="#content-3" class="accordion__toggle js-accordion-toggle h2  u-textUpper  ">
                         {{ product.metafields.f_accordion.accordion_title_3 }} <div class="accordion__arrow">&#9661;</div>
                     </a>
                     <div class="accordion__content" id="content-3">
@@ -55,7 +55,7 @@
                 {% endif %}
                 {% if product.metafields.f_accordion.accordion_title_4 != blank %}
                 <div class="accordion__item">
-                    <a href="#content-3" class="accordion__toggle  h2  caps  h-bold">
+                    <a href="#content-3" class="accordion__toggle js-accordion-toggle h2  u-textUpper  ">
                         {{ product.metafields.f_accordion.accordion_title_4 }} <div class="accordion__arrow">&#9661;</div>
                     </a>
                     <div class="accordion__content" id="content-3">

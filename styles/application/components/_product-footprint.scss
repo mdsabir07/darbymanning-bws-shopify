@@ -1,16 +1,24 @@
 .product-footprint {
     background-color: var(--light-gray);
-    padding: 8rem 0;
+    padding: 3rem 0;
 
     &__block {
         display: flex;
         flex-direction: row;
-        margin-bottom: 8rem;
+        margin-bottom: 4.5rem;
+
+        @include respond-below(md) {
+            flex-direction: column;
+        }
     }
 
     &__col {
         height: inherit;
         width: 50%;
+
+        @include respond-below(md) {
+            width: 100%;
+        }
     }
 
     &__img {
@@ -25,15 +33,33 @@
         flex-direction: column;
         justify-content: center;
         padding: 3rem;
+
+        @include respond-below(md) {
+            padding: 1.5rem;
+        }
     }
 
     &__title {
-        margin-bottom: 1.5rem;
+        margin-bottom: 3rem;
+        font-size: 2.4rem;
+        
+        span {
+            vertical-align: middle;
+        }        
+
+        @include respond-below(md) {
+            font-size: 2rem;
+        }
+        
     }
     &__ul {
         margin-top: 0;
     }
     &__li {
         font-size: 2rem;
+
+        @include respond-below(md) {
+            font-size: 1.5rem; 
+        }
     }
 }
