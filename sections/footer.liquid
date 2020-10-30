@@ -144,95 +144,16 @@
 {% schema %}
 
 {
-    "name": {
-        "da": "Sidefod",
-        "de": "Fußzeile",
-        "en": "Footer",
-        "es": "Pie de página",
-        "fi": "Alatunniste",
-        "fr": "Pied de page",
-        "hi": "फुटर",
-        "it": "Footer",
-        "ja": "フッター",
-        "ko": "바닥글",
-        "nb": "Footer",
-        "nl": "Voettekst",
-        "pt-BR": "Rodapé",
-        "pt-PT": "Rodapé",
-        "sv": "Sidfot",
-        "th": "ส่วนท้าย",
-        "zh-CN": "页脚",
-        "zh-TW": "頁尾"
-    },
+    "name": "Footer",
     "settings": [
         {
             "type": "header",
-            "content": {
-                "da": "Betalingsmetoder",
-                "de": "Zahlungsmethoden",
-                "en": "Payment methods",
-                "es": "Métodos de pago",
-                "fi": "Maksutavat",
-                "fr": "Moyens de paiement",
-                "hi": "भुगतान की विधियां",
-                "it": "Metodi di pagamento",
-                "ja": "決済方法",
-                "ko": "결제 방법",
-                "nb": "Betalingsmetoder",
-                "nl": "Betaalmethoden",
-                "pt-BR": "Formas de pagamento",
-                "pt-PT": "Métodos de Pagamento",
-                "sv": "Betalningsmetoder",
-                "th": "วิธีการชำระเงิน",
-                "zh-CN": "支付方式",
-                "zh-TW": "付款方式"
-            }
+            "content": "Payment methods"
         }, {
             "type": "checkbox",
             "id": "show_payment_icons",
-            "label": {
-                "da": "Vis betalingsikoner",
-                "de": "Zahlungs-Buttons anzeigen",
-                "en": "Show payment icons",
-                "es": "Mostrar iconos de pago",
-                "fi": "Näytä maksukuvakkeet",
-                "fr": "Afficher les icônes de paiement",
-                "hi": "भुगतान आइकन दिखाएं",
-                "it": "Mostra le icone di pagamento",
-                "ja": "支払いアイコンを表示する",
-                "ko": "결제 아이콘 표시",
-                "nb": "Vis betalingsikoner",
-                "nl": "Betalingspictogrammen weergeven",
-                "pt-BR": "Exibir ícones de pagamento",
-                "pt-PT": "Mostrar ícones de pagamento",
-                "sv": "Visa betalningsikoner",
-                "th": "แสดงไอคอนการชำระเงิน",
-                "zh-CN": "显示付款图标",
-                "zh-TW": "顯示付款圖示"
-            },
+            "label": "Show payment icons",
             "default": false
-        }, {
-            "type": "header",
-            "content": {
-                "da": "Farve",
-                "de": "Farbe",
-                "en": "Color",
-                "es": "Color",
-                "fi": "Väri",
-                "fr": "Couleur",
-                "hi": "रंग",
-                "it": "Colore",
-                "ja": "色",
-                "ko": "색상",
-                "nb": "Farge",
-                "nl": "Kleur",
-                "pt-BR": "Cor",
-                "pt-PT": "Cor",
-                "sv": "Färg",
-                "th": "สี",
-                "zh-CN": "颜色",
-                "zh-TW": "顏色"
-            }
         }, {
             "type": "link_list",
             "id": "legal_menu",
@@ -243,273 +164,45 @@
     "blocks": [
         {
             "type": "link_list",
-            "name": {
-                "da": "Menu",
-                "de": "Menü",
-                "en": "Menu",
-                "es": "Menú",
-                "fi": "Valikko",
-                "fr": "Menu",
-                "hi": "मेनू",
-                "it": "Menu",
-                "ja": "メニュー",
-                "ko": "메뉴",
-                "nb": "Meny",
-                "nl": "Menu",
-                "pt-BR": "Menu",
-                "pt-PT": "Menu",
-                "sv": "Meny",
-                "th": "เมนู",
-                "zh-CN": "菜单",
-                "zh-TW": "選單"
-            },
+            "name": "Menu",
             "settings": [
                 {
                     "type": "text",
                     "id": "title",
-                    "label": {
-                        "da": "Overskrift",
-                        "de": "Überschrift",
-                        "en": "Heading",
-                        "es": "Título",
-                        "fi": "Otsake",
-                        "fr": "Titre",
-                        "hi": "शीर्षक",
-                        "it": "Heading",
-                        "ja": "見出し",
-                        "ko": "제목",
-                        "nb": "Overskrift",
-                        "nl": "Kop",
-                        "pt-BR": "Título",
-                        "pt-PT": "Título",
-                        "sv": "Rubrik",
-                        "th": "ส่วนหัว",
-                        "zh-CN": "标题",
-                        "zh-TW": "標題"
-                    },
-                    "default": {
-                        "da": "Hurtige links",
-                        "de": "Quick-Links",
-                        "en": "Quick links",
-                        "es": "Enlaces rápidos",
-                        "fi": "Pikalinkit",
-                        "fr": "Liens rapides",
-                        "hi": "त्वरित लिंक",
-                        "it": "Link rapidi",
-                        "ja": "クイックリンク",
-                        "ko": "빠른 링크",
-                        "nb": "Hurtigkoblinger",
-                        "nl": "Snelle links",
-                        "pt-BR": "Links rápidos",
-                        "pt-PT": "Ligações rápidas",
-                        "sv": "Snabblänkar",
-                        "th": "ลิงก์ด่วน",
-                        "zh-CN": "快速链接",
-                        "zh-TW": "快速連結"
-                    }
+                    "label": "Heading",
+                    "default": "Quick links"
                 }, {
                     "type": "link_list",
                     "id": "menu",
-                    "label": {
-                        "da": "Menu",
-                        "de": "Menü",
-                        "en": "Menu",
-                        "es": "Menú",
-                        "fi": "Valikko",
-                        "fr": "Menu",
-                        "hi": "मेनू",
-                        "it": "Menu",
-                        "ja": "メニュー",
-                        "ko": "메뉴",
-                        "nb": "Meny",
-                        "nl": "Menu",
-                        "pt-BR": "Menu",
-                        "pt-PT": "Menu",
-                        "sv": "Meny",
-                        "th": "เมนู",
-                        "zh-CN": "菜单",
-                        "zh-TW": "選單"
-                    },
+                    "label": "Menu",
                     "default": "footer"
                 }, {
                     "type": "select",
                     "id": "width",
-                    "label": {
-                        "da": "Containerbredde",
-                        "de": "Breite des Elements",
-                        "en": "Container width",
-                        "es": "Ancho del contenedor",
-                        "fi": "Säiliön leveys",
-                        "fr": "Largeur du conteneur",
-                        "hi": "कंटेनर की चौड़ाई",
-                        "it": "Larghezza contenitore",
-                        "ja": "コンテナーの幅",
-                        "ko": "컨테이너 폭",
-                        "nb": "Beholderbredde",
-                        "nl": "Containerbreedte",
-                        "pt-BR": "Largura do contêiner",
-                        "pt-PT": "Largura do recipiente",
-                        "sv": "Container-bredd",
-                        "th": "ความกว้างของความจุ",
-                        "zh-CN": "容器宽度",
-                        "zh-TW": "容器寬度"
-                    },
+                    "label": "Container width",
                     "default": "50%",
                     "options": [
                         {
                             "value": "16%",
-                            "label": {
-                                "da": "16 %",
-                                "de": "16%",
-                                "en": "16%",
-                                "es": "16%",
-                                "fi": "16 %",
-                                "fr": "16 %",
-                                "hi": "16%",
-                                "it": "16%",
-                                "ja": "16%",
-                                "ko": "16%",
-                                "nb": "16 %",
-                                "nl": "16%",
-                                "pt-BR": "16%",
-                                "pt-PT": "16%",
-                                "sv": "16 %",
-                                "th": "16%",
-                                "zh-CN": "16％",
-                                "zh-TW": "16%"
-                            }
+                            "label": "16%"
                         }, {
                             "value": "25%",
-                            "label": {
-                                "da": "25 %",
-                                "de": "25%",
-                                "en": "25%",
-                                "es": "25%",
-                                "fi": "25 %",
-                                "fr": "25 %",
-                                "hi": "25%",
-                                "it": "25%",
-                                "ja": "25%",
-                                "ko": "25%",
-                                "nb": "25 %",
-                                "nl": "25%",
-                                "pt-BR": "25%",
-                                "pt-PT": "25%",
-                                "sv": "25 %",
-                                "th": "25%",
-                                "zh-CN": "25％",
-                                "zh-TW": "25%"
-                            }
+                            "label": "25%"
                         }, {
                             "value": "33%",
-                            "label": {
-                                "da": "33 %",
-                                "de": "33%",
-                                "en": "33%",
-                                "es": "33%",
-                                "fi": "33 %",
-                                "fr": "33 %",
-                                "hi": "33%",
-                                "it": "33%",
-                                "ja": "33%",
-                                "ko": "33%",
-                                "nb": "33 %",
-                                "nl": "33%",
-                                "pt-BR": "33%",
-                                "pt-PT": "33%",
-                                "sv": "33 %",
-                                "th": "33%",
-                                "zh-CN": "33%",
-                                "zh-TW": "33%"
-                            }
+                            "label": "33%"
                         }, {
                             "value": "50%",
-                            "label": {
-                                "da": "50 %",
-                                "de": "50%",
-                                "en": "50%",
-                                "es": "50%",
-                                "fi": "50 %",
-                                "fr": "50 %",
-                                "hi": "50%",
-                                "it": "50%",
-                                "ja": "50%",
-                                "ko": "50%",
-                                "nb": "50 %",
-                                "nl": "50%",
-                                "pt-BR": "50%",
-                                "pt-PT": "50%",
-                                "sv": "50 %",
-                                "th": "50%",
-                                "zh-CN": "50%",
-                                "zh-TW": "50%"
-                            }
+                            "label": "50%"
                         }, {
                             "value": "66%",
-                            "label": {
-                                "da": "66 %",
-                                "de": "66%",
-                                "en": "66%",
-                                "es": "66%",
-                                "fi": "66 %",
-                                "fr": "66 %",
-                                "hi": "66%",
-                                "it": "66%",
-                                "ja": "66%",
-                                "ko": "66%",
-                                "nb": "66 %",
-                                "nl": "66%",
-                                "pt-BR": "66%",
-                                "pt-PT": "66%",
-                                "sv": "66 %",
-                                "th": "66%",
-                                "zh-CN": "66%",
-                                "zh-TW": "66%"
-                            }
+                            "label": "66%"
                         }, {
                             "value": "75%",
-                            "label": {
-                                "da": "75 %",
-                                "de": "75%",
-                                "en": "75%",
-                                "es": "75%",
-                                "fi": "75 %",
-                                "fr": "75 %",
-                                "hi": "75%",
-                                "it": "75%",
-                                "ja": "75%",
-                                "ko": "75%",
-                                "nb": "75 %",
-                                "nl": "75%",
-                                "pt-BR": "75%",
-                                "pt-PT": "75%",
-                                "sv": "75 %",
-                                "th": "75%",
-                                "zh-CN": "75%",
-                                "zh-TW": "75%"
-                            }
+                            "label": "75%"
                         }, {
                             "value": "100%",
-                            "label": {
-                                "da": "100 %",
-                                "de": "100%",
-                                "en": "100%",
-                                "es": "100%",
-                                "fi": "100 %",
-                                "fr": "100 %",
-                                "hi": "100%",
-                                "it": "100%",
-                                "ja": "100%",
-                                "ko": "100%",
-                                "nb": "100 %",
-                                "nl": "100%",
-                                "pt-BR": "100%",
-                                "pt-PT": "100%",
-                                "sv": "100 %",
-                                "th": "100%",
-                                "zh-CN": "100%",
-                                "zh-TW": "100%"
-                            }
+                            "label": "100%"
                         }
                     ]
                 }, {
@@ -520,77 +213,15 @@
                     "options": [
                         {
                             "value": "25%",
-                            "label": {
-                                "da": "25 %",
-                                "de": "25%",
-                                "en": "25%",
-                                "es": "25%",
-                                "fi": "25 %",
-                                "fr": "25 %",
-                                "hi": "25%",
-                                "it": "25%",
-                                "ja": "25%",
-                                "ko": "25%",
-                                "nb": "25 %",
-                                "nl": "25%",
-                                "pt-BR": "25%",
-                                "pt-PT": "25%",
-                                "sv": "25 %",
-                                "th": "25%",
-                                "zh-CN": "25％",
-                                "zh-TW": "25%"
-                            }
+                            "label": "25%"
                         }, {
                             "value": "50%",
-                            "label": {
-                                "da": "50 %",
-                                "de": "50%",
-                                "en": "50%",
-                                "es": "50%",
-                                "fi": "50 %",
-                                "fr": "50 %",
-                                "hi": "50%",
-                                "it": "50%",
-                                "ja": "50%",
-                                "ko": "50%",
-                                "nb": "50 %",
-                                "nl": "50%",
-                                "pt-BR": "50%",
-                                "pt-PT": "50%",
-                                "sv": "50 %",
-                                "th": "50%",
-                                "zh-CN": "50%",
-                                "zh-TW": "50%"
-                            }
+                            "label": "50%"
                         }, {
                             "value": "100%",
-                            "label": {
-                                "da": "100 %",
-                                "de": "100%",
-                                "en": "100%",
-                                "es": "100%",
-                                "fi": "100 %",
-                                "fr": "100 %",
-                                "hi": "100%",
-                                "it": "100%",
-                                "ja": "100%",
-                                "ko": "100%",
-                                "nb": "100 %",
-                                "nl": "100%",
-                                "pt-BR": "100%",
-                                "pt-PT": "100%",
-                                "sv": "100 %",
-                                "th": "100%",
-                                "zh-CN": "100%",
-                                "zh-TW": "100%"
-                            }
+                            "label": "100%"
                         }
                     ]
-                }, {
-                    "type": "color",
-                    "id": "bg_color",
-                    "label": "Block Background",
-                    "default": "#f6f6f6"
                 }
             ]
         }, {
@@ -601,225 +232,35 @@
                 {
                     "type": "text",
                     "id": "title",
-                    "label": {
-                        "da": "Overskrift",
-                        "de": "Überschrift",
-                        "en": "Heading",
-                        "es": "Título",
-                        "fi": "Otsake",
-                        "fr": "Titre",
-                        "hi": "शीर्षक",
-                        "it": "Heading",
-                        "ja": "見出し",
-                        "ko": "제목",
-                        "nb": "Overskrift",
-                        "nl": "Kop",
-                        "pt-BR": "Título",
-                        "pt-PT": "Título",
-                        "sv": "Rubrik",
-                        "th": "ส่วนหัว",
-                        "zh-CN": "标题",
-                        "zh-TW": "標題"
-                    },
-                    "info": {
-                        "da": "Abonnenter bliver føjet til [kundelisten](/admin/customers?query=&accepts_marketing=1) for \"accepterer markedsføring\".",
-                        "de": "Abonnenten werden zu deiner Liste „akzeptiert Marketingmaterial“ hinzugefügt [Kundenliste.](/admin/customers?query=&accepts_marketing=1)",
-                        "en": "Subscribers will be added to your “accepts marketing” [customer list.](/admin/customers?query=&accepts_marketing=1)",
-                        "es": "Se añadirá los suscriptores a tu [lista de clientes.](/admin/customers?query=&accepts_marketing=1) \"acepta marketing\".",
-                        "fi": "Tilaajat lisätään \"hyväksyy markkinointi\" [-asiakasluetteloosi. ](/admin/customers?query=&accepts_marketing=1)",
-                        "fr": "Les abonnés seront ajoutés à votre [liste de clients](/admin/customers?query=&accepts_marketing=1) « Accepte le marketing ».",
-                        "hi": "सदस्यों को आपकी “मार्केटिंग स्वीकार करता है” [customer list.](/admin/customers?query=&accepts_marketing=1) में जोड़ दिया जाएगा",
-                        "it": "Gli iscritti verranno aggiunti al tuo [elenco clienti.](/admin/customers?query=&accepts_marketing=1) «accetta marketing»",
-                        "ja": "購読者は「マーケティングを受け入れる」[顧客リスト](/admin/customers?query=&accepts_marketing=1) に追加されます。",
-                        "ko": "가입자가 \"마케팅 수락\" [고객 목록.](/admin/customers?query=&accepts_marketing=1)에 추가됩니다.",
-                        "nb": "Abonnenter vil bli lagt til i «aksepterer markedsføring» [kundeliste.](/admin/customers?query=&accepts_marketing=1)",
-                        "nl": "Abonnees worden toegevoegd aan je \"accepteert marketing\" [klantenlijst.](/admin/customers?query=&accepts_marketing=1)",
-                        "pt-BR": "Os assinantes serão adicionados à “aceita marketing” [lista de clientes. ](/admin/customers?query=&accepts_marketing=1)",
-                        "pt-PT": "Os subscritores serão adicionados à sua lista de \"aceitam marketing\" [lista de clientes.](/admin/customers?query=&accepts_marketing=1)",
-                        "sv": "Prenumeranter läggs till i din \"accepterar marknadsföring\" [kundlista. ](/admin/customers?query=&accepts_marketing=1)",
-                        "th": "ระบบจะเพิ่มผู้สมัครใช้งานไปยังส่วน “ยอมรับการตลาด” ของคุณ [รายชื่อลูกค้า](/admin/customers?query=&accepts_marketing=1)",
-                        "zh-CN": "订阅者将被添加到您的“接受营销”[客户列表](/admin/customers?query=&accepts_marketing=1)中。",
-                        "zh-TW": "系統會將訂閱者新增至您的「接受行銷」[客戶清單。](/admin/customers?query=&accepts_marketing=1)"
-                    }
+                    "label": "Heading",
+                    "info": "Subscribers will be added to your “accepts marketing” [customer list.](/admin/customers?query=&accepts_marketing=1)"
                 }, {
                     "type": "select",
                     "id": "width",
-                    "label": {
-                        "da": "Containerbredde",
-                        "de": "Breite des Elements",
-                        "en": "Container width",
-                        "es": "Ancho del contenedor",
-                        "fi": "Säiliön leveys",
-                        "fr": "Largeur du conteneur",
-                        "hi": "कंटेनर की चौड़ाई",
-                        "it": "Larghezza contenitore",
-                        "ja": "コンテナーの幅",
-                        "ko": "컨테이너 폭",
-                        "nb": "Beholderbredde",
-                        "nl": "Containerbreedte",
-                        "pt-BR": "Largura do contêiner",
-                        "pt-PT": "Largura do recipiente",
-                        "sv": "Container-bredd",
-                        "th": "ความกว้างของความจุ",
-                        "zh-CN": "容器宽度",
-                        "zh-TW": "容器寬度"
-                    },
+                    "label": "Container width",
                     "default": "50%",
                     "options": [
                         {
                             "value": "16%",
-                            "label": {
-                                "da": "16 %",
-                                "de": "16%",
-                                "en": "16%",
-                                "es": "16%",
-                                "fi": "16 %",
-                                "fr": "16 %",
-                                "hi": "16%",
-                                "it": "16%",
-                                "ja": "16%",
-                                "ko": "16%",
-                                "nb": "16 %",
-                                "nl": "16%",
-                                "pt-BR": "16%",
-                                "pt-PT": "16%",
-                                "sv": "16 %",
-                                "th": "16%",
-                                "zh-CN": "16％",
-                                "zh-TW": "16%"
-                            }
+                            "label": "16%"
                         }, {
                             "value": "25%",
-                            "label": {
-                                "da": "25 %",
-                                "de": "25%",
-                                "en": "25%",
-                                "es": "25%",
-                                "fi": "25 %",
-                                "fr": "25 %",
-                                "hi": "25%",
-                                "it": "25%",
-                                "ja": "25%",
-                                "ko": "25%",
-                                "nb": "25 %",
-                                "nl": "25%",
-                                "pt-BR": "25%",
-                                "pt-PT": "25%",
-                                "sv": "25 %",
-                                "th": "25%",
-                                "zh-CN": "25％",
-                                "zh-TW": "25%"
-                            }
+                            "label": "25%"
                         }, {
                             "value": "33%",
-                            "label": {
-                                "da": "33 %",
-                                "de": "33%",
-                                "en": "33%",
-                                "es": "33%",
-                                "fi": "33 %",
-                                "fr": "33 %",
-                                "hi": "33%",
-                                "it": "33%",
-                                "ja": "33%",
-                                "ko": "33%",
-                                "nb": "33 %",
-                                "nl": "33%",
-                                "pt-BR": "33%",
-                                "pt-PT": "33%",
-                                "sv": "33 %",
-                                "th": "33%",
-                                "zh-CN": "33%",
-                                "zh-TW": "33%"
-                            }
+                            "label": "33%"
                         }, {
                             "value": "50%",
-                            "label": {
-                                "da": "50 %",
-                                "de": "50%",
-                                "en": "50%",
-                                "es": "50%",
-                                "fi": "50 %",
-                                "fr": "50 %",
-                                "hi": "50%",
-                                "it": "50%",
-                                "ja": "50%",
-                                "ko": "50%",
-                                "nb": "50 %",
-                                "nl": "50%",
-                                "pt-BR": "50%",
-                                "pt-PT": "50%",
-                                "sv": "50 %",
-                                "th": "50%",
-                                "zh-CN": "50%",
-                                "zh-TW": "50%"
-                            }
+                            "label": "50%"
                         }, {
                             "value": "66%",
-                            "label": {
-                                "da": "66 %",
-                                "de": "66%",
-                                "en": "66%",
-                                "es": "66%",
-                                "fi": "66 %",
-                                "fr": "66 %",
-                                "hi": "66%",
-                                "it": "66%",
-                                "ja": "66%",
-                                "ko": "66%",
-                                "nb": "66 %",
-                                "nl": "66%",
-                                "pt-BR": "66%",
-                                "pt-PT": "66%",
-                                "sv": "66 %",
-                                "th": "66%",
-                                "zh-CN": "66%",
-                                "zh-TW": "66%"
-                            }
+                            "label": "66%"
                         }, {
                             "value": "75%",
-                            "label": {
-                                "da": "75 %",
-                                "de": "75%",
-                                "en": "75%",
-                                "es": "75%",
-                                "fi": "75 %",
-                                "fr": "75 %",
-                                "hi": "75%",
-                                "it": "75%",
-                                "ja": "75%",
-                                "ko": "75%",
-                                "nb": "75 %",
-                                "nl": "75%",
-                                "pt-BR": "75%",
-                                "pt-PT": "75%",
-                                "sv": "75 %",
-                                "th": "75%",
-                                "zh-CN": "75%",
-                                "zh-TW": "75%"
-                            }
+                            "label": "75%"
                         }, {
                             "value": "100%",
-                            "label": {
-                                "da": "100 %",
-                                "de": "100%",
-                                "en": "100%",
-                                "es": "100%",
-                                "fi": "100 %",
-                                "fr": "100 %",
-                                "hi": "100%",
-                                "it": "100%",
-                                "ja": "100%",
-                                "ko": "100%",
-                                "nb": "100 %",
-                                "nl": "100%",
-                                "pt-BR": "100%",
-                                "pt-PT": "100%",
-                                "sv": "100 %",
-                                "th": "100%",
-                                "zh-CN": "100%",
-                                "zh-TW": "100%"
-                            }
+                            "label": "100%"
                         }
                     ]
                 }, {
@@ -830,70 +271,13 @@
                     "options": [
                         {
                             "value": "25%",
-                            "label": {
-                                "da": "25 %",
-                                "de": "25%",
-                                "en": "25%",
-                                "es": "25%",
-                                "fi": "25 %",
-                                "fr": "25 %",
-                                "hi": "25%",
-                                "it": "25%",
-                                "ja": "25%",
-                                "ko": "25%",
-                                "nb": "25 %",
-                                "nl": "25%",
-                                "pt-BR": "25%",
-                                "pt-PT": "25%",
-                                "sv": "25 %",
-                                "th": "25%",
-                                "zh-CN": "25％",
-                                "zh-TW": "25%"
-                            }
+                            "label": "25%"
                         }, {
                             "value": "50%",
-                            "label": {
-                                "da": "50 %",
-                                "de": "50%",
-                                "en": "50%",
-                                "es": "50%",
-                                "fi": "50 %",
-                                "fr": "50 %",
-                                "hi": "50%",
-                                "it": "50%",
-                                "ja": "50%",
-                                "ko": "50%",
-                                "nb": "50 %",
-                                "nl": "50%",
-                                "pt-BR": "50%",
-                                "pt-PT": "50%",
-                                "sv": "50 %",
-                                "th": "50%",
-                                "zh-CN": "50%",
-                                "zh-TW": "50%"
-                            }
+                            "label": "50%"
                         }, {
                             "value": "100%",
-                            "label": {
-                                "da": "100 %",
-                                "de": "100%",
-                                "en": "100%",
-                                "es": "100%",
-                                "fi": "100 %",
-                                "fr": "100 %",
-                                "hi": "100%",
-                                "it": "100%",
-                                "ja": "100%",
-                                "ko": "100%",
-                                "nb": "100 %",
-                                "nl": "100%",
-                                "pt-BR": "100%",
-                                "pt-PT": "100%",
-                                "sv": "100 %",
-                                "th": "100%",
-                                "zh-CN": "100%",
-                                "zh-TW": "100%"
-                            }
+                            "label": "100%"
                         }
                     ]
                 }
