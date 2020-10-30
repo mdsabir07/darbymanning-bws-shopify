@@ -3,14 +3,16 @@
         {% if section.settings.title != blank %}
          <h4 class="nimbus u-textUpper slider__title">{{ section.settings.title | escape }}</h4>
         {% endif %}
-
-        {%- assign collection = collections[section.settings.collection] -%}
-
         <div class="js-slider " data-items="4" data-gutter="1" data-responsive='{"350": {"items": "2"}, "768": {"items": "3"}, "1024": {"items": "4"}}'>
           {% for block in section.blocks %}
-          	{% assign collection = collections[block.settings.collection] %}
-            <div class="slide__item--{{section.id}}">
-                {% include 'collection-card-grid', collection: collection %}
+          	<div class="slide__item--{{section.id}}">
+	          	{% if block.settings.type == 'article' %}
+	          		{% assign article = articles[block.settings.article] %}
+	          		{% include 'blog-card-grid', article: article, hide_message: true, display_btn: true %}
+	          	{% else %}
+	          		{% assign product = all_products[block.settings.product] %}
+	          		{% include 'product-card-grid', product: product, shrink: true %}
+	          	{% endif %}
             </div>
           {% endfor %}
 
@@ -45,32 +47,52 @@
 
 {% schema %}
 {
-  "name": "Featured collections",
+  "name": "Curated",
   "class": "index-section",
   "settings": [
     {
       "type": "text",
       "id": "title",
       "label": "Heading",
-      "default": "A crafted collection"
+      "default": "Curated for you"
     }
   ],
   "blocks": [
-    {
-      "type": "collection",
-      "name": "Collection",
-      "settings": [
-        {
-          "label": "Collection",
-          "id": "collection",
-          "type": "collection"
-        }
-      ]
-    }
+	{
+        "type": "source",
+        "name": "Source",
+        "settings": [
+			{
+				"type": "select",
+				"id": "type",
+				"label": "Type",
+		        "default": "product",
+		        "options": [
+		            {
+		                "value": "product",
+		                "label": "Product"
+		            }, {
+		                "value": "article",
+		                "label": "Article"
+		            }
+		        ]
+			},
+		    {
+		      "type": "product",
+		      "id": "product",
+		      "label": "Product"
+		    },
+		    {
+		      "type": "article",
+		      "id": "article",
+		      "label": "Article"
+		    }
+		]
+	}
   ],
   "presets": [
     {
-      "name": "Featured collections",
+      "name": "Curated",
       "category": "Collection"
     }
   ]

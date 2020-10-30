@@ -1,7 +1,7 @@
 <div class="{% unless product.available %}sold-out{% endunless %} block  border block--shadow block--slide">
     <a href="{{ product.url | within: collection }}">
     	<p class="block__message  block__message--blue">{{product.type}}</p>
-        <div class="block__img" data-image-loading-animation>
+        <div class="block__img {% if shrink %}block__img--shrink{% endif %}" data-image-loading-animation>
          	<div class="block__wrap">
 		        {%- assign preview_image = product.featured_media.preview_image -%}
 		        {%- assign img_url = preview_image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
