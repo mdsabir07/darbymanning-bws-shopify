@@ -11,4 +11,11 @@
             padding-right: 0.1rem;
         }
     }
+    
+    &--small-marg {
+	    &,  #{$b} & {
+	 	    margin-left: -.9rem;
+	 		margin-right: -.9rem;
+		}
+    }
 }

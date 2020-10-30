@@ -36,6 +36,10 @@
         padding: 0;
         width: 5rem;
     }
+    
+    @include respond-below(lg) {
+        padding: 0.7rem 2.5rem;
+    }
 
     @include respond-below(md) {
         font-size: 1.5rem;

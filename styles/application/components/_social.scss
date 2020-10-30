@@ -18,6 +18,7 @@
 
         @include respond-below(md) {
             order: 1;
+            max-height: 18rem;
         }
     }
 
@@ -55,8 +56,9 @@
             order: 2;
         }
     }
-
-    @include respond-below(md) {
+    
+    
+    @include respond-below(sm) {
         margin-top: 3rem;
     }
 }

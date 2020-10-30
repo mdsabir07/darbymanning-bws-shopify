@@ -51,6 +51,11 @@
         align-items: center;
         justify-content: center;
         order: 3;
+        
+        
+	    @include respond-below(md) {
+	        height: 3.6rem;
+	    }
     }
 
     &__dots {

@@ -1,14 +1,14 @@
  <section class="home-news" style="background-color: {{ section.settings.bg_color }};">
     <div class="o-grid  o-grid--small-pad">
       {% for block in section.blocks limit: section.settings.post_limit %}
-      <div class="o-grid__item  u-size-6@m {% if forloop.first %}u-mB-20{% endif %}">
+      <div class="o-grid__item  u-size-6@s {% if forloop.first %}u-mB-20{% endif %}">
       {%- assign blog = blogs[block.settings.blog] -%}
       {% for article in blog.articles limit: 1 %}
-          <article class="block border" aria-labelledby="FeaturedBlogTitle-{{ forloop.index0 }}-{{ section.id }}">
+          <article class="block border" aria-labelledby="FeaturedBlogTitle-{{ forloop.index0 }}-{{ section.id }}"> 
               <a href="{{ blog.url }}">
+              	<p class="block__message block__message--default"><span>{{blog.title}} </span></p>
                 {% if article.image %}
                 <div class="home-news__img">
-                  <p class="block__message block__message--white">{{blog.title}}</p>
                   {%- assign img_url = article.image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
                     <img
                         class="lazyload lazypreload"

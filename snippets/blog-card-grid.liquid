@@ -1,7 +1,15 @@
+{%if orientation == null %}
+	{% assign orientation = 'portrait' %}
+{% endif %}
+
+{%if truncate == null %}
+	{% assign truncate = 80 %}
+{% endif %}
+
 <div class="block block--slide border block--shadow">
-    <a href="{{ article.url }}">
-        <div class="block__img block__img--transparent" data-image-loading-animation>
-        	<p class="block__message  block__message--blue"><span>{{blog.title}} </span> | <span>{{ article.published_at | time_tag: '%d %b' }}</span></p>
+    <a href="{{ article.url }}" class="block__link block__link--{{ orientation }}">
+    	<p class="block__message  block__message--blue"><span>{{blog.title}} </span> | <span>{{ article.published_at | time_tag: '%d %b' }}</span></p>
+        <div class="block__img block__img--transparent block__img--{{ orientation }}" data-image-loading-animation>
         	<div class="block__wrap">
 	            {%- assign img_url = article.image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
 	            <img
@@ -11,15 +19,17 @@
 	            alt="{{ preview_image.alt | escape }}">  
 	        </div>
         </div>
-        <article class="block__info block__info--flexed">   
-            <h4 class="block__title block__title--small">{{ article.title }}</h4>                             
-            <div class="block__p">
-            	{% if article.excerpt.size > 0 %}
-                    {{ article.excerpt }}
-                  {% else %}
-                   {{ article.content | strip_html | truncate: 80 }}
-                  {% endif %}
-            </div>
+        <article class="block__info block__info--flexed block__info--{{ orientation }}">   
+        	<div>
+	            <h4 class="block__title block__title--small">{{ article.title }}</h4>                             
+	            <div class="block__p">
+	            	{% if article.excerpt.size > 0 %}
+	                    {{ article.excerpt }}
+	                  {% else %}
+	                   {{ article.content | strip_html | truncate: truncate }}
+	                  {% endif %}
+	            </div>
+	        </div>
         </article>
     </a>
 </div>

@@ -4,11 +4,11 @@
 
 <div class="o-grid">
 
-<div class="o-grid__item mg-b-2">
-	<div class="u-flex u-alignCenter u-between mg-b-2">
-		<h1 class="mg-0">Search</h1>
+<div class="o-grid__item u-mB-20">
+	<div class="u-flex u-alignCenter u-between u-mB-20">
+		<h1 class="u-m-0">Search</h1>
 			{% if search.performed %}
-			   <p class="mg-0">{{ search.results_count }} {{ search.results_count | pluralize: 'result', 'results' }} for <strong>"{{search.terms | escape}}"</strong></p> 
+			   <p class="u-m-0">{{ search.results_count }} {{ search.results_count | pluralize: 'result', 'results' }} <span class="u-hide@m-down">for <strong>"{{search.terms | escape}}"</strong></span></p> 
 			  {% endif %}
 			 </div>
 	  <form action="/search" method="get" role="search">

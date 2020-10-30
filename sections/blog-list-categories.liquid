@@ -7,13 +7,21 @@
     {% endfor %}
 </section>
 
+{% assign layouts = "3-6-3,3-3-6,6-6,6-6,6-3-3,6-6" | split: ',' %}
+
 <section class="u-pV-48">
 	{% for block in section.blocks %}
 		{%- assign blog = blogs[block.settings.blog] -%}
 		{% assign remainder = forloop.index | modulo:3 %}
+		{% assign layoutIndex = forloop.index | modulo:layouts.size %}
+		{% if layoutIndex == 0 %}
+			{% assign layoutIndex = layouts.size %}
+		{% endif %}
+		{% assign layoutIndex = layoutIndex | minus: 1 %}
+		{% assign columns = layouts[layoutIndex] | split: '-' %}
 		<div class="{% if remainder == 0 %}bg-grey{% endif %}">
 	        <div class="o-grid u-pV-32">
-	            {% include 'blog-grid-item', blog: blog, remainder: remainder %}
+	            {% include 'blog-grid-item', blog: blog, remainder: remainder, columns: columns %}
 	        </div>
 	    </div>
 	{% endfor %}
