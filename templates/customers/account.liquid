@@ -1,11 +1,11 @@
 <!-- /templates/customers/account.liquid -->
 <div class="section-account u-pV-40 u-mB-40">
 	<div class="o-grid u-justifyCenter">
-		<div class="o-grid__item u-size-12@m u-size-12@s">
-			<h3 class="nimbus u-textUpper u-textCenter u-mB-40">Account Details</h3>
+		<div class="o-grid__item u-size-12 u-textCenter">
+			<h3 class="nimbus u-textUpper u-mB-40">Account Details</h3>
 		</div>
 
-		<div class="o-grid__item u-size-8@m u-size-6@s">
+		<div class="o-grid__item u-size-12 u-textCenter">
 			<h3 class="nimbus u-textUpper u-mB-40">Order List</h3>
 
 			{% for order in customer.orders %}
@@ -39,7 +39,7 @@
 			    </table>
 
 			  {% else %}
-			    <p class="u-textCenter">You haven't placed any orders yet.</p>
+			    <p>You haven't placed any orders yet.</p>
 			  {% endif %}
 			  {{ paginate | default_pagination }}
 			  {% endpaginate %}
