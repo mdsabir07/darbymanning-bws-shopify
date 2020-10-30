@@ -20,6 +20,10 @@
         @include respond-below(md) {
             padding: 1.8rem;
         }
+        
+        @include respond-below(sm) {
+            padding: 1.8rem 0;
+        }
     }
 
     &__logo {
@@ -71,6 +75,11 @@
 
         @include respond-below(md) {
             margin-left: 1rem;
+        }
+        
+        @include respond-below(sm) {
+            margin-right: 1.5rem;
+            margin-left: 0;
         }
     }
 

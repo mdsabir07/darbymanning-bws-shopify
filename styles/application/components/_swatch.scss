@@ -20,6 +20,10 @@
             margin-top: 1rem;
             cursor: pointer;
             
+            @include respond-below(sm) {
+                margin-right: .5rem;
+            }
+            
             &.active {
                 border: 1px solid var(--dark-blue);
             }
@@ -36,6 +40,11 @@
                 transition: 0.3s all;
                 width: 5rem;
                 text-transform: uppercase;
+                
+                @include respond-below(sm) {
+	                height: 4.5rem;
+	                width: 4.5rem;
+                }
                 
                 &:hover, &.active {
                     background-color: var(--blue);

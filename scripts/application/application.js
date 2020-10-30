@@ -10,6 +10,6 @@ import './modules/search.js';
 import './modules/smooth-scrolling.js';
 import './modules/accordions.js';
 
-/* Neue Kit */
-const neuekit = new NeueKit();
-window.neuekit = neuekit;
+document.addEventListener('DOMContentLoaded', () => {
+	const neuekit = new NeueKit()
+})
