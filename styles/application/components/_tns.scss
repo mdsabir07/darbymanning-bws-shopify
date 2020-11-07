@@ -1,8 +1,8 @@
 @import url('https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.3/tiny-slider.css');
 
 .tns-slider {
-    overflow: visible !important;
     display: flex;
+    overflow: visible !important;
 }
 
 .tns-slide-cloned {
@@ -25,10 +25,10 @@
         opacity: 0.5 !important;
     }
     @include respond-above(sm) {
-	    display: flex !important;
-	    flex-direction: column;
-	    flex-grow: 1;
-	}
+        display: flex !important;
+        flex-direction: column;
+        flex-grow: 1;
+    }
 }
 
 .tns-outer {

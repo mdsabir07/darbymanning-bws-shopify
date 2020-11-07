@@ -1,21 +1,20 @@
-<div class="block  border block--shadow block--slide">
+<div class="block  border  block--shadow  block--slide  block--product">
     <a href="{{ product.url | within: collection }}">
     	<p class="block__message  block__message--blue">{{product.type}}</p>
         <div class="block__img" data-image-loading-animation>
             <div class="block__wrap">
                 <img src="{{ product.featured_image.src | img_url: 'large' }}" alt="{{ product.featured_image.alt | escape }}">
 			</div>
-            <div class="price__wrapper">
-                {% include 'product-price-listing', product: product %}
-            </div>
         </div>
-    
-        <article class="block__info block__info--flexed block__info--190">  
+
+        <div class="block__info block__info--flexed block__info--190">
         	<div>
             	<h4 class="block__title block__title--small">{{ product.vendor }}</h4>
 				<p class="block__p">{{ product.title }}</p>
 			</div>
-            <h5 class="block__cta  nimbus">Shop now</h5>
-        </article>
+            <div class="price__wrapper">
+                {% include 'product-price-listing', product: product %}
+            </div>
+        </div>
     </a>
 </div>

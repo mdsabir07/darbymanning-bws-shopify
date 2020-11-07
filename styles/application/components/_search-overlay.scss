@@ -1,21 +1,21 @@
 .search-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 100vh;
-    width: 100vw;
-    z-index: 10;
+    align-items: center;
 
     background-color: rgba(255, 255, 255, 0.95);
 
     display: flex;
-    align-items: center;
+    height: 100vh;
     justify-content: center;
-
-    visibility: hidden;
+    left: 0;
     opacity: 0;
+    position: fixed;
+    top: 0;
 
     transition: opacity 0.5s ease;
+
+    visibility: hidden;
+    width: 100vw;
+    z-index: 10;
 
     &.visible {
         visibility: visible;
@@ -32,8 +32,8 @@
     &__field {
         background-color: white;
         box-shadow: inset 0 0 0 2px var(--dark-blue);
-        width: 34rem;
         height: 5rem;
+        width: 34rem;
 
         &:focus {
             box-shadow: inset 0 0 0 2px var(--blue);
@@ -41,18 +41,18 @@
     }
 
     &__close {
-        position: absolute;
-        top: 3rem;
-        right: 3rem;
-
-        width: 3.2rem;
-        height: 3.2rem;
-
-        padding: 0.75rem;
 
         border: 2px solid var(--blue);
 
         border-radius: 50%;
+        height: 3.2rem;
+
+        padding: 0.75rem;
+        position: absolute;
+        right: 3rem;
+        top: 3rem;
+
+        width: 3.2rem;
 
         &:hover {
             border-color: var(--dark-blue);

@@ -1,38 +1,38 @@
 textarea,
-[type="email"],
-[type="date"],
-[type="datetime"],
-[type="datetime-local"],
-[type="month"],
-[type="number"],
-[type="password"],
-[type="search"],
-[type="tel"],
-[type="text"],
-[type="time"],
-[type="url"],
-[type="week"] {
-	background-color: var(--white);
-	border: 0.1rem solid var(--alto);
-	margin-bottom: 1.5rem;
-	box-shadow: none;
-	@include DINOTRegular;
-	font-size: 1.6rem;
+[type='email'],
+[type='date'],
+[type='datetime'],
+[type='datetime-local'],
+[type='month'],
+[type='number'],
+[type='password'],
+[type='search'],
+[type='tel'],
+[type='text'],
+[type='time'],
+[type='url'],
+[type='week'] {
+    background-color: var(--white);
+    border: 0.1rem solid var(--alto);
+    box-shadow: none;
+    font-size: 1.6rem;
+    margin-bottom: 1.5rem;
+    @include DINOTRegular;
 }
 
 label {
-	@include DINOTRegular;
-	font-weight: bold;
-	font-size: 1.5rem;
-	margin-bottom: 1rem;
-	display: inline-block;
-
-	+ em {
     @include DINOTRegular;
-    font-size: 1.5rem;
-    font-size: italic;
     display: inline-block;
-    margin-right: 0;
-    float: right;
-	}
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+
+    + em {
+        @include DINOTRegular;
+        display: inline-block;
+        float: right;
+        font-size: 1.5rem;
+        font-size: italic;
+        margin-right: 0;
+    }
 }

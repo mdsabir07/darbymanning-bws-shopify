@@ -20,7 +20,7 @@
         @include respond-below(md) {
             padding: 1.8rem;
         }
-        
+
         @include respond-below(sm) {
             padding: 1.8rem 0;
         }
@@ -33,14 +33,14 @@
         }
 
         img {
-            width: 20.6rem;
             height: 6.2rem;
+            width: 20.6rem;
         }
 
         @include respond-below(md) {
             img {
-                width: 14.5rem;
                 height: 4.4rem;
+                width: 14.5rem;
             }
         }
     }
@@ -68,34 +68,34 @@
     }
 
     &__icon {
+        color: var(--dark-blue);
         display: inline-block;
         margin-left: 2.5rem;
-        color: var(--dark-blue);
         position: relative;
 
         @include respond-below(md) {
             margin-left: 1rem;
         }
-        
+
         @include respond-below(sm) {
-            margin-right: 1.5rem;
             margin-left: 0;
+            margin-right: 1.5rem;
         }
     }
 
     &__shipping {
         @include NimbusExt;
-        margin: 0;
         font-size: 1.4rem;
         letter-spacing: 3px;
+        margin: 0;
         @include respond-below(md) {
             display: none;
         }
     }
 
     &__mobile-icons {
-        display: none;
         align-items: center;
+        display: none;
         order: 3;
         width: 25%;
 
@@ -110,17 +110,17 @@
     }
 
     &__cart-count {
-        position: absolute;
-        height: 1.8rem;
-        width: 1.8rem;
-        border-radius: 100%;
+        align-items: center;
         background-color: var(--dark-blue);
+        border-radius: 100%;
         color: #fff;
         display: flex;
-        align-items: center;
-        justify-content: center;
         font-size: 1rem;
-        top: -0.5rem;
+        height: 1.8rem;
+        justify-content: center;
+        position: absolute;
         right: -1rem;
+        top: -0.5rem;
+        width: 1.8rem;
     }
 }

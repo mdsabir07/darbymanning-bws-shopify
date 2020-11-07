@@ -6,20 +6,20 @@
 
     &__input {
         background-color: var(--white);
+        border-radius: 0;
         box-shadow: none;
         height: 5rem;
-        border-radius: 0;
         margin: 0;
     }
     &__submit {
-        padding: 0rem;
-        color: var(--dark-blue);
-        width: 4rem;
-        height: 4rem;
-        display: flex;
         align-items: center;
+        color: var(--dark-blue);
+        display: flex;
+        height: 4rem;
         justify-content: center;
         margin-left: auto;
+        padding: 0rem;
+        width: 4rem;
 
         &:hover,
         &:focus {

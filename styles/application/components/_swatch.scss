@@ -3,31 +3,30 @@
 
     &__element {
         display: inline-block;
-        width: auto;
         position: relative;
+        width: auto;
 
         label {
-            height: 4rem;
-            width: 4rem;
-            position: relative;
-            display: flex;
             align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
             background-color: var(--blue);
             color: var(--white);
-			margin-right: 2rem;
-            margin-top: 1rem;
             cursor: pointer;
-            
+            display: flex;
+            font-size: 1.5rem;
+            height: 4rem;
+            justify-content: center;
+            margin-right: 2rem;
+            margin-top: 1rem;
+            position: relative;
+            width: 4rem;
+
             @include respond-below(sm) {
-                margin-right: .5rem;
+                margin-right: 0.5rem;
             }
-            
+
             &.active {
                 border: 1px solid var(--dark-blue);
             }
-
         }
 
         &.size {
@@ -37,35 +36,35 @@
                 color: var(--blue);
                 height: 5rem;
                 justify-content: center;
+                text-transform: uppercase;
                 transition: 0.3s all;
                 width: 5rem;
-                text-transform: uppercase;
-                
+
                 @include respond-below(sm) {
-	                height: 4.5rem;
-	                width: 4.5rem;
+                    height: 4.5rem;
+                    width: 4.5rem;
                 }
-                
-                &:hover, &.active {
+
+                &:hover,
+                &.active {
                     background-color: var(--blue);
                     color: var(--white);
-                   
                 }
             }
         }
-        
+
         &:last-child label {
-	        margin-right: 0;
+            margin-right: 0;
         }
     }
-    
+
     &__crossed-out {
         height: 100%;
-        width: 100%;
-        position: absolute;
-        object-fit: cover;
-        top: 0;
         left: 0;
+        object-fit: cover;
         opacity: 0;
+        position: absolute;
+        top: 0;
+        width: 100%;
     }
 }

@@ -1,7 +1,7 @@
 .nav {
     margin-top: 1rem;
     position: unset;
-    
+
     $b: &;
 
     &:after {
@@ -20,18 +20,18 @@
     }
 
     &__dd-wrap {
+        background-color: var(--dark-blue);
         display: flex;
         flex-direction: row;
         flex-wrap: nowrap;
         margin: 0;
         padding-bottom: 2rem;
         padding-left: 0;
-        background-color: var(--dark-blue);
 
         @include respond-below(md) {
+            background-color: transparent;
             flex-direction: column;
             padding-bottom: 0;
-            background-color: transparent;
         }
     }
 
@@ -46,19 +46,19 @@
 
         @include respond-below(md) {
             background: rgb(35 71 102 / 90%);
-            position: fixed;
-            height: 100%;
-            width: 100%;
-            left: 0;
-            top: 0;
-            z-index: 10;
-            opacity: 0;
-            transform: translateX(-100%);
-            transition: transform 0.5s ease;
             flex-direction: column;
+            height: 100%;
             justify-content: inherit;
+            left: 0;
+            opacity: 0;
             overflow-y: scroll;
             padding: 2rem;
+            position: fixed;
+            top: 0;
+            transform: translateX(-100%);
+            transition: transform 0.5s ease;
+            width: 100%;
+            z-index: 10;
         }
 
         &.loaded {
@@ -66,8 +66,8 @@
         }
 
         &.is-active {
-            transform: translateX(0);
             opacity: 1;
+            transform: translateX(0);
         }
     }
 
@@ -84,9 +84,9 @@
         z-index: 4;
 
         @include respond-below(md) {
+            margin-top: 0;
             position: inherit;
             width: 100%;
-            margin-top: 0;
 
             &.show {
                 display: block;
@@ -115,16 +115,16 @@
         }
 
         @include respond-below(md) {
-            padding: 10px;
             border-bottom: 1px solid var(--white);
+            padding: 10px;
         }
 
         &--close {
+            border-bottom: 0;
             display: none;
             justify-content: flex-end;
-            padding: 0;
             margin-bottom: 3rem;
-            border-bottom: 0;
+            padding: 0;
             @include respond-below(md) {
                 display: flex;
             }
@@ -143,8 +143,8 @@
         &--sub {
             color: white;
             font-size: 1.75rem;
-            text-transform: capitalize;
             font-weight: normal;
+            text-transform: capitalize;
             @include NimbusExt;
         }
 
@@ -154,20 +154,20 @@
 
         @include respond-below(md) {
             color: white;
-            font-size: 16px;
             display: block;
-            width: 100%;
-            text-align: left;
-            position: relative;
-            padding: 0.5rem;
+            font-size: 16px;
             font-weight: normal;
-            @include NimbusExt;
             margin-bottom: 0;
+            padding: 0.5rem;
+            position: relative;
+            text-align: left;
+            width: 100%;
+            @include NimbusExt;
 
             &:hover {
-                font-weight: normal;
                 background-color: transparent;
                 color: white;
+                font-weight: normal;
             }
         }
 
@@ -180,22 +180,22 @@
 
             &:before,
             &:after {
-                content: '';
-                position: absolute;
-                width: 10px;
-                height: 2px;
-                display: inline-block;
                 background-color: #fff;
                 border-radius: 2px;
-                transform: rotate(45deg);
-                top: 50%;
+                content: '';
+                display: inline-block;
+                height: 2px;
+                position: absolute;
                 right: 0;
+                top: 50%;
+                transform: rotate(45deg);
+                width: 10px;
                 @include basic-transition(all);
             }
 
             &:after {
-                transform: rotate(-45deg);
                 left: -4px;
+                transform: rotate(-45deg);
             }
 
             &.open {
@@ -231,7 +231,7 @@
                 margin: 0;
             }
         }
-        
+
         &:first-child::before {
             left: -1.4rem;
             width: calc(100% + 1.4rem);
@@ -243,8 +243,8 @@
         }
 
         @include respond-below(md) {
-            padding: 0;
             margin: 0;
+            padding: 0;
 
             &:before {
                 content: none;
@@ -268,24 +268,24 @@
     }
 
     &__close {
-        position: relative;
-        height: 22px;
-        width: 24px;
         display: inline-block;
+        height: 22px;
+        position: relative;
         vertical-align: text-bottom;
+        width: 24px;
 
         &:before,
         &:after {
-            content: '';
-            position: absolute;
-            height: 2px;
-            width: 26px;
             background-color: var(--white);
-            top: 50%;
-            left: 0;
-            transform: rotate(45deg);
-            display: block;
             border-radius: 2px;
+            content: '';
+            display: block;
+            height: 2px;
+            left: 0;
+            position: absolute;
+            top: 50%;
+            transform: rotate(45deg);
+            width: 26px;
         }
         &:after {
             transform: rotate(-45deg);

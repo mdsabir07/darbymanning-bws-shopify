@@ -11,11 +11,12 @@
             padding-right: 0.1rem;
         }
     }
-    
+
     &--small-marg {
-	    &,  #{$b} & {
-	 	    margin-left: -.9rem;
-	 		margin-right: -.9rem;
-		}
+        &,
+        #{$b} & {
+            margin-left: -0.9rem;
+            margin-right: -0.9rem;
+        }
     }
 }

@@ -8,12 +8,12 @@
     left: 0;
     margin-bottom: 0;
     padding: 0 1rem;
-    
+
     &__wrapper {
-		position: absolute;
-		right: 0;
-		width: 100%;
-		bottom: 0;
+        bottom: 0;
+        position: absolute;
+        right: 0;
+        width: 100%;
     }
 
     &__regular,
@@ -27,9 +27,9 @@
         dd span {
             display: block;
             font-weight: bold;
+            font-weight: normal;
             margin-bottom: 0.5rem;
             @include NimbusExt;
-            font-weight: normal;
         }
     }
 

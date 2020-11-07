@@ -19,6 +19,7 @@
     "npm-run-all": "^4.1.5",
     "onchange": "^6.1.0",
     "postcss-cli": "6.1.3",
+    "prettier": "^2.1.2",
     "promise-polyfill": "8.1.3",
     "rollup": "^1.26.3",
     "rollup-plugin-babel": "4.3.3",
@@ -46,7 +47,9 @@
     "watch": "run-p watch:theme watch:css watch:js",
     "start": "npm run watch",
     "prettier": "prettier --check '**/*.{js,scss,css,html,json,md,yml,yaml}'",
-    "prettier:fix": "prettier --write '**/*.{js,scss,css,html,json,md,yml,yaml}'"
+    "prettier:fix": "prettier --write '**/*.{js,scss,css,html,json,md,yml,yaml}'",
+    "style": "stylelint '**/*.{css,scss}'",
+    "style:fix": "stylelint --fix '**/*.{css,scss}'"
   },
   "dependencies": {
     "@shopify/theme-product": "^4.0.2",
