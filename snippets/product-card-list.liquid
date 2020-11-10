@@ -1,6 +1,10 @@
 <div class="block  border  block--shadow  block--slide  block--product">
     <a href="{{ product.url | within: collection }}">
-    	<p class="block__message  block__message--blue">{{product.type}}</p>
+    	{%- assign tag = product.type -%}
+    	{% if product.metafields.global.tag %}
+    		{%- assign tag = product.metafields.global.tag -%}
+    	{% endif %}
+    	<p class="block__message  block__message--blue">{{tag}}</p>
         <div class="block__img" data-image-loading-animation>
             <div class="block__wrap">
                 <img src="{{ product.featured_image.src | img_url: 'large' }}" alt="{{ product.featured_image.alt | escape }}">
