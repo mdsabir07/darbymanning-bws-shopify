@@ -1,11 +1,11 @@
 .home-about {
+
+    background-color: $color-midlight-gray;
     padding: 9rem 0 7rem;
 
     @include respond-below(md) {
         padding: 3.5rem 2.5rem;
     }
-
-    background-color: $color-midlight-gray;
 
     &__item {
         display: flex;
@@ -15,8 +15,8 @@
 
         &_wrapper {
             height: 100%;
-            width: 100%;
             margin: 0 0.8rem;
+            width: 100%;
 
             @include respond-below(md) {
                 width: auto;

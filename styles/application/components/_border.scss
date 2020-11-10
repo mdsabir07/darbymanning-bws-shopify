@@ -11,9 +11,9 @@
         width: 100%;
         z-index: 3;
     }
-    
+
     &--close:before {
-	    background-color: var(--dark-blue);
+        background-color: var(--dark-blue);
         background-color: var(--border-color);
         top: 1rem;
     }

@@ -1,24 +1,24 @@
 .breadcrumbs {
-
     &__list {
         list-style-type: none;
         margin: 0;
         padding: 0;
-        
+
         @include respond-below(sm) {
-			display: flex;
-			justify-content: center;
-			flex-wrap: wrap;
-			text-align: center;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            text-align: center;
         }
     }
 
     &__item {
         display: inline-block;
-        a, span {
+        a,
+        span {
             color: #5078a0;
-            padding: 0 0.5rem;
             font-size: 1.4rem;
+            padding: 0 0.5rem;
         }
         &:first-child {
             a {
@@ -40,7 +40,8 @@
         }
     }
 
-    &__link[aria-current='page'], span {
+    &__link[aria-current='page'],
+    span {
         color: inherit;
         color: #404040;
         font-weight: normal;

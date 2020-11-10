@@ -9,8 +9,8 @@
         color: var(--tundora);
         display: inline-block;
         font-size: 1.7rem;
-        padding: 0 1rem;
         margin-bottom: 0.5rem;
+        padding: 0 1rem;
 
         &:first-child {
             padding-left: 0;
@@ -18,8 +18,8 @@
             @include respond-below(md) {
                 border: 0;
                 display: block;
-                padding-right: 0;
                 margin-bottom: 0.5rem;
+                padding-right: 0;
             }
         }
 

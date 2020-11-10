@@ -1,7 +1,7 @@
 <section class="o-grid  o-grid--p">
     <form class="o-grid__item  u-size-12@s u-mB-48">
         <span class="u-textUpper  h3  nimbus u-mL-16 u-mR-8" for="sort-by">Sort by</span>
-        
+
         {%- capture contentForQuerystring -%}{{ content_for_header }}{%- endcapture -%}
 	    {%- assign pageUrl = contentForQuerystring | split:'"pageurl":"' | last | split:'"' | first | split:'.myshopify.com' | last |
 		   replace:'\/','/' |
@@ -19,7 +19,7 @@
 				 {% endif %}
 			{% endif %}
 		{% endfor %}
-	
+
         <select name="sort_by" onchange="this.form.submit()">
             <option {%if sort == 'manual' %}selected="selected"{% endif %}  value="manual">Featured</option>
             <option {%if sort == 'price-ascending' %}selected="selected"{% endif %}  value="price-ascending">Price: Low to High</option>
@@ -39,7 +39,7 @@
             {% include 'product-card-grid', product: product, show_vendor: true %}
         </div>
         {% else %}
-            <div class="o-grid__item  u-size-6@s  u-size-4@m  u-size-3@l u-mB-32">
+            <div class="o-grid__item  u-size-6@s  u-size-4@m  u-size-3@l  u-mB-32  u-flex">
                 {% include 'product-card-list', product: product %}
             </div>
         {% endif %}

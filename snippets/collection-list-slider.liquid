@@ -4,10 +4,10 @@
     {% for link in linklists[collection_handle].links %}
     {% if link.type == 'collection_link' %}
     {% assign linkCollection = link.object %}
-    
-     <article class="o-grid__item collection-list__item u-size-1@m">
-     	<a href="{{ link.url }}">
-        <div class="block  border  border--top">
+
+     <article class="o-grid__item  collection-list__item  u-size-1@m  u-flex">
+     	<a class="u-grow u-flex" href="{{ link.url }}">
+        <div class="block  border  border--top  u-flex">
             <div class="block__info  block__info--small  block__info--center  collection-list__wrap">
                 <div class="collection-list__img">
                 {% if linkCollection.image %}
@@ -21,7 +21,7 @@
         </div>
         </a>
     </article>
-    
+
     {% endif %}
     {% endfor %}
 </section>

@@ -31,10 +31,10 @@
 
     &__a {
         @include DINOTRegular;
+        color: var(--dark-blue);
         font-size: 1.75rem;
         text-transform: capitalize;
         transition: 0.3s all;
-        color: var(--dark-blue);
         &:hover {
             color: var(--blue);
         }

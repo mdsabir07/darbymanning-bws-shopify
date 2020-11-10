@@ -1,13 +1,11 @@
 .article {
-	
-	img {
-		display: inline-block;
-	}
-	
-	p.border {
-		padding: 0 1rem;
-		display: inline-flex;
-		justify-self: center;
-	}
-	
+    img {
+        display: inline-block;
+    }
+
+    p.border {
+        display: inline-flex;
+        justify-self: center;
+        padding: 0 1rem;
+    }
 }

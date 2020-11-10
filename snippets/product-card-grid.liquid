@@ -9,20 +9,19 @@
 		        class="lazyload lazypreload"
 		        data-src="{{ img_url }}"
 		        data-sizes="auto"
-		        alt="{{ preview_image.alt | escape }}">  
+		        alt="{{ preview_image.alt | escape }}">
 		    </div>
-	        <div class="price__wrapper">
-				{% include 'product-price-listing', product: product %}                           
-	        </div>
         </div>
-        <article class="block__info block__info--flexed block__info--160 {%if show_vendor %}block__info--190{% endif %}">  
-        	<div> 
+        <article class="block__info block__info--flexed block__info--160 {%if show_vendor %}block__info--190{% endif %}">
+        	<div>
                 {% if show_vendor %}
-                	<h4 class="block__title block__title--small">{{ product.vendor }}</h4>                             
+                	<h4 class="block__title block__title--small">{{ product.vendor }}</h4>
                 {% endif %}
                 <p class="block__p">{{ product.title }}</p>
             </div>
-            <h5 class="block__cta  nimbus">Shop now</h5>
+	        <div class="price__wrapper">
+				{% include 'product-price-listing', product: product %}
+	        </div>
         </article>
     </a>
 </div>

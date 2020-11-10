@@ -5,16 +5,15 @@
 @mixin font-face($fontname, $path, $weight: normal, $style: normal) {
     @font-face {
         font-family: quote($fontname);
-        src: url($path + '.woff') format('woff');
-        font-weight: $weight;
         font-style: $style;
+        font-weight: $weight;
+        src: url($path + '.woff') format('woff');
     }
 }
 
 /* Include Font With Real Value Like below Example */
 /* @include font-face(NimbusSan, "./NimbusSan-Reg", normal, normal); */
 
-@include font-face(AG_Helvetica, './AGHelvetica', normal, normal);
 @include font-face(AvenirNextRegular, './AvenirNext-Regular', normal, normal);
 @include font-face(AvenirNextMedium, './AvenirNext-Medium', 500, normal);
 @include font-face(AvenirNextBold, './AvenirNext-Bold', bold, normal);
@@ -22,46 +21,40 @@
 @include font-face(DINOTBold, './DINOT-Bold', bold, normal);
 @include font-face(DINOTRegular, './DINOT-Regular', normal, normal);
 
-@mixin Helvetica {
-    font-family: AG_Helvetica;
-    font-weight: normal;
-    font-style: normal;
-}
-
 @mixin AvenirNextRegular {
     font-family: AvenirNextRegular;
-    font-weight: normal;
     font-style: normal;
+    font-weight: normal;
 }
 
 @mixin AvenirNextMedium {
     font-family: AvenirNextMedium;
-    font-weight: 500;
     font-style: normal;
+    font-weight: 500;
 }
 
 @mixin AvenirNextBold {
     font-family: AvenirNextBold;
-    font-weight: bold;
     font-style: normal;
+    font-weight: bold;
 }
 
 @mixin DINMedium {
     font-family: DINMedium;
-    font-weight: 500;
     font-style: normal;
+    font-weight: 500;
 }
 
 @mixin DINOTBold {
     font-family: DINOTBold;
-    font-weight: bold;
     font-style: normal;
+    font-weight: bold;
 }
 
 @mixin DINOTRegular {
     font-family: DINOTRegular;
-    font-weight: normal;
     font-style: normal;
+    font-weight: normal;
 }
 
 @mixin NimbusExt {

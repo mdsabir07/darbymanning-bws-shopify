@@ -10,6 +10,4 @@ import './modules/search.js';
 import './modules/smooth-scrolling.js';
 import './modules/accordions.js';
 
-document.addEventListener('DOMContentLoaded', () => {
-	const neuekit = new NeueKit()
-})
+document.addEventListener('DOMContentLoaded', () => new NeueKit());

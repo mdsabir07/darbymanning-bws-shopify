@@ -40,17 +40,16 @@
     }
 
     &__title {
-        margin-bottom: 3rem;
         font-size: 2.4rem;
-        
+        margin-bottom: 3rem;
+
         span {
             vertical-align: middle;
-        }        
+        }
 
         @include respond-below(md) {
             font-size: 2rem;
         }
-        
     }
     &__ul {
         margin-top: 0;
@@ -59,7 +58,7 @@
         font-size: 2rem;
 
         @include respond-below(md) {
-            font-size: 1.5rem; 
+            font-size: 1.5rem;
         }
     }
 }
