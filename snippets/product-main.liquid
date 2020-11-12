@@ -12,11 +12,36 @@
     <div class="o-grid__item  u-size-6@m  u-size-6@l" data-product-main-media-group>
         {%- assign featured_media = product.selected_or_first_available_variant.featured_media | default: product.featured_media -%}
 
-	  <div class="product-main__gallery">
+	  <div class="u-flex u-alignCenter">
+	  
+	  
+	  	  <button data-gallery-direction="prev" class="product-main__control">
+	      
+				      	
+			<svg width="24" height="24" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+				 viewBox="0 0 407.436 407.436" style="enable-background:new 0 0 407.436 407.436;" xml:space="preserve">
+			<polygon points="315.869,21.178 294.621,0 91.566,203.718 294.621,407.436 315.869,386.258 133.924,203.718 "/>
+			</svg>
 
-	      {%- for media in product.media -%}
-	        {% include 'media', media: media, featured_media: featured_media, height: 720, image_scale: product_image_scale, product: product %}
-	      {%- endfor -%}
+			
+		  </button>
+		  
+		  <div class="product-main__gallery u-size-12">
+
+		      {%- for media in product.media -%}
+		        {% include 'media', media: media, featured_media: featured_media, height: 720, image_scale: product_image_scale, product: product %}
+		      {%- endfor -%}
+	      
+	      </div>
+	      
+	      <button data-gallery-direction="next" class="product-main__control">
+	      
+	      	<svg width="24" height="24" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+				 viewBox="0 0 407.436 407.436" style="enable-background:new 0 0 407.436 407.436;" xml:space="preserve">
+			<polygon points="112.814,0 91.566,21.178 273.512,203.718 91.566,386.258 112.814,407.436 315.869,203.718 "/>
+			</svg>
+			
+		  </button>
 	      
 	  </div>
 
@@ -56,12 +81,50 @@
 
     <div class="o-grid__item  u-size-6@m  u-size-6@l">
       <div class="product-main__right">
-        <h1 class="product-main__title  dark-blue  u-textUpper  h3">{{product.title}}</h1>
-        <div class="product__price">
-          <span id="ProductPrice" class="product-main__title  product-main__title--price  blue  u-textUpper  h3 product-main__price{% if product.compare_at_price > product.price %} on-sale{% endif %}" itemprop="price" content="{{ current_variant.price | divided_by: 100.00 }}">
-            {{ current_variant.price | money }}
-          </span>
-        </div>
+      	<div class="product-main__top">
+        	<h1 class="product-main__title  dark-blue  u-textUpper  h3">{{product.title}}</h1>
+	        <div class="product__price">
+	          <span id="ProductPrice" class="product-main__title  product-main__title--price  blue  u-textUpper  h3 product-main__price{% if product.compare_at_price > product.price %} on-sale{% endif %}" itemprop="price" content="{{ current_variant.price | divided_by: 100.00 }}">
+	            {{ current_variant.price | money }}
+	          </span>
+	        </div>
+	    </div>
+        
+        <!--Metafields start here  -->
+        
+          {% assign custom_attributes = product.metafields.top-instructions %}
+           {% if custom_attributes.size > 0 %}
+           <div class="product-meta">
+           {% for field in custom_attributes %}
+              {% assign attribute_code = field | first %}
+              {% assign attribute_value = field | last %}
+
+              <div class="product-meta__content">
+                <div class="product-meta__icon">
+                {% if attribute_code contains 'made_with' %}
+                  {% include 'icon-star' %}
+                {% elsif attribute_code contains 'made_in' %}
+                  {% include 'icon-location' %}
+                {% elsif attribute_code contains 'material' %}
+                  {% include 'icon-recycle' %}
+                {% elsif attribute_code contains 'product_detail' %}
+                  {% include 'icon-user' %}
+                {% elsif attribute_code contains 'delivery' %}
+                  {% include 'icon-delivery' %}
+                {% endif %}
+                </div>
+                <div class="product-meta__detail">
+                  <span class="custom-attribute-value gray">{{attribute_value}}</span>
+                  {% if attribute_code contains 'made_in' %}
+                  <p><a href="#footprint">See product footprint</a></p>
+                  {% endif %}
+                </div>
+              </div>
+           {% endfor %}
+           </div>
+          {% endif %}
+        
+        
         {% form 'product', product, data-product-form: '', data-product-handle: product.handle %}
           {% unless product.has_only_default_variant %}
           {% for option in product.options_with_values %}
@@ -136,7 +199,7 @@
 
         <!--Metafields start here  -->
         <div class="product-meta">
-          {% assign custom_attributes = product.metafields.instructions %}
+          {% assign custom_attributes = product.metafields.bottom-instructions %}
            {% if custom_attributes.size > 0 %}
            {% for field in custom_attributes %}
               {% assign attribute_code = field | first %}
@@ -190,14 +253,17 @@
         {% endif %}
         </div>
         <!--Metafields ends here  -->
-
-        <div class="product-main__description">
-            {{ product.description }}
-        </div>
         
       </div>
     </div>
+    
+    <div class="product-main__description">
+            {{ product.description }}
+        </div>
+        
 </section>
+
+ 
 
 <div class="c-modal" id="measurements">
 
