@@ -26,6 +26,10 @@
         }
     }
 
+	&__control:focus {
+		outline: none;
+	}
+
     &__media {
         display: flex;
         height: 100%;
@@ -41,6 +45,8 @@
 
         a {
             height: 100%;
+			display: flex;
+			align-items: center;
         }
 
         img {
@@ -81,9 +87,11 @@
 
     &__description {
         @include DINOTRegular;
+        
+        margin-top: 3rem;
 
-        p {
-            font-size: 1.6rem;
+        * {
+            font-size: 2rem;
         }
 
         table {
@@ -111,13 +119,32 @@
             }
         }
     }
+    
+    &__top {
+	    margin-bottom: 2rem;
+	    display: flex;
+	    align-items: center;
+	    
+	    @include respond-below(sm) {
+		    flex-direction: column;
+		    align-items: flex-start;
+		}
+			
+    }
 
     &__title {
         font-size: 2.5rem;
-        margin: 0 0 1rem;
+        margin-bottom: 0;
+        margin-right: 3rem;
+        padding-right: 3rem;
 
         @include respond-below(md) {
             font-size: 2rem;
+        }
+        
+        @include respond-below(sm) {
+            margin-right: 0;
+			padding-right: 0;
         }
 
         &--price {
