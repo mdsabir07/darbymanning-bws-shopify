@@ -1,4 +1,4 @@
-{% if section.settings.announcement_text %}
+{% if section.settings.show_announcement %}
 	{% if section.settings.home_page_only == false or request.page_type == 'index' %}	
 	  <section class="bg-grey u-pV-8 u-textCenter announcement u-hide@xs-only">
 	  	<div class="o-grid u-justifyCenter u-alignCenter">
@@ -129,7 +129,7 @@
             "default": "<p>Announce something here</p>"
         }, {
             "type": "checkbox",
-            "id": "message",
+            "id": "show_announcement",
             "label": "Show announcement",
             "default": false
         }, {
