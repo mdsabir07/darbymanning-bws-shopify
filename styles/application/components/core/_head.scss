@@ -52,7 +52,7 @@
         @include respond-below(md) {
             order: 1;
             width: auto;
-            width: 25%;
+            width: 20%;
         }
     }
 
@@ -80,6 +80,10 @@
         @include respond-below(sm) {
             margin-left: 0;
             margin-right: 1.5rem;
+
+            &:last-child {
+                margin-right: 0;
+            }
         }
     }
 

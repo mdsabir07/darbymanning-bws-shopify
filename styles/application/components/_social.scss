@@ -5,9 +5,14 @@
         height: 100%;
         @include respond-below(md) {
             flex-direction: column;
+            height: auto;
 
             .block__col {
                 width: 100%;
+            }
+
+            .block__info {
+                padding: 0 1.5rem 1.5rem;
             }
         }
     }
@@ -29,6 +34,7 @@
 
         @include respond-below(md) {
             margin-top: 1rem;
+            margin-bottom: 0;
         }
     }
 
@@ -58,5 +64,9 @@
 
     @include respond-below(sm) {
         margin-top: 3rem;
+
+        &:before {
+            top: 1rem;
+        }
     }
 }
