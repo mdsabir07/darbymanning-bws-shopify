@@ -14,24 +14,3 @@ document.addEventListener('DOMContentLoaded', () => {
         })
     );
 });
-
-$(document).ready(function() {
-    var carLmt = 280;
-
-    $(".section-header__content").each(function() {
-        if ($(this).find(".firstSec").length)
-            return;
-
-        var allstr = $(this).text();
-        if (allstr.length > carLmt) {
-            var firstSet = allstr.substring(0, carLmt);
-            var secdHalf = allstr.substring(carLmt, allstr.length);
-            var strtoadd = firstSet + "<span class='content__hide'>" + secdHalf + "</span>";
-            $(this).html(strtoadd);
-        }
-
-    });
-    $(document).on("click", ".js-see-more", function() {
-        $(this).prev(".section-header__content").toggleClass("showmorecontent");
-    });
-});

@@ -97,16 +97,3 @@
         padding-top: 0;
     }
 }
-
-
-.section-header__content {
-    .content__hide {
-        display: none;
-    }
-
-    &.showmorecontent {
-        .content__hide {
-            display: inline;
-        }
-    }
-}
