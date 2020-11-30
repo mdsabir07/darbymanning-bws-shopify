@@ -2,6 +2,10 @@
     &__wrap {
         background: var(--dark-blue);
         padding: 2.5rem;
+
+        @include respond-below(md) {
+            padding: 1.5rem;
+        }
     }
     &__ul {
         margin: 0 0 2rem;
@@ -52,5 +56,15 @@
 
     &__title {
         color: var(--blue);
+
+        @include respond-below(md) {
+            padding-top: 1rem;
+        }
+    }
+
+    @include respond-below(md) {
+        &:before {
+            top: 1rem;
+        }
     }
 }

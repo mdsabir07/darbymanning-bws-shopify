@@ -5,6 +5,11 @@
 
     .h-light {
         font-weight: normal;
+
+        @include respond-below(md) {
+            font-size: 2.4rem;
+            line-height: normal
+        }
     }
 
     .h-underline {

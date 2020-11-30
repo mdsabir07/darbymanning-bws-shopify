@@ -25,4 +25,8 @@
             width: 38px;
         }
     }
+
+    @include respond-below(md) {
+        margin-right: .5rem;
+    }
 }

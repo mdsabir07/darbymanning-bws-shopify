@@ -22,7 +22,7 @@
         position: relative;
 
         @include respond-below(md) {
-            height: 40rem;
+            height: 20rem;
         }
     }
 
