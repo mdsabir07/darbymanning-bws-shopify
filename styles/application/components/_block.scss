@@ -183,6 +183,14 @@
                 width: 50%;
             }
         }
+        
+        &--contain {
+	        
+	        img {
+		        object-fit: contain;
+	        }
+	        
+        }
     }
 
     &__wrap {

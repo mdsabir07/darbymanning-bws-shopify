@@ -24,11 +24,14 @@
             </div>
 
             <div class="section-header__img  block__col">
-                {% if collection.image != blank %}
-                <img src="{{ collection.image | img_url: 'master' }}" alt="{{ collection.image.alt }}">
+            	{% if collection.image != blank %}
+            		{%- assign url = collection.image | img_url: 'master' %}
+            		{%- assign alt = collection.image.alt  %}
                 {% else %}
-                <img src="{{ products.first.featured_image | img_url: 'master' }}" alt="{{ products.first.featured_image.alt }}"/>
+                	{%- assign url = products.first.featured_image | img_url: 'master' %}
+            		{%- assign alt = products.first.featured_image.alt  %}
                 {% endif %}
+                <img src="{{url}}" alt="{{ alt }}"/>
             </div>
         </div>
     </div>
