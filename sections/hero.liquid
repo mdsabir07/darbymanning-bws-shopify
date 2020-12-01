@@ -1,6 +1,7 @@
 <section class="slider" data-section-id="{{ section.id }}" data-section-type="hero-section">
     <div class="o-grid  o-grid--item">
-        <div class="hero-slider js-slider" data-gutter="1">
+    	{%- assign count = section.blocks | size %}
+        <div class="hero-slider js-slider" data-gutter="1" data-loop="{% if count > 2 %}1{% else %}0{% endif %}">
         	{% for block in section.blocks %}
 		            <div id="{{block.id}}">
 		                <div class="slide  border border--close" style="--border-color: {{block.settings.button_color_bg}}">
@@ -43,9 +44,10 @@
 	            {% endfor %}
         </div>
         <ul class="slider__controls slider__controls--thin js-slider-controls" id="hero-controls" aria-label="Carousel Navigation" tabindex="0">
+        	{% if count > 1 %}
             <li class="slider__dots js-slider-dots">
             	{% for block in section.blocks %}
-            		<span class="slider__dot {% if forloop.first == true %}is-active{% endif %}"></span>
+            		<span class="slider__dot {% if forloop.first == true %}is-active{% endif %}" data-goto="{{ forloop.index }}"></span>
             	{% endfor %}
             </li>
             <li class="slider__next  button" data-controls="next" aria-controls="customize" tabindex="-1">
@@ -58,6 +60,7 @@
                     </g>
                 </svg>
             </li>
+            {% endif %}
         </ul>
     </div>
 </section>
