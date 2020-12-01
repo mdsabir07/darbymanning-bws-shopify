@@ -24,11 +24,12 @@
             </div>
 
             <div class="section-header__img  block__col">
-                {% if collection.image != blank %}
-                <img src="{{ collection.image | img_url: 'master' }}" alt="{{ collection.image.alt }}">
-                {% else %}
-                <img src="{{ products.first.featured_image | img_url: 'master' }}" alt="{{ products.first.featured_image.alt }}"/>
-                {% endif %}
+                {%- if collection.metafields.collectionimg != blank -%}
+                    {%- for field in collection.metafields.collectionimg -%}
+                        {% assign url = collection.metafields.collectionimg.collection-detail-img %}
+                        <img src="{{url}}" alt="{{ collection.first.featured_image.alt }}"/>
+                    {%- endfor -%}
+              {%- endif -%}
             </div>
         </div>
     </div>
