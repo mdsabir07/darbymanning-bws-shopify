@@ -183,9 +183,13 @@
                 width: 50%;
             }
         }
-
-        &--portrait {
-            padding-top: 3rem;
+        
+        &--contain {
+	        
+	        img {
+		        object-fit: contain;
+	        }
+	        
         }
     }
 

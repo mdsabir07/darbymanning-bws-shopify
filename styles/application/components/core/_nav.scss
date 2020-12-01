@@ -225,21 +225,19 @@
             }
         }
         &:last-child {
-            margin-right: 1.6rem;
 
             @include respond-below(md) {
                 margin: 0;
             }
         }
 
-        &:first-child::before {
-            left: -1.4rem;
-            width: calc(100% + 1.4rem);
+        &:nth-child(2)::before {
+            left: -1.8rem;
+            width: calc(100% + 1.8rem);
         }
 
         &:last-child::before {
-            right: -1.4rem;
-            width: calc(100% + 1.4rem);
+            width: calc(100% + 1.8rem);
         }
 
         @include respond-below(md) {

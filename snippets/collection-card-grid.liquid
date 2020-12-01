@@ -2,8 +2,12 @@
     <a href="{{ collection.url }}">
         <div class="block__img block__img--top" data-image-loading-animation>
          	<div class="block__wrap">
-         		{%- assign img_url = collection.image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
-		        <img alt="{{ collection.image.alt }}" class="lazyload lazypreload" data-src="{{ img_url }}" data-sizes="auto">
+		        {%- assign url = collection.image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
+            	{%- assign alt = collection.image.alt  %}
+                {%- if collection.metafields.carousel.image -%}
+                	{% assign url = collection.metafields.carousel.image %}
+                {%- endif -%}
+                <img alt="{{ alt }}" class="lazyload lazypreload" data-src="{{ url }}" data-sizes="auto" />
 		    </div>
         </div>
         <article class="block__info block__info--flexed block__info--160 {%if show_vendor %}block__info--190{% endif %}">  
