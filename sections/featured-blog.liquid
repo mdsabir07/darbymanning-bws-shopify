@@ -1,11 +1,10 @@
  <section class="home-news" style="background-color: {{ section.settings.bg_color }};">
     <div class="o-grid  o-grid--small-pad">
-      {% for block in section.blocks limit: section.settings.post_limit %}
+      {% for block in section.blocks %}
       <div class="o-grid__item  u-size-6@s {% if forloop.first %}u-mB-20{% endif %}">
-      {%- assign blog = blogs[block.settings.blog] -%}
-      {% for article in blog.articles limit: 1 %}
+      {%- assign article = articles[block.settings.article] -%}
           <article class="block border" aria-labelledby="FeaturedBlogTitle-{{ forloop.index0 }}-{{ section.id }}"> 
-              <a href="{{ blog.url }}">
+              <a href="{{ article.url }}">
               	<p class="block__message block__message--white"><span>{{blog.title}} </span></p>
                 {% if article.image %}
                 <div class="home-news__img">
@@ -31,18 +30,15 @@
                     {% endif %}
                   </div>
 
-                  {% if block.settings.button_label != blank and block.settings.button_link != blank %}
                   <div class="block__buttons u-pT-32 ">
-                    <a href="{{ block.settings.button_link }}"
+                    <a href="{{ article.url }}"
                       class="btn button"
                       aria-label="{{ 'blogs.article.read_more_title' | t: title: article.title }}">
                       {{- block.settings.button_label | escape -}}
                     </a>
                   </div>
-                {% endif %}
               </div>
           </article>
-          {% endfor %}
         </div>
       {% endfor %}
     </div>
@@ -55,23 +51,18 @@
   "settings": [],
   "blocks": [
     {
-      "type": "blog_category",
-      "name": "Blog Category",
+	  "type": "blog",
+      "name": "Blog Item",
       "settings": [
           {
-          "id": "blog",
-          "type": "blog",
-          "label": "Blog"
+          "type": "article",
+          "id": "article",
+          "label": "Article"
       },
       {
         "type": "text",
         "id": "button_label",
         "label": "Button label"
-      },
-      {
-        "type": "url",
-        "id": "button_link",
-        "label": "Button link"
       }
      ]
     }
@@ -82,10 +73,10 @@
       "category": "Blog",
         "blocks": [
         {
-          "type": "blog_category"
+          "type": "blog"
         },
         {
-          "type": "blog_category"
+          "type": "blog"
         }
       ]
     }

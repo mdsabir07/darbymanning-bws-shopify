@@ -8,7 +8,7 @@
           	<div class="slide__item--{{section.id}}">
 	          	{% if block.settings.type == 'article' %}
 	          		{% assign article = articles[block.settings.article] %}
-	          		{% include 'blog-card-grid', article: article, hide_message: true, display_btn: true %}
+	          		{% include 'blog-card-grid', article: article, hide_message: true, display_btn: true, truncate: 0 %}
 	          	{% else %}
 	          		{% assign product = all_products[block.settings.product] %}
 	          		{% include 'product-card-grid', product: product, shrink: true %}
