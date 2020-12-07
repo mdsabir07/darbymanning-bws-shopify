@@ -1,7 +1,8 @@
 {% include "collection-list-slider" %}
 {% include "collection-header" %}
+{% include "collection-buttons", collection_handle: section.settings.col_nav_top %}
 {% include "collection-item-list" %}
-{% include "collection-buttons" %}
+{% include "collection-buttons", collection_handle: section.settings.col_nav_bottom %}
 {% schema %}
 {
     "name": "Collection Template",
@@ -9,12 +10,17 @@
         {
             "type": "link_list",
             "id": "col_nav",
-            "label": "Top Bar Navigation"
+            "label": "Thumbnail Slider List"
+        },
+        {
+            "type": "link_list",
+            "id": "col_nav_top",
+            "label": "Top List"
         },
         {
             "type": "link_list",
             "id": "col_nav_bottom",
-            "label": "Bottom button Bar"
+            "label": "Bottom List"
         }    
     ]
 }

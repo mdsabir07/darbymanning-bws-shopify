@@ -35,7 +35,7 @@
     "whatwg-fetch": "^3.0.0"
   },
   "scripts": {
-    "serve": "browser-sync start --https --proxy 'https://www.brotherswestand.com?preview_theme_id=100337582214' --no-notify --files '.' --ignore 'node_modules'",
+    "serve": "browser-sync start --https --proxy 'https://brothers-we-stand-shop.myshopify.com?preview_theme_id=109190447260' --no-notify --files '.' --ignore 'node_modules'",
     "scss": "sass --no-source-map -s compressed ./styles:./assets",
     "autoprefixer": "postcss --use autoprefixer --replace ./assets/style.css --no-map",
     "build:css": "run-s scss autoprefixer",

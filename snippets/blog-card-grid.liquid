@@ -23,14 +23,16 @@
         </div>
         <article class="block__info block__info--flexed block__info--{{ orientation }}">   
         	<div>
-	            <h4 class="block__title block__title--small">{{ article.title }}</h4>                             
+	            <h4 class="block__title block__title--small">{{ article.title }}</h4>  
+	            {% if truncate > 0 %}                           
 	            <div class="block__p">
 	            	{% if article.excerpt.size > 0 %}
-	                    {{ article.excerpt }}
+	                    {{ article.excerpt | strip_html | truncate: truncate }}
 	                  {% else %}
 	                   {{ article.content | strip_html | truncate: truncate }}
 	                  {% endif %}
 	            </div>
+	            {% endif %}
 	        </div>
 	        {%if display_btn %}
 	        	<h5 class="block__cta  nimbus">Read Blog</h5>
