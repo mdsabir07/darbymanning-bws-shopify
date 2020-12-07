@@ -5,7 +5,7 @@
       {%- assign article = articles[block.settings.article] -%}
           <article class="block border" aria-labelledby="FeaturedBlogTitle-{{ forloop.index0 }}-{{ section.id }}"> 
               <a href="{{ article.url }}">
-              	<p class="block__message block__message--white"><span>{{blog.title}} </span></p>
+              	<p class="block__message block__message--white"><span>{{block.settings.tag}} </span></p>
                 {% if article.image %}
                 <div class="home-news__img">
                   {%- assign img_url = article.image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
@@ -63,6 +63,11 @@
         "type": "text",
         "id": "button_label",
         "label": "Button label"
+      },
+      {
+        "type": "text",
+        "id": "tag",
+        "label": "Tag"
       }
      ]
     }
