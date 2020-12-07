@@ -1,7 +1,7 @@
 import { tns } from 'tiny-slider/src/tiny-slider';
 
-document.addEventListener('DOMContentLoaded', () => {
-    Array.from(document.getElementsByClassName('js-slider')).forEach(
+const init = () => {
+    Array.from(document.querySelectorAll('.js-slider:not(.tns-slider)')).forEach(
         (container) => {
             const controls = container.parentNode.querySelector(
                 '.js-slider-controls'
@@ -72,4 +72,8 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     );
 
-});
+}
+
+document.addEventListener('shopify:section:load', init)
+
+document.addEventListener('DOMContentLoaded', init);

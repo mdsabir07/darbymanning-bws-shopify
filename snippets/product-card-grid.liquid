@@ -9,7 +9,9 @@
             <div class="block__wrap">
                 {%- assign preview_image = product.featured_media.preview_image -%}
                 {%- assign img_url = preview_image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
- 
+                {%- if product.metafields.carousel.image -%}
+                	{% assign img_url = product.metafields.carousel.image %}
+                {%- endif -%}
                 <img
                 class="lazyload lazypreload"
                 data-src="{{ img_url }}"
