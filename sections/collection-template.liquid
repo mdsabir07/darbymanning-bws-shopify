@@ -1,8 +1,25 @@
-{% include "collection-list-slider" %}
+{% assign collection_handle_slider = section.settings.col_nav %}
+{% if collection.metafields.menus.slider %}
+      {% assign collection_handle_slider = collection.metafields.menus.slider %}
+{% endif %}
+{% include "collection-list-slider", collection_handle: collection_handle_slider %}
+
 {% include "collection-header" %}
-{% include "collection-buttons", collection_handle: section.settings.col_nav_top %}
+
+{% assign collection_handle_top = section.settings.col_nav_top %}
+{% if collection.metafields.menus.slider %}
+      {% assign collection_handle_top = collection.metafields.menus.top %}
+{% endif %}
+{% include "collection-buttons", collection_handle: collection_handle_top %}
+
 {% include "collection-item-list" %}
-{% include "collection-buttons-bottom", collection_handle: section.settings.col_nav_bottom %}
+
+{% assign collection_handle_bottom = section.settings.col_nav_bottom %}
+{% if collection.metafields.menus.slider %}
+      {% assign collection_handle_bottom = collection.metafields.menus.bottom %}
+{% endif %}
+{% include "collection-buttons", collection_handle: collection_handle_bottom %}
+
 {% schema %}
 {
     "name": "Collection Template",

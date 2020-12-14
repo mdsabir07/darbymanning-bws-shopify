@@ -1,9 +1,3 @@
-{% if collection.metafields.menus.slider %}
-      {% assign collection_handle = collection.metafields.menus.slider %}
-{% else %}
-  {% assign collection_handle = section.settings.col_nav %}
-{% endif %}
-    
 {% if linklists[collection_handle].handle != blank %}
 <section class="o-grid o-grid--small-pad   collection-list">
     {% for link in linklists[collection_handle].links %}

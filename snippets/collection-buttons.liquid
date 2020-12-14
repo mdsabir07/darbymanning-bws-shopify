@@ -1,8 +1,4 @@
-{% if collection.metafields.menus.top %}
-{% assign links = collection.metafields.menus.top %}
-{% else %}
 {% assign links = collection_handle %}
-{% endif %}
 
   {% if links!= blank %}
       <section class="section-buttons o-grid  o-grid--p">
