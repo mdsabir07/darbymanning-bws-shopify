@@ -64,7 +64,11 @@
         {% endif %}
     </section>
 
-    {% include "collection-buttons", collection_handle: section.settings.col_nav_bottom %}
+    {% assign collection_handle_bottom = section.settings.col_nav_bottom %}
+	{% if collection.metafields.menus.slider %}
+	      {% assign collection_handle_bottom = collection.metafields.menus.bottom %}
+	{% endif %}
+	{% include "collection-buttons", collection_handle: collection_handle_bottom %}
 </div>
 
 
@@ -80,13 +84,13 @@
         {
             "type": "link_list",
             "id": "col_nav",
-            "label": "Top Bar Navigation"
+            "label": "Thumbnail Slider List"
         },
         {
             "type": "link_list",
             "id": "col_nav_bottom",
-            "label": "Bottom button Bar"
-        },
+            "label": "Bottom List"
+        },  
         {
             "type": "paragraph",
             "content": "All of your collections are listed by default. To customize your list, choose 'Selected' and add collections."
