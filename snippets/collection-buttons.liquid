@@ -1,11 +1,13 @@
-{% if collection_handle!= blank %}
-	<section class="section-buttons  o-grid  o-grid--p">
-	    {% for link in linklists[collection_handle].links %}
-		    <div class="o-grid__item u-mT-32 sm-u-mV-16 u-size-12 {% if forloop.length == 4 %}u-size-3@m{% elsif forloop.length == 6 %} u-size-4@m{% else %}u-size-4@m{% endif %} u-size-6 u-size-4@s">
-		        <a href="{{ link.url }}" class="button u-size-12 section-buttons__button {% if link.url == blog.url %}active{% endif %}">
-		                {{ link.title }}
-		        </a>
-		    </div>
-	    {% endfor %}
-	</section>
-{% endif %}
+{% assign links = collection_handle %}
+
+  {% if links!= blank %}
+      <section class="section-buttons o-grid  o-grid--p">
+          {% for link in linklists[links].links %}
+              <div class="o-grid__item u-mT-32 sm-u-mV-16 u-size-12 {% if forloop.length == 4 %}u-size-3@m{% elsif forloop.length == 6 %} u-size-4@m{% else %}u-size-4@m{% endif %} u-size-6 u-size-4@s">
+                  <a href="{{ link.url }}" class="button u-size-12 section-buttons__button {% if link.url == blog.url %}active{% endif %}">
+                          {{ link.title }}
+                  </a>
+              </div>
+          {% endfor %}
+      </section>
+  {% endif %}
