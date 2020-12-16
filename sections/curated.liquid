@@ -9,6 +9,9 @@
 	          	{% if block.settings.type == 'article' %}
 	          		{% assign article = articles[block.settings.article] %}
 	          		{% include 'blog-card-grid', article: article, hide_message: true, display_btn: true, truncate: 0 %}
+	          	{% else if block.settings.type == 'collection' %}
+	          		{% assign collection = collections[block.settings.collection] %}
+	          		{% include 'collection-card-grid', collection: collection %}
 	          	{% else %}
 	          		{% assign product = all_products[block.settings.product] %}
 	          		{% include 'product-card-grid', product: product, shrink: true %}
@@ -74,6 +77,9 @@
 		            }, {
 		                "value": "article",
 		                "label": "Article"
+		            }, {
+		                "value": "collection",
+		                "label": "Collection"
 		            }
 		        ]
 			},
@@ -86,6 +92,11 @@
 		      "type": "article",
 		      "id": "article",
 		      "label": "Article"
+		    },
+		    {
+		      "type": "collection",
+		      "id": "collection",
+		      "label": "Collection"
 		    }
 		]
 	}
