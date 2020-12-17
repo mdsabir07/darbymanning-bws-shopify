@@ -6,7 +6,7 @@ const init = () => {
             const controls = container.parentNode.querySelector(
                 '.js-slider-controls'
             );
-            const dots = controls.querySelector('.js-slider-dots');
+            const dots = controls ? controls.querySelector('.js-slider-dots') : null;
             const responsive = container.dataset.responsive;
             
             const loop = container.dataset.loop === undefined || Math.abs(container.dataset.loop) ? true : false
@@ -16,6 +16,7 @@ const init = () => {
                 items: container.dataset.items || 1,
                 gutter: container.dataset.gutter || 0,
                 controlsContainer: controls,
+                controls: !!controls,
                 responsive: responsive ? JSON.parse(responsive) : null,
                 mouseDrag: true,
                 loop
@@ -51,7 +52,7 @@ const init = () => {
 			
 			}
             
-            if(!loop) {
+            if(controls && !loop) {
             
 	            controls.querySelector('[data-controls="next"]').addEventListener('click', (e) => {
 		            
