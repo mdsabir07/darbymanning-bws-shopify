@@ -8,4 +8,21 @@
         justify-self: center;
         padding: 0 1rem;
     }
+    
+    p span:empty {
+	    margin-right: .5rem;
+    }
+    
+    &__date, &__author {
+	    font-size: 1.4rem;
+    }
+    
+    @include respond-below(md) {
+	    
+	    &__date {
+		    margin-top: 2rem;
+		    display: block;
+	    }
+	    
+	}
 }

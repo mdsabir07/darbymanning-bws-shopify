@@ -1,12 +1,12 @@
 <section class="section-header  o-grid">
     <div class="o-grid__item  u-size-12">
-        <div class="block  block--row  border">
+        <div class="block  block--row block--right  border">
         	<p class="block__message block__message--pushed"><span>{{blog.title}} </span></p>
-            <div class="block__col">
-                <div class="block__info  block__info--light-gray  block__info--large  section-header__info">
-                    <h1 class="section-header__title  nimbus u-mB-32">{{ article.title | escape }}</h1>
+            <div class="section-header__overlap block__col u-size-5@m  u-flex u-column u-between">
+                <div class="block__info block__info--light-gray  block__info--large  section-header__info">
+                    <h1 class="block__title block__title--normal block__title--xlarge  nimbus u-mB-32">{{ article.title | escape }}</h1>
                 </div>
-                <div class="u-alignSelfEnd u-mT-20">
+                <div>
                 	{% assign d = article.published_at | date: "%-d" %}
 					{% capture day %}
 						{% case d %}
@@ -16,12 +16,12 @@
 						  {% else %}{{ d }}th
 						{% endcase %}
 					{% endcapture %}
-                    <p class="article__date">{{ article.published_at | date: "%B" }} {{ day }} {{ article.published_at | date: "%Y" }}</p>
-                    <p class="article__author">{{ 'blogs.article.by_author' | t: author: article.author }}</p>
+                    <strong class="article__date">{{ article.published_at | date: "%B" }} {{ day }} {{ article.published_at | date: "%Y" }}</strong>
+                    <p class="article__author u-mT-12">{{ 'blogs.article.by_author' | t: author: article.author }}</p>
                 </div>
             </div>
 
-            <div class="section-header__img  block__col">
+            <div class="section-header__img u-size-8@m block__col">
             	{% if article.image %}
                     {%- assign img_url = article.image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
                     <img
@@ -43,7 +43,7 @@
     </div>
 </section>
 
-<article class="article u-pV-48 o-grid u-justifyCenter">
+<article class="article u-mB-32 o-grid u-justifyCenter">
     <div class="o-grid__item u-size-11 u-size-8@m u-alignCenter u-flex">
         {{article.content}}
         
