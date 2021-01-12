@@ -7,7 +7,7 @@
     &__controls {
         display: flex;
         flex-direction: row;
-        justify-content: flex-end;
+        justify-content: space-between;
         list-style: none;
         margin: 0;
         padding: 0 1.4rem 0 1rem;
@@ -37,11 +37,6 @@
         order: 2;
     }
 
-    &__prev {
-        display: none;
-        order: 1;
-    }
-
     &__next {
         align-items: center;
         display: flex;
@@ -53,6 +48,24 @@
         width: 4rem;
         cursor: pointer !important;
         outline: none;
+
+        @include respond-below(md) {
+            height: 3.6rem;
+        }
+    }
+    
+    &__prev {
+        align-items: center;
+        display: flex;
+        height: 4rem;
+        justify-content: center;
+        order: 3;
+        padding: 0;
+        text-align: center;
+        width: 4rem;
+        cursor: pointer !important;
+        outline: none;
+        transform: rotate(180deg);
 
         @include respond-below(md) {
             height: 3.6rem;

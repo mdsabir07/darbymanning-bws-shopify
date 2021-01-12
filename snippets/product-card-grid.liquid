@@ -24,7 +24,8 @@
                 {% if show_vendor %}
                     <h4 class="block__title block__title--small">{{ product.vendor }}</h4>
                 {% endif %}
-                <p class="block__p">{{ product.title }}</p>
+                {% assign lcase = product.vendor | downcase %}
+                <p class="block__p">{{ product.title | replace: product.vendor, "" | replace: lcase, "" }}</p>
             </div>
             <div class="price__wrapper">
                 {% include 'product-price-listing', product: product %}

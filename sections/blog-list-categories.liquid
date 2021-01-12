@@ -12,7 +12,7 @@
 <section class="u-pV-48">
 	{% for block in section.blocks %}
 		{%- assign blog = blogs[block.settings.blog] -%}
-		{% assign remainder = forloop.index | modulo:3 %}
+		{% assign remainder = forloop.index | minus:1 | modulo:2 %}
 		{% assign layoutIndex = forloop.index | modulo:layouts.size %}
 		{% if layoutIndex == 0 %}
 			{% assign layoutIndex = layouts.size %}
