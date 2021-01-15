@@ -3,20 +3,25 @@
       {% for block in section.blocks %}
       <div class="o-grid__item  u-size-6@s {% if forloop.first %}u-mB-20{% endif %}">
       {%- assign article = articles[block.settings.article] -%}
+      {% if block.settings.type == 'page' %}
+      	{%- assign article = pages[block.settings.page] -%}
+      {% endif %}
           <article class="block border" aria-labelledby="FeaturedBlogTitle-{{ forloop.index0 }}-{{ section.id }}"> 
               <a href="{{ article.url }}">
               	<p class="block__message block__message--white"><span>{{block.settings.tag}} </span></p>
-                {% if article.image %}
                 <div class="home-news__img">
                   {%- assign img_url = article.image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
+                  {%- assign alt = article.title -%}
+                  {% if block.settings.image != blank %}
+                  	{%- assign img_url = block.settings.image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
+				  	{%- assign alt = block.settings.image.alt -%}
+				  {% endif %}
                     <img
                         class="lazyload lazypreload"
-                        src="{{ article.image | img_url: 'master' }}"
                         data-src="{{ img_url }}"
                         data-sizes="auto"
-                        alt="{{ block.settings.image.alt | escape }}">
+                        alt="{{ alt | escape }}">
                 </div>
-                {% endif %}
               </a>
               <div class="block__info  block__info--white">
                   <h3 class="block__title block__title--mid" id="FeaturedBlogTitle-{{ forloop.index0 }}-{{ section.id }}">
@@ -46,42 +51,67 @@
 
 {% schema %}
 {
-  "name": "Featured Blog Posts",
+  "name": "Featured Posts/Pages",
   "class": "index-section",
   "settings": [],
   "blocks": [
-    {
-	  "type": "blog",
-      "name": "Blog Item",
-      "settings": [
-          {
-          "type": "article",
-          "id": "article",
-          "label": "Article"
-      },
-      {
-        "type": "text",
-        "id": "button_label",
-        "label": "Button label"
-      },
-      {
-        "type": "text",
-        "id": "tag",
-        "label": "Tag"
-      }
+	{
+        "type": "source",
+        "name": "Source",
+        "settings": [
+			{
+				"type": "select",
+				"id": "type",
+				"label": "Type",
+		        "default": "article",
+		        "options": [
+		            {
+		                "value": "article",
+		                "label": "Article"
+		            }, {
+		                "value": "page",
+		                "label": "Page"
+		            }
+		        ]
+			},
+		    {
+		      "type": "article",
+		      "id": "article",
+		      "label": "Article"
+		    },
+		    {
+		      "type": "page",
+		      "id": "page",
+		      "label": "Page"
+		    },
+		    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    },
+	      {
+	        "type": "text",
+	        "id": "button_label",
+	        "label": "Button label"
+	      },
+	      {
+	        "type": "text",
+	        "id": "tag",
+	        "label": "Tag"
+	      }
      ]
     }
   ],
   "presets": [
     {
-      "name": "Blog posts",
-      "category": "Blog",
+      "name": "Posts",
+      "category": "Posts",
         "blocks": [
         {
-          "type": "blog"
+          "type": "source"
         },
         {
-          "type": "blog"
+          "type": "source"
         }
       ]
     }

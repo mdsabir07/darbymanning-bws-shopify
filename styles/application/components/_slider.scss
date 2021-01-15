@@ -66,6 +66,12 @@
         cursor: pointer !important;
         outline: none;
         transform: rotate(180deg);
+        opacity: 0;
+        transition: opacity .5s ease;
+        
+        &.visible {
+	        opacity: 1;
+        }
 
         @include respond-below(md) {
             height: 3.6rem;

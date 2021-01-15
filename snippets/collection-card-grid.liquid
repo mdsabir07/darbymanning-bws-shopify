@@ -1,5 +1,8 @@
 <div class="block  border block--shadow block--slide">
     <a href="{{ collection.url }}">
+    	{% if collection.metafields.global.tag %}
+    		<p class="block__message block__message--white">{{collection.metafields.global.tag}}</p>
+    	{% endif %}
         <div class="block__img block__img--top" data-image-loading-animation>
          	<div class="block__wrap">
 		        {%- assign url = collection.image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
@@ -12,8 +15,12 @@
         </div>
         <article class="block__info block__info--flexed block__info--160 {%if show_vendor %}block__info--190{% endif %}">  
         	<div> 
-                <h4 class="block__title block__title--small">{{ collection.title }}</h4>                             
-                <p class="block__p">{{ collection.description | strip_html | truncate: 80 }}</p>
+                <h4 class="block__title block__title--small">{{ collection.title }}</h4> 
+                {% assign description = collection.description %} 
+                {% if collection.metafields.carousel.description %}
+                	 {% assign description = collection.metafields.carousel.description %} 
+                {% endif %}                          
+                <p class="block__p">{{ description | strip_html | truncate: 80 }}</p>
             </div>
             <h5 class="block__cta  nimbus">Shop now</h5>
         </article>

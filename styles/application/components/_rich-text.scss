@@ -13,10 +13,8 @@
     }
 
     .h-underline {
-        border-bottom: 0.25rem solid var(--blue);
-
-        @include respond-below(md) {
-            display: inline-block;
-        }
+        border-bottom: 0.4rem solid var(--blue);
+        line-height: 2.75rem;
+		display: inline-block;
     }
 }

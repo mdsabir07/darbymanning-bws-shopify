@@ -133,7 +133,7 @@
         position: absolute;
         text-transform: uppercase;
         top: 0.5rem;
-        z-index: 1;
+        z-index: 2;
 
         &--blue {
             color: var(--blue);
@@ -156,7 +156,7 @@
         background: var(--light-gray);
         height: 32rem;
         overflow: hidden;
-        padding: 3rem 0 0;
+        padding: 3.1rem 0 0;
         position: relative;
 
         &--top {
@@ -235,7 +235,7 @@
 
         &--mid {
             font-size: 2.1rem;
-            font-weight: normal;
+            text-transform: uppercase;
             margin-bottom: 0.5rem;
 
             @include respond-below(md) {
@@ -246,6 +246,8 @@
         &--small {
             font-size: 1.6rem;
             margin-bottom: 0;
+            font-family: DINOTRegular;
+            text-transform: uppercase;
         }
 
         a:hover & {

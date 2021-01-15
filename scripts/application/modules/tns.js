@@ -34,6 +34,16 @@ const init = () => {
 
                     dot && dot.classList.add('is-active');
                 }
+                if(controls) {
+	                const prev = controls.querySelector('.js-slider-prev')
+	                if(prev) {
+		                if((info.index % info.cloneCount) > 0) {
+			                prev.classList.add('visible')
+		                } else {
+			                prev.classList.remove('visible')
+		                }
+	                }
+                }
             });
             
             if(dots) {
