@@ -36,11 +36,19 @@ const init = () => {
                 }
                 if(controls) {
 	                const prev = controls.querySelector('.js-slider-prev')
-	                if(prev) {
-		                if((info.index % info.cloneCount) > 0) {
+	                if(prev && !loop) {
+		                if(info.index > 0) {
 			                prev.classList.add('visible')
 		                } else {
 			                prev.classList.remove('visible')
+		                }
+	                }
+	                const next = controls.querySelector('.js-slider-next')
+	                if(next && !loop) {
+		                if((info.index+info.items) >= info.slideCount) {
+			                next.classList.add('invisible')
+		                } else {
+			                next.classList.remove('invisible')
 		                }
 	                }
                 }

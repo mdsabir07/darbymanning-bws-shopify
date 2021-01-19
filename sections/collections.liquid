@@ -6,7 +6,7 @@
 
         {%- assign collection = collections[section.settings.collection] -%}
 
-        <div class="js-slider " data-items="4" data-gutter="1" data-responsive='{"350": {"items": "2"}, "768": {"items": "3"}, "1024": {"items": "4"}}'>
+        <div class="js-slider " data-items="4" data-gutter="1" data-loop="0" data-responsive='{"350": {"items": "2"}, "768": {"items": "3"}, "1024": {"items": "4"}}'>
           {% for block in section.blocks %}
           	{% assign collection = collections[block.settings.collection] %}
             <div class="slide__item--{{section.id}}">
@@ -27,7 +27,7 @@
                     </g>
                 </svg>
             </li>
-            <li class="slider__next  button" data-controls="next" aria-controls="customize" tabindex="-1">
+            <li class="slider__next  button js-slider-next" data-controls="next" aria-controls="customize" tabindex="-1">
                 <svg width="17px" height="18px" viewBox="0 0 17 18" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                     <title>Fill 3</title>
                     <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
