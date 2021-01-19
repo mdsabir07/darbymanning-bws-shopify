@@ -64,11 +64,9 @@
         {% endif %}
     </section>
 
-    {% assign collection_handle_bottom = section.settings.col_nav_bottom %}
-	{% if collection.metafields.menus.slider %}
-	      {% assign collection_handle_bottom = collection.metafields.menus.bottom %}
+    {% if collection.metafields.menus.bottom %}
+      {% include "collection-buttons", collection_handle: collection.metafields.menus.bottom %}
 	{% endif %}
-	{% include "collection-buttons", collection_handle: collection_handle_bottom %}
 </div>
 
 
@@ -85,11 +83,6 @@
             "type": "link_list",
             "id": "col_nav",
             "label": "Thumbnail Slider List"
-        },
-        {
-            "type": "link_list",
-            "id": "col_nav_bottom",
-            "label": "Bottom List"
         },  
         {
             "type": "paragraph",

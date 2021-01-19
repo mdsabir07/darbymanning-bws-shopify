@@ -6,19 +6,15 @@
 
 {% include "collection-header" %}
 
-{% assign collection_handle_top = section.settings.col_nav_top %}
-{% if collection.metafields.menus.slider %}
-      {% assign collection_handle_top = collection.metafields.menus.top %}
+{% if collection.metafields.menus.top %}
+      {% include "collection-buttons", collection_handle: collection.metafields.menus.top %}
 {% endif %}
-{% include "collection-buttons", collection_handle: collection_handle_top %}
 
 {% include "collection-item-list" %}
 
-{% assign collection_handle_bottom = section.settings.col_nav_bottom %}
-{% if collection.metafields.menus.slider %}
-      {% assign collection_handle_bottom = collection.metafields.menus.bottom %}
+{% if collection.metafields.menus.bottom %}
+      {% include "collection-buttons", collection_handle: collection.metafields.menus.bottom %}
 {% endif %}
-{% include "collection-buttons", collection_handle: collection_handle_bottom %}
 
 {% schema %}
 {
@@ -28,17 +24,7 @@
             "type": "link_list",
             "id": "col_nav",
             "label": "Thumbnail Slider List"
-        },
-        {
-            "type": "link_list",
-            "id": "col_nav_top",
-            "label": "Top List"
-        },
-        {
-            "type": "link_list",
-            "id": "col_nav_bottom",
-            "label": "Bottom List"
-        }    
+        }  
     ]
 }
 {% endschema %}
