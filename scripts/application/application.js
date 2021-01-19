@@ -9,6 +9,7 @@ import './modules/see-more.js';
 import './modules/search.js';
 import './modules/smooth-scrolling.js';
 import './modules/accordions.js';
+import './modules/sort-and-tag.js';
 
 function clean(node)
 {

@@ -38,9 +38,6 @@
 );
 
 @include respond-below(md) {
-    .sm-u-mL-0.sm-u-mL-0 {
-        margin-left: 0;
-    }
     .sm-u-mV-50.sm-u-mV-50 {
         margin-bottom: 5rem;
         margin-top: 5rem;
@@ -48,5 +45,11 @@
     .sm-u-mV-16.sm-u-mV-16 {
         margin-bottom: 1.6rem;
         margin-top: 1.6rem;
+    }
+    .u-mL-16\@s {
+	    margin-left: 1.6rem;
+    }
+    .u-mR-16\@s {
+	    margin-right: 1.6rem;
     }
 }
