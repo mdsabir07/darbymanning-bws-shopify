@@ -6,15 +6,8 @@
     font-size: 1.8rem;
     justify-content: space-between;
     left: 0;
-    margin-bottom: 0;
-    padding: 0 1rem;
-
-    &__wrapper {
-        bottom: 0;
-        position: absolute;
-        right: 0;
-        width: 100%;
-    }
+    margin: 0;
+    padding: 0;
 
     &__regular,
     &__sale {

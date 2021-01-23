@@ -3,6 +3,18 @@
         margin-bottom: 0.5rem;
         padding-left: 1rem;
     }
+    
+    &--hideLeft:after {
+	    z-index: 1;
+	    position: absolute;
+	    left: 0;
+	    top: 0;
+	    width: calc( 50vw - 61rem );
+	    background-color: white;
+	    height: 100%;
+	    content: '';
+	    min-width: 1.5rem;
+    }
 
     &__controls {
         display: flex;
@@ -52,6 +64,7 @@
         
         &.invisible {
 	        opacity: 0;
+	        pointer-events: none;
         }
 
         @include respond-below(md) {
@@ -72,10 +85,12 @@
         outline: none;
         transform: rotate(180deg);
         opacity: 0;
+        pointer-events: none;
         transition: opacity .5s ease;
         
         &.visible {
 	        opacity: 1;
+	        pointer-events: auto;
         }
 
         @include respond-below(md) {

@@ -6,12 +6,24 @@
 	{% assign truncate = 80 %}
 {% endif %}
 
+{%- assign blogCat = blog -%}
+
+{%if blog == null %}
+	{% for link in linklists.blog.links %}
+	  {% for a in link.object.articles %}
+	    {%if a.handle == article.handle %}
+	    	{%- assign blogCat = link.object -%}
+	    {% endif %}
+	  {% endfor %} 
+	{% endfor %}
+{% endif %}
+
 <div class="block block--slide border block--shadow">
     <a href="{{ article.url }}" class="block__link block__link--{{ orientation }}">
     	{% if hide_message == null %}
-    		<p class="block__message  block__message--blue"><span>{{blog.title}} </span> | <span>{{ article.published_at | time_tag: '%d %b' }}</span></p>
+    		<p class="block__message  block__message--white"><span>{{blogCat.title}} </span> | <span>{{ article.published_at | time_tag: '%d %b' }}</span></p>
     	{% endif %}
-        <div class="block__img block__img--transparent block__img--{{ orientation }} {% if hide_message %}block__img--top{% endif %}" data-image-loading-animation>
+        <div class="block__img block__img--transparent block__img--{{ orientation }} block__img--top" data-image-loading-animation>
         	<div class="block__wrap">
 	            {%- assign img_url = article.image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
 	            <img

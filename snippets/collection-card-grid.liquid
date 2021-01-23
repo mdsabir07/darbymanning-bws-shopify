@@ -13,7 +13,7 @@
                 <img alt="{{ alt }}" class="lazyload lazypreload" data-src="{{ url }}" data-sizes="auto" />
 		    </div>
         </div>
-        <article class="block__info block__info--flexed block__info--160 {%if show_vendor %}block__info--190{% endif %}">  
+        <article class="block__info block__info--flexed {%if show_vendor %}block__info--190{% endif %}">  
         	<div> 
                 <h4 class="block__title block__title--small">{{ collection.title }}</h4> 
                 {% assign description = collection.description %} 

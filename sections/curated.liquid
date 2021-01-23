@@ -1,4 +1,4 @@
-<section class="slider u-mV-80 sm-u-mV-50">
+<section class="slider slider--hideLeft u-mV-80 sm-u-mV-50">
     <div class="o-grid  o-grid--item">
         {% if section.settings.title != blank %}
          <h4 class="nimbus u-textUpper slider__title">{{ section.settings.title | escape }}</h4>
@@ -8,7 +8,7 @@
           	<div class="slide__item--{{section.id}}">
 	          	{% if block.settings.type == 'article' %}
 	          		{% assign article = articles[block.settings.article] %}
-	          		{% include 'blog-card-grid', article: article, hide_message: true, display_btn: true, truncate: 0 %}
+	          		{% include 'blog-card-grid', article: article, blog: article.blog, display_btn: true, truncate: 0 %}
 	          	{% else if block.settings.type == 'collection' %}
 	          		{% assign collection = collections[block.settings.collection] %}
 	          		{% include 'collection-card-grid', collection: collection %}
