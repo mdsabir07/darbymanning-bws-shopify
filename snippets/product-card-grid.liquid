@@ -1,6 +1,16 @@
+{%- assign link_url = product.url -%}
+{%if custom_button_link != null %}
+	{%- assign link_url = custom_button_link -%}
+{% endif %}
+
+{%- assign tag = product.type -%}
+{%if custom_tag != null and custom_tag != '' %}
+	{%- assign tag = custom_tag -%}
+{% endif %}
+
 <div class="{% unless product.available %}sold-out{% endunless %} block  border block--shadow block--slide">
-    <a href="{{ product.url | within: collection }}">
-        <p class="block__message  block__message--blue">{{product.type}}</p>
+    <a href="{{ link_url | within: collection }}">
+        <p class="block__message  block__message--blue">{{tag}}</p>
         {% assign style = 'cover' %}
         {%- if product.metafields.carousel.orientation -%}
         	{% assign style = product.metafields.carousel.orientation %}
@@ -11,6 +21,9 @@
                 {%- assign img_url = preview_image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
                 {%- if product.metafields.carousel.image -%}
                 	{% assign img_url = product.metafields.carousel.image %}
+                {%- endif -%}
+                {%- if custom_image != null -%}
+                	{% assign img_url = custom_image %}
                 {%- endif -%}
                 <img
                 class="lazyload lazypreload"
@@ -25,7 +38,11 @@
                     <h4 class="block__title block__title--small">{{ product.vendor }}</h4>
                 {% endif %}
                 {% assign lcase = product.vendor | downcase %}
-                <p class="block__p">{{ product.title | replace: product.vendor, "" | replace: lcase, "" }}</p>
+                {% assign desc = product.title | replace: product.vendor, "" | replace: lcase, ""  %}
+                {% if custom_description != null and custom_description != '' %}
+                	 {% assign desc = custom_description %} 
+                {% endif %}  
+                <p class="block__p">{{desc}}</p>
             </div>
             <div class="price__wrapper">
                 {% include 'product-price-listing', product: product %}

@@ -36,4 +36,7 @@ function clean(node)
 document.addEventListener('DOMContentLoaded', () => {
 	new NeueKit()
 	clean(document.body);
+	if(navigator.userAgent.includes('Windows')) {
+		document.body.classList.add('windows')
+	}
 });

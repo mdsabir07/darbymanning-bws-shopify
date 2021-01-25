@@ -18,14 +18,28 @@
 	{% endfor %}
 {% endif %}
 
+{%- assign link_url = article.url -%}
+{%if custom_button_link != null %}
+	{%- assign link_url = custom_button_link -%}
+{% endif %}
+
 <div class="block block--slide border block--shadow">
-    <a href="{{ article.url }}" class="block__link block__link--{{ orientation }}">
+    <a href="{{ link_url }}" class="block__link block__link--{{ orientation }}">
     	{% if hide_message == null %}
-    		<p class="block__message  block__message--white"><span>{{blogCat.title}} </span> | <span>{{ article.published_at | time_tag: '%d %b' }}</span></p>
+    		<p class="block__message  block__message--white">
+				{%if custom_tag != '' %}
+					<span>{{custom_tag}}</span>
+				{% else %}
+    				<span>{{blogCat.title}} </span> | <span>{{ article.published_at | time_tag: '%d %b' }}</span>
+    			{% endif %}
+    		</p>
     	{% endif %}
         <div class="block__img block__img--transparent block__img--{{ orientation }} block__img--top" data-image-loading-animation>
         	<div class="block__wrap">
 	            {%- assign img_url = article.image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
+	            {%if custom_image != null %}
+	            	{%- assign img_url = custom_image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
+	            {% endif %}
 	            <img
 	            class="lazyload lazypreload"
 	            data-src="{{ img_url }}"
@@ -38,7 +52,9 @@
 	            <h4 class="block__title block__title--small">{{ article.title }}</h4>  
 	            {% if truncate > 0 %}                           
 	            <div class="block__p">
-	            	{% if article.excerpt.size > 0 %}
+	            	  {% if custom_description != '' %}
+	            	  	{{ custom_description | strip_html | truncate: truncate }}
+	            	  {% else if article.excerpt.size > 0 %}
 	                    {{ article.excerpt | strip_html | truncate: truncate }}
 	                  {% else %}
 	                   {{ article.content | strip_html | truncate: truncate }}
@@ -47,7 +63,11 @@
 	            {% endif %}
 	        </div>
 	        {%if display_btn %}
-	        	<h5 class="block__cta  nimbus">Read Blog</h5>
+	        	{%- assign button_text = 'Read Blog' -%}
+	        	{%if custom_button_label != '' %}
+	        		{%- assign button_text = custom_button_label -%}
+	        	{% endif %}
+	        	<h5 class="block__cta  nimbus">{{button_text}}</h5>
 	        {% endif %}
         </article>
     </a>

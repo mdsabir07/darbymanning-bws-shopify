@@ -11,17 +11,17 @@
         margin: 0 0 2rem;
         padding: 0;
         @include DINOTRegular;
-        line-height: 2rem;
+        line-height: 1.8rem;
     }
     p {
-	    font-size: 1.8rem;
+	    font-size: 1.6rem;
     }
     &__li {
         color: white;
         display: inline-block;
         padding: 0 1rem 0 0;
         line-height: 1rem;
-        font-size: 1.8rem;
+        font-size: 1.6rem;
 
         &::before {
             content: '•';

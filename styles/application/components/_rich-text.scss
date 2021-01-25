@@ -16,5 +16,9 @@
         border-bottom: 0.4rem solid var(--blue);
         line-height: 2.75rem;
 		display: inline-block;
+		
+		.windows & {
+			padding-bottom: .4rem;
+		}
     }
 }

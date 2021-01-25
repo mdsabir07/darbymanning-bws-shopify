@@ -1,7 +1,17 @@
+{%- assign link_url = collection.url -%}
+{%if custom_button_link != null %}
+	{%- assign link_url = custom_button_link -%}
+{% endif %}
+
+{%- assign tag = collection.metafields.global.tag -%}
+{% if custom_tag != '' %}
+	{%- assign tag = custom_tag -%}
+{% endif %}
+
 <div class="block  border block--shadow block--slide">
-    <a href="{{ collection.url }}">
-    	{% if collection.metafields.global.tag %}
-    		<p class="block__message block__message--white">{{collection.metafields.global.tag}}</p>
+    <a href="{{ link_url }}">
+    	{% if tag %}
+    		<p class="block__message block__message--white">{{tag}}</p>
     	{% endif %}
         <div class="block__img block__img--top" data-image-loading-animation>
          	<div class="block__wrap">
@@ -9,6 +19,9 @@
             	{%- assign alt = collection.image.alt  %}
                 {%- if collection.metafields.carousel.image -%}
                 	{% assign url = collection.metafields.carousel.image %}
+                {%- endif -%}
+                {%- if custom_image != null -%}
+                	{% assign url = custom_image %}
                 {%- endif -%}
                 <img alt="{{ alt }}" class="lazyload lazypreload" data-src="{{ url }}" data-sizes="auto" />
 		    </div>
@@ -19,10 +32,17 @@
                 {% assign description = collection.description %} 
                 {% if collection.metafields.carousel.description %}
                 	 {% assign description = collection.metafields.carousel.description %} 
+                {% endif %} 
+                {% if custom_description != '' %}
+                	 {% assign description = custom_description %} 
                 {% endif %}                          
                 <p class="block__p">{{ description | strip_html | truncate: 80 }}</p>
             </div>
-            <h5 class="block__cta  nimbus">Shop now</h5>
+            {%- assign button_text = 'Shop now' -%}
+			{%if custom_button_label != '' %}
+				{%- assign button_text = custom_button_label -%}
+			{% endif %}
+            <h5 class="block__cta  nimbus">{{button_text}}</h5>
         </article>
     </a>
 </div>
