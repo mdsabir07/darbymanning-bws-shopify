@@ -23,10 +23,12 @@
                     {%- when 'newsletter' -%}
                         <article class="block join {% if block.settings.show_border %}border{% endif %} site-footer__newsletter">
                             <div class="join__wrap  block__info  block__info--p-tb" style="background-color:{{block.settings.bg_color}};">
-                                <h4 class="join__title block__title  block__title--large  block__title--p-t blue u-textUpper">{{ block.settings.title }}</h4>
-                                <div class="rte_settings">
-                                    {{block.settings.text}}
-                                </div>
+	                                <div>
+	                                <h4 class="join__title block__title  block__title--large  block__title--p-t blue u-textUpper">{{ block.settings.title }}</h4>
+	                                <div class="rte_settings">
+	                                    {{block.settings.text}}
+	                                </div>
+	                               </div>
                                 {%- assign formId = 'ContactFooter' -%}
                                 <form action="https://manage.kmail-lists.com/subscriptions/subscribe?a=MccrpL&amp;g=H5vr9r" method="post" name="mc-embedded-subscribe-form" class="contact-form" target="_blank">
 							  	  <input type="email" value="" name="EMAIL" class="input-group__field newsletter__input join__input{% if form.errors %} input--error{% endif %}"  placeholder="Enter email...">

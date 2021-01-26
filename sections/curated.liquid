@@ -9,7 +9,7 @@
 	          	{% if block.settings.type == 'article' %}
 	          		{% assign article = articles[block.settings.article] %}
 	          		{% include 'blog-card-grid', article: article, blog: article.blog, display_btn: true, truncate: 0, custom_image: block.settings.image, custom_description: block.settings.description, custom_button_label: block.settings.button_label, custom_button_link: block.settings.button_link, custom_tag: block.settings.tag %}
-	          	{% else if block.settings.type == 'collection' %}
+	          	{% elsif block.settings.type == 'collection' %}
 	          		{% assign collection = collections[block.settings.collection] %}
 	          		{% include 'collection-card-grid', collection: collection, custom_image: block.settings.image, custom_description: block.settings.description, custom_button_label: block.settings.button_label, custom_button_link: block.settings.button_link, custom_tag: block.settings.tag %}
 	          	{% else %}

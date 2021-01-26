@@ -44,7 +44,7 @@
                     </li>
                   {% if link.links != blank %}
                     {% for childlink in link.links %}
-                      <li class="nav__col  {%if childlink.title != '-' %}border border--xlarge{% endif %} ">
+                      <li class="nav__col border border--xlarge">
                       
                         <h2 class="nav__sub-title {%if childlink.title == '-' %}nav__sub-title--invisible{% endif %}  nimbus" itemprop="name">
                           {{ childlink.title | escape }}

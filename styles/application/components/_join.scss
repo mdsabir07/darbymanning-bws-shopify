@@ -1,7 +1,14 @@
 .join {
+	height: 100%;
+	display: flex;
+	flex-direction: column;
     &__wrap {
         background: var(--dark-blue);
         padding: 2.5rem;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		flex-grow: 1;
 
         @include respond-below(md) {
             padding: 1.5rem;
@@ -40,8 +47,11 @@
         }
     }
 
+	
+
     &__button {
         margin-top: 2rem;
+        margin-bottom: 1rem;
     }
 
     &__input {
