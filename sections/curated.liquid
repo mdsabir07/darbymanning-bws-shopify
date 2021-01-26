@@ -8,13 +8,13 @@
           	<div class="slide__item--{{section.id}}">
 	          	{% if block.settings.type == 'article' %}
 	          		{% assign article = articles[block.settings.article] %}
-	          		{% include 'blog-card-grid', article: article, blog: article.blog, display_btn: true, truncate: 0, custom_image: block.settings.image, custom_description: block.settings.description, custom_button_label: block.settings.button_label, custom_button_link: block.settings.button_link, custom_tag: block.settings.tag %}
+	          		{% include 'blog-card-grid', article: article, blog: article.blog, display_btn: true, truncate: 0, custom_image: block.settings.image, custom_description: block.settings.description, custom_button_label: block.settings.button_label, custom_button_link: block.settings.button_link, custom_tag: block.settings.tag, orientation: 'cover' %}
 	          	{% elsif block.settings.type == 'collection' %}
 	          		{% assign collection = collections[block.settings.collection] %}
-	          		{% include 'collection-card-grid', collection: collection, custom_image: block.settings.image, custom_description: block.settings.description, custom_button_label: block.settings.button_label, custom_button_link: block.settings.button_link, custom_tag: block.settings.tag %}
+	          		{% include 'collection-card-grid', collection: collection, custom_image: block.settings.image, custom_description: block.settings.description, custom_button_label: block.settings.button_label, custom_button_link: block.settings.button_link, custom_tag: block.settings.tag, orientation: 'cover' %}
 	          	{% else %}
 	          		{% assign product = all_products[block.settings.product] %}
-	          		{% include 'product-card-grid', product: product, shrink: true, custom_image: block.settings.image, custom_description: block.settings.description, custom_button_label: block.settings.button_label, custom_button_link: block.settings.button_link, custom_tag: block.settings.tag %}
+	          		{% include 'product-card-grid', product: product, shrink: true, show_vendor: true, custom_image: block.settings.image, custom_description: block.settings.description, custom_button_label: block.settings.button_label, custom_button_link: block.settings.button_link, custom_tag: block.settings.tag, custom_top: block.settings.top, custom_orientation: block.settings.orientation %}
 	          	{% endif %}
             </div>
           {% endfor %}
@@ -105,6 +105,11 @@
 		      "label": "Collection"
 		    },
 		    {
+		      "type": "checkbox",
+		      "id": "top",
+		      "label": "Top (Override)"
+		    },
+		    {
 		      "type": "text",
 		      "id": "tag",
 		      "label": "Tag (Override)"
@@ -114,6 +119,21 @@
 		      "id": "image",
 		      "label": "Image (Override)"
 		    },
+		    {
+				"type": "select",
+				"id": "orientation",
+				"label": "Orientation (Override)",
+		        "default": "cover",
+		        "options": [
+		            {
+		                "value": "cover",
+		                "label": "Cover"
+		            }, {
+		                "value": "contain",
+		                "label": "Contain"
+		            }
+		        ]
+			},
 		    {
 		      "type": "text",
 		      "id": "description",

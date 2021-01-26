@@ -21,7 +21,7 @@
                 	{% assign url = collection.metafields.carousel.image %}
                 {%- endif -%}
                 {%- if custom_image != null -%}
-                	{% assign url = custom_image %}
+                	{% assign url = custom_image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' %}
                 {%- endif -%}
                 <img alt="{{ alt }}" class="lazyload lazypreload" data-src="{{ url }}" data-sizes="auto" />
 		    </div>
