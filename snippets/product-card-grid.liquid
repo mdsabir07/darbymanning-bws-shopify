@@ -4,6 +4,9 @@
 {% endif %}
 
 {%- assign tag = product.type -%}
+{% if product.metafields.global.tag %}
+	{%- assign tag = product.metafields.global.tag -%}
+{% endif %}
 {%if custom_tag != null and custom_tag != '' %}
 	{%- assign tag = custom_tag -%}
 {% endif %}
