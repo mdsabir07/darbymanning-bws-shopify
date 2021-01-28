@@ -1,29 +1,10 @@
-<section class="o-grid  o-grid--p">
-    {% for block in section.blocks %}
-    	{%- assign blog = blogs[block.settings.blog] -%}
-	    <div class="o-grid__item u-mT-32 sm-u-mV-16 u-size-12 {% if forloop.length == 4 %}u-size-3@m{% elsif forloop.length == 6 %} u-size-4@m{% else %}u-size-4@m{% endif %} u-size-6 u-size-4@s">
-	        <a href="{{ blog.url }}" class="button u-size-12 section-buttons__button">{{ blog.title }}</a>
-	    </div>
-    {% endfor %}
-</section>
-
-{% assign layouts = "3-6-3,3-3-6,6-6,6-6,6-3-3,6-6" | split: ',' %}
-
-<section class="u-pV-48">
+<section class="u-mB-48">
 	{% for block in section.blocks %}
 		{%- assign blog = blogs[block.settings.blog] -%}
-		{% assign lowIndex = forloop.index | minus:1 %}
-		{% assign layoutIndex = forloop.index | modulo:layouts.size %}
-		{% if layoutIndex == 0 %}
-			{% assign layoutIndex = layouts.size %}
-		{% endif %}
-		{% assign layoutIndex = layoutIndex | minus: 1 %}
-		{% assign columns = layouts[layoutIndex] | split: '-' %}
-		<div class="{% if lowIndex == 0 %}bg-grey{% endif %}">
+		{% assign columns = block.settings.layout | split: '-' %}
 	        <div class="o-grid u-pV-32">
 	            {% include 'blog-grid-item', blog: blog, remainder: remainder, columns: columns %}
 	        </div>
-	    </div>
 	{% endfor %}
 </section>
 
@@ -40,6 +21,29 @@
           "id": "blog",
           "type": "blog"
         },
+        {
+			"type": "select",
+			"id": "layout",
+			"label": "Layout",
+	        "default": "3-3-3-3",
+	        "options": [
+	            {
+	                "value": "3-3-3-3",
+	                "label": "1:1"
+	            }, {
+	                "value": "3-6-3",
+	                "label": "1:2:1"
+	            }, 
+	            {
+	                "value": "3-3-6",
+	                "label": "1:1:2"
+	            },
+	            {
+	                "value": "6-3-3",
+	                "label": "2:1:1"
+	            }
+	        ]
+		},
         {
             "type": "checkbox",
             "id": "show_view_all",

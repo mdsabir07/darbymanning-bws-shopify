@@ -1,4 +1,4 @@
-<section class="slider slider--hideLeft u-mV-80 sm-u-mV-50">
+<section class="slider slider--{{section.settings.bg_color}} slider--hideLeft u-mV-48 u-pV-32">
     <div class="o-grid  o-grid--item">
         {% if section.settings.title != blank %}
          <h4 class="nimbus u-textUpper slider__title">{{ section.settings.title | escape }}</h4>
@@ -64,7 +64,22 @@
       "id": "title",
       "label": "Heading",
       "default": "Curated for you"
-    }
+    },
+    {
+		"type": "select",
+		"id": "bg_color",
+		"label": "Background Colour",
+        "default": "white",
+        "options": [
+            {
+                "value": "white",
+                "label": "White"
+            }, {
+                "value": "grey",
+                "label": "Grey"
+            }
+        ]
+	}
   ],
   "blocks": [
 	{
