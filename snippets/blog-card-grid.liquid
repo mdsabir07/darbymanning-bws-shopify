@@ -27,7 +27,7 @@
     <a href="{{ link_url }}" class="block__link block__link--{{ orientation }}">
     	{% if hide_message == null %}
     		<p class="block__message  block__message--white">
-				{%if custom_tag != '' %}
+				{%if custom_tag != '' and custom_tag != null %}
 					<span>{{custom_tag}}</span>
 				{% else %}
     				<span>{{blogCat.title}} </span> | <span>{{ article.published_at | time_tag: '%d %b' }}</span>
@@ -52,9 +52,9 @@
 	            <h4 class="block__title block__title--small">{{ article.title }}</h4>  
 	            {% if truncate > 0 %}                           
 	            <div class="block__p">
-	            	  {% if custom_description != '' %}
+	            	  {% if custom_description != '' and custom_description != null %}
 	            	  	{{ custom_description | strip_html | truncate: truncate }}
-	            	  {% else if article.excerpt.size > 0 %}
+	            	  {% elsif article.excerpt.size > 0 %}
 	                    {{ article.excerpt | strip_html | truncate: truncate }}
 	                  {% else %}
 	                   {{ article.content | strip_html | truncate: truncate }}
