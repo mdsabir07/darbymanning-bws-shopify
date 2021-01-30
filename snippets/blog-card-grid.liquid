@@ -30,7 +30,7 @@
 				{%if custom_tag != '' and custom_tag != null %}
 					<span>{{custom_tag}}</span>
 				{% else %}
-    				<span>{{blogCat.title}} </span> | <span>{{ article.published_at | time_tag: '%d %b' }}</span>
+    				<span>{{blogCat.title}} </span>{% if article.metafields.global.duration %} | <span>{{ article.metafields.global.duration }} read</span>{% endif %} | <span>{{ article.published_at | time_tag: '%d %b' }}</span>
     			{% endif %}
     		</p>
     	{% endif %}
