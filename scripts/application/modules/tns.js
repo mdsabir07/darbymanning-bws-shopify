@@ -1,6 +1,26 @@
 import { tns } from 'tiny-slider/src/tiny-slider';
 
+const createStyleTag = (css) => {
+	let head = document.head || document.getElementsByTagName('head')[0],
+	    style = document.createElement('style');
+	
+	head.appendChild(style);
+	
+	style.type = 'text/css';
+	if (style.styleSheet){
+	  // This is required for IE8 and below.
+	  style.styleSheet.cssText = css;
+	} else {
+	  style.appendChild(document.createTextNode(css));
+	}
+	
+	return style
+}
+
 const init = () => {
+	
+	let styleTag = createStyleTag('')
+	
     Array.from(document.querySelectorAll('.js-slider:not(.tns-slider)')).forEach(
         (container) => {
             const controls = container.parentNode.querySelector(
@@ -54,6 +74,27 @@ const init = () => {
                 }
             });
             
+            slider.events.on('indexChanged', (info) => {
+	            if(window.outerWidth >= 1024 && container.querySelector('[data-size]')) {
+					styleTag.innerText = `#${container.getAttribute('id')} { transform: ${container.style.transform} !important; }` 
+					setTimeout(() => {
+						let totalSize = 0
+		                Array.from(container.querySelectorAll('[data-size]')).every(slide => {
+			                if(slide === info.slideItems[info.index]) {
+								return false
+							}
+							totalSize += parseInt(slide.dataset.size)
+							return true
+						})
+						const perc = (totalSize*container.dataset.basis)/(container.childElementCount/container.dataset.items)
+						const css = `translate3d(-${perc}%, 0px, 0px)`
+			            container.style.transform = css
+			            container.style.webkitTransform = css
+			            styleTag.innerText = ''
+					}, 1)
+		        }
+		    })
+            
             if(dots) {
 	            
 	            dots.addEventListener('click', e => e.preventDefault())
@@ -87,6 +128,27 @@ const init = () => {
 	            })
 	            
 			}
+			
+			let calculateWidths = () => {
+				
+				Array.from(container.querySelectorAll('[data-size]')).forEach(slide => {
+				
+					const size = slide.getAttribute('data-size')
+					
+					const perc = (size*container.dataset.basis)/(container.childElementCount/container.dataset.items)
+					
+					if(window.outerWidth >= 1024) {
+						slide.style.width = perc + '%'
+					} else {
+						delete slide.style.width
+					}
+					
+				})
+			}
+			
+			window.addEventListener('resize', calculateWidths)
+			
+			calculateWidths()
             
         }
     );

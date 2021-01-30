@@ -30,8 +30,8 @@
           <div class="nav__dropdown js-menu-dropdown">
             {% if three_level_nav %}
                              
-             <ul class="nav__dd-wrap site-nav__childlist-grid" itemtype="http://www.schema.org/SiteNavigationElement">
-             	<li class="nav__col  border border--xlarge u-hide@l">
+             <ul class="nav__dd-wrap {% if link.links.size == 1 %}nav__dd-wrap--small{% endif %}  site-nav__childlist-grid" itemtype="http://www.schema.org/SiteNavigationElement">
+             	<li class="nav__col  border border--xlarge u-hide@m">
                     <ul class="nav__sub-ul" itemtype="http://www.schema.org/SiteNavigationElement">
                     	<li itemprop="name">
                     	 <a href="{{ link.url }}"
@@ -44,7 +44,7 @@
                     </li>
                   {% if link.links != blank %}
                     {% for childlink in link.links %}
-                      <li class="nav__col border border--xlarge">
+                      <li class="nav__col border border--xlarge {% if link.links.size == 1 %}nav__col--single{% endif %}">
                       
                         <h2 class="nav__sub-title {%if childlink.title == '-' %}nav__sub-title--invisible{% endif %}  nimbus" itemprop="name">
                           {{ childlink.title | escape }}

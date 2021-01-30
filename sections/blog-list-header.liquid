@@ -1,7 +1,7 @@
 <section class="section-header  o-grid">
     <div class="o-grid__item  u-size-12@s">
         <div class="block  block--row  border border--small">
-            <div class="block__col">
+            <div class="block__col block__col--thin">
                 <div class="block__info  block__info--light-gray  block__info--large  section-header__info">
                     <h1 class="section-header__title  nimbus u-mB-32">{{ section.settings.title | escape }}</h1>
                     {% if section.settings.text != blank %}
@@ -28,7 +28,7 @@
                 </div>
             </div>
 
-            <div class="section-header__img  block__col">
+            <div class="section-header__img  block__col block__col--wide">
                 {% if section.settings.image != blank %}
                 	<img class="lazyload lazypreload" src="{{section.settings.image | img_url: 'master'}}" alt="{{ section.settings.image.alt | escape }}">
                 {% else %}

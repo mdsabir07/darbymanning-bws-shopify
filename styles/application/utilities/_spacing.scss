@@ -37,19 +37,28 @@
     )
 );
 
+.u-pH-144.u-pH-144 {
+	padding-left: 14.4rem;
+	padding-right: 14.4rem;
+}
+
 @include respond-below(md) {
-    .sm-u-mV-50.sm-u-mV-50 {
+    .u-mV-50\@s.u-mV-50\@s {
         margin-bottom: 5rem;
         margin-top: 5rem;
     }
-    .sm-u-mV-16.sm-u-mV-16 {
-        margin-bottom: 1.6rem;
+    .u-mV-16\@s.u-mV-16\@s {
+	    margin-bottom: 1.6rem;
         margin-top: 1.6rem;
     }
-    .u-mL-16\@s {
+    .u-pH-48\@s.u-pH-48\@s {
+	    padding-left: 4.8rem;
+	    padding-right: 4.8rem;
+    }
+    .u-mL-16\@s.u-mL-16\@s {
 	    margin-left: 1.6rem;
     }
-    .u-mR-16\@s {
+    .u-mR-16\@s.u-mR-16\@s {
 	    margin-right: 1.6rem;
     }
 }

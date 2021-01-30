@@ -65,6 +65,11 @@
         &:hover {
             background: var(--dark-blue);
         }
+        
+        @include respond-below(sm) {
+	  		padding: 1rem;
+	  		font-size: 1.575rem;   
+	    }
     }
 
     @include respond-below(md) {

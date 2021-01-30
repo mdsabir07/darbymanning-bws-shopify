@@ -1,4 +1,4 @@
-<section class="slider slider--hideLeft u-mV-80 sm-u-mV-50">
+<section class="slider slider--hideLeft u-mV-80 u-mV-50@s">
     <div class="o-grid  o-grid--item">
         {% if section.settings.title != blank %}
          <h4 class="nimbus u-textUpper slider__title">{{ section.settings.title | escape }}</h4>
@@ -6,7 +6,7 @@
 
         {%- assign collection = collections[section.settings.collection] -%}
 
-        <div class="js-slider " data-items="4" data-gutter="1" data-loop="0" data-responsive='{"350": {"items": "2"}, "768": {"items": "3"}, "1024": {"items": "4"}}'>
+        <div class="js-slider " data-items="4" data-gutter="1" data-loop="0" data-responsive='{"300": {"items": "1"}, "768": {"items": "3"}, "1024": {"items": "4"}}'>
           {% for product in collection.products limit: 10 %}
             <div class="slide__item--{{section.id}}">
                 {% include 'product-card-grid', product: product, show_vendor: true %}

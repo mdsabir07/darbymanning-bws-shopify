@@ -24,6 +24,7 @@
     &:not(.tns-slide-active) {
         opacity: 0.5 !important;
     }
+    
     @include respond-above(sm) {
         display: flex !important;
         flex-direction: column;

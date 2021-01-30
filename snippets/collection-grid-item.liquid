@@ -1,7 +1,7 @@
 {% assign count = collection.products_count %}
 <div class="o-grid__item u-size-12 slider">
    	<h4 class="nimbus u-textUpper slider__title">{{collection.title}}</h4>
-	<div class="js-slider" data-items="4" data-gutter="1" data-responsive='{"350": {"items": "2"}, "768": {"items": "3"}, "1024": {"items": "4"}}'>
+	<div class="js-slider" data-items="4" data-gutter="1" data-responsive='{"300": {"items": "1"}, "768": {"items": "3"}, "1024": {"items": "4"}}'>
 		{% for product in collection.products %}
 		    <div>
 		        {% include 'product-card-grid', product: product, show_vendor: true %}

@@ -27,11 +27,17 @@
         margin: 0;
         padding-bottom: 2rem;
         padding-left: 0;
-
+		width: 100%;
+        
+        &--small {
+	        width: 25%;
+        }
+        
         @include respond-below(md) {
             background-color: transparent;
             flex-direction: column;
             padding-bottom: 0;
+            width: 100%;
         }
     }
 
@@ -74,7 +80,7 @@
     &__dropdown {
         display: none;
         flex-direction: row;
-        justify-content: space-between;
+        justify-content: flex-end;
         left: 2.1rem;
         margin: 0;
         padding: 1.1rem 0 0;
@@ -101,7 +107,7 @@
 
         @include respond-above(md) {
             &:hover > #{$b}__dropdown {
-                display: inherit;
+                display: flex;
                 opacity: 1;
             }
         }
@@ -230,14 +236,18 @@
                 margin: 0;
             }
         }
-
-        &:nth-child(2)::before {
+        
+         &:nth-child(2)::before {
             left: -1.8rem;
             width: calc(100% + 1.8rem);
         }
 
         &:last-child::before {
             width: calc(100% + 1.8rem);
+        }
+        
+        &--single:last-child::before {
+            width: calc(100% + 3.6rem);
         }
 
         @include respond-below(md) {
@@ -248,6 +258,8 @@
                 content: none;
             }
         }
+        
+        
     }
 
     &__sub-title {

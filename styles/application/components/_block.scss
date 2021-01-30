@@ -45,6 +45,16 @@
 
     &__col {
         width: 50%;
+        
+        &--wide {
+	        width: 60%;
+	        
+        }
+        
+        &--thin {
+	        width: 40%;
+	        
+        }
 
         @include respond-below(md) {
             order: 2;
@@ -171,10 +181,6 @@
             object-position: center;
             position: absolute;
             width: 100%;
-        }
-
-        @include respond-below(md) {
-            height: 15rem;
         }
 
         &--transparent {

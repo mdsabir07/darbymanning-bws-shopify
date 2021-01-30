@@ -1,7 +1,7 @@
 <section class="o-grid  o-grid--p u-pV-40 u-mB-48">
     {% for block in section.blocks %}
     	{%- assign blogCat = blogs[block.settings.blog] -%}
-	    <div class="o-grid__item u-mT-32 sm-u-mV-16 u-size-12 {% if forloop.length == 4 %}u-size-3@m{% elsif forloop.length == 6 %} u-size-4@m{% else %}u-size-4@m{% endif %} u-size-6 u-size-4@s">
+	    <div class="o-grid__item u-mT-32 u-mV-16@s u-size-12 {% if forloop.length == 4 %}u-size-3@m{% elsif forloop.length == 6 %} u-size-4@m{% else %}u-size-4@m{% endif %} u-size-6 u-size-4@s">
 	        <a href="{{ blogCat.url }}" class="button u-size-12 section-buttons__button {% if blog.url == blogCat.url %}active{% endif %}">{{ blogCat.title }}</a>
 	    </div>
     {% endfor %}

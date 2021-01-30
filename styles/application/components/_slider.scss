@@ -9,14 +9,14 @@
 	    position: absolute;
 	    left: 0;
 	    top: 0;
-	    width: calc( 50vw - 61rem );
+	    width: calc( 50vw - 62.5rem );
 	    background-color: white;
 	    height: 100%;
 	    content: '';
 	    min-width: 1.5rem;
     }
     
-    // This is shit, but i don't want to gave to create even more shopify schema vars for the curated slider on blog page
+    // Trump: Could instead add a modifier to Block component. This is shit, but i don't want to gave to create even more shopify schema vars for the curated slider on blog page
     &--grey {
 	    background-color: var(--light-gray);
 	    
@@ -49,6 +49,10 @@
         &--negative {
             padding: 0 1rem;
         }
+        
+        &--push {
+	        top: 0;
+        }
 
         @include respond-below(md) {
             &--thin {
@@ -60,6 +64,25 @@
     &__more {
         margin-right: 1rem;
         order: 2;
+    }
+    
+    &__group {
+	    order: 4;
+	    display: flex;
+	    align-items: center;
+    }
+    
+    // TRUMP: Could instead add modifier to button 
+    &__controls--inverse &__more .button {
+	    width: 23.25rem;
+	    
+	    @include respond-below(md) {
+			width: 17.75rem;   
+		}
+    }
+    
+    &__controls--inverse &__prev {
+	    order: 1;
     }
 
     &__next {
