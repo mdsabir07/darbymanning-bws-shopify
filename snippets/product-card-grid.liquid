@@ -21,9 +21,17 @@
 	{%- assign orientation = custom_orientation -%}
 {% endif %}
 
+{%- assign tagColor = 'blue' -%}
+{%if product.metafields.global.tag_colour %}
+	{%- assign tagColor = product.metafields.global.tag_colour -%}
+{% endif %}
+{%if custom_tag_colour %}
+	{%- assign tagColor = custom_tag_colour -%}
+{% endif %}
+
 <div class="{% unless product.available %}sold-out{% endunless %} block  border block--shadow block--slide">
     <a href="{{ link_url | within: collection }}">
-        <p class="block__message  block__message--blue">{{tag}}</p>
+        <p class="block__message  block__message--{{ tagColor }}">{{tag}}</p>
         {% assign style = 'cover' %}
         {%- if product.metafields.carousel.orientation -%}
         	{% assign style = product.metafields.carousel.orientation %}

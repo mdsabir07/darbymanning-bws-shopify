@@ -7,7 +7,10 @@
         font-family: quote($fontname);
         font-style: $style;
         font-weight: $weight;
-        src: url($path + '.woff') format('woff');
+        src: url($path + '.woff') format('woff'),
+        	url($path + '.woff2') format('woff2'),
+        	url($path + '.ttg') format('ttf'),
+        	url($path + '.eot') format('eot');
     }
 }
 
@@ -17,9 +20,10 @@
 @include font-face(AvenirNextRegular, './AvenirNext-Regular', normal, normal);
 @include font-face(AvenirNextMedium, './AvenirNext-Medium', 500, normal);
 @include font-face(AvenirNextBold, './AvenirNext-Bold', bold, normal);
-@include font-face(DINMedium, './DIN-Medium', 500, normal);
+@include font-face(DINOTMedium, './DINOT-Medium', 500, normal);
 @include font-face(DINOTBold, './DINOT-Bold', bold, normal);
 @include font-face(DINOTRegular, './DINOT-Regular', normal, normal);
+@include font-face(DINOTLight, './DINOT-Light', normal, normal);
 
 @mixin AvenirNextRegular {
     font-family: AvenirNextRegular;
@@ -40,9 +44,15 @@
 }
 
 @mixin DINMedium {
-    font-family: DINMedium;
+    font-family: DINOTMedium;
     font-style: normal;
     font-weight: 500;
+}
+
+@mixin DINOTLight {
+    font-family: DINOTLight;
+    font-style: normal;
+    font-weight: 300;
 }
 
 @mixin DINOTBold {

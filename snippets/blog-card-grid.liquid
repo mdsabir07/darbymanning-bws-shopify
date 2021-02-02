@@ -23,12 +23,25 @@
 	{%- assign link_url = custom_button_link -%}
 {% endif %}
 
+{%- assign tag = article.metafields.global.tag -%}
+{% if custom_tag != '' and custom_tag != null %}
+	{%- assign tag = custom_tag -%}
+{% endif %}
+
+{%- assign tagColor = 'white' -%}
+{%if article.metafields.global.tag_colour %}
+	{%- assign tagColor = article.metafields.global.tag_colour -%}
+{% endif %}
+{%if custom_tag_colour %}
+	{%- assign tagColor = custom_tag_colour -%}
+{% endif %}
+
 <div class="block block--slide border block--shadow">
     <a href="{{ link_url }}" class="block__link block__link--{{ orientation }}">
     	{% if hide_message == null %}
-    		<p class="block__message  block__message--white">
-				{%if custom_tag != '' and custom_tag != null %}
-					<span>{{custom_tag}}</span>
+    		<p class="block__message  block__message--{{ tagColor }}">
+				{%if tag %}
+					<span>{{tag}}</span>
 				{% else %}
     				<span>{{blogCat.title}} </span>{% if article.metafields.global.duration %} | <span>{{ article.metafields.global.duration }} read</span>{% endif %} | <span>{{ article.published_at | time_tag: '%d %b' }}</span>
     			{% endif %}

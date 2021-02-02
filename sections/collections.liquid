@@ -10,7 +10,7 @@
           {% for block in section.blocks %}
           	{% assign collection = collections[block.settings.collection] %}
             <div class="slide__item--{{section.id}}">
-                {% include 'collection-card-grid', collection: collection, custom_image: block.settings.image, custom_description: block.settings.description, custom_button_label: block.settings.button_label, custom_button_link: block.settings.button_link, custom_tag: block.settings.tag %}
+                {% include 'collection-card-grid', collection: collection, custom_image: block.settings.image, custom_description: block.settings.description, custom_button_label: block.settings.button_label, custom_button_link: block.settings.button_link, custom_tag: block.settings.tag, custom_tag_colour: block.settings.tag_colour %}
             </div>
           {% endfor %}
 
@@ -76,6 +76,21 @@
 	      "id": "tag",
 	      "label": "Tag (Override)"
 	    },
+	    {
+			"type": "select",
+			"id": "tag_colour",
+			"label": "Tag Colour (Override)",
+	        "default": "white",
+	        "options": [
+	            {
+	                "value": "white",
+	                "label": "White"
+	            }, {
+	                "value": "blue",
+	                "label": "Blue"
+	            }
+	        ]
+		},
         {
 	      "type": "image_picker",
 	      "id": "image",

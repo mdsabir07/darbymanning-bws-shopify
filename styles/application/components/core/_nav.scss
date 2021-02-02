@@ -29,8 +29,16 @@
         padding-left: 0;
 		width: 100%;
         
-        &--small {
+        &--size-1 {
 	        width: 25%;
+        }
+        
+        &--size-2 {
+	        width: 50%;
+        }
+        
+        &--size-3 {
+	        width: 75%;
         }
         
         @include respond-below(md) {
@@ -149,9 +157,12 @@
         &--sub {
             color: white;
             font-size: 1.75rem;
-            font-weight: normal;
             text-transform: capitalize;
             @include DINOTRegular;
+            
+            .windows & {
+	            @include DINOTLight;
+            }
         }
 
         &:hover {

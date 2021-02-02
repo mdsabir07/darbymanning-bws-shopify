@@ -8,10 +8,18 @@
 	{%- assign tag = custom_tag -%}
 {% endif %}
 
+{%- assign tagColor = 'white' -%}
+{%if collection.metafields.global.tag_colour %}
+	{%- assign tagColor = collection.metafields.global.tag_colour -%}
+{% endif %}
+{%if custom_tag_colour %}
+	{%- assign tagColor = custom_tag_colour -%}
+{% endif %}
+
 <div class="block  border block--shadow block--slide">
     <a href="{{ link_url }}">
     	{% if tag %}
-    		<p class="block__message block__message--white">{{tag}}</p>
+    		<p class="block__message block__message--{{ tagColor }}">{{tag}}</p>
     	{% endif %}
         <div class="block__img block__img--top" data-image-loading-animation>
          	<div class="block__wrap">
