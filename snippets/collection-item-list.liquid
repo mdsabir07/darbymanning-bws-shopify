@@ -63,15 +63,18 @@
 		  
 		  </div>
     </form>
+</section>
+
+<section class="o-grid  o-grid--p o-grid--small-pad">
 
     {% paginate collection.products by 16 %}
     {% for product in collection.products %}
         {% if template contains 'brands' %}
-        <div class="o-grid__item  u-size-6@s  u-size-4@m  u-size-3@l">
+        <div class="o-grid__item  u-size-6  u-size-4@m  u-size-3@l">
             {% include 'product-card-grid', product: product, show_vendor: true %}
         </div>
         {% else %}
-            <div class="o-grid__item  u-size-6@s  u-size-4@m  u-size-3@l  u-mB-32  u-flex">
+            <div class="o-grid__item  u-size-6  u-size-4@m  u-size-3@l  u-mB-32  u-flex">
                 {% include 'product-card-list', product: product %}
             </div>
         {% endif %}

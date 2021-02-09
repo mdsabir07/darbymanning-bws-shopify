@@ -36,3 +36,8 @@
     cursor: grab;
     user-select: none;
 }
+
+.tns-item {
+	display: flex !important;
+	flex-direction: column;
+}

@@ -43,7 +43,7 @@
 				{%if tag %}
 					<span>{{tag}}</span>
 				{% else %}
-    				<span>{{blogCat.title}} </span>{% if article.metafields.global.duration %} | <span>{{ article.metafields.global.duration }} read</span>{% endif %} | <span>{{ article.published_at | time_tag: '%d %b' }}</span>
+    				<span>{{blogCat.title}} </span>
     			{% endif %}
     		</p>
     	{% endif %}
@@ -60,8 +60,9 @@
 	            alt="{{ preview_image.alt | escape }}">  
 	        </div>
         </div>
-        <article class="block__info block__info--flexed block__info--{{ orientation }}">   
+        <article class="block__info block__info--flexed block__info--skinny block__info--{{ orientation }}">   
         	<div>
+        		<small class="block__meta">{% if article.metafields.global.duration %}<span>{{ article.metafields.global.duration }} read</span>{% endif %} | <span>{{ article.published_at | time_tag: '%d %b' }}</span></small>
 	            <h4 class="block__title block__title--small">{{ article.title }}</h4>  
 	            {% if truncate > 0 %}                           
 	            <div class="block__p">

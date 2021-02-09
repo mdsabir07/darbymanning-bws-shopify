@@ -6,43 +6,45 @@
       {% if block.settings.type == 'page' %}
       	{%- assign article = pages[block.settings.page] -%}
       {% endif %}
-          <article class="block border" aria-labelledby="FeaturedBlogTitle-{{ forloop.index0 }}-{{ section.id }}"> 
-              <a href="{{ article.url }}">
-              	<p class="block__message block__message--white"><span>{{block.settings.tag}} </span></p>
-                <div class="home-news__img">
-                  {%- assign img_url = article.image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
-                  {%- assign alt = article.title -%}
-                  {% if block.settings.image != blank %}
-                  	{%- assign img_url = block.settings.image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
-				  	{%- assign alt = block.settings.image.alt -%}
-				  {% endif %}
-                    <img
-                        class="lazyload lazypreload"
-                        data-src="{{ img_url }}"
-                        data-sizes="auto"
-                        alt="{{ alt | escape }}">
-                </div>
-              </a>
-              <div class="block__info  block__info--white">
-                  <h3 class="block__title block__title--mid" id="FeaturedBlogTitle-{{ forloop.index0 }}-{{ section.id }}">
-                    {{ article.title }}
-                  </h3>
-                  <div class="block__p">
-                    {% if article.excerpt.size > 0 %}
-                      {{ article.excerpt }}
-                    {% else %}
-                     {{ article.content | strip_html | truncate: 150 }}
-                    {% endif %}
-                  </div>
-
-                  <div class="block__buttons u-pT-32 ">
-                    <a href="{{ article.url }}"
-                      class="btn button"
-                      aria-label="{{ 'blogs.article.read_more_title' | t: title: article.title }}">
-                      {{- block.settings.button_label | escape -}}
-                    </a>
-                  </div>
-              </div>
+          <article class="block block--shadow border" aria-labelledby="FeaturedBlogTitle-{{ forloop.index0 }}-{{ section.id }}"> 
+          	  <div>
+	              <a href="{{ article.url }}">
+	              	<p class="block__message block__message--white"><span>{{block.settings.tag}} </span></p>
+	                <div class="home-news__img">
+	                  {%- assign img_url = article.image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
+	                  {%- assign alt = article.title -%}
+	                  {% if block.settings.image != blank %}
+	                  	{%- assign img_url = block.settings.image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
+					  	{%- assign alt = block.settings.image.alt -%}
+					  {% endif %}
+	                    <img
+	                        class="lazyload lazypreload"
+	                        data-src="{{ img_url }}"
+	                        data-sizes="auto"
+	                        alt="{{ alt | escape }}">
+	                </div>
+	              </a>
+	              <div class="block__info  block__info--white">
+	                  <h3 class="block__title block__title--mid" id="FeaturedBlogTitle-{{ forloop.index0 }}-{{ section.id }}">
+	                    {{ article.title }}
+	                  </h3>
+	                  <div class="block__p">
+	                    {% if article.excerpt.size > 0 %}
+	                      {{ article.excerpt }}
+	                    {% else %}
+	                     {{ article.content | strip_html | truncate: 150 }}
+	                    {% endif %}
+	                  </div>
+	
+	                  <div class="block__buttons u-pT-32 ">
+	                    <a href="{{ article.url }}"
+	                      class="btn button"
+	                      aria-label="{{ 'blogs.article.read_more_title' | t: title: article.title }}">
+	                      {{- block.settings.button_label | escape -}}
+	                    </a>
+	                  </div>
+	              </div>
+	              </div>
           </article>
         </div>
       {% endfor %}

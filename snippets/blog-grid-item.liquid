@@ -2,7 +2,7 @@
 
 <div class="o-grid__item u-size-12 slider">
    	<h4 class="nimbus u-textUpper slider__title">{{blog.title}}</h4>
-	<div id="slider-{{ blog.handle }}" class="js-slider slider" data-items="{{ columns.size }}" data-gutter="1" data-responsive='{"300": {"items": "1"}, "768": {"items": "3"}, "1024": {"items": "{{ columns.size }}"}}' data-loop="0" data-basis="25">
+	<div id="slider-{{ blog.handle }}" class="js-slider slider" data-items="{{ columns.size }}" data-gutter="1" data-responsive='{"300": {"items": "2"}, "768": {"items": "3"}, "1024": {"items": "{{ columns.size }}"}}' data-loop="0" data-basis="25">
 		{% for article in blog.articles %}
 			{% assign offset = forloop.index | modulo:columns.size %}
 			{% assign ind = offset %}

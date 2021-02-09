@@ -31,9 +31,9 @@
       <span>{{ 'products.product.regular_price' | t }}</span>
     </dt>
     <dd>
-      <span class="price-item price-item--regular">       
+      <strong class="price-item price-item--regular">       
           {{ money_price }}        
-      </span>
+      </strong>
     </dd>
   </div>
   <div class="price__sale">
@@ -41,42 +41,20 @@
       <span>{{ 'products.product.sale_price' | t }}</span>
     </dt>
     <dd>
-      <span class="price-item price-item--sale">        
+      <strong class="price-item price-item--sale">        
           {{ money_price }}        
-      </span>
+      </strong>
     </dd>
     <div class="price__compare">
       <dt>
         <span>{{ 'products.product.regular_price' | t }}</span>
       </dt>
       <dd>
-        <s class="price-item price-item--regular">
+        <strong class="price-item price-item--regular">
           {{ compare_at_price | money }}
-        </s>
+        </strong>
       </dd>
     </div>
-  </div>
-  <div class="price__unit">
-    <dt>
-      <span>{{ 'products.product.unit_price_label' | t }}</span>
-    </dt>
-    <dd class="price-unit-price">
-      {%- capture unit_price_separator -%}
-        <span aria-hidden="true">/</span><span>{{ 'general.accessibility.unit_price_separator' | t }}&nbsp;</span>
-      {%- endcapture -%}
-      {%- capture unit_price_base_unit -%}
-        <span>
-          {%- if variant.unit_price_measurement -%}
-            {%- if variant.unit_price_measurement.reference_value != 1 -%}
-              {{- variant.unit_price_measurement.reference_value -}}
-            {%- endif -%}
-            {{ variant.unit_price_measurement.reference_unit }}
-          {%- endif -%}
-        </span>
-      {%- endcapture -%}
-
-      <span>{{ variant.unit_price | money }}</span>{{- unit_price_separator -}}{{- unit_price_base_unit -}}
-    </dd>
   </div>
   <div class="price__badges">
     <span class="price__badge price__badge--sale" aria-hidden="true">

@@ -21,8 +21,8 @@
             <div class="o-grid__item{% if section.blocks.size == 1 %} u-textCenter u-size-12{% endif %} u-size-6@s" {{ block.shopify_attributes }}>
                 {%- case block.type -%}
                     {%- when 'newsletter' -%}
-                        <article class="block join {% if block.settings.show_border %}border{% endif %} site-footer__newsletter">
-                            <div class="join__wrap  block__info  block__info--p-tb" style="background-color:{{block.settings.bg_color}};">
+                        <article class="block block--shadow join {% if block.settings.show_border %}border{% endif %} site-footer__newsletter">
+                            <div class="join__wrap  block__info" style="background-color:{{block.settings.bg_color}};">
 	                                <div>
 	                                <h4 class="join__title block__title  block__title--large  block__title--p-t blue u-textUpper">{{ block.settings.title }}</h4>
 	                                <div class="rte_settings">
@@ -42,7 +42,7 @@
                         </article>
 
                     {%- when 'social' -%}
-                        <article class="block social {% if block.settings.show_border %}border{% endif %}">
+                        <article class="block block--shadow social {% if block.settings.show_border %}border{% endif %}">
                             <div class="social__wrap block--row" style="background-color:{{block.settings.bg_color}};">
                                 <div class="block__col social__link">
                                     <div class="block__info  block__info--p-tb block__info--transparent">

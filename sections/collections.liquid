@@ -6,7 +6,7 @@
 
         {%- assign collection = collections[section.settings.collection] -%}
 
-        <div class="js-slider " data-items="4" data-gutter="1" data-loop="0" data-responsive='{"300": {"items": "1"}, "768": {"items": "3"}, "1024": {"items": "4"}}'>
+        <div class="js-slider " data-items="4" data-gutter="1" data-loop="0" data-responsive='{"300": {"items": "2"}, "768": {"items": "3"}, "1024": {"items": "4"}}'>
           {% for block in section.blocks %}
           	{% assign collection = collections[block.settings.collection] %}
             <div class="slide__item--{{section.id}}">
