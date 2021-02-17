@@ -11,14 +11,12 @@
             flex-direction: column;
         }
     }
-    
+
     @include respond-above(md) {
-    
-	    &--right {
-		    justify-content: flex-end;
-	    }
-	    
-	}
+        &--right {
+            justify-content: flex-end;
+        }
+    }
 
     > a {
         display: flex;
@@ -45,15 +43,13 @@
 
     &__col {
         width: 50%;
-        
+
         &--wide {
-	        width: 60%;
-	        
+            width: 60%;
         }
-        
+
         &--thin {
-	        width: 40%;
-	        
+            width: 40%;
         }
 
         @include respond-below(md) {
@@ -121,7 +117,7 @@
             flex-direction: column;
             flex-grow: 1;
             justify-content: space-between;
-            padding: 1.5rem 1rem .5rem;
+            padding: 1.5rem 1rem 0.5rem;
         }
         @include respond-above(sm) {
             &--landscape {
@@ -131,18 +127,18 @@
             }
         }
         &--skinny {
-	        padding-top: .75rem;
+            padding-top: 0.75rem;
         }
     }
-    
+
     &__meta {
-		margin-bottom: .5rem;
-		display: block;
-		transition: color 0.5s ease;
-		
-		color: var(--dark-blue);
-		
-		a:hover & {
+
+        color: var(--dark-blue);
+        display: block;
+        margin-bottom: 0.5rem;
+        transition: color 0.5s ease;
+
+        a:hover & {
             color: var(--blue);
         }
     }
@@ -155,8 +151,8 @@
         position: absolute;
         text-transform: uppercase;
         top: 0.5rem;
-        z-index: 2;
         white-space: nowrap;
+        z-index: 2;
 
         &--blue {
             color: var(--blue);
@@ -185,18 +181,18 @@
         &--top {
             height: 28rem;
             padding-top: 0;
-            
+
             @include respond-below(md) {
-	            height: 23rem
-	        }
+                height: 23rem;
+            }
         }
 
         &--shrink {
             height: 28rem;
-            
+
             @include respond-below(md) {
-	            height: 23rem
-	        }
+                height: 23rem;
+            }
         }
 
         img {
@@ -218,13 +214,18 @@
                 width: 50%;
             }
         }
-        
+
         &--contain {
-	        
-	        img {
-		        object-fit: contain;
-	        }
-	        
+            img {
+                object-fit: contain;
+            }
+        }
+
+        .price {
+            bottom: 0.5em;
+            font-weight: 300;
+            left: 0.5em;
+            position: absolute;
         }
     }
 
@@ -239,9 +240,9 @@
         font-size: 2rem;
         font-weight: bold;
         transition: color 0.5s ease;
-        
+
         &--normal {
-	        font-weight: normal;
+            font-weight: normal;
         }
 
         &--large {
@@ -251,9 +252,9 @@
                 font-size: 1.8rem;
             }
         }
-        
+
         &--xlarge {
-	        font-size: 3.6rem;
+            font-size: 3.6rem;
         }
 
         &--p-t {
@@ -262,8 +263,8 @@
 
         &--mid {
             font-size: 2.1rem;
-            text-transform: uppercase;
             margin-bottom: 0.5rem;
+            text-transform: uppercase;
 
             @include respond-below(md) {
                 font-size: 1.6rem;
@@ -271,9 +272,9 @@
         }
 
         &--small {
+            font-family: DINOTBold;
             font-size: 1.6rem;
             margin-bottom: 0;
-            font-family: DINOTBold;
             text-transform: uppercase;
         }
 
@@ -286,7 +287,7 @@
         @include DINOTRegular;
         color: var(--dark-blue);
         font-size: 1.6rem;
-        margin-bottom: .2rem;
+        margin-bottom: 0.2rem;
 
         @include respond-below(md) {
             font-size: 1.4rem;
@@ -300,7 +301,7 @@
     &__cta {
         color: var(--blue);
         font-size: 1.6rem;
-        margin-bottom: .5rem;
+        margin-bottom: 0.5rem;
         @include NimbusExt;
         @include respond-below(md) {
             font-size: 1.3rem;

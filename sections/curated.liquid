@@ -8,13 +8,47 @@
           	<div class="slide__item--{{section.id}}">
 	          	{% if block.settings.type == 'article' %}
 	          		{% assign article = articles[block.settings.article] %}
-	          		{% include 'blog-card-grid', article: article, blog: article.blog, display_btn: true, truncate: 0, custom_image: block.settings.image, custom_description: block.settings.description, custom_button_label: block.settings.button_label, custom_button_link: block.settings.button_link, custom_tag: block.settings.tag, orientation: 'cover', custom_tag_colour: block.settings.tag_colour %}
+	          		{% include 'blog-card-grid' with {
+                      article: article,
+                      blog: article.blog,
+                      display_btn: true,
+                      truncate: 0,
+                      custom_image: block.settings.image,
+                      custom_description: block.settings.description,
+                      custom_button_label: block.settings.button_label,
+                      custom_button_link: block.settings.button_link,
+                      custom_tag: block.settings.tag,
+                      orientation: 'cover',
+                      custom_tag_colour: block.settings.tag_colour
+                } %}
 	          	{% elsif block.settings.type == 'collection' %}
 	          		{% assign collection = collections[block.settings.collection] %}
-	          		{% include 'collection-card-grid', collection: collection, custom_image: block.settings.image, custom_description: block.settings.description, custom_button_label: block.settings.button_label, custom_button_link: block.settings.button_link, custom_tag: block.settings.tag, orientation: 'cover', custom_tag_colour: block.settings.tag_colour %}
+	          		{% include 'collection-card-grid' with {
+                      collection: collection,
+                      custom_image: block.settings.image,
+                      custom_description: block.settings.description,
+                      custom_button_label: block.settings.button_label,
+                      custom_button_link: block.settings.button_link,
+                      custom_tag: block.settings.tag,
+                      orientation: 'cover',
+                      custom_tag_colour: block.settings.tag_colour
+                } %}
 	          	{% else %}
 	          		{% assign product = all_products[block.settings.product] %}
-	          		{% include 'product-card-grid', product: product, shrink: true, show_vendor: true, custom_image: block.settings.image, custom_description: block.settings.description, custom_button_label: block.settings.button_label, custom_button_link: block.settings.button_link, custom_tag: block.settings.tag, custom_top: block.settings.top, custom_orientation: block.settings.orientation, custom_tag_colour: block.settings.tag_colour %}
+	          		{% include 'product-card-grid' with {
+                          product: product,
+                          shrink: true,
+                          show_vendor: true,
+                          price_on_image: true,
+                          custom_image: block.settings.image,
+                          custom_description: block.settings.description,
+                          custom_button_label: block.settings.button_label,
+                          custom_button_link: block.settings.button_link,
+                          custom_tag: block.settings.tag,
+                          custom_top: block.settings.top,
+                          custom_orientation: block.settings.orientation,
+                          custom_tag_colour: block.settings.tag_colour,
+                    } %}
 	          	{% endif %}
             </div>
           {% endfor %}
@@ -48,7 +82,7 @@
 			    </li>
 		  {% endif %}
         </ul>
-      
+
 
     </div>
 </section>
