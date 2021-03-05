@@ -1,25 +1,27 @@
-<div class="block  border  block--shadow  block--slide  block--product">
-    <a href="{{ product.url | within: collection }}">
-    	{%- assign tag = product.type -%}
-    	{% if product.metafields.global.tag %}
-    		{%- assign tag = product.metafields.global.tag -%}
-    	{% endif %}
-    	<p class="block__message  block__message--blue">{{tag}}</p>
-        <div class="block__img" data-image-loading-animation>
-            <div class="block__wrap">
-                <img src="{{ product.featured_image.src | img_url: 'large' }}" alt="{{ product.featured_image.alt | escape }}">
-			</div>
-        </div>
+{%- assign top = product.metafields.carousel.top -%}
 
-        <div class="block__info block__info--flexed block__info--190">
-        	<div>
-            	<h4 class="block__title block__title--small">{{ product.vendor }}</h4>
-            	{% assign lcase = product.vendor | downcase %}
+<div class="block  border  block--shadow  block--slide  block--product">
+	<a href="{{ product.url | within: collection }}">
+		{%- assign tag = product.type -%}
+		{% if product.metafields.global.tag %}
+			{%- assign tag = product.metafields.global.tag -%}
+		{% endif %}
+		<p class="block__message  block__message--blue">{{tag}}</p>
+		<div class="block__img  {%- if top %} block__img--top{% endif %}" data-image-loading-animation>
+			<div class="block__wrap">
+				<img src="{{ product.featured_image.src | img_url: 'large' }}" alt="{{ product.featured_image.alt | escape }}">
+			</div>
+		</div>
+
+		<div class="block__info block__info--flexed block__info--190">
+			<div>
+				<h4 class="block__title block__title--small">{{ product.vendor }}</h4>
+				{% assign lcase = product.vendor | downcase %}
 				<p class="block__p">{{ product.title | replace: product.vendor, "" | replace: lcase, "" }}</p>
 			</div>
-            <div class="price__wrapper">
-                {% include 'product-price-listing', product: product %}
-            </div>
-        </div>
-    </a>
+			<div class="price__wrapper">
+				{% include 'product-price-listing', product: product %}
+			</div>
+		</div>
+	</a>
 </div>
