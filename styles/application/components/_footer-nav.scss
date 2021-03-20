@@ -22,11 +22,13 @@
     }
 
     &__li {
-        margin: 0 0 calc(2rem / 2);
+        display: inline-block;
+        margin: 0 0 1rem;
         padding-left: 1rem;
+        width: 100%;
 
         @include respond-below(md) {
-            margin: 0 0 calc(1rem / 2);
+            margin: 0 0 0.5rem;
         }
     }
 

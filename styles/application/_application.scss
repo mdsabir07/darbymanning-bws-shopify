@@ -69,32 +69,33 @@
 \*----------------------------------------------------------------------------*/
 
 @import 'components/border';
-@import 'components/core/head'; // Core header.
-@import 'components/core/main'; // Core main.
-@import 'components/core/foot'; // Core footer.
-@import 'components/core/nav'; // Core Nav.
-@import 'components/form'; // Form Element.
-@import 'components/block'; // Block.
-@import 'components/join'; // Join.
-@import 'components/social'; // Social.
-@import 'components/footer-nav'; // Footer navigation.
-@import 'components/button'; // Button.
+@import 'components/core/head';
+@import 'components/core/main';
+@import 'components/core/foot';
+@import 'components/core/nav';
+@import 'components/form';
+@import 'components/block';
+@import 'components/join';
+@import 'components/social';
+@import 'components/footer-nav';
+@import 'components/button';
 
-@import 'components/tns'; // Tiny Slider styles.
-@import 'components/slide'; // Slide.
-@import 'components/slider'; // Slider.
-@import 'components/home-about'; // Home about.
-@import 'components/home-news'; // Home News.
+@import 'components/tns';
+@import 'components/slide';
+@import 'components/slider';
+@import 'components/home-about';
+@import 'components/home-news';
 
-@import 'components/collection-list'; // Collection small list styles.
-@import 'components/section-header'; // Collection header.
-@import 'components/section-buttons'; // Collection  Buttons.
+@import 'components/collection-item-list';
+@import 'components/collection-list';
+@import 'components/section-header';
+@import 'components/section-buttons';
 
-@import 'components/product-main'; // Product main styling.
-@import 'components/product-footprint'; // Product footprint styling.
-@import 'components/product-similar'; // Product similar items styling.
-@import 'components/accordion'; // Accordion styling.
-@import 'components/breadcrumbs'; // Breadcrumbs styling.
+@import 'components/product-main';
+@import 'components/product-footprint';
+@import 'components/product-similar';
+@import 'components/accordion';
+@import 'components/breadcrumbs';
 
 @import 'components/payment-icons';
 @import 'components/product-meta';
@@ -102,7 +103,7 @@
 @import 'components/block-spacer';
 @import 'components/pagination';
 @import 'components/fancybox';
-    
+
 @import 'components/cart-notice';
 @import 'components/search-overlay';
 @import 'components/search-result';

@@ -1,33 +1,27 @@
 .slider {
+    --bgColor: var(--light-gray);
+    background-color: var(--bgColor);
+
+    &--transparent {
+        --bgColor: white;
+    }
+
     &__title {
         margin-bottom: 0.5rem;
         padding-left: 1rem;
     }
-    
+
     &--hideLeft:after {
-	    z-index: 1;
-	    position: absolute;
-	    left: 0;
-	    top: 0;
-	    width: calc( 50vw - 62.5rem );
-	    background-color: white;
-	    height: 100%;
-	    content: '';
-	    min-width: 1.5rem;
+        z-index: 1;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: calc(50vw - 62.5rem);
+        background-color: var(--bgColor);
+        height: 100%;
+        content: '';
+        min-width: 1.5rem;
     }
-    
-    // Trump: Could instead add a modifier to Block component. This is shit, but i don't want to gave to create even more shopify schema vars for the curated slider on blog page
-    &--grey {
-	    background-color: var(--light-gray);
-	    
-		&:after {
-		    background-color: var(--light-gray);
-		}
-		
-		.block .block__info {
-			background-color: white;
-		}
-	}
 
     &__controls {
         display: flex;
@@ -49,9 +43,9 @@
         &--negative {
             padding: 0 1rem;
         }
-        
+
         &--push {
-	        top: 0;
+            top: 0;
         }
 
         @include respond-below(md) {
@@ -65,24 +59,24 @@
         margin-right: 1rem;
         order: 2;
     }
-    
+
     &__group {
-	    order: 4;
-	    display: flex;
-	    align-items: center;
+        order: 4;
+        display: flex;
+        align-items: center;
     }
-    
-    // TRUMP: Could instead add modifier to button 
+
+    // TRUMP: Could instead add modifier to button
     &__controls--inverse &__more .button {
-	    width: 23.25rem;
-	    
-	    @include respond-below(md) {
-			width: 17.75rem;   
-		}
+        width: 23.25rem;
+
+        @include respond-below(md) {
+            width: 17.75rem;
+        }
     }
-    
+
     &__controls--inverse &__prev {
-	    order: 1;
+        order: 1;
     }
 
     &__next {
@@ -96,18 +90,18 @@
         width: 4rem;
         cursor: pointer !important;
         outline: none;
-        transition: opacity .5s ease;
-        
+        transition: opacity 0.5s ease;
+
         &.invisible {
-	        opacity: 0;
-	        pointer-events: none;
+            opacity: 0;
+            pointer-events: none;
         }
 
         @include respond-below(md) {
             height: 3.6rem;
         }
     }
-    
+
     &__prev {
         align-items: center;
         display: flex;
@@ -122,11 +116,11 @@
         transform: rotate(180deg);
         opacity: 0;
         pointer-events: none;
-        transition: opacity .5s ease;
-        
+        transition: opacity 0.5s ease;
+
         &.visible {
-	        opacity: 1;
-	        pointer-events: auto;
+            opacity: 1;
+            pointer-events: auto;
         }
 
         @include respond-below(md) {

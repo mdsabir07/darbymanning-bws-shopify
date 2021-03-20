@@ -67,14 +67,11 @@
     }
 
     &__info {
-        background: var(--light-gray);
+        background: white;
         padding: 2rem 1rem 1rem;
 
         &--center {
             text-align: center;
-        }
-        &--white {
-            background: white;
         }
         &--transparent {
             background: transparent;
@@ -171,7 +168,7 @@
     }
 
     &__img {
-        background: var(--light-gray);
+        background: white;
         height: 32rem;
         overflow: hidden;
         padding: 3.1rem 0 0;
@@ -329,6 +326,18 @@
         #{$b}__img--top {
             height: 100% !important;
             padding-top: 0;
+
+            img {
+                height: 100% !important;
+            }
+        }
+    }
+
+    &--feature {
+        #{$b}__p {
+            @include respond-above(md) {
+                max-width: 50%;
+            }
         }
     }
 }

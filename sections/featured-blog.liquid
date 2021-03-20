@@ -6,7 +6,7 @@
       {% if block.settings.type == 'page' %}
       	{%- assign article = pages[block.settings.page] -%}
       {% endif %}
-          <article class="block block--shadow border" aria-labelledby="FeaturedBlogTitle-{{ forloop.index0 }}-{{ section.id }}"> 
+          <article class="block block--shadow block--feature border" aria-labelledby="FeaturedBlogTitle-{{ forloop.index0 }}-{{ section.id }}">
           	  <div>
 	              <a href="{{ article.url }}">
 	              	<p class="block__message block__message--white"><span>{{block.settings.tag}} </span></p>
@@ -35,7 +35,7 @@
 	                     {{ article.content | strip_html | truncate: 150 }}
 	                    {% endif %}
 	                  </div>
-	
+
 	                  <div class="block__buttons u-pT-32 ">
 	                    <a href="{{ article.url }}"
 	                      class="btn button"
