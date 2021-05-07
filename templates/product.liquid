@@ -1,8 +1,10 @@
 {% section 'product-template' %}
 {% section 'product-recommendations' %}
+{% section 'product-nav' %}
 
 {% assign current_variant = product.selected_or_first_available_variant %}
 
+<!-- parse-ignore-start -->
 <script type="application/ld+json">
 {
   "@context": "http://schema.org/",
@@ -39,4 +41,4 @@
   ]
 }
 </script>
-
+<!-- parse-ignore-end -->

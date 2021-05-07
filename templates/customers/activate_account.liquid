@@ -5,26 +5,27 @@
 		</div>
 
 		<div class="o-grid__item u-size-4@m u-size-6@s">
-			
-			{% form 'activate_customer_password' %} {{ form.errors |
-			default_errors }}
-			
-			<div class="password">
-			  <label for="password">Password</label>
-			  <input type="password" name="customer[password]" />
-			</div>
-			<div class="password_confirm">
-			  <label for="password_confirmation">Password Confirmation</label>
-			  <input type="password" name="customer[password_confirmation]" />
-			</div>
-			<div class="u-flex u-between u-alignCenter">
-			  <input type="submit" class="button" value="Activate" />
-			  <span>or</span>
-			  <input type="submit" class="button" name="decline" value="Decline" />
-			</div>
-			
-			{% endform %} 
-		
+
+			{% form 'activate_customer_password' %}
+				{{ form.errors |
+      default_errors }}
+
+				<div class="password">
+					<label for="password">Password</label>
+					<input type="password" name="customer[password]"/>
+				</div>
+				<div class="password_confirm">
+					<label for="password_confirmation">Password Confirmation</label>
+					<input type="password" name="customer[password_confirmation]"/>
+				</div>
+				<div class="u-flex u-between u-alignCenter">
+					<input type="submit" class="button" value="Activate"/>
+					<span>or</span>
+					<input type="submit" class="button" name="decline" value="Decline"/>
+				</div>
+
+			{% endform %}
+
 		</div>
 	</div>
 </div>

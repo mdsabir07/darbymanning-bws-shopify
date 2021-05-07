@@ -17,40 +17,40 @@
 {% endif %}
 
 <div class="block  border block--shadow block--slide">
-    <a href="{{ link_url }}">
-    	{% if tag %}
-    		<p class="block__message block__message--{{ tagColor }}">{{tag}}</p>
-    	{% endif %}
-        <div class="block__img block__img--top" data-image-loading-animation>
-         	<div class="block__wrap">
-		        {%- assign url = collection.image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
-            	{%- assign alt = collection.image.alt  %}
-                {%- if collection.metafields.carousel.image -%}
-                	{% assign url = collection.metafields.carousel.image %}
-                {%- endif -%}
-                {%- if custom_image != null -%}
-                	{% assign url = custom_image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' %}
-                {%- endif -%}
-                <img alt="{{ alt }}" class="lazyload lazypreload" data-src="{{ url }}" data-sizes="auto" />
-		    </div>
-        </div>
-        <article class="block__info block__info--flexed {%if show_vendor %}block__info--190{% endif %}">  
-        	<div> 
-                <h4 class="block__title block__title--small">{{ collection.title }}</h4> 
-                {% assign description = collection.description %} 
-                {% if collection.metafields.carousel.description %}
-                	 {% assign description = collection.metafields.carousel.description %} 
-                {% endif %} 
-                {% if custom_description != '' %}
-                	 {% assign description = custom_description %} 
-                {% endif %}                          
-                <p class="block__p">{{ description | strip_html | truncate: 80 }}</p>
-            </div>
-            {%- assign button_text = 'Shop now' -%}
+	<a href="{{ link_url }}">
+		{% if tag %}
+			<p class="block__message block__message--{{ tagColor }}">{{tag}}</p>
+		{% endif %}
+		<div class="block__img block__img--top" data-image-loading-animation>
+			<div class="block__wrap">
+				{%- assign url = collection.image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
+				{%- assign alt = collection.image.alt  %}
+				{%- if collection.metafields.carousel.image -%}
+					{% assign url = collection.metafields.carousel.image %}
+				{%- endif -%}
+				{%- if custom_image != null -%}
+					{% assign url = custom_image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' %}
+				{%- endif -%}
+				<img alt="{{ alt }}" class="lazyload lazypreload" data-src="{{ url }}" data-sizes="auto"/>
+			</div>
+		</div>
+		<article class="block__info block__info--flexed {%if show_vendor %}block__info--190{% endif %}">
+			<div>
+				<h4 class="block__title block__title--small">{{ collection.title }}</h4>
+				{% assign description = collection.description %}
+				{% if collection.metafields.carousel.description %}
+					{% assign description = collection.metafields.carousel.description %}
+				{% endif %}
+				{% if custom_description != '' %}
+					{% assign description = custom_description %}
+				{% endif %}
+				<p class="block__p">{{ description | strip_html | truncate: 80 }}</p>
+			</div>
+			{%- assign button_text = 'Shop now' -%}
 			{%if custom_button_label != '' %}
 				{%- assign button_text = custom_button_label -%}
 			{% endif %}
-            <h5 class="block__cta  nimbus">{{button_text}}</h5>
-        </article>
-    </a>
+			<h5 class="block__cta  nimbus">{{button_text}}</h5>
+		</article>
+	</a>
 </div>

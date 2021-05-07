@@ -2,4 +2,9 @@
     #GRID SETTINGS
 \*----------------------------------------------------------------------------*/
 
-$nu-gridMaxWidth: 1280px;
+:root {
+  --containerMaxWidth: 128rem;
+  --gutter: 2rem;
+}
+
+$nu-gridMaxWidth: var(--containerMaxWidth);

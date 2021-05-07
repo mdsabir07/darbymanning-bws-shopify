@@ -1,105 +1,105 @@
 <section class="o-grid  o-grid--p u-pV-40 u-mB-48">
-    {% for block in section.blocks %}
-    	{%- assign blogCat = blogs[block.settings.blog] -%}
-	    <div class="o-grid__item u-mT-32 u-mV-16@s u-size-12 {% if forloop.length == 4 %}u-size-3@m{% elsif forloop.length == 6 %} u-size-4@m{% else %}u-size-4@m{% endif %} u-size-6 u-size-4@s">
-	        <a href="{{ blogCat.url }}" class="button u-size-12 section-buttons__button {% if blog.url == blogCat.url %}active{% endif %}">{{ blogCat.title }}</a>
-	    </div>
-    {% endfor %}
+	{% for block in section.blocks %}
+		{%- assign blogCat = blogs[block.settings.blog] -%}
+		<div class="o-grid__item u-mT-32 u-mV-16@s u-size-12 {% if forloop.length == 4 %}u-size-3@m{% elsif forloop.length == 6 %} u-size-4@m{% else %}u-size-4@m{% endif %} u-size-6 u-size-4@s">
+			<a href="{{ blogCat.url }}" class="button u-size-12 section-buttons__button {% if blog.url == blogCat.url %}active{% endif %}">{{ blogCat.title }}</a>
+		</div>
+	{% endfor %}
 </section>
 
 <section>
-	
+
 	{%  if blog.title == 'Latest' %}
-	
+
 		<div class="o-grid blog-grid-view">
-		  {% for block in section.blocks %}
-		  	  {%- assign blogCat = blogs[block.settings.blog] -%}
-			  {% for article in blogCat.articles %}
-			  {% assign handle = forloop.index | modulo:11 %}
-			  {% case handle %}
-			  {% when 1 %}
-			  {% assign width = 'u-size-6@s  u-size-6@m  u-size-3@l' %}
-			  {% when 2 %}
-			  {% assign width = 'u-size-6@s  u-size-6@m  u-size-6@l' %}
-			  {% when 3 %}
-			  {% assign width = 'u-size-6@s  u-size-6@m  u-size-3@l' %}
-			  {% when 4 %}
-			  {% assign width = 'u-size-6@s  u-size-6@m  u-size-3@l' %}
-			  {% when 5 %}
-			  {% assign width = 'u-size-6@s  u-size-6@m  u-size-3@l' %}
-			  {% when 6 %}
-			  {% assign width = 'u-size-6@s  u-size-6@m  u-size-6@l' %}
-			  {% when 7 %}
-			  {% assign width = 'u-size-6@s  u-size-6@m  u-size-6@l' %}
-			  {% when 8 %}
-			  {% assign width = 'u-size-6@s  u-size-6@m  u-size-6@l' %}
-			  {% when 9 %}
-			  {% assign width = 'u-size-6@s  u-size-6@m  u-size-6@l' %}
-			  {% when 10 %}
-			  {% assign width = 'u-size-6@s  u-size-6@m  u-size-3@l' %}
-			  {% when 11 %}
-			  {% assign width = 'u-size-6@s  u-size-6@m  u-size-3@l' %}
-			  {% endcase %}
-			    <div class="o-grid__item u-size-12 {{width}} u-mB-48 u-flex">
-			      {% include 'blog-card-grid', article: article, blog: blogCat %}
-			    </div>
-			  {% endfor %}
-		  {% else %}
-			<div class="o-grid__item u-size-12">
-		    	<p class="u-mL-2">No articles in blog.</p>
-		    </div>
-		  {% endfor %}
+			{% for block in section.blocks %}
+				{%- assign blogCat = blogs[block.settings.blog] -%}
+				{% for article in blogCat.articles %}
+					{% assign handle = forloop.index | modulo:11 %}
+					{% case handle %}
+						{% when 1 %}
+							{% assign width = 'u-size-6@s  u-size-6@m  u-size-3@l' %}
+						{% when 2 %}
+							{% assign width = 'u-size-6@s  u-size-6@m  u-size-6@l' %}
+						{% when 3 %}
+							{% assign width = 'u-size-6@s  u-size-6@m  u-size-3@l' %}
+						{% when 4 %}
+							{% assign width = 'u-size-6@s  u-size-6@m  u-size-3@l' %}
+						{% when 5 %}
+							{% assign width = 'u-size-6@s  u-size-6@m  u-size-3@l' %}
+						{% when 6 %}
+							{% assign width = 'u-size-6@s  u-size-6@m  u-size-6@l' %}
+						{% when 7 %}
+							{% assign width = 'u-size-6@s  u-size-6@m  u-size-6@l' %}
+						{% when 8 %}
+							{% assign width = 'u-size-6@s  u-size-6@m  u-size-6@l' %}
+						{% when 9 %}
+							{% assign width = 'u-size-6@s  u-size-6@m  u-size-6@l' %}
+						{% when 10 %}
+							{% assign width = 'u-size-6@s  u-size-6@m  u-size-3@l' %}
+						{% when 11 %}
+							{% assign width = 'u-size-6@s  u-size-6@m  u-size-3@l' %}
+					{% endcase %}
+					<div class="o-grid__item u-size-12 {{width}} u-mB-48 u-flex">
+						{% include 'blog-card-grid', article: article, blog: blogCat %}
+					</div>
+				{% endfor %}
+			{% else %}
+				<div class="o-grid__item u-size-12">
+					<p class="u-mL-2">No articles in blog.</p>
+				</div>
+			{% endfor %}
 		</div>
-	
+
 	{% else %}
 
 		{% paginate blog.articles by 11 %}
-		
-		<div class="o-grid blog-grid-view">
-		  {% for article in blog.articles %}
-		  {% assign handle = forloop.index %}
-		  {% case handle %}
-		  {% when 1 %}
-		  {% assign width = 'u-size-6@s  u-size-6@m  u-size-3@l' %}
-		  {% when 2 %}
-		  {% assign width = 'u-size-6@s  u-size-6@m  u-size-6@l' %}
-		  {% when 3 %}
-		  {% assign width = 'u-size-6@s  u-size-6@m  u-size-3@l' %}
-		  {% when 4 %}
-		  {% assign width = 'u-size-6@s  u-size-6@m  u-size-3@l' %}
-		  {% when 5 %}
-		  {% assign width = 'u-size-6@s  u-size-6@m  u-size-3@l' %}
-		  {% when 6 %}
-		  {% assign width = 'u-size-6@s  u-size-6@m  u-size-6@l' %}
-		  {% when 7 %}
-		  {% assign width = 'u-size-6@s  u-size-6@m  u-size-6@l' %}
-		  {% when 8 %}
-		  {% assign width = 'u-size-6@s  u-size-6@m  u-size-6@l' %}
-		  {% when 9 %}
-		  {% assign width = 'u-size-6@s  u-size-6@m  u-size-6@l' %}
-		  {% when 10 %}
-		  {% assign width = 'u-size-6@s  u-size-6@m  u-size-3@l' %}
-		  {% when 11 %}
-		  {% assign width = 'u-size-6@s  u-size-6@m  u-size-3@l' %}
-		  {% endcase %}
-		    <div class="o-grid__item u-size-12 {{width}} u-mB-48 u-flex">
-		      {% include 'blog-card-grid', article: article, blog: blog %}
-		    </div>
-		  {% else %}
-			<div class="o-grid__item u-size-12">
-		    	<p class="u-mL-2">No articles in blog.</p>
-		    </div>
-		  {% endfor %}
-		</div>
-	
-		{%- if paginate.pages > 1 -%}
-		  {% include 'pagination', paginate: paginate %}
-		{%- endif -%}
-		
+
+			<div class="o-grid blog-grid-view">
+				{% for article in blog.articles %}
+					{% assign handle = forloop.index %}
+					{% case handle %}
+						{% when 1 %}
+							{% assign width = 'u-size-6@s  u-size-6@m  u-size-3@l' %}
+						{% when 2 %}
+							{% assign width = 'u-size-6@s  u-size-6@m  u-size-6@l' %}
+						{% when 3 %}
+							{% assign width = 'u-size-6@s  u-size-6@m  u-size-3@l' %}
+						{% when 4 %}
+							{% assign width = 'u-size-6@s  u-size-6@m  u-size-3@l' %}
+						{% when 5 %}
+							{% assign width = 'u-size-6@s  u-size-6@m  u-size-3@l' %}
+						{% when 6 %}
+							{% assign width = 'u-size-6@s  u-size-6@m  u-size-6@l' %}
+						{% when 7 %}
+							{% assign width = 'u-size-6@s  u-size-6@m  u-size-6@l' %}
+						{% when 8 %}
+							{% assign width = 'u-size-6@s  u-size-6@m  u-size-6@l' %}
+						{% when 9 %}
+							{% assign width = 'u-size-6@s  u-size-6@m  u-size-6@l' %}
+						{% when 10 %}
+							{% assign width = 'u-size-6@s  u-size-6@m  u-size-3@l' %}
+						{% when 11 %}
+							{% assign width = 'u-size-6@s  u-size-6@m  u-size-3@l' %}
+					{% endcase %}
+					<div class="o-grid__item u-size-12 {{width}} u-mB-48 u-flex">
+						{% include 'blog-card-grid', article: article, blog: blog %}
+					</div>
+				{% else %}
+					<div class="o-grid__item u-size-12">
+						<p class="u-mL-2">No articles in blog.</p>
+					</div>
+				{% endfor %}
+			</div>
+
+			{%- if paginate.pages > 1 -%}
+				{% include 'pagination', paginate: paginate %}
+			{%- endif -%}
+
 		{% endpaginate %}
-	
+
 	{% endif %}
-	
+
 </section>
 
 

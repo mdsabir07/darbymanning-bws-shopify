@@ -1,66 +1,63 @@
 <section class="home-about">
-    <div class="o-grid ">
-     {%- assign grid_item_width = 'u-size-4@m u-size-12 u-size-4@s' -%}
-        {% case section.blocks.size %}
-        {% when 1 %}
-            {%- assign grid_item_width = 'u-size-6@m u-size-12' -%}
-        {% when 2 %}
-            {%- assign grid_item_width = 'u-size-6@m u-size-12' -%}
-        {% when 4 %}
-            {%- assign grid_item_width = 'u-size-6@m u-size-12' -%}
-        {% endcase %}
-        {% for block in section.blocks %}
-            <div class="o-grid__item {{ grid_item_width }} text-{{ section.settings.align_text }}" {{ block.shopify_attributes }}>
-            <div class="home-about__item_wrapper">
-            <article class="home-about__item">
-                <div class="home-about__icon">
-	                {% if block.settings.image != blank %}
-	                    {%- assign img_url = block.settings.image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
-	                    <img
-	                        class="lazyload lazypreload"
-	                        data-src="{{ img_url }}"
-	                        data-sizes="auto"
-	                        alt="{{ block.settings.image.alt | escape }}">
-	                {% else %}
-	                    {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
-	                {% endif %}
-                </div>
-                 {% if block.settings.text != blank or block.settings.title != blank %}
-                  <div class="home-about__info">
-                    {% if block.settings.title != blank %}
-                        <h3 class="home-about__title">{{ block.settings.title | escape }}</h1>
-                    {% endif %}
-                    {% if block.settings.text != blank %}
-                    <div class="rte-setting">
-                        {{ block.settings.text }}
-                    </div>
-                    {% endif %}
-                  </div>
-                {% endif %}
-            </article>
-            </div>
-        </div>
-       {% endfor %}
-    </div>
-    {% if section.settings.button_label != blank and section.settings.button_link != blank %}
-          {%- capture ariaLabel -%}
-            {{- section.settings.button_label -}}
-            {%- if section.settings.button_link.type == 'frontpage_link' -%}
-              : {{ 'homepage.general.title' | t -}}
-            {%- elsif section.settings.button_link.type == 'catalog_link' -%}
-              : {{ 'collections.catalog.title' | t -}}
-            {%- elsif section.settings.button_link.object.title -%}
-              : {{ section.settings.button_link.object.title -}}
-            {%- endif -%}
-          {%- endcapture -%}
-        <div class="u-size-12 u-pT-32 u-textCenter">
-          <a href="{{ section.settings.button_link }}"
-            class="btn btn--secondary btn--small home-about__button button"
-            aria-label="{{ ariaLabel | escape }}">
-            {{- section.settings.button_label | escape -}}
-          </a>
-        </div>
-    {% endif %}
+	<div class="o-grid ">
+		{%- assign grid_item_width = 'u-size-4@m u-size-12 u-size-4@s' -%}
+		{% case section.blocks.size %}
+			{% when 1 %}
+				{%- assign grid_item_width = 'u-size-6@m u-size-12' -%}
+			{% when 2 %}
+				{%- assign grid_item_width = 'u-size-6@m u-size-12' -%}
+			{% when 4 %}
+				{%- assign grid_item_width = 'u-size-6@m u-size-12' -%}
+		{% endcase %}
+		{% for block in section.blocks %}
+			<div class="o-grid__item {{ grid_item_width }} text-{{ section.settings.align_text }}" {{ block.shopify_attributes }}>
+				<div class="home-about__item_wrapper">
+					<article class="home-about__item">
+						<div class="home-about__icon">
+							{% if block.settings.image != blank %}
+								{%- assign img_url = block.settings.image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
+								<img class="lazyload lazypreload" data-src="{{ img_url }}" data-sizes="auto" alt="{{ block.settings.image.alt | escape }}">
+							{% else %}
+								{{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+							{% endif %}
+						</div>
+						{% if block.settings.text != blank or block.settings.title != blank %}
+							<div class="home-about__info">
+								{% if block.settings.title != blank %}
+									<h3 class="home-about__title">{{ block.settings.title | escape }}</h1>
+								{% endif %}
+								{% if block.settings.text != blank %}
+									<div class="rte-setting">
+										{{ block.settings.text }}
+									</div>
+								{% endif %}
+							</div>
+						{% endif %}
+					</article>
+				</div>
+			</div>
+		{% endfor %}
+	</div>
+	{% if section.settings.button_label != blank and section.settings.button_link != blank %}
+		{%- capture ariaLabel -%}
+			{{- section.settings.button_label -}}
+			{%- if section.settings.button_link.type == 'frontpage_link' -%}
+				:
+				{{ 'homepage.general.title' | t -}}
+			{%- elsif section.settings.button_link.type == 'catalog_link' -%}
+				:
+				{{ 'collections.catalog.title' | t -}}
+			{%- elsif section.settings.button_link.object.title -%}
+				:
+				{{ section.settings.button_link.object.title -}}
+			{%- endif -%}
+		{%- endcapture -%}
+		<div class="u-size-12 u-pT-32 u-textCenter">
+			<a href="{{ section.settings.button_link }}" class="btn btn--secondary btn--small home-about__button button" aria-label="{{ ariaLabel | escape }}">
+				{{- section.settings.button_label | escape -}}
+			</a>
+		</div>
+	{% endif %}
 </section>
 
 {% schema %}
@@ -100,26 +97,26 @@
           "id": "text",
           "label": "Text",
           "default": "<p>Share blog posts, products, or promotions with your customers. Use this text to describe products, share details on availability and style, or as a space to display recent reviews or FAQs.</p>"
-        }
-      ]
-    }
-  ],
-  "presets": [
-    {
-      "name": "Text columns with images",
-      "category": "Text",
-      "blocks": [
-        {
-          "type": "text_block"
-        },
-        {
-          "type": "text_block"
-        },
-        {
-          "type": "text_block"
-        }
-      ]
-    }
-  ]
-}
+	          }
+	        ]
+	      }
+	    ],
+	    "presets": [
+	      {
+	        "name": "Text columns with images",
+	        "category": "Text",
+	        "blocks": [
+	          {
+	            "type": "text_block"
+	          },
+	          {
+	            "type": "text_block"
+	          },
+	          {
+	            "type": "text_block"
+	          }
+	        ]
+	      }
+	    ]
+	  }
 {% endschema %}

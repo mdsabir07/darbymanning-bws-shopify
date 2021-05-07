@@ -3,69 +3,69 @@
 \*----------------------------------------------------------------------------*/
 
 .pre-footer {
-    margin-top: 8rem;
+  margin-top: 8rem;
 }
 
 .footer {
-    margin-top: 8rem;
-    overflow: hidden;
+  margin-top: 8rem;
+  overflow: hidden;
 
-    &__top {
-        background-color: $color-midlight-gray;
+  &__top {
+    background-color: $color-midlight-gray;
+  }
+
+  &__section {
+    padding: 8rem 0;
+    &--pt0 {
+      padding-top: 0;
     }
-
-    &__section {
-        padding: 8rem 0;
-        &--pt0 {
-            padding-top: 0;
-        }
-        &--light-gray {
-            background-color: var(--light-gray);
-        }
-        &--xlight-gray {
-            background-color: var(--exlight-gray);
-        }
+    &--light-gray {
+      background-color: var(--light-gray);
     }
-
-    &__spacer {
-        background-color: white;
-        height: 4rem;
-        margin: -3.2rem -50vh;
+    &--xlight-gray {
+      background-color: var(--exlight-gray);
     }
+  }
 
-    &__methods {
-        @include respond-below(md) {
-            order: 1;
-        }
+  &__spacer {
+    background-color: white;
+    height: 4rem;
+    margin: -3.2rem -50vh;
+  }
+
+  &__methods {
+    @include respond-below(md) {
+      order: 1;
     }
+  }
 
-    &__payment {
-        @include AvenirNextRegular;
-        align-items: center;
-        color: var(--tundora);
-        display: flex;
-        font-size: 1.8rem;
-        padding-left: 6rem;
+  &__payment {
+    @include AvenirNextRegular;
+    align-items: center;
+    color: var(--tundora);
+    display: flex;
+    font-size: 1.8rem;
+    padding-left: 6rem;
 
-        @include respond-below(md) {
-            align-items: flex-start;
-            flex-direction: column;
-            padding-left: 0;
-        }
+    @include respond-below(md) {
+      align-items: flex-start;
+      flex-direction: column;
+      padding-left: 0;
     }
+  }
 
-    &__legal {
-        @include respond-below(md) {
-            order: 2;
-        }
+  &__legal {
+    @include respond-below(md) {
+      order: 2;
     }
+  }
 
-    &__bottom {
-        background-color: white;
-        padding: 4rem 0;
+  &__bottom {
+    background-color: white;
+    padding: 4rem 0;
 
-        @include respond-below(md) {
-            padding: 2.5rem 0;
-        }
+    @include respond-below(md) {
+      padding: 2.5rem 0;
     }
+  }
 }

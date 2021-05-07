@@ -1,82 +1,82 @@
 .slide {
+  display: flex;
+  flex-direction: row;
+  padding: 0 1.4rem;
+  position: relative;
+  width: 100%;
+  z-index: 2;
+
+  &__info {
+    background-color: var(--light-gray);
     display: flex;
     flex-direction: row;
-    padding: 0 1.4rem;
-    position: relative;
-    width: 100%;
-    z-index: 2;
+    flex-wrap: wrap;
+    margin-bottom: 7rem;
+    order: 1;
+    padding: 5rem 3rem;
+    padding-right: 8rem;
+    width: 40%;
 
-    &__info {
-        background-color: var(--light-gray);
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        margin-bottom: 7rem;
-        order: 1;
-        padding: 5rem 3rem;
-        padding-right: 8rem;
-        width: 40%;
-
-        @include respond-below(md) {
-            margin-bottom: 0;
-            order: 2 !important;
-            padding: 2.5rem 1rem;
-            width: 100%;
-        }
+    @include respond-below(md) {
+      margin-bottom: 0;
+      order: 2 !important;
+      padding: 2.5rem 1rem;
+      width: 100%;
     }
+  }
 
-    &__title {
-        font-size: 3.5rem;
-        font-weight: 400;
-        line-height: 1.2;
+  &__title {
+    font-size: 3.5rem;
+    font-weight: 400;
+    line-height: 1.2;
 
-        @include respond-below(md) {
-            font-size: 2.4rem;
-        }
+    @include respond-below(md) {
+      font-size: 2.4rem;
     }
+  }
 
-    &__img {
-        height: 48rem;
-        order: 2;
-        width: 60%;
+  &__img {
+    height: 48rem;
+    order: 2;
+    width: 60%;
 
-        img {
-            height: 100%;
-            object-fit: cover;
-            width: 100%;
-        }
-
-        @include respond-below(md) {
-            height: 100%;
-            order: 1 !important;
-            width: 100%;
-        }
-        
-        @include respond-below(sm) {
-            max-height: 32rem;
-        }
-    }
-
-    &__button {
-        align-self: flex-end;
-        background: var(--blue);
-        font-size: 1.8rem;
-        padding: 1rem 3rem;
-        transition: 0.3s all;
-
-        &:hover,
-        &:hover {
-            background: var(--dark-blue);
-        }
-        
-        @include respond-below(sm) {
-	  		padding: 1rem;
-	  		font-size: 1.575rem;   
-	    }
+    img {
+      height: 100%;
+      object-fit: cover;
+      width: 100%;
     }
 
     @include respond-below(md) {
-        flex-direction: column;
-        padding: 0 0.625rem;
+      height: 100%;
+      order: 1 !important;
+      width: 100%;
     }
+
+    @include respond-below(sm) {
+      max-height: 32rem;
+    }
+  }
+
+  &__button {
+    align-self: flex-end;
+    background: var(--blue);
+    font-size: 1.8rem;
+    padding: 1rem 3rem;
+    transition: 0.3s all;
+
+    &:hover,
+    &:hover {
+      background: var(--dark-blue);
+    }
+
+    @include respond-below(sm) {
+      padding: 1rem;
+      font-size: 1.575rem;
+    }
+  }
+
+  @include respond-below(md) {
+    flex-direction: column;
+    padding: 0 0.625rem;
+  }
 }

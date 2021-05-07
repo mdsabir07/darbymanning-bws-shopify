@@ -1,85 +1,83 @@
 .join {
-	height: 100%;
-	display: flex;
-	flex-direction: column;
-    &__wrap {
-        background: var(--dark-blue);
-        padding: 2.5rem;
-		display: flex;
-		flex-direction: column;
-		justify-content: space-between;
-		flex-grow: 1;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  &__wrap {
+    background: var(--dark-blue);
+    padding: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-grow: 1;
 
-        @include respond-below(md) {
-            padding: 1.5rem;
-        }
+    @include respond-below(md) {
+      padding: 1.5rem;
     }
-    &__ul {
-        margin: 0 0 2rem;
-        padding: 0;
-        @include DINOTRegular;
-        line-height: 1.8rem;
-    }
-    p {
-	    font-size: 1.6rem;
-    }
-    &__li {
-        color: white;
-        display: inline-block;
-        padding: 0 1rem 0 0;
-        line-height: 1rem;
-        font-size: 1.6rem;
+  }
+  &__ul {
+    margin: 0 0 2rem;
+    padding: 0;
+    @include DINOTRegular;
+    line-height: 1.8rem;
+  }
+  p {
+    font-size: 1.6rem;
+  }
+  &__li {
+    color: white;
+    display: inline-block;
+    padding: 0 1rem 0 0;
+    line-height: 1rem;
+    font-size: 1.6rem;
 
-        &::before {
-            content: '•';
-            padding-right: .5rem;
-        }
-
-        &:first-child {
-            &::before {
-                content: '';
-                padding-right: 0;
-            }
-        }
-
-        @include respond-below(md) {
-            font-size: 1.4rem;
-        }
+    &::before {
+      content: "•";
+      padding-right: 0.5rem;
     }
 
-	
-
-    &__button {
-        margin-top: 2rem;
-        margin-bottom: 1rem;
-    }
-
-    &__input {
-        @include NimbusExt;
-        @include placeholder {
-            color: var(--silver);
-        }
-        border-radius: 0;
-        font-size: 1.8rem;
-        height: 4.3rem;
-        margin-bottom: 0;
-
-        @include respond-below(md) {
-            font-size: 1.4rem;
-        }
-    }
-
-    &__title {
-        color: var(--blue);
-
-        @include respond-below(md) {
-            padding-top: 1rem;
-        }
+    &:first-child {
+      &::before {
+        content: "";
+        padding-right: 0;
+      }
     }
 
     @include respond-below(md) {
-        &:before {
-            top: 1rem;
-        }
+      font-size: 1.4rem;
     }
+  }
+
+  &__button {
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  &__input {
+    @include NimbusExt;
+    @include placeholder {
+      color: var(--silver);
+    }
+    border-radius: 0;
+    font-size: 1.8rem;
+    height: 4.3rem;
+    margin-bottom: 0;
+
+    @include respond-below(md) {
+      font-size: 1.4rem;
+    }
+  }
+
+  &__title {
+    color: var(--blue);
+
+    @include respond-below(md) {
+      padding-top: 1rem;
+    }
+  }
+
+  @include respond-below(md) {
+    &:before {
+      top: 1rem;
+    }
+  }
 }

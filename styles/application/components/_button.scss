@@ -1,47 +1,54 @@
 .button {
-    background: var(--blue);
-    box-sizing: border-box;
-    color: var(--white);
-    display: inline-flex;
-    font-size: 1.75rem;
-    font-style: normal;
-    font-weight: 400;
-    justify-content: center;
-    padding: 0.7rem 3rem;
-    text-transform: uppercase;
-    transition: 0.3s all;
-    @include NimbusExt;
+  background: var(--blue);
+  box-sizing: border-box;
+  color: var(--white);
+  display: inline-flex;
+  font-size: 1.75rem;
+  font-style: normal;
+  font-weight: 400;
+  justify-content: center;
+  padding: 0.7rem 3rem;
+  text-transform: uppercase;
+  transition: 0.3s all;
+  @include NimbusExt;
 
+  &:hover,
+  &:focus {
+    background: var(--dark-blue);
+    color: var(--white);
+  }
+
+  &--dark {
     &:hover,
     &:focus {
-        background: var(--dark-blue);
-        color: var(--white);
+      background-color: white;
+      color: var(--dark-blue);
     }
+  }
 
-    &--dark {
-        &:hover,
-        &:focus {
-            background-color: white;
-            color: var(--dark-blue);
-        }
-    }
+  &--round {
+    align-items: center;
+    border-radius: 50%;
+    display: flex;
+    flex-direction: row;
+    height: 5rem;
+    justify-content: center;
+    padding: 0;
+    width: 5rem;
+  }
 
-    &--round {
-        align-items: center;
-        border-radius: 50%;
-        display: flex;
-        flex-direction: row;
-        height: 5rem;
-        justify-content: center;
-        padding: 0;
-        width: 5rem;
-    }
+  &--full {
+    align-items: center;
+    flex: 1;
+    min-height: 5.6rem;
+    width: 100%;
+  }
 
-    @include respond-below(lg) {
-        padding: 0.7rem 2.5rem;
-    }
+  @include respond-below(lg) {
+    padding: 0.7rem 2.5rem;
+  }
 
-    @include respond-below(md) {
-        font-size: 1.5rem;
-    }
+  @include respond-below(md) {
+    font-size: 1.5rem;
+  }
 }

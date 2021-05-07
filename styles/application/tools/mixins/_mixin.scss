@@ -4,33 +4,33 @@
 
 //* CLEARFIX *//
 @mixin clearfix() {
-    &:after {
-        clear: both !important;
-        content: '' !important;
-        display: block !important;
-    }
+  &:after {
+    clear: both !important;
+    content: "" !important;
+    display: block !important;
+  }
 }
 
 //* ANCHOR EVENT *//
 @mixin on-event($self: false) {
-    @if $self {
-        &,
-        &:hover,
-        &:active,
-        &:focus {
-            @content;
-        }
-    } @else {
-        &:hover,
-        &:active,
-        &:focus {
-            @content;
-        }
+  @if $self {
+    &,
+    &:hover,
+    &:active,
+    &:focus {
+      @content;
     }
+  } @else {
+    &:hover,
+    &:active,
+    &:focus {
+      @content;
+    }
+  }
 }
 
 //* REMOVE DEFATULT LISTING FROM STYLE *//
 @mixin list-reset() {
-    list-style: none;
-    margin: 0;
+  list-style: none;
+  margin: 0;
 }

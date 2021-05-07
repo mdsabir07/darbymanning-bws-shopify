@@ -1,72 +1,72 @@
 .social {
+  height: 100%;
+
+  &__wrap {
     height: 100%;
+    @include respond-below(md) {
+      flex-direction: column;
+      height: auto;
 
-    &__wrap {
-        height: 100%;
-        @include respond-below(md) {
-            flex-direction: column;
-            height: auto;
+      .block__col {
+        width: 100%;
+      }
 
-            .block__col {
-                width: 100%;
-            }
-
-            .block__info {
-                padding: 0 1.5rem 1.5rem;
-            }
-        }
+      .block__info {
+        padding: 0 1.5rem 1.5rem;
+      }
     }
+  }
 
-    &__img {
-        height: 100%;
-        object-fit: cover;
+  &__img {
+    height: 100%;
+    object-fit: cover;
 
-        @include respond-below(md) {
-            max-height: 18rem;
-            order: 1;
-        }
+    @include respond-below(md) {
+      max-height: 18rem;
+      order: 1;
     }
+  }
 
-    &__ul {
-        list-style: none;
-        margin: 0 0 2rem;
-        padding: 0;
+  &__ul {
+    list-style: none;
+    margin: 0 0 2rem;
+    padding: 0;
 
-        @include respond-below(md) {
-            margin-top: 1rem;
-            margin-bottom: 0;
-        }
+    @include respond-below(md) {
+      margin-top: 1rem;
+      margin-bottom: 0;
     }
+  }
 
-    &__li {
-        font-size: 1.8rem;
-        padding: 0.3rem 0;
+  &__li {
+    font-size: 1.8rem;
+    padding: 0.3rem 0;
 
-        @include respond-below(md) {
-            font-size: 1.4rem;
-        }
+    @include respond-below(md) {
+      font-size: 1.4rem;
     }
+  }
 
-    &__a {
-        color: var(--dark-gray);
-        transition: 0.3s all;
+  &__a {
+    color: var(--dark-gray);
+    transition: 0.3s all;
 
-        &:hover {
-            color: var(--blue);
-        }
+    &:hover {
+      color: var(--blue);
     }
+  }
 
-    &__link {
-        @include respond-below(md) {
-            order: 2;
-        }
+  &__link {
+    @include respond-below(md) {
+      order: 2;
     }
+  }
 
-    @include respond-below(sm) {
-        margin-top: 3rem;
+  @include respond-below(sm) {
+    margin-top: 3rem;
 
-        &:before {
-            top: 1rem;
-        }
+    &:before {
+      top: 1rem;
     }
+  }
 }

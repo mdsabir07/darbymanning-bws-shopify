@@ -1,53 +1,62 @@
 <div class="o-grid u-pV-40 u-justifyCenter">
 
-<div class="o-grid__item u-size-10 u-size-8@m">
+	<div class="o-grid__item u-size-10 u-size-8@m">
 
-<div class="o-grid">
+		<div class="o-grid">
 
-<div class="o-grid__item u-mB-20">
-	<div class="u-flex u-alignCenter u-between u-mB-20">
-		<h1 class="u-m-0">Search</h1>
-			{% if search.performed %}
-			   <p class="u-m-0">{{ search.results_count }} {{ search.results_count | pluralize: 'result', 'results' }} <span class="u-hide@m-down">for <strong>"{{search.terms | escape}}"</strong></span></p> 
-			  {% endif %}
-			 </div>
-	  <form action="/search" method="get" role="search">
-    <input type="search" name="q" value="{{ search.terms | escape }}">
-  </form>
-</div>
+			<div class="o-grid__item u-mB-20">
+				<div class="u-flex u-alignCenter u-between u-mB-20">
+					<h1 class="u-m-0">Search</h1>
+					{% if search.performed %}
+						<p class="u-m-0">{{ search.results_count }}
+							{{ search.results_count | pluralize: 'result', 'results' }}
+							<span class="u-hide@m-down">for
+								<strong>"{{search.terms | escape}}"</strong>
+							</span>
+						</p>
+					{% endif %}
+				</div>
+				<form action="/search" method="get" role="search">
+					<input type="search" name="q" value="{{ search.terms | escape }}">
+				</form>
+			</div>
 
 
-{% paginate search.results by 10 %}
-  
+			{% paginate search.results by 10 %}
 
-  {% if search.performed %}
-    {% for item in search.results %}
-    	<div class="o-grid__item">
-    		<div class="search-result">
-    		<div class="o-grid u-alignCenter">
-      {% if item.featured_image %}
-      	<div class="o-grid__item u-size-3@m">
-	        <a href="{{ item.url | within: collection }}" title="{{ item.title | escape }}" class="u-flex u-justifyCenter">
-	          {{ item.featured_image.src | img_url: 'medium' | img_tag: item.featured_image.alt }}
-	        </a>
-	    </div>
-      {% endif %}
-      <div class="o-grid__item u-size-9@m">
-	      <h5>{{ item.title | link_to: item.url }}</h5>
-	      <p>{{ item.content | strip_html | truncatewords: 50 }}</p>
-	   </div>
-      </div>
-      </div>
-    {% else %}
-    	<div class="o-grid__item">
-      <p>No results for <strong>"{{search.terms | escape}}"</strong></p>
-      </div>
-    {% endfor %}
-  {% endif %}
 
-  {% if paginate.pages > 1 %}{% include 'pagination', paginate: paginate %}{% endif %}
-{% endpaginate %}
+				{% if search.performed %}
+					{% for item in search.results %}
+						<div class="o-grid__item">
+							<div class="search-result">
+								<div class="o-grid u-alignCenter">
+									{% if item.featured_image %}
+										<div class="o-grid__item u-size-3@m">
+											<a href="{{ item.url | within: collection }}" title="{{ item.title | escape }}" class="u-flex u-justifyCenter">
+												{{ item.featured_image.src | img_url: 'medium' | img_tag: item.featured_image.alt }}
+											</a>
+										</div>
+									{% endif %}
+									<div class="o-grid__item u-size-9@m">
+										<h5>{{ item.title | link_to: item.url }}</h5>
+										<p>{{ item.content | strip_html | truncatewords: 50 }}</p>
+									</div>
+								</div>
+							</div>
+						{% else %}
+							<div class="o-grid__item">
+								<p>No results for
+									<strong>"{{search.terms | escape}}"</strong>
+								</p>
+							</div>
+						{% endfor %}
+					{% endif %}
 
-</div>
+					{% if paginate.pages > 1 %}
+						{% include 'pagination', paginate: paginate %}
+					{% endif %}
+				{% endpaginate %}
 
-</div>
+			</div>
+
+		</div>

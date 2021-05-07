@@ -10,11 +10,11 @@
 
 {%if blog == null %}
 	{% for link in linklists.blog.links %}
-	  {% for a in link.object.articles %}
-	    {%if a.handle == article.handle %}
-	    	{%- assign blogCat = link.object -%}
-	    {% endif %}
-	  {% endfor %} 
+		{% for a in link.object.articles %}
+			{%if a.handle == article.handle %}
+				{%- assign blogCat = link.object -%}
+			{% endif %}
+		{% endfor %}
 	{% endfor %}
 {% endif %}
 
@@ -37,52 +37,56 @@
 {% endif %}
 
 <div class="block block--slide border block--shadow">
-    <a href="{{ link_url }}" class="block__link block__link--{{ orientation }}">
-    	{% if hide_message == null %}
-    		<p class="block__message  block__message--{{ tagColor }}">
+	<a href="{{ link_url }}" class="block__link block__link--{{ orientation }}">
+		{% if hide_message == null %}
+			<p class="block__message  block__message--{{ tagColor }}">
 				{%if tag %}
 					<span>{{tag}}</span>
 				{% else %}
-    				<span>{{blogCat.title}} </span>
-    			{% endif %}
-    		</p>
-    	{% endif %}
-        <div class="block__img block__img--transparent block__img--{{ orientation }} block__img--top" data-image-loading-animation>
-        	<div class="block__wrap">
-	            {%- assign img_url = article.image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
-	            {%if custom_image != null %}
-	            	{%- assign img_url = custom_image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
-	            {% endif %}
-	            <img
-	            class="lazyload lazypreload"
-	            data-src="{{ img_url }}"
-	            data-sizes="auto"
-	            alt="{{ preview_image.alt | escape }}">  
-	        </div>
-        </div>
-        <article class="block__info block__info--flexed block__info--skinny block__info--{{ orientation }}">   
-        	<div>
-        		<small class="block__meta">{% if article.metafields.global.duration %}<span>{{ article.metafields.global.duration }} read</span>{% endif %} | <span>{{ article.published_at | time_tag: '%d %b' }}</span></small>
-	            <h4 class="block__title block__title--small">{{ article.title }}</h4>  
-	            {% if truncate > 0 %}                           
-	            <div class="block__p">
-	            	  {% if custom_description != '' and custom_description != null %}
-	            	  	{{ custom_description | strip_html | truncate: truncate }}
-	            	  {% elsif article.excerpt.size > 0 %}
-	                    {{ article.excerpt | strip_html | truncate: truncate }}
-	                  {% else %}
-	                   {{ article.content | strip_html | truncate: truncate }}
-	                  {% endif %}
-	            </div>
-	            {% endif %}
-	        </div>
-	        {%if display_btn %}
-	        	{%- assign button_text = 'Read Blog' -%}
-	        	{%if custom_button_label != '' %}
-	        		{%- assign button_text = custom_button_label -%}
-	        	{% endif %}
-	        	<h5 class="block__cta  nimbus">{{button_text}}</h5>
-	        {% endif %}
-        </article>
-    </a>
+					<span>{{blogCat.title}}
+					</span>
+				{% endif %}
+			</p>
+		{% endif %}
+		<div class="block__img block__img--transparent block__img--{{ orientation }} block__img--top" data-image-loading-animation>
+			<div class="block__wrap">
+				{%- assign img_url = article.image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
+				{%if custom_image != null %}
+					{%- assign img_url = custom_image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
+				{% endif %}
+				<img class="lazyload lazypreload" data-src="{{ img_url }}" data-sizes="auto" alt="{{ preview_image.alt | escape }}">
+			</div>
+		</div>
+		<article class="block__info block__info--flexed block__info--skinny block__info--{{ orientation }}">
+			<div>
+				<small class="block__meta">
+					{% if article.metafields.global.duration %}
+						<span>{{ article.metafields.global.duration }}
+							read</span>
+					{% endif %}
+					|
+					<span>{{ article.published_at | time_tag: '%d %b' }}</span>
+				</small>
+				<h4 class="block__title block__title--small">{{ article.title }}</h4>
+				{% if truncate > 0 %}
+					<div class="block__p">
+						{% if custom_description != '' and custom_description != null %}
+							{{ custom_description | strip_html | truncate: truncate }}
+						{% elsif article.excerpt.size > 0 %}
+							{{ article.excerpt | strip_html | truncate: truncate }}
+						{% else %}
+							{{ article.content | strip_html | truncate: truncate }}
+						{% endif %}
+					</div>
+				{% endif %}
+			</div>
+			{%if display_btn %}
+				{%- assign button_text = 'Read Blog' -%}
+				{%if custom_button_label != '' %}
+					{%- assign button_text = custom_button_label -%}
+				{% endif %}
+				<h5 class="block__cta  nimbus">{{button_text}}</h5>
+			{% endif %}
+		</article>
+	</a>
 </div>

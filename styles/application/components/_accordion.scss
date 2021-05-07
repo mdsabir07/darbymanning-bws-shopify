@@ -1,46 +1,45 @@
 .accordion {
-    padding: 0 4rem;
+  padding: 0 4rem;
 
-    &__toggle {
-        align-items: center;
-        border-bottom: 1px solid #8f8f8f;
-        color: var(--dark-blue);
-        display: flex;
-        flex-direction: row;
-        flex-wrap: nowrap;
-        font-size: 2.4rem;
-        font-weight: 600;
-        justify-content: space-between;
-        margin: 0 0 1.5rem;
-        padding: 0 0 0.5rem;
-        @include NimbusExt;
-
-        @include respond-below(md) {
-            font-size: 1.7rem;
-        }
-    }
-
-    &__arrow {
-        //transform: rotate(180deg);
-        color: var(--gray);
-        font-size: 2.5rem;
-        transition: 0.3s all;
-    }
-
-    &__content {
-        color: var(--dark-gray);
-        display: none;
-        font-size: 1.4rem;
-        transition: 0.3s all;
-
-        &.is-active {
-            display: block;
-            margin-bottom: 2rem;
-        }
-    }
+  &__toggle {
+    align-items: center;
+    border-bottom: 1px solid #8f8f8f;
+    color: var(--dark-blue);
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    font-size: 2.4rem;
+    font-weight: 600;
+    justify-content: space-between;
+    margin: 0 0 1.5rem;
+    padding: 0 0 0.5rem;
+    @include NimbusExt;
 
     @include respond-below(md) {
-        margin-bottom: 3rem;
-        padding: 0 0.8rem;
+      font-size: 1.7rem;
     }
+  }
+
+  &__arrow {
+    color: var(--gray);
+    font-size: 2.5rem;
+    transition: 0.3s all;
+  }
+
+  &__content {
+    color: var(--dark-gray);
+    display: none;
+    font-size: 1.4rem;
+    transition: 0.3s all;
+
+    &.is-active {
+      display: block;
+      margin-bottom: 2rem;
+    }
+  }
+
+  @include respond-below(md) {
+    margin-bottom: 3rem;
+    padding: 0 0.8rem;
+  }
 }

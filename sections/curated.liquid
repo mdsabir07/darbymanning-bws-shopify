@@ -1,14 +1,14 @@
 <section class="slider slider--{{section.settings.bg_color}} slider--hideLeft u-pV-50 u-pV-80@s">
-    <div class="o-grid  o-grid--item">
-        {% if section.settings.title != blank %}
-         <h4 class="nimbus u-textUpper slider__title">{{ section.settings.title | escape }}</h4>
-        {% endif %}
-        <div class="js-slider " data-items="4" data-loop="0" data-gutter="1" data-responsive='{"300": {"items": "2"}, "768": {"items": "3"}, "1024": {"items": "4"}}'>
-          {% for block in section.blocks %}
-          	<div class="slide__item--{{section.id}}">
-	          	{% if block.settings.type == 'article' %}
-	          		{% assign article = articles[block.settings.article] %}
-	          		{% include 'blog-card-grid' with {
+	<div class="o-grid  o-grid--item">
+		{% if section.settings.title != blank %}
+			<h4 class="nimbus u-textUpper slider__title">{{ section.settings.title | escape }}</h4>
+		{% endif %}
+		<div class="js-slider" data-items="4" data-loop="0" data-gutter="1" data-responsive='{"300": {"items": "2"}, "768": {"items": "3"}, "1024": {"items": "4"}}'>
+			{% for block in section.blocks %}
+				<div class="slide__item--{{section.id}}">
+					{% if block.settings.type == 'article' %}
+						{% assign article = articles[block.settings.article] %}
+						{% include 'blog-card-grid' with {
                       article: article,
                       blog: article.blog,
                       display_btn: true,
@@ -21,9 +21,9 @@
                       orientation: 'cover',
                       custom_tag_colour: block.settings.tag_colour
                 } %}
-	          	{% elsif block.settings.type == 'collection' %}
-	          		{% assign collection = collections[block.settings.collection] %}
-	          		{% include 'collection-card-grid' with {
+					{% elsif block.settings.type == 'collection' %}
+						{% assign collection = collections[block.settings.collection] %}
+						{% include 'collection-card-grid' with {
                       collection: collection,
                       custom_image: block.settings.image,
                       custom_description: block.settings.description,
@@ -33,9 +33,9 @@
                       orientation: 'cover',
                       custom_tag_colour: block.settings.tag_colour
                 } %}
-	          	{% else %}
-	          		{% assign product = all_products[block.settings.product] %}
-	          		{% include 'product-card-grid' with {
+					{% else %}
+						{% assign product = all_products[block.settings.product] %}
+						{% include 'product-card-grid' with {
                           product: product,
                           shrink: true,
                           show_vendor: true,
@@ -49,42 +49,41 @@
                           custom_orientation: block.settings.orientation,
                           custom_tag_colour: block.settings.tag_colour,
                     } %}
-	          	{% endif %}
-            </div>
-          {% endfor %}
+					{% endif %}
+				</div>
+			{% endfor %}
 
-        </div>
+		</div>
 
-        <ul class="slider__controls slider__controls--wide js-slider-controls" aria-label="Carousel Navigation" tabindex="0">
-            <li class="slider__prev button js-slider-prev" data-controls="prev" aria-controls="customize" tabindex="-1">
-                <svg width="17px" height="18px" viewBox="0 0 17 18" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                    <title>Fill 3</title>
-                    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                        <g id="Arrow" fill="#FFFFFF">
-                            <polygon id="Fill-3" transform="translate(8.500000, 9.000000) rotate(-270.000000) translate(-8.500000, -9.000000) " points="7.58805575 1 0 17 2.34598347 17 8.54454108 3.44934827 14.6540165 17 17 17 9.44133218 1"></polygon>
-                        </g>
-                    </g>
-                </svg>
-            </li>
-            <li class="slider__next  button js-slider-next" data-controls="next" aria-controls="customize" tabindex="-1">
-                <svg width="17px" height="18px" viewBox="0 0 17 18" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                    <title>Fill 3</title>
-                    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                        <g id="Arrow" fill="#FFFFFF">
-                            <polygon id="Fill-3" transform="translate(8.500000, 9.000000) rotate(-270.000000) translate(-8.500000, -9.000000) " points="7.58805575 1 0 17 2.34598347 17 8.54454108 3.44934827 14.6540165 17 17 17 9.44133218 1"></polygon>
-                        </g>
-                    </g>
-                </svg>
-            </li>
-            {% if section.settings.show_view_all %}
-            	<li class="slider__more">
-			    	<a class="button" href="{{ collection.url }}">View All</a>
-			    </li>
-		  {% endif %}
-        </ul>
+		<ul class="slider__controls slider__controls--wide js-slider-controls" aria-label="Carousel Navigation" tabindex="0">
+			<li class="slider__prev button js-slider-prev" data-controls="prev" aria-controls="customize" tabindex="-1">
+				<svg width="17px" height="18px" viewbox="0 0 17 18" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+					<title>Fill 3</title>
+					<g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+						<g id="Arrow" fill="#FFFFFF">
+							<polygon id="Fill-3" transform="translate(8.500000, 9.000000) rotate(-270.000000) translate(-8.500000, -9.000000) " points="7.58805575 1 0 17 2.34598347 17 8.54454108 3.44934827 14.6540165 17 17 17 9.44133218 1"></polygon>
+						</g>
+					</g>
+				</svg>
+			</li>
+			<li class="slider__next  button js-slider-next" data-controls="next" aria-controls="customize" tabindex="-1">
+				<svg width="17px" height="18px" viewbox="0 0 17 18" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+					<title>Fill 3</title>
+					<g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+						<g id="Arrow" fill="#FFFFFF">
+							<polygon id="Fill-3" transform="translate(8.500000, 9.000000) rotate(-270.000000) translate(-8.500000, -9.000000) " points="7.58805575 1 0 17 2.34598347 17 8.54454108 3.44934827 14.6540165 17 17 17 9.44133218 1"></polygon>
+						</g>
+					</g>
+				</svg>
+			</li>
+			{% if section.settings.show_view_all %}
+				<li class="slider__more">
+					<a class="button" href="{{ collection.url }}">View All</a>
+				</li>
+			{% endif %}
+		</ul>
 
-
-    </div>
+	</div>
 </section>
 
 
@@ -100,9 +99,9 @@
       "default": "Curated for you"
     },
     {
-		"type": "select",
-		"id": "bg_color",
-		"label": "Background Colour",
+    "type": "select",
+    "id": "bg_color",
+    "label": "Background Colour",
         "default": "white",
         "options": [
             {
@@ -113,108 +112,108 @@
                 "label": "Grey"
             }
         ]
-	}
+  }
   ],
   "blocks": [
-	{
+  {
         "type": "source",
         "name": "Source",
         "settings": [
-			{
-				"type": "select",
-				"id": "type",
-				"label": "Type",
-		        "default": "product",
-		        "options": [
-		            {
-		                "value": "product",
-		                "label": "Product"
-		            }, {
-		                "value": "article",
-		                "label": "Article"
-		            }, {
-		                "value": "collection",
-		                "label": "Collection"
-		            }
-		        ]
-			},
-		    {
-		      "type": "product",
-		      "id": "product",
-		      "label": "Product"
-		    },
-		    {
-		      "type": "article",
-		      "id": "article",
-		      "label": "Article"
-		    },
-		    {
-		      "type": "collection",
-		      "id": "collection",
-		      "label": "Collection"
-		    },
-		    {
-		      "type": "checkbox",
-		      "id": "top",
-		      "label": "Top (Override)"
-		    },
-		    {
-		      "type": "text",
-		      "id": "tag",
-		      "label": "Tag (Override)"
-		    },
-		    {
-				"type": "select",
-				"id": "tag_colour",
-				"label": "Tag Colour (Override)",
-		        "default": "blue",
-		        "options": [
-		            {
-		                "value": "white",
-		                "label": "White"
-		            }, {
-		                "value": "blue",
-		                "label": "Blue"
-		            }
-		        ]
-			},
-			{
-		      "type": "image_picker",
-		      "id": "image",
-		      "label": "Image (Override)"
-		    },
-		    {
-				"type": "select",
-				"id": "orientation",
-				"label": "Orientation (Override)",
-		        "default": "cover",
-		        "options": [
-		            {
-		                "value": "cover",
-		                "label": "Cover"
-		            }, {
-		                "value": "contain",
-		                "label": "Contain"
-		            }
-		        ]
-			},
-		    {
-		      "type": "text",
-		      "id": "description",
-		      "label": "Description (Override)"
-		    },
-		    {
-		      "type": "text",
-		      "id": "button_label",
-		      "label": "Button label (Override)"
-		    },
-		    {
-		      "type": "url",
-		      "id": "button_link",
-		      "label": "Button link (Override)"
-		    }
-		]
-	}
+      {
+        "type": "select",
+        "id": "type",
+        "label": "Type",
+            "default": "product",
+            "options": [
+                {
+                    "value": "product",
+                    "label": "Product"
+                }, {
+                    "value": "article",
+                    "label": "Article"
+                }, {
+                    "value": "collection",
+                    "label": "Collection"
+                }
+            ]
+      },
+        {
+          "type": "product",
+          "id": "product",
+          "label": "Product"
+        },
+        {
+          "type": "article",
+          "id": "article",
+          "label": "Article"
+        },
+        {
+          "type": "collection",
+          "id": "collection",
+          "label": "Collection"
+        },
+        {
+          "type": "checkbox",
+          "id": "top",
+          "label": "Top (Override)"
+        },
+        {
+          "type": "text",
+          "id": "tag",
+          "label": "Tag (Override)"
+        },
+        {
+        "type": "select",
+        "id": "tag_colour",
+        "label": "Tag Colour (Override)",
+            "default": "blue",
+            "options": [
+                {
+                    "value": "white",
+                    "label": "White"
+                }, {
+                    "value": "blue",
+                    "label": "Blue"
+                }
+            ]
+      },
+      {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image (Override)"
+        },
+        {
+        "type": "select",
+        "id": "orientation",
+        "label": "Orientation (Override)",
+            "default": "cover",
+            "options": [
+                {
+                    "value": "cover",
+                    "label": "Cover"
+                }, {
+                    "value": "contain",
+                    "label": "Contain"
+                }
+            ]
+      },
+        {
+          "type": "text",
+          "id": "description",
+          "label": "Description (Override)"
+        },
+        {
+          "type": "text",
+          "id": "button_label",
+          "label": "Button label (Override)"
+        },
+        {
+          "type": "url",
+          "id": "button_link",
+          "label": "Button link (Override)"
+        }
+    ]
+  }
   ],
   "presets": [
     {
@@ -224,4 +223,3 @@
   ]
 }
 {% endschema %}
-

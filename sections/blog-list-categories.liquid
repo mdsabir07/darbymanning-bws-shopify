@@ -2,9 +2,9 @@
 	{% for block in section.blocks %}
 		{%- assign blog = blogs[block.settings.blog] -%}
 		{% assign columns = block.settings.layout | split: '-' %}
-	        <div class="o-grid u-pV-32">
-	            {% include 'blog-grid-item', blog: blog, remainder: remainder, columns: columns %}
-	        </div>
+		<div class="o-grid u-pV-32">
+			{% include 'blog-grid-item', blog: blog, remainder: remainder, columns: columns %}
+		</div>
 	{% endfor %}
 </section>
 
@@ -22,28 +22,28 @@
           "type": "blog"
         },
         {
-			"type": "select",
-			"id": "layout",
-			"label": "Layout",
-	        "default": "3-3-3-3",
-	        "options": [
-	            {
-	                "value": "3-3-3-3",
-	                "label": "1:1"
-	            }, {
-	                "value": "3-6-3",
-	                "label": "1:2:1"
-	            }, 
-	            {
-	                "value": "3-3-6",
-	                "label": "1:1:2"
-	            },
-	            {
-	                "value": "6-3-3",
-	                "label": "2:1:1"
-	            }
-	        ]
-		},
+      "type": "select",
+      "id": "layout",
+      "label": "Layout",
+          "default": "3-3-3-3",
+          "options": [
+              {
+                  "value": "3-3-3-3",
+                  "label": "1:1"
+              }, {
+                  "value": "3-6-3",
+                  "label": "1:2:1"
+              },
+              {
+                  "value": "3-3-6",
+                  "label": "1:1:2"
+              },
+              {
+                  "value": "6-3-3",
+                  "label": "2:1:1"
+              }
+          ]
+    },
         {
             "type": "checkbox",
             "id": "show_view_all",

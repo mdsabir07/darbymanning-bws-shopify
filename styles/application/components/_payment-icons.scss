@@ -1,32 +1,32 @@
 .payment-icons {
-    cursor: default;
-    list-style: none;
-    user-select: none;
+  cursor: default;
+  list-style: none;
+  user-select: none;
 
-    @include respond-below(md) {
-        margin-left: 0;
-        padding-left: 0;
-    }
+  @include respond-below(md) {
+    margin-left: 0;
+    padding-left: 0;
+  }
 }
 
 .payment-icon {
-    display: inline-block;
-    margin-bottom: 0.5rem;
-    margin-right: 1.5rem;
-    vertical-align: middle;
+  display: inline-block;
+  margin-bottom: 0.5rem;
+  margin-right: 1.5rem;
+  vertical-align: middle;
 
-    &:first-child {
-        margin-left: 0;
-        &__svg {
-            display: inline-block;
-            fill: inherit;
-            height: 24px;
-            vertical-align: middle;
-            width: 38px;
-        }
+  &:first-child {
+    margin-left: 0;
+    &__svg {
+      display: inline-block;
+      fill: inherit;
+      height: 24px;
+      vertical-align: middle;
+      width: 38px;
     }
+  }
 
-    @include respond-below(md) {
-        margin-right: .5rem;
-    }
+  @include respond-below(md) {
+    margin-right: 0.5rem;
+  }
 }

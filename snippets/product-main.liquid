@@ -1,288 +1,257 @@
-<section class="o-grid  o-grid--p  product-main">
+<section class="c-product">
 
-    <div class="o-grid__item  u-size-12@s u-mB-40">
-       {% include 'breadcrumbs' %}
-    </div>
+	{% include "breadcrumbs" %}
 
-  {%- assign current_variant = product.selected_or_first_available_variant -%}
-  {%- assign product_image_scale = '2' -%}
-  {%- assign compare_at_price = current_variant.compare_at_price -%}
-  {%- assign price = current_variant.price -%}
+	<div class="o-container">
+		{%- assign current_variant = product.selected_or_first_available_variant -%}
+		{%- assign product_image_scale = "2" -%}
+		{%- assign compare_at_price = current_variant.compare_at_price -%}
+		{%- assign price = current_variant.price -%}
 
-    <div class="o-grid__item  u-size-6@m  u-size-6@l" data-product-main-media-group>
-        {%- assign featured_media = product.selected_or_first_available_variant.featured_media | default: product.featured_media -%}
+		<div class="c-product__head">
+			<span class="c-product__tag">{{ product.metafields.global.tag }}</span>
+			<hr class="c-divide"/>
+			<div class="c-product__mediaWrap" data-c-product-media-group>
+				{%- assign featured_media = product.selected_or_first_available_variant.featured_media | default: product.featured_media -%}
 
-	  <div class="u-flex u-alignCenter">
-	  
-	  
-	  	  <button data-gallery-direction="prev" class="product-main__control">
-	      
-				      	
-			<svg width="24" height="24" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-				 viewBox="0 0 407.436 407.436" style="enable-background:new 0 0 407.436 407.436;" xml:space="preserve">
-			<polygon points="315.869,21.178 294.621,0 91.566,203.718 294.621,407.436 315.869,386.258 133.924,203.718 "/>
-			</svg>
+				<div class="c-product__galleryWrap">
+					<button data-gallery-direction="prev" class="c-product__mediaControl">
+						<svg class="c-product__mediaControlIcon" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 18 19"><path d="M1.4 10.7l16 7.6V16L3.8 9.8l13.6-6.2V1.3l-16 7.6z"/></svg>
+					</button>
 
-			
-		  </button>
-		  
-		  <div class="product-main__gallery u-size-12">
+					<div class="c-product__gallery">
+						{%- for media in product.media -%}
+							{% include 'media', media: media, featured_media: featured_media, height: 720, image_scale: product_image_scale, product: product %}
+						{%- endfor -%}
+					</div>
 
-		      {%- for media in product.media -%}
-		        {% include 'media', media: media, featured_media: featured_media, height: 720, image_scale: product_image_scale, product: product %}
-		      {%- endfor -%}
-	      
-	      </div>
-	      
-	      <button data-gallery-direction="next" class="product-main__control">
-	      
-	      	<svg width="24" height="24" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-				 viewBox="0 0 407.436 407.436" style="enable-background:new 0 0 407.436 407.436;" xml:space="preserve">
-			<polygon points="112.814,0 91.566,21.178 273.512,203.718 91.566,386.258 112.814,407.436 315.869,203.718 "/>
-			</svg>
-			
-		  </button>
-	      
-	  </div>
+					<button data-gallery-direction="next" class="c-product__mediaControl">
+						<svg class="c-product__mediaControlIcon" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 17 18"><path d="M16.6 8.3L.6.7V3l13.6 6.2L.6 15.4v2.3l16-7.6z"/></svg>
+					</button>
 
-      {% if product.media.size > 1 %}
-         <div class="thumbnails-wrapper  u-mT-32">
-          <ul class="o-grid product-main__thumbnails product-main__thumbnails-{{ section.id }}">
-            {% for media in product.media %}
-              <li class="o-grid__item u-size-2  u-size-2@s u-size-2@m  u-size-2@l product-main__thumbnails-item js">
-                <a href="{{ media.preview_image | img_url: product_image_zoom_size, scale: product_image_scale }}"
-                   class="text-link product-main__thumbnail product-main__thumbnail--{{ section.id }}"
-                   data-thumbnail-id="{{ section.id }}-{{ media.id }}">
+				</div>
 
-                    {%- capture thumbnailAlt -%}
-                      {%- if media.media_type == 'video' or media.media_type == 'external_video' -%}
-                        {{ 'sections.featured_product.video_thumbnail_alt' | t: imageAlt: media.alt | escape }}
-                      {%- else -%}
-                        {{ 'sections.featured_product.gallery_thumbnail_alt' | t: imageAlt: media.alt | escape }}
-                      {%- endif -%}
-                    {%- endcapture -%}
+				{% if product.media.size > 1 %}
+					<ul class="c-product__thumbnailList">
+						{% for media in product.media %}
+							<li class="c-product__thumbnailItem">
+								<a class="c-product__thumbnailLink" href="{{ media.preview_image | img_url: product_image_zoom_size, scale: product_image_scale }}" data-thumbnail-id="{{ section.id }}-{{ media.id }}">
 
-                    <img class="product-main__thumbnail-image" src="{{ media.preview_image | img_url: '110x110', scale: 2 }}" alt="{{ thumbnailAlt }}">
-                    {%- if media.media_type == 'video' or media.media_type =='external_video' -%}
-                      <div class="product-main__thumbnail-badge">
-                        {% include 'icon-video-badge-full-color' %}
-                      </div>
-                    {%- endif -%}
-                </a>
-              </li>
-            {% endfor %}
-          </ul>
-        </div>
-      {% endif %}
-      {% if section.settings.show_share_buttons %}
-        {% include 'social-sharing', share_title: product.title, share_permalink: product.url, share_image: product.featured_media %}
-      {% endif %}
-    </div>
+									{%- capture thumbnailAlt -%}
+										{%- if media.media_type == 'video' or media.media_type == 'external_video' -%}
+											{{ 'sections.featured_product.video_thumbnail_alt' | t: imageAlt: media.alt | escape }}
+										{%- else -%}
+											{{ 'sections.featured_product.gallery_thumbnail_alt' | t: imageAlt: media.alt | escape }}
+										{%- endif -%}
+									{%- endcapture -%}
 
-    <div class="o-grid__item  u-size-6@m  u-size-6@l">
-      <div class="product-main__right">
-      	<div class="product-main__top">
-        	<h1 class="product-main__title  dark-blue  u-textUpper  h3">{{product.title}}</h1>
-	        <div class="product__price">
-	          <span id="ProductPrice" class="product-main__title  product-main__title--price  blue  u-textUpper  h3 product-main__price{% if product.compare_at_price > product.price %} on-sale{% endif %}" itemprop="price" content="{{ current_variant.price | divided_by: 100.00 }}">
-	            {{ current_variant.price | money }}
-	          </span>
-	        </div>
-	    </div>
-        
-        <!--Metafields start here  -->
-        
-          {% assign custom_attributes = product.metafields.top-instructions %}
-           {% if custom_attributes.size > 0 %}
-           <div class="product-meta">
-           {% for field in custom_attributes %}
-              {% assign attribute_code = field | first %}
-              {% assign attribute_value = field | last %}
+									<img class="c-product__thumbnailImage" src="{{ media.preview_image | img_url: '60x60', scale: 2 }}" alt="{{ thumbnailAlt }}">
+									{%- if media.media_type == 'video' or media.media_type =='external_video' -%}
+										<div class="c-product__thumbnail-badge">
+											{% include 'icon-video-badge-full-color' %}
+										</div>
+									{%- endif -%}
+								</a>
+							</li>
+						{% endfor %}
 
-              <div class="product-meta__content">
-                <div class="product-meta__icon">
-                {% if attribute_code contains 'made_with' %}
-                  {% include 'icon-star' %}
-                {% elsif attribute_code contains 'made_in' %}
-                  {% include 'icon-location' %}
-                {% elsif attribute_code contains 'material' %}
-                  {% include 'icon-recycle' %}
-                {% elsif attribute_code contains 'product_detail' %}
-                  {% include 'icon-user' %}
-                {% elsif attribute_code contains 'delivery' %}
-                  {% include 'icon-delivery' %}
-                {% endif %}
-                </div>
-                <div class="product-meta__detail">
-                  <span class="custom-attribute-value gray">{{attribute_value}}</span>
-                  {% if attribute_code contains 'made_in' %}
-                  <p><a href="#footprint">See product footprint</a></p>
-                  {% endif %}
-                </div>
-              </div>
-           {% endfor %}
-           </div>
-          {% endif %}
-        
-        
-        {% form 'product', product, data-product-form: '', data-product-handle: product.handle %}
-          {% unless product.has_only_default_variant %}
-          {% for option in product.options_with_values %}
-          <div class="js-enabled selector-wrapper u-hide">
+						{% if product.metafields.footprint.strong_points != blank or custom_attributes.size > 0 %}
+							<li class="c-product__thumbnailItem">
+								<a href="#footprint" class="js-smooth-scroll">
+									<img class="c-product__thumbnailFootPrint" src="{{ 'footprint.svg' | asset_url }}" alt="Product Footprint">
+								</a>
+							</li>
+						{% endif %}
+					</ul>
+				{% endif %}
+				{% if section.settings.show_share_buttons %}
+					{% include 'social-sharing', share_title: product.title, share_permalink: product.url, share_image: product.featured_media %}
+				{% endif %}
+			</div>
+			<div class="c-product__detail">
+				<div class="c-product__detailHeader">
+					<span class="c-product__vendor">{{ product.vendor }}</span>
+					<h1 class="c-product__title">{{ product.title | replace: product.vendor, '' }}</h1>
+					<span id="ProductPrice" class="c-product__price{% if product.compare_at_price > product.price %} on-sale{% endif %}" itemprop="price" content="{{ current_variant.price | divided_by: 100.00 }}">
+						{{ current_variant.price | money }}
+					</span>
+					{% if product.metafields.global.description_tag %}
+						<p class="c-product__descriptionTag">
+							{{ product.metafields.global.description_tag }}
+						</p>
+					{% endif %}
+				</div>
 
-          <label for="Option{{ option.position }}">
-            {{ option.name }}
-          </label>
+				{% form 'product', product, data-product-form: '', data-product-handle: product.handle %}
 
-          {% comment %}
-            All inputs that have `name=options[Name]` will be picked up by
-            ProductForm, registered as an option input, and made available
-            at ProductForm.optionsInputs
-          {% endcomment %}
+					{% if product.available and product.variants.size > 1 %}
+						{% render 'swatch' for product.options as swatch %}
+					{% endif %}
 
-          <select
-            id="Option{{ option.position }}"
-            class="js-product-option"
-            data-option="{{option.name}}"
-            name="options[{{ option.name | escape }}]" >
-            {% for value in option.values %}
-              <option
-                value="{{ value | escape }}"
-                {% if option.selected_value == value %}selected="selected"{% endif %}>
-                  {{ value }}
-              </option>
-            {% endfor %}
-          </select>
-          </div>
-          {% endfor %}
-          {% endunless %}
+					{% unless product.has_only_default_variant %}
+						{% for option in product.options_with_values %}
+							<div class="js-enabled selector-wrapper {%- unless option.name == 'Size' %} u-hide{% endunless %}">
 
-          {% if product.available and product.variants.size > 1 %}
-            {% render 'swatch' for product.options as swatch %}
-          {% endif %}
-          
-          <a href="#measurements" class="product-main__a js-modal__open">
-            <small>See Product Measurements</small>
-        </a>
+								<label class="c-product__formLabel" for="Option{{ option.position }}">
+									{{ option.name }}
+								</label>
 
-          {% comment %}
-          Any input with `name="quantity"` will be picked up by ProductForm and
-          registered as a quantity input. If a quantity input is not included, a
-          default quantity of 1 is assumed.
-          {% endcomment %}
-          
-            <input type="hidden" name="quantity" value="1">
+								{% comment %}
+									All inputs that have `name=options[Name]` will be picked up by ProductForm, registered as an option input, and made available at ProductForm.optionsInputs
+								{% endcomment %}
 
+								<select id="Option{{ option.position }}" class="c-product__select js-product-option" data-option="{{option.name}}" name="options[{{ option.name | escape }}]">
+									{% for value in option.values %}
+										<option value="{{ value | escape }}" {% if option.selected_value == value %} selected="selected" {% endif %}>
+											{{ value }}
+										</option>
+									{% endfor %}
+								</select>
+							</div>
+						{% endfor %}
+					{% endunless %}
+
+					{% if product.metafields.global.sizing_info %}
+						<a href="#measurements" class="c-product__a js-modal__open">
+							<small>See Product Measurements</small>
+						</a>
+					{% endif %}
+
+					{% comment %}
+						Any input with `name="quantity"` will be picked up by ProductForm and registered as a quantity input. If a quantity input is not included, a default quantity of 1 is assumed.
+					{% endcomment %}
+
+					<input type="hidden" name="quantity" value="1">
+
+					{% comment %}
+						Line Item property inputs with `name="properties[NAME]"` will be picked up by ProductForm and registered as a properties input.
+					{% endcomment %}
+
+					<div class="c-product__buttons">
+						<button type="submit" class="button button--full" {% unless current_variant.available %} disabled="disabled" {% endunless %}>
+							{{ 'products.product.add_to_cart' | t }}
+						</button>
+					</div>
+
+					{% if section.settings.enable_payment_button %}
+						{{ form | payment_button }}{% endif %}
+					{% endform %}
+
+					<div class="c-product__accordion js-accordion">
+						{% assign product_detail = product.metafields.detail %}
+						{% if product_detail.size > 0 %}
+							{% for field in product_detail %}
+								{% assign attribute_code = field | first %}
+								{% assign attribute_value = field | last %}
+
+								<a href="#accordion-{{ attribute_code }}" class="c-product__accordionItem js-accordion-toggle">
+									{% if attribute_code contains 'material' %}
+										<figure class="c-product__accordionIcon">
+											{% include 'icon-recycle' %}
+										</figure>
+										<span class="c-product__accordionTitle">Material</span>
+									{% elsif attribute_code contains 'fit' %}
+										<figure class="c-product__accordionIcon">
+											{% include 'icon-user' %}
+										</figure>
+										<span class="c-product__accordionTitle">Fit</span>
+									{% elsif attribute_code contains 'spec' %}
+										<figure class="c-product__accordionIcon">
+											{% include 'icon-angle' %}
+										</figure>
+										<span class="c-product__accordionTitle">Specifications</span>
+									{% elsif attribute_code contains 'made_with' %}
+										<figure class="c-product__accordionIcon">
+											{% include 'icon-star' %}
+										</figure>
+										<span class="c-product__accordionTitle">Made with</span>
+									{% elsif attribute_code contains 'made_in' %}
+										<figure class="c-product__accordionIcon">
+											{% include 'icon-location' %}
+										</figure>
+										<span class="c-product__accordionTitle">Made in</span>
+									{% elsif attribute_code contains 'delivery' %}
+										<figure class="c-product__accordionIcon">
+											{% include 'icon-delivery' %}
+										</figure>
+										<span class="c-product__accordionTitle">Delivery</span>
+									{% endif %}
+								</a>
+								<div id="accordion-{{ attribute_code }}" class="c-product__accordionDetail">
+									<p>{{attribute_value}}</p>
+									{% if attribute_code contains 'made_in' %}
+										<p>
+											<a href="#footprint">See product footprint</a>
+										</p>
+									{% endif %}
+								</div>
+							{% endfor %}
+						{% endif %}
+						<a href="#accordion-description" class="c-product__accordionItem js-accordion-toggle">
+							<figure class="c-product__accordionIcon">
+								{% include 'icon-star' %}
+							</figure>
+							<span class="c-product__accordionTitle">Description</span>
+						</a>
+						<div id="accordion-description" class="c-product__accordionDetail">
+							{{ product.description }}
+						</div>
+
+						<!-- parse-ignore-start -->
             {% comment %}
-            Line Item property inputs with `name="properties[NAME]"` will be picked up
-            by ProductForm and registered as a properties input.
+						<a href="#accordion-collections" class="c-product__accordionItem js-accordion-toggle">
+							<figure class="c-product__accordionIcon">
+								{% include 'icon-angle' %}
+							</figure>
+							<span class="c-product__accordionTitle">Collections</span>
+						</a>
+						<div id="accordion-collections" class="c-product__accordionDetail">
+							<ul class="accordion__collectionList">
+								{% for collection in product.collections %}
+									<li class="accordion__collectionListItem">
+										<a href="{{ collection.url }}">{{ collection.title }}</a>
+									</li>
+								{% endfor %}
+							</ul>
+						</div>
+
+						{% if section.settings.question != blank %}
+							<a href="#accordion-questions" class="c-product__accordionItem js-accordion-toggle">
+								<figure class="c-product__accordionIcon">
+									{% include 'icon-envelope' %}
+								</figure>
+								<span class="c-product__accordionTitle">Questions</span>
+							</a>
+							<div id="accordion-questions" class="c-product__accordionDetail">
+								<p>{{section.settings.question}}</p>
+								<p>Email &nbsp;<span>
+										<a href="mailto:{{section.settings.email}}">{{section.settings.email}}</a>
+									</span>
+								</p>
+							</div>
+						{% endif %}
             {% endcomment %}
-            
-            <div class="product-main__buttons">
-             <button type="submit" class="button button-primary" {% unless current_variant.available %}disabled="disabled"{% endunless %}>
-            {{ 'products.product.add_to_cart' | t }}
-            </button>
-            {% if product.metafields.global.footprint_img != blank or product.metafields.global.footprint_point != blank or custom_attributes.size > 0 %}
-	            <a href="#footprint" class="product-main__button js-smooth-scroll">
-	                <span><img class="u-inblock" src="{{ 'footprint.svg' | asset_url }}"></span>
-	            </a>
-	        {% endif %}
-        </div>
+            <!-- parse-ignore-end -->
 
-           
+					</div>
 
+				</div>
+			</div>
 
-          {% if section.settings.enable_payment_button %}
-            {{ form | payment_button }}
-          {% endif %}
-        {% endform %}
-
-        <!--Metafields start here  -->
-        <div class="product-meta">
-          {% assign custom_attributes = product.metafields.bottom-instructions %}
-           {% if custom_attributes.size > 0 %}
-           {% for field in custom_attributes %}
-              {% assign attribute_code = field | first %}
-              {% assign attribute_value = field | last %}
-
-              <div class="product-meta__content">
-                <div class="product-meta__icon">
-                {% if attribute_code contains 'made_with' %}
-                  {% include 'icon-star' %}
-                {% elsif attribute_code contains 'made_in' %}
-                  {% include 'icon-location' %}
-                {% elsif attribute_code contains 'material' %}
-                  {% include 'icon-recycle' %}
-                {% elsif attribute_code contains 'product_detail' %}
-                  {% include 'icon-user' %}
-                {% elsif attribute_code contains 'delivery' %}
-                  {% include 'icon-delivery' %}
-                {% endif %}
-                </div>
-                <div class="product-meta__detail">
-                  <span class="custom-attribute-value gray">{{attribute_value}}</span>
-                  {% if attribute_code contains 'made_in' %}
-                  <p><a href="#footprint">See product footprint</a></p>
-                  {% endif %}
-                </div>
-              </div>
-           {% endfor %}
-          {% endif %}
-          <div class="product-meta__content">
-            <div class="product-meta__icon">
-              {% include 'icon-angle' %}
-            </div>
-            <div class="product-meta__detail">
-              <div class="product-meta__list">
-              {% for collection in product.collections %}
-                <span><a href="{{ collection.url }}">{{ collection.title }}</a></span>
-              {% endfor %}
-              </div>
-            </div>
-        </div>
-        {% if section.settings.question != blank %}
-        <div class="product-meta__content">
-          <div class="product-meta__icon">
-            {% include 'icon-envelope' %}
-          </div>
-          <div class="product-meta__detail">
-              <p>{{section.settings.question}}</p>
-              <p>Email &nbsp;<span><a href="mailto:{{section.settings.email}}">{{section.settings.email}}</a></span></p>
-          </div>
-        </div>
-        {% endif %}
-        </div>
-        <!--Metafields ends here  -->
-        
-      </div>
-    </div>
-    
-    <div class="product-main__description">
-            {{ product.description }}
-        </div>
-        
-</section>
-
- 
-
-<div class="c-modal" id="measurements">
-
-	<div class="c-modal__content">
-	
-		<div class="c-modal__close js-modal__close"></div>
-	
-		<div class="product-main__sizing">
-	
-			{{ product.metafields.global.sizing_info }}
-			
 		</div>
-	
-	</div>
 
+	</div>
+</section>
+<div class="c-modal" id="measurements">
+	<div class="c-modal__content">
+		<button class="c-modal__close js-modal__close"></button>
+		<div class="c-product__sizing">
+			{{ product.metafields.global.sizing_info }}
+		</div>
+	</div>
 </div>
 
-<!-- Product footprint section -->
-{% include "product-footprint" %}
+{% include "product-footprint" %}<!-- parse-ignore-start -->
 
 <script type="application/ld+json">
 {

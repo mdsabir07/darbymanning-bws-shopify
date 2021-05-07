@@ -1,113 +1,101 @@
 {% if section.settings.show_announcement %}
-	{% if section.settings.home_page_only == false or request.page_type == 'index' %}	
-	  <section class="bg-grey u-pV-8 u-textCenter announcement u-hide@xs-only">
-	  	<div class="o-grid u-justifyCenter u-alignCenter">
-	  		<div class="o-grid__item u-size-6">
-	    		{{ section.settings.announcement_text }}
-	    	</div>
-	    </div>
-	  </section>
+	{% if section.settings.home_page_only == false or request.page_type == 'index' %}
+		<section class="bg-grey u-pV-8 u-textCenter announcement u-hide@xs-only">
+			<div class="o-grid u-justifyCenter u-alignCenter">
+				<div class="o-grid__item u-size-6">
+					{{ section.settings.announcement_text }}
+				</div>
+			</div>
+		</section>
 	{% endif %}
 {% endif %}
 
 <header class="header">
 	<div class="o-grid">
 		<div class="o-grid__item">
-    <div class="header__wrap">
-        <div class="header__logo" id="logo">
-        {% if section.settings.logo %}
-            <a href="{{ routes.root_url }}" class="header__logo-image">
-              <img src="{{ 'logo.svg' | asset_url }}" alt="{{ shop.name | escape }}">
-            </a>
-          {% else %}
-            <a class="header__logo-link" href="{{ routes.root_url }}">{{ shop.name }}</a>
-          {% endif %}
-        </div>
+			<div class="header__wrap">
+				<div class="header__logo" id="logo">
+					{% if section.settings.logo %}
+						<a href="{{ routes.root_url }}" class="header__logo-image">
+							<img src="{{ 'logo.svg' | asset_url }}" alt="{{ shop.name | escape }}">
+						</a>
+					{% else %}
+						<a class="header__logo-link" href="{{ routes.root_url }}">{{ shop.name }}</a>
+					{% endif %}
+				</div>
 
-        <div class="header__menu">
-            <div class="header__icons">
-                <p class="header__shipping">{{ section.settings.message_text | escape }}</p>
-                <div class="header__details">
-                    <a href="/search" class="header__icon js-search-icon">
-                        {% include 'icon-search' %}
-                    </a>
-                    {% if shop.customer_accounts_enabled %}
-                    {% if customer %}
-                      <a href="{{ routes.account_url }}" class="header__icon">
-                        {% include 'icon-login' %}
-                      </a>
-                    {% else %}
-                      <a href="{{ routes.account_login_url }}" class="header__icon">
-                        {% include 'icon-login' %}
-                      </a>
-                    {% endif %}
-                  {% endif %}
+				<div class="header__menu">
+					<div class="header__icons">
+						<p class="header__shipping">{{ section.settings.message_text | escape }}</p>
+						<div class="header__details">
+							<a href="/search" class="header__icon js-search-icon">
+								{% include 'icon-search' %}
+							</a>
+							{% if shop.customer_accounts_enabled %}
+								{% if customer %}
+									<a href="{{ routes.account_url }}" class="header__icon">
+										{% include 'icon-login' %}
+									</a>
+								{% else %}
+									<a href="{{ routes.account_login_url }}" class="header__icon">
+										{% include 'icon-login' %}
+									</a>
+								{% endif %}
+							{% endif %}
 
-                  <a href="{{ routes.cart_url }}" class="header__icon">
-                    {% include 'icon-cart' %}
-                    <div id="CartCount" class="header__cart-count{% if cart.item_count == 0 %} u-hide{% endif %}" data-cart-count-bubble>
-                      <span data-cart-count>{{ cart.item_count }}</span>
-                    </div>
-                  </a>
-                </div>
-            </div>
-            <nav class="nav">
-                {% include 'site-nav', linklist: section.settings.main_linklist %}
-            </nav>
+							<a href="{{ routes.cart_url }}" class="header__icon">
+								{% include 'icon-cart' %}
+								<div id="CartCount" class="header__cart-count{% if cart.item_count == 0 %} u-hide{% endif %}" data-cart-count-bubble>
+									<span data-cart-count>{{ cart.item_count }}</span>
+								</div>
+							</a>
+						</div>
+					</div>
+					<nav class="nav">
+						{% include 'site-nav', linklist: section.settings.main_linklist %}
+					</nav>
 
-        </div>
-        <div class="header__mobile-icons">
-            <a href="/search" class="header__icon js-search-icon">
-                {% include 'icon-search' %}
-            </a>
-            <a href="{{ routes.cart_url }}" class="header__icon">
-                {% include 'icon-cart' %}
-                <div id="CartCount" class="header__cart-count{% if cart.item_count == 0 %} u-hide{% endif %}" data-cart-count-bubble>
-                  <span data-cart-count>{{ cart.item_count }}</span>
-                </div>
-              </a>
-        </div>
-    </div>
-  </div>
-  </div>
-  </div>
-  </header>
-  
- {% if section.settings.announcement_text %}
-	{% if section.settings.home_page_only == false or request.page_type == 'index' %}	
-	  <section class="bg-grey u-pV-8 u-textCenter announcement u-hide@s u-mB-20">
-	  	<div class="o-grid u-justifyCenter u-alignCenter">
-	  		<div class="o-grid__item u-size-12">
-	    		{{ section.settings.announcement_text }}
-	    	</div>
-	    </div>
-	  </section>
-	{% endif %}
-{% endif %}
-  
-  <div class="search-overlay" id="searchOverlay">
-
-	<a href="#" id="searchClose" class="search-overlay__close">
-	
-		{% include 'icon-close' %}
-		
-	</a>
-	
-	<div class="u-textCenter">
-	
-		<h4 class="search-overlay__title">Search Website:</h4>
-		
-		<form action="/search" method="get" role="search">
-	    	<input type="search" name="q" class="search-overlay__field" placeholder="Search Website...">
-		</form>
-		
+				</div>
+				<div class="header__mobile-icons">
+					<a href="/search" class="header__icon js-search-icon">
+						{% include 'icon-search' %}
+					</a>
+					<a href="{{ routes.cart_url }}" class="header__icon">
+						{% include 'icon-cart' %}
+						<div id="CartCount" class="header__cart-count{% if cart.item_count == 0 %} u-hide{% endif %}" data-cart-count-bubble>
+							<span data-cart-count>{{ cart.item_count }}</span>
+						</div>
+					</a>
+				</div>
+			</div>
+		</div>
 	</div>
-  
- </div>
+</div></header>{% if section.settings.announcement_text %}
+{% if section.settings.home_page_only == false or request.page_type == 'index' %}
+	<section class="bg-grey u-pV-8 u-textCenter announcement u-hide@s u-mB-20">
+		<div class="o-grid u-justifyCenter u-alignCenter">
+			<div class="o-grid__item u-size-12">
+				{{ section.settings.announcement_text }}
+			</div>
+		</div>
+	</section>
+{% endif %}{% endif %}<div class="search-overlay" id="searchOverlay">
 
-{% schema %}
+<a href="#" id="searchClose" class="search-overlay__close">
 
-{
+	{% include 'icon-close' %}
+
+</a>
+
+<div class="u-textCenter">
+
+	<h4 class="search-overlay__title">Search Website:</h4>
+
+	<form action="/search" method="get" role="search">
+		<input type="search" name="q" class="search-overlay__field" placeholder="Search Website...">
+	</form>
+
+</div></div>{% schema %}{
     "name": "Header",
     "settings": [
         {
@@ -127,23 +115,21 @@
             "id": "announcement_text",
             "label": "Announcement Text",
             "default": "<p>Announce something here</p>"
-        }, {
-            "type": "checkbox",
-            "id": "show_announcement",
-            "label": "Show announcement",
-            "default": false
-        }, {
-            "type": "checkbox",
-            "id": "home_page_only",
-            "label": "Home page only",
-            "default": true
-        }, {
-            "type": "text",
-            "id": "message_text",
-            "label": "Shipping Text",
-            "default": "Announce something here"
-        }
-    ]
-}
-
-{% endschema %}
+	          }, {
+	              "type": "checkbox",
+	              "id": "show_announcement",
+	              "label": "Show announcement",
+	              "default": false
+	          }, {
+	              "type": "checkbox",
+	              "id": "home_page_only",
+	              "label": "Home page only",
+	              "default": true
+	          }, {
+	              "type": "text",
+	              "id": "message_text",
+	              "label": "Shipping Text",
+	              "default": "Announce something here"
+	          }
+	      ]
+	  }{% endschema %}

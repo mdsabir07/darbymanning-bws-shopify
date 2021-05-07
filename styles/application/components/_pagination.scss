@@ -1,25 +1,25 @@
 .pagination {
-    align-items: center;
-    display: flex;
-    justify-content: center;
-    list-style: none;
-    margin: 4rem 0;
-    padding: 0;
-    text-align: center;
-    width: 100%;
-    li {
-        display: inline-block;
-        padding: 0 0.5rem;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  margin: 4rem 0;
+  padding: 0;
+  text-align: center;
+  width: 100%;
+  li {
+    display: inline-block;
+    padding: 0 0.5rem;
+  }
+  &__btn {
+    display: block;
+    line-height: normal;
+    padding: 1.1rem 1.2rem;
+    &--next {
+      margin-left: 2rem;
     }
-    &__btn {
-        display: block;
-        line-height: normal;
-        padding: 1.1rem 1.2rem;
-        &--next {
-            margin-left: 2rem;
-        }
-    }
-    &__count.active {
-        font-weight: bold;
-    }
+  }
+  &__count.active {
+    font-weight: bold;
+  }
 }

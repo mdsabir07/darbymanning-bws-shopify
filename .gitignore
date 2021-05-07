@@ -12,3 +12,7 @@ config.yml
 config/settings_schema.json
 package.json
 config/frames.json
+
+scripts/application/application.min.js
+scripts/polyfills/polyfills.min.js
+styles/style.css

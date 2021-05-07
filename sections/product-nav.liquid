@@ -1,0 +1,13 @@
+<nav class="c-product__nav">
+	<div class="o-container">
+		<ul class="c-product__navList">
+			{%- for link in linklists.collection-button-nav.links -%}
+				<li class="c-product__navItem">
+					<a class="c-product__navLink button" href="{{ link.url }}" {%- if link.current %} aria-current="page" {%- endif -%}>
+						{{ link.title | escape }}
+					</a>
+				</li>
+			{%- endfor -%}
+		</ul>
+	</div>
+</div>

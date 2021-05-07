@@ -1,68 +1,68 @@
 .home-about {
-    background-color: $color-midlight-gray;
-    padding: 9rem 0 7rem;
+  background-color: $color-midlight-gray;
+  padding: 9rem 0 7rem;
+
+  @include respond-below(md) {
+    padding: 3.5rem 2.5rem;
+  }
+
+  &__item {
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+    margin-bottom: 2rem;
+
+    &_wrapper {
+      height: 100%;
+      margin: 0 0.8rem;
+      width: 100%;
+
+      @include respond-below(md) {
+        width: auto;
+      }
+    }
+  }
+
+  &__icon {
+    border: 0;
+    border-radius: 0;
+    display: inline-block;
+    height: auto;
+    margin-right: 2rem;
+    min-width: 7rem;
+
+    img {
+      height: 37px;
+      margin: 0 auto;
+    }
 
     @include respond-below(md) {
-        padding: 3.5rem 2.5rem;
+      min-width: 5rem;
     }
+  }
 
-    &__item {
-        display: flex;
-        flex-direction: row;
-        height: 100%;
-        margin-bottom: 2rem;
+  &__info {
+    @include DINOTRegular;
 
-        &_wrapper {
-            height: 100%;
-            margin: 0 0.8rem;
-            width: 100%;
+    display: inline-block;
 
-            @include respond-below(md) {
-                width: auto;
-            }
-        }
+    p {
+      font-size: 1.8rem;
+
+      @include respond-below(md) {
+        font-size: 1.4rem;
+      }
     }
+  }
 
-    &__icon {
-        border: 0;
-        border-radius: 0;
-        display: inline-block;
-        height: auto;
-        margin-right: 2rem;
-        min-width: 7rem;
+  &__title {
+    @include DINMedium;
+    font-size: 2.4rem;
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
 
-        img {
-            height: 37px;
-            margin: 0 auto;
-        }
-
-        @include respond-below(md) {
-            min-width: 5rem;
-        }
+    @include respond-below(md) {
+      font-size: 1.8rem;
     }
-
-    &__info {
-        @include DINOTRegular;
-
-        display: inline-block;
-
-        p {
-            font-size: 1.8rem;
-
-            @include respond-below(md) {
-                font-size: 1.4rem;
-            }
-        }
-    }
-
-    &__title {
-        @include DINMedium;
-        font-size: 2.4rem;
-        margin-bottom: 0.5rem;
-        text-transform: uppercase;
-
-        @include respond-below(md) {
-            font-size: 1.8rem;
-        }
-    }
+  }
 }

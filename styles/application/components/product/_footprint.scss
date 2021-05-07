@@ -1,0 +1,154 @@
+%footprint-panel {
+  @extend %shadow;
+  background-color: var(--exlight-gray);
+  padding: 6rem 4rem 12rem;
+}
+
+.c-footprint {
+  background-color: var(--light-gray);
+  margin: calc(var(--gutter) * 2) 0;
+  padding: var(--gutter) 0 8rem;
+
+  &__wrap {
+    display: grid;
+    gap: calc(var(--gutter) * 2) var(--gutter);
+    grid-template-areas:
+      "title"
+      "hero"
+      "people"
+      "planet"
+      "map"
+      "suppliers"
+      "areasForDevelopment";
+
+    @include nu-media(s) {
+      grid-template-areas:
+        "title    title"
+        "hero     hero"
+        "people   planet"
+        "map      suppliers"
+        "map      areasForDevelopment";
+    }
+  }
+
+  &__title {
+    @include heading(3);
+    grid-area: title;
+    margin-bottom: 0;
+  }
+}
+
+.c-footprintHero {
+  @include border($top: 1.4rem);
+  align-items: start;
+  display: grid;
+  grid-area: hero;
+  grid-template-areas:
+    "image"
+    "wrap";
+
+  @include nu-media(xs) {
+    grid-auto-columns: 1fr;
+    grid-template-areas: "wrap image";
+  }
+
+  &__wrap {
+    @extend %footprint-panel;
+    display: grid;
+    gap: 4rem;
+    grid-area: wrap;
+    grid-template: "icon content" / 5rem auto;
+
+    @include nu-media($maxbreak: xs) {
+      padding: 3rem;
+    }
+
+    @include nu-media(xs) {
+      margin-bottom: 9rem;
+    }
+  }
+
+  &__title {
+    grid-area: title;
+    @include heading(3);
+  }
+
+  &__icon {
+    grid-area: icon;
+  }
+
+  &__content {
+    grid-area: content;
+  }
+
+  &__image {
+    @extend %shadow;
+    grid-area: image;
+
+    @include nu-media(xs) {
+      height: 100%;
+      object-fit: cover;
+      width: 100%;
+    }
+  }
+}
+
+.c-footprintPeople,
+.c-footprintPlanet,
+.c-footprintMap,
+.c-footprintSuppliers,
+.c-footprintAreasForDevelopment {
+  &__title {
+    font-size: 1.8rem;
+    text-transform: uppercase;
+  }
+
+  &__content {
+    color: var(--tundora);
+  }
+}
+
+.c-footprintPeople,
+.c-footprintPlanet {
+  @extend %footprint-panel;
+  padding: 0;
+
+  &__title {
+    @include border($top: 3.2rem);
+    margin-bottom: 2rem;
+    padding: 0.3rem 3rem;
+
+    &::before {
+      border-right: 1px solid var(--exlight-gray);
+    }
+  }
+
+  &__content {
+    padding: 0 3rem 3rem;
+
+    @include nu-media(s) {
+      max-height: 29.5rem;
+      overflow: auto;
+    }
+  }
+}
+
+.c-footprintPeople {
+  grid-area: people;
+}
+
+.c-footprintPlanet {
+  grid-area: planet;
+}
+
+.c-footprintMap {
+  grid-area: map;
+}
+
+.c-footprintSuppliers {
+  grid-area: suppliers;
+}
+
+.c-footprintAreasForDevelopment {
+  grid-area: areasForDevelopment;
+}

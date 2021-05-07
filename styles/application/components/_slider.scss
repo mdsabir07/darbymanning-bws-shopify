@@ -1,162 +1,176 @@
+.c-slider {
+  --bgColor: var(--light-gray);
+  background-color: var(--bgColor);
+
+  &--transparent {
+    --bgColor: transparent;
+  }
+
+  &__title {
+    @include heading(3);
+    margin-bottom: 0.5rem;
+  }
+}
+
 .slider {
-    --bgColor: var(--light-gray);
+  --bgColor: var(--light-gray);
+  background-color: var(--bgColor);
+
+  &--transparent {
+    --bgColor: white;
+  }
+
+  &__title {
+    margin-bottom: 0.5rem;
+    padding-left: 1rem;
+  }
+
+  &--hideLeft:after {
     background-color: var(--bgColor);
+    content: "";
+    height: 100%;
+    left: 0;
+    min-width: 1.5rem;
+    position: absolute;
+    top: 0;
+    width: calc(50vw - 62.5rem);
+    z-index: 1;
+  }
 
-    &--transparent {
-        --bgColor: white;
+  &__controls {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    list-style: none;
+    margin: 0;
+    outline: none;
+    padding: 0 1.4rem 0 1rem;
+    width: 100%;
+
+    &--wide {
+      align-items: center;
+      padding: 0 1rem 0 1rem;
+      position: relative;
+      top: -1rem;
     }
 
-    &__title {
-        margin-bottom: 0.5rem;
-        padding-left: 1rem;
+    &--negative {
+      padding: 0 1rem;
     }
 
-    &--hideLeft:after {
-        z-index: 1;
-        position: absolute;
-        left: 0;
-        top: 0;
-        width: calc(50vw - 62.5rem);
-        background-color: var(--bgColor);
-        height: 100%;
-        content: '';
-        min-width: 1.5rem;
+    &--push {
+      top: 0;
     }
 
-    &__controls {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        list-style: none;
-        margin: 0;
-        padding: 0 1.4rem 0 1rem;
-        width: 100%;
-        outline: none;
+    @include respond-below(md) {
+      &--thin {
+        padding: 0 0.75rem;
+      }
+    }
+  }
 
-        &--wide {
-            align-items: center;
-            padding: 0 1rem 0 1rem;
-            position: relative;
-            top: -1rem;
-        }
+  &__more {
+    margin-right: 1rem;
+    order: 2;
+  }
 
-        &--negative {
-            padding: 0 1rem;
-        }
+  &__group {
+    align-items: center;
+    display: flex;
+    order: 4;
+  }
 
-        &--push {
-            top: 0;
-        }
+  // TRUMP: Could instead add modifier to button
+  &__controls--inverse &__more .button {
+    width: 23.25rem;
 
-        @include respond-below(md) {
-            &--thin {
-                padding: 0 0.75rem;
-            }
-        }
+    @include respond-below(md) {
+      width: 17.75rem;
+    }
+  }
+
+  &__controls--inverse &__prev {
+    order: 1;
+  }
+
+  &__next {
+    align-items: center;
+    cursor: pointer !important;
+    display: flex;
+    height: 4rem;
+    justify-content: center;
+    order: 3;
+    outline: none;
+    padding: 0;
+    text-align: center;
+    transition: opacity 0.5s ease;
+    width: 4rem;
+
+    &.invisible {
+      opacity: 0;
+      pointer-events: none;
     }
 
-    &__more {
-        margin-right: 1rem;
-        order: 2;
+    @include respond-below(md) {
+      height: 3.6rem;
+    }
+  }
+
+  &__prev {
+    align-items: center;
+    cursor: pointer !important;
+    display: flex;
+    height: 4rem;
+    justify-content: center;
+    opacity: 0;
+    order: 3;
+    outline: none;
+    padding: 0;
+    pointer-events: none;
+    text-align: center;
+    transform: rotate(180deg);
+    transition: opacity 0.5s ease;
+    width: 4rem;
+
+    &.visible {
+      opacity: 1;
+      pointer-events: auto;
     }
 
-    &__group {
-        order: 4;
-        display: flex;
-        align-items: center;
+    @include respond-below(md) {
+      height: 3.6rem;
     }
+  }
 
-    // TRUMP: Could instead add modifier to button
-    &__controls--inverse &__more .button {
-        width: 23.25rem;
+  &__dots {
+    align-items: center;
+    display: flex;
+    margin-right: 1.5rem;
+    outline: none;
+  }
 
-        @include respond-below(md) {
-            width: 17.75rem;
-        }
+  &__dot {
+    background-color: var(--light-gray);
+    border-radius: 50%;
+    cursor: pointer !important;
+    display: inline-block;
+    height: 1.3rem;
+    margin-right: 0.8rem;
+    transition: background-color 0.5s ease;
+    width: 1.3rem;
+
+    &.is-active {
+      background-color: var(--blue);
     }
+  }
 
-    &__controls--inverse &__prev {
-        order: 1;
+  @include respond-above(md) {
+    &__index--1-2,
+    &__index--2-0,
+    &__index--0-1,
+    &__index--0-2,
+    &__index--0-0 {
+      width: 50%;
     }
-
-    &__next {
-        align-items: center;
-        display: flex;
-        height: 4rem;
-        justify-content: center;
-        order: 3;
-        padding: 0;
-        text-align: center;
-        width: 4rem;
-        cursor: pointer !important;
-        outline: none;
-        transition: opacity 0.5s ease;
-
-        &.invisible {
-            opacity: 0;
-            pointer-events: none;
-        }
-
-        @include respond-below(md) {
-            height: 3.6rem;
-        }
-    }
-
-    &__prev {
-        align-items: center;
-        display: flex;
-        height: 4rem;
-        justify-content: center;
-        order: 3;
-        padding: 0;
-        text-align: center;
-        width: 4rem;
-        cursor: pointer !important;
-        outline: none;
-        transform: rotate(180deg);
-        opacity: 0;
-        pointer-events: none;
-        transition: opacity 0.5s ease;
-
-        &.visible {
-            opacity: 1;
-            pointer-events: auto;
-        }
-
-        @include respond-below(md) {
-            height: 3.6rem;
-        }
-    }
-
-    &__dots {
-        align-items: center;
-        display: flex;
-        margin-right: 1.5rem;
-        outline: none;
-    }
-
-    &__dot {
-        background-color: var(--light-gray);
-        border-radius: 50%;
-        display: inline-block;
-        height: 1.3rem;
-        margin-right: 0.8rem;
-        transition: background-color 0.5s ease;
-        width: 1.3rem;
-        cursor: pointer !important;
-
-        &.is-active {
-            background-color: var(--blue);
-        }
-    }
-
-    @include respond-above(md) {
-        &__index--1-2,
-        &__index--2-0,
-        &__index--0-1,
-        &__index--0-2,
-        &__index--0-0 {
-            width: 50%;
-        }
-    }
+  }
 }

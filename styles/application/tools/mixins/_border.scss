@@ -1,0 +1,13 @@
+@mixin border($color: var(--blue), $top: 2.5rem) {
+  &::before {
+    background: $color;
+    content: "";
+    display: block;
+    height: 0.6rem;
+    left: calc(var(--gutter) * -0.5);
+    position: absolute;
+    top: $top;
+    width: calc(100% + var(--gutter));
+    z-index: 3;
+  }
+}

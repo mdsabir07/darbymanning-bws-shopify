@@ -1,29 +1,36 @@
-{% capture image_size %}{{ height }}x{{ height }}{% endcapture %}
+{% capture image_size -%}
+	{{ height }}x{{ height }}
+{%- endcapture %}
 
-<div class="product-main__media {% unless featured_media == media %} invisible{% endunless %}" data-media-id="{{ section.id }}-{{ media.id }}">
-  {% case media.media_type %}
-  	{% when 'external_video' %}
-      <div class="product-single__media">
-        {{ media | external_video_tag }}
-      </div>
-    {% when 'image' %} 
-	  <a
-         data-fancybox="preview" 
-         href="{{ media | product_img_url: 'master' }}"
-         data-fancybox-group="{{ product.id }}" 
-         title="{{ media.alt | escape }}"
-         >
-        <img
-          class="lazyload{% unless featured_media == media %} lazypreload{% endunless %} cloudzoom"
-          data-cloudzoom="zoomImage: '{{ media | product_img_url: 'master' }}', zoomPosition: 'inside', zoomOffsetX: 0, hoverIntentDelay: 100, touchStartDelay: 250" 
-          src="{{ media | img_url: 'master' }}"          
-          data-aspectratio="{{ media.preview_image.aspect_ratio }}"
-          data-sizes="auto"          
-          alt="{{ media.alt | escape }}">
-      </a>
-    {% else %}
-      <div class="product-main__media">
-        {{ media | image_size: image_size }}
-      </div>
-    {% endcase %}
+{% capture media_class -%}
+	c-product__media
+	{% unless featured_media == media %}
+		invisible
+	{% endunless %}
+{%- endcapture %}
+
+{% capture image_class -%}
+	lazyload
+	{% unless featured_media == media %}
+		lazypreload
+	{% endunless %}
+	cloudzoom
+{%- endcapture %}
+
+<div class="{{ media_class }}" data-media-id="{{ section.id }}-{{ media.id }}">
+	{%- case media.media_type -%}
+
+		{% when 'external_video' -%}
+			<div class="product-single__media">
+				{{ media | external_video_tag }}
+			</div>
+
+		{%- when 'image' -%}
+			<a data-fancybox="preview" href="{{ media | product_img_url: 'master' }}" data-fancybox-group="{{ product.id }}" title="{{ media.alt | escape }}">
+				<img class="{{ image_class }}" data-cloudzoom="zoomImage: '{{ media | product_img_url: 'master' }}', zoomPosition: 'inside', zoomOffsetX: 0, hoverIntentDelay: 100, touchStartDelay: 250" src="{{ media | img_url: 'master' }}" data-aspectratio="{{ media.preview_image.aspect_ratio }}" data-sizes="auto" alt="{{ media.alt | escape }}">
+			</a>
+
+		{%- else -%}
+			{{ media | image_size: image_size }}
+	{%- endcase -%}
 </div>

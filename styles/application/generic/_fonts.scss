@@ -3,74 +3,73 @@
 \*----------------------------------------------------------------------------*/
 
 @mixin font-face($fontname, $path, $weight: normal, $style: normal) {
-    @font-face {
-        font-family: quote($fontname);
-        font-style: $style;
-        font-weight: $weight;
-        src: url($path + '.woff') format('woff'),
-        	url($path + '.woff2') format('woff2'),
-        	url($path + '.ttg') format('ttf'),
-        	url($path + '.eot') format('eot');
-    }
+  @font-face {
+    font-family: quote($fontname);
+    font-style: $style;
+    font-weight: $weight;
+    src: url($path + ".woff") format("woff"),
+      url($path + ".woff2") format("woff2"), url($path + ".ttg") format("ttf"),
+      url($path + ".eot") format("eot");
+  }
 }
 
 /* Include Font With Real Value Like below Example */
 /* @include font-face(NimbusSan, "./NimbusSan-Reg", normal, normal); */
 
-@include font-face(AvenirNextRegular, './AvenirNext-Regular', normal, normal);
-@include font-face(AvenirNextMedium, './AvenirNext-Medium', 500, normal);
-@include font-face(AvenirNextBold, './AvenirNext-Bold', bold, normal);
-@include font-face(DINOTMedium, './DINOT-Medium', 500, normal);
-@include font-face(DINOTBold, './DINOT-Bold', bold, normal);
-@include font-face(DINOTRegular, './DINOT-Regular', normal, normal);
-@include font-face(DINOTLight, './DINOT-Light', normal, normal);
+@include font-face(AvenirNextRegular, "./AvenirNext-Regular", normal, normal);
+@include font-face(AvenirNextMedium, "./AvenirNext-Medium", 500, normal);
+@include font-face(AvenirNextBold, "./AvenirNext-Bold", bold, normal);
+@include font-face(DINOTMedium, "./DINOT-Medium", 500, normal);
+@include font-face(DINOTBold, "./DINOT-Bold", bold, normal);
+@include font-face(DINOTRegular, "./DINOT-Regular", normal, normal);
+@include font-face(DINOTLight, "./DINOT-Light", normal, normal);
 
 @mixin AvenirNextRegular {
-    font-family: AvenirNextRegular;
-    font-style: normal;
-    font-weight: normal;
+  font-family: AvenirNextRegular;
+  font-style: normal;
+  font-weight: normal;
 }
 
 @mixin AvenirNextMedium {
-    font-family: AvenirNextMedium;
-    font-style: normal;
-    font-weight: 500;
+  font-family: AvenirNextMedium;
+  font-style: normal;
+  font-weight: 500;
 }
 
 @mixin AvenirNextBold {
-    font-family: AvenirNextBold;
-    font-style: normal;
-    font-weight: bold;
+  font-family: AvenirNextBold;
+  font-style: normal;
+  font-weight: bold;
 }
 
 @mixin DINMedium {
-    font-family: DINOTMedium;
-    font-style: normal;
-    font-weight: 500;
+  font-family: DINOTMedium;
+  font-style: normal;
+  font-weight: 500;
 }
 
 @mixin DINOTLight {
-    font-family: DINOTLight;
-    font-style: normal;
-    font-weight: 300;
+  font-family: DINOTLight;
+  font-style: normal;
+  font-weight: 300;
 }
 
 @mixin DINOTBold {
-    font-family: DINOTBold;
-    font-style: normal;
-    font-weight: bold;
+  font-family: DINOTBold;
+  font-style: normal;
+  font-weight: bold;
 }
 
 @mixin DINOTRegular {
-    font-family: DINOTRegular;
-    font-style: normal;
-    font-weight: normal;
+  font-family: DINOTRegular;
+  font-style: normal;
+  font-weight: normal;
 }
 
 @mixin NimbusExt {
-    font-family: $nu-fontstack;
+  font-family: $nu-fontstack;
 }
 
 .nimbus {
-    @include NimbusExt;
+  @include NimbusExt;
 }

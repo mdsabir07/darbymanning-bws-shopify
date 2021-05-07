@@ -1,50 +1,49 @@
 .collection-list {
-    padding: 1rem 2rem 3rem;
+  padding: 1rem 2rem 3rem;
 
-    &__item {
-        min-width: 10rem;
-        
+  &__item {
+    min-width: 10rem;
 
-        .block {
-            padding: 0 0.5rem;
-            width: 100%;
-        }
+    .block {
+      padding: 0 0.5rem;
+      width: 100%;
     }
+  }
 
-    &__wrap {
-        align-items: center;
-        background-color: var(--exlight-gray);
-        display: flex;
-        flex-direction: column;
-        margin-bottom: 1rem;
-        max-width: 9rem;
-        width: 100%;
+  &__wrap {
+    align-items: center;
+    background-color: var(--exlight-gray);
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+    max-width: 9rem;
+    width: 100%;
+  }
+
+  &__img {
+    background-color: var(--white);
+    display: flex;
+
+    > img {
+      align-self: center;
+      max-height: 8rem;
     }
+  }
 
-    &__img {
-        background-color: var(--white);
-        display: flex;
+  &__title {
+    @include NimbusExt;
+    color: var(--dark-blue);
+    font-size: 1rem;
+    font-weight: normal;
+    line-height: normal;
+    margin-bottom: 0;
+    margin-top: 0.5rem;
+    white-space: nowrap;
+  }
 
-        > img {
-            align-self: center;
-            max-height: 8rem;
-        }
-    }
-
-    &__title {
-        @include NimbusExt;
-        color: var(--dark-blue);
-        font-size: 1rem;
-        font-weight: normal;
-        line-height: normal;
-        margin-bottom: 0;
-        margin-top: 0.5rem;
-		white-space: nowrap;
-    }
-
-    @include respond-below(lg) {
-        flex-wrap: nowrap;
-        overflow-y: auto;
-        padding-bottom: 1rem;
-    }
+  @include respond-below(lg) {
+    flex-wrap: nowrap;
+    overflow-y: auto;
+    padding-bottom: 1rem;
+  }
 }

@@ -1,43 +1,43 @@
-@import url('https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.3/tiny-slider.css');
+@import url("https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.3/tiny-slider.css");
 
 .tns-slider {
-    display: flex;
-    overflow: visible !important;
+  display: flex;
+  overflow: visible !important;
 }
 
 .tns-slide-cloned {
-    display: inline-block;
-    opacity: 1 !important;
+  display: inline-block;
+  opacity: 1 !important;
 }
 
 .tns-nav {
-    display: none;
+  display: none;
 }
 
 .tns-ovh {
-    margin-left: -50%;
-    padding: 0 50%;
-    width: calc(200%);
+  margin-left: -50%;
+  padding: 0 50%;
+  width: calc(200%);
 }
 
 .tns-item {
-    &:not(.tns-slide-active) {
-        opacity: 0.5 !important;
-    }
-    
-    @include respond-above(sm) {
-        display: flex !important;
-        flex-direction: column;
-        flex-grow: 1;
-    }
+  &:not(.tns-slide-active) {
+    opacity: 0.5 !important;
+  }
+
+  @include respond-above(sm) {
+    display: flex !important;
+    flex-direction: column;
+    flex-grow: 1;
+  }
 }
 
 .tns-outer {
-    cursor: grab;
-    user-select: none;
+  cursor: grab;
+  user-select: none;
 }
 
 .tns-item {
-	display: flex !important;
-	flex-direction: column;
+  display: flex !important;
+  flex-direction: column;
 }

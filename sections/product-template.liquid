@@ -1,18 +1,15 @@
+<div class="product-template__container" id="ProductSection-{{ section.id }}" data-section-id="{{ section.id }}" data-section-type="product" data-enable-history-state="true">
 
-<div class="product-template__container" id="ProductSection-{{ section.id }}"
-  data-section-id="{{ section.id }}"
-  data-section-type="product"
-  data-enable-history-state="true">
-
-  {% include "product-main" %}
+	{% include "collection-list-slider", collection_handle: 'collection-top-nav' %}
+	{% include "product-main" %}
 
 </div>
 
 
 {% unless product == empty %}
-  <script type="application/json" id="ProductJson-{{ section.id }}">
-    {{ product | json }}
-  </script> 
+	<script type="application/json" id="ProductJson-{{ section.id }}">
+		{{ product | json }}
+	</script>
 {% endunless %}
 
 {% schema %}
@@ -30,7 +27,7 @@
       "id": "show_variant_labels",
       "label": "Show variant labels",
       "default": true
-    },    
+    },
     {
       "type": "checkbox",
       "id": "enable_payment_button",
@@ -53,7 +50,7 @@
     {
       "type": "header",
       "content": "Product spec"
-    },    
+    },
     {
       "type": "text",
       "id": "question",

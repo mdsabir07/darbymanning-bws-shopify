@@ -11,7 +11,7 @@
     },
     "accessibility": {
       "skip_to_content": "Skip to content",
-      "close_modal": "Close",      
+      "close_modal": "Close",
       "refresh_page": "Choosing a selection results in a full page refresh.",
       "selection_help": "Press the space key then arrow keys to make a selection.",
       "unit_price_separator": "per",
@@ -111,7 +111,7 @@
   "sections": {
     "header": {
       "announcement_bar_label": "Announcement"
-    },    
+    },
     "featured_product": {
       "title": "Featured product",
       "gallery_thumbnail_alt": "Load image into Gallery viewer, {{ imageAlt }}",
@@ -197,8 +197,8 @@
       "from_lowest_price_html": "from {{ lowest_price }}",
       "sale_price": "Sale price",
       "quantity": "Quantity",
-      "add_to_cart": "Add to cart",
-      "loader_label": "Adding product to your cart",
+      "add_to_cart": "Add to bag",
+      "loader_label": "Adding product to your bag",
       "back_to_collection": "Back to {{ title }}",
       "vendor": "Vendor",
       "quantity_minimum_message": "Quantity must be 1 or more",

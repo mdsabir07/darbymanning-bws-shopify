@@ -1,103 +1,113 @@
-  <div class="o-grid u-justifyCenter pd-v-4 u-mB-20 ">
-  	<div class="o-grid__item u-size-10">
-  	  <div class="o-grid u-mB-20">
-  	<div class="o-grid__item u-size-4 u-size-6@m">
-    <h1 class="u-m-0">Bag</h1>
-    </div>
+<div class="o-grid u-justifyCenter pd-v-4 u-mB-20 ">
+	<div class="o-grid__item u-size-10">
+		<div class="o-grid u-mB-20">
+			<div class="o-grid__item u-size-4 u-size-6@m">
+				<h1 class="u-m-0">Bag</h1>
+			</div>
 
-    {% if cart.item_count > 0 %}
-    	<div class="o-grid__item u-size-8 u-size-6@m u-flex u-alignEnd u-justifyCenter">
-	        <a href="{% if cart.items.first.product.collections != blank %}{{ cart.items.first.product.collections.last.url }}{% else %}/collections/all{% endif %}">Continue Shopping &rarr;</a>
-      
-      </div>
-    {% endif %}
-  </div>
+			{% if cart.item_count > 0 %}
+				<div class="o-grid__item u-size-8 u-size-6@m u-flex u-alignEnd u-justifyCenter">
+					<a href="{% if cart.items.first.product.collections != blank %}{{ cart.items.first.product.collections.last.url }}{% else %}/collections/all{% endif %}">Continue Shopping &rarr;</a>
 
-  {% if cart.item_count == 0 %}
-  	<div class="o-grid">
-	    <div class="o-grid__item">
-	    	<div class="cart-notice">
-	        	<p><span>There are no items in your bag.</span> <a href="/collections/new-in">Continue Shopping &rarr;</a></p>  
-	        </div>  
-	    </div>
+				</div>
+			{% endif %}
+		</div>
+
+		{% if cart.item_count == 0 %}
+			<div class="o-grid">
+				<div class="o-grid__item">
+					<div class="cart-notice">
+						<p>
+							<span>There are no items in your bag.</span>
+							<a href="/collections/new-in">Continue Shopping &rarr;</a>
+						</p>
+					</div>
+				</div>
+			</div>
+		{% else %}
+
+			<form action="/cart" method="post" id="cart_form" class="o-grid">
+				<div class="o-grid__item u-size-7@m">
+					<div class="border border--xlarge">
+						<h4 class="u-mB-20">Products</h4>
+
+						{% for item in cart.items %}
+							<div class="search-result">
+								<div class="o-grid">
+									<div class="o-grid__item u-size-12 u-size-4@m">
+										<a href="{{ item.url }}" title="{{ item.title | escape }}" class="u-flex u-justifyCenter">
+											<img data-src="{{ item | img_url: 'medium' }}" alt="{{ item.title | escape }}" class="lazyload lazypreload" data-sizes="auto"/>
+										</a>
+									</div>
+
+									<div class="o-grid__item u-size-12 u-size-8@m">
+										<p>
+											<a href="{{ item.url }}" title="{{ item.title | escape }}">
+												<h5>{{ item.title }}</h5>
+											</a>
+										</p>
+
+										{% if item.properties %}
+											<p>
+												{% for p in item.properties %}
+													{% unless p.last == blank %}
+														{% if p.last contains '/uploads/' %}
+															{{ p.first }}:
+															<a class="lightbox" href="{{ p.last }}">uploaded file</a><br/>
+														{% else %}
+															{{ p.first }}:
+															{{ p.last }}<br/>
+														{% endif %}
+													{% endunless %}
+												{% endfor %}
+											</p>
+										{% endif %}
+
+										<p>
+											{{ item.price | money_with_currency }}
+										</p>
+
+										<div class="u-flex u-alignCenter">
+											<label for="updates_{{ item.id }}" class="u-mR-16">Quantity:</label>
+											<input type="number" min="0" size="3" maxlength="3" class="quantity" name="updates[]" value="{{ item.quantity }}" onchange="this.closest('form').submit()"/>
+										</div>
+
+
+										<a href="/cart/change?line={{ forloop.index }}&amp;quantity=0" title="Remove Item">
+											<small>Remove</small>
+										</a>
+
+									</div>
+
+								</div>
+							</div>
+						{% endfor %}
+					</div>
+				</div>
+
+				<div class="o-grid__item u-size-5@m">
+					<div class="border border--xlarge u-mB-40">
+						<h4 class="u-mB-20">
+							Subtotal
+						</h4>
+
+						<p>
+							<strong>{{ cart.total_price | money_with_currency }}</strong>
+						</p>
+
+						<label for="note">Note to
+							{{ shop.name }}:</label>
+						<textarea class="u-mB-20" name="note" rows="2">{{ cart.note }}</textarea>
+
+						<p>
+							<button class="button u-size-12" name="checkout" type="submit">Checkout</button>
+						</p>
+					</div>
+					{% include 'cart-shipping-calculator' %}
+				</div>
+			</form>
+
+		{% endif %}
+
 	</div>
-  {% else %}
-
-  <form action="/cart" method="post" id="cart_form" class="o-grid">        
-      <div class="o-grid__item u-size-7@m">
-      	<div class="border border--xlarge">
-        <h4 class="u-mB-20">Products</h4>
-
-        {% for item in cart.items %}
-        	<div class="search-result">
-          <div class="o-grid">
-          <div class="o-grid__item u-size-12 u-size-4@m">
-            <a href="{{ item.url }}" title="{{ item.title | escape }}" class="u-flex u-justifyCenter">       
-              <img data-src="{{ item | img_url: 'medium' }}" alt="{{ item.title | escape }}" class="lazyload lazypreload" data-sizes="auto" />
-            </a>
-          </div>
-
-          <div class="o-grid__item u-size-12 u-size-8@m">
-            <p>
-              <a href="{{ item.url }}" title="{{ item.title | escape }}"><h5>{{ item.title }}</h5></a>
-            </p> 
-            
-            {% if item.properties %}
-              <p>
-              {% for p in item.properties %}
-                {% unless p.last == blank %}
-                  {% if p.last contains '/uploads/' %}
-                    {{ p.first }}: <a class="lightbox" href="{{ p.last }}">uploaded file</a><br />
-                  {% else %}
-                    {{ p.first }}: {{ p.last }}<br />
-                  {% endif %}
-                {% endunless %}
-              {% endfor %}
-              </p>
-            {% endif %}
-
-            <p>
-              {{ item.price | money_with_currency }}
-            </p>
-
-            <div class="u-flex u-alignCenter">
-              <label for="updates_{{ item.id }}" class="u-mR-16">Quantity:</label>
-              <input type="number" min="0" size="3" maxlength="3" class="quantity" name="updates[]" value="{{ item.quantity }}" onchange="this.closest('form').submit()" />
-           </div>
-
-           
-              <a href="/cart/change?line={{ forloop.index }}&amp;quantity=0" title="Remove Item"> <small>Remove</small></a>
-            
-          </div>
-          
-          </div>
-          </div>
-        {% endfor %}
-        </div>
-      </div>
-
-      <div class="o-grid__item u-size-5@m">
-      	<div class="border border--xlarge u-mB-40">
-	        <h4 class="u-mB-20">
-	          Subtotal
-	        </h4>
-	
-	        <p>
-	          <strong>{{ cart.total_price | money_with_currency }}</strong> 
-	        </p>
-	
-	          <label for="note">Note to {{ shop.name }}:</label>
-	          <textarea class="u-mB-20" name="note" rows="2">{{ cart.note }}</textarea>        
-	
-	        <p>
-	          <button class="button u-size-12" name="checkout" type="submit">Checkout</button>
-	        </p>
-        </div>
-        {% include 'cart-shipping-calculator' %}
-      </div>
-  </form>
-  
-  {% endif %}
-  
-  </div>
-  </div>
+</div>

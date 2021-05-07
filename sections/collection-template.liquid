@@ -1,19 +1,20 @@
 {% assign collection_handle_slider = section.settings.col_nav %}
 {% if collection.metafields.menus.slider %}
-      {% assign collection_handle_slider = collection.metafields.menus.slider %}
+	{% assign collection_handle_slider = collection.metafields.menus.slider %}
 {% endif %}
+
 {% include "collection-list-slider", collection_handle: collection_handle_slider %}
 
 {% include "collection-header" %}
 
 {% if collection.metafields.menus.top %}
-      {% include "collection-buttons", collection_handle: collection.metafields.menus.top %}
+	{% include "collection-buttons", collection_handle: collection.metafields.menus.top %}
 {% endif %}
 
 {% include "collection-item-list" %}
 
 {% if collection.metafields.menus.bottom %}
-      {% include "collection-buttons", collection_handle: collection.metafields.menus.bottom %}
+	{% include "collection-buttons", collection_handle: collection.metafields.menus.bottom %}
 {% endif %}
 
 {% schema %}
@@ -24,7 +25,7 @@
             "type": "link_list",
             "id": "col_nav",
             "label": "Thumbnail Slider List"
-        }  
+        }
     ]
 }
 {% endschema %}

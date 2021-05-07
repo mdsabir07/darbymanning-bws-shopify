@@ -1,74 +1,71 @@
 {% assign custom_attributes = product.metafields.f_accordion %}
-{% if product.metafields.global.footprint_img != blank or product.metafields.global.footprint_point != blank or custom_attributes.size > 0 %}
- <section class="product-footprint  u-mV-80 u-mV-50@s" id="footprint">
-        <div class="o-grid  o-grid--p">
-            {% if product.metafields.global.footprint_img != blank or  product.metafields.global.footprint_point != blank %}
-            <div class="o-grid__item  u-size-12@s">
-                <h1 class="h2  u-textUpper product-footprint__title">
-                    <span><img class="u-inblock" src="{{ 'footprint.svg' | asset_url }}"></span>
-                    <span>PRODUCT FOOTPRINT</span>
-                </h1>
-                <div class="product-footprint__block">
-                    <div class="product-footprint__col">
-                        <div class="product-footprint__img">
-                            <img src="{{ product.metafields.global.footprint_img }}">
-                        </div>
-                    </div>
-                    <div class="product-footprint__col  product-footprint__info">
-                        <h2 class="h2  u-textUpper  product-footprint__title">STRONG POINTS</h2>
-                        {{ product.metafields.global.footprint_point }}
-                    </div>
-                </div>
-            </div>
-            {% endif %}
-            <div class="o-grid__item  u-size-6@m u-size-12 accordion js-accordion">
-                {% if product.metafields.f_accordion.accordion_title_1 != blank %}
-                <div class="accordion__item">
-                    <a href="#content-1" class="accordion__toggle js-accordion-toggle  h2  u-textUpper">
-                        {{ product.metafields.f_accordion.accordion_title_1 }}
-                        <div class="accordion__arrow">&#9661;</div>
-                    </a>
-                    <div class="accordion__content" id="content-1">
-                        {{ product.metafields.f_accordion.accordion_content_1 }}
-                    </div>
-                </div>
-                {% endif %}
-                {% if product.metafields.f_accordion.accordion_title_2 != blank %}
-                <div class="accordion__item">
-                    <a href="#content-2" class="accordion__toggle js-accordion-toggle h2  u-textUpper  ">
-                        {{ product.metafields.f_accordion.accordion_title_2 }} <div class="accordion__arrow">&#9661;</div>
-                    </a>
-                    <div class="accordion__content" id="content-2">
-                        {{ product.metafields.f_accordion.accordion_content_2 }}
-                    </div>
-                </div>
-                {% endif %}
-                {% if product.metafields.f_accordion.accordion_title_3 != blank %}
-                <div class="accordion__item">
-                    <a href="#content-3" class="accordion__toggle js-accordion-toggle h2  u-textUpper  ">
-                        {{ product.metafields.f_accordion.accordion_title_3 }} <div class="accordion__arrow">&#9661;</div>
-                    </a>
-                    <div class="accordion__content" id="content-3">
-                        {{ product.metafields.f_accordion.accordion_content_3 }}
-                    </div>
-                </div>
-                {% endif %}
-                {% if product.metafields.f_accordion.accordion_title_4 != blank %}
-                <div class="accordion__item">
-                    <a href="#content-3" class="accordion__toggle js-accordion-toggle h2  u-textUpper  ">
-                        {{ product.metafields.f_accordion.accordion_title_4 }} <div class="accordion__arrow">&#9661;</div>
-                    </a>
-                    <div class="accordion__content" id="content-3">
-                        {{ product.metafields.f_accordion.accordion_content_4 }}
-                    </div>
-                </div>
-                {% endif %}
-            </div>
 
-            <div class="o-grid__item  u-size-6@m">
-                {{ product.metafields.global.product_areas }}
-            </div>
-        </div>
-    </section>
+{% if product.metafields.footprint.strong_points != blank or custom_attributes.size > 0 %}
+	<section class="c-footprint" id="footprint">
+		{% if product.metafields.footprint.strong_points != blank %}
+			<div class="o-container">
+				<div class="c-footprint__wrap">
+					<h1 class="c-footprint__title">Product Footprint</h1>
+
+					<div class="c-footprintHero">
+						<div class="c-footprintHero__wrap">
+							<img class="c-footprintHero__icon" src="{{ "footprint.svg" | asset_url }}" alt="Product Footprint">
+							<div class="c-footprintHero__content">
+								<h2 class="c-footprintHero__title">
+									Strong Points
+								</h2>
+								{{ product.metafields.footprint.strong_points | newline_to_br }}
+							</div>
+						</div>
+						<img class="c-footprintHero__image" alt="{{ product.title }} footprint" src="{{ product.metafields.footprint.strong_points_image }}">
+					</div>
+
+					{% if product.metafields.footprint.people != blank %}
+						<div class="c-footprintPeople">
+							<h3 class="c-footprintPeople__title">People</h3>
+							<div class="c-footprintPeople__content">
+								{{ product.metafields.footprint.people | newline_to_br }}
+							</div>
+						</div>
+					{% endif %}
+
+					{% if product.metafields.footprint.planet != blank %}
+						<div class="c-footprintPlanet">
+							<h3 class="c-footprintPlanet__title">Planet</h3>
+							<div class="c-footprintPlanet__content">
+								{{ product.metafields.footprint.planet | newline_to_br }}
+							</div>
+						</div>
+					{% endif %}
+
+					{% if product.metafields.footprint.map != blank %}
+						<img class="c-footprintMap" src="{{ product.metafields.footprint.map }}" alt="Country of origin"/>
+					{% endif %}
+
+					{% if product.metafields.footprint.suppliers != blank %}
+						<div class="c-footprintSuppliers">
+							<h3 class="c-footprintSuppliers__title">
+								Suppliers
+							</h3>
+							<div class="c-footprintSuppliers__content">
+								{{ product.metafields.footprint.suppliers | newline_to_br }}
+							</div>
+						</div>
+					{% endif %}
+
+					{% if product.metafields.footprint.areas_for_development != blank %}
+						<div class="c-footprintAreasForDevelopment">
+							<h3 class="c-footprintAreasForDevelopment__title">
+								Areas For Development
+							</h3>
+							<div class="c-footprintAreasForDevelopment__content">
+								{{ product.metafields.footprint.areas_for_development | newline_to_br }}
+							</div>
+						</div>
+					{% endif %}
+
+				</div>
+			</div>
+		{% endif %}
+	</section>
 {% endif %}
-

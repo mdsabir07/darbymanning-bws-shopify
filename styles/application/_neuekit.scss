@@ -35,10 +35,10 @@
     Design Patterns. Layout. No cosmetics. Start using agnostic classes only.
 \*----------------------------------------------------------------------------*/
 
-@include nu-objects();
+// @include nu-objects();
 
 // @include nu-object__feed();             // Feed object with fixed top/tail.
-// @include nu-object__grid();             // Flex based grid layout.
+@include nu-object__grid(); // Flex based grid layout.
 // @include nu-object__inline();           // Flex based inliner.
 // @include nu-object__unlist();           // Strip list styles.
 

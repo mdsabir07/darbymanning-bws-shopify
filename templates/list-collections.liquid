@@ -5,22 +5,22 @@
 		<h1 class="u-mB-40">Product Collections</h1>
 
 		<div class="o-grid">
-				
+
 			{% for collection in collections %}
 				<div class="o-grid__item u-size-12 u-size-4@m u-mB-40 u-textCenter">
 					<a href="{{ collection.url }}">
 						{% if collection.image %}
-							<img src="{{ collection | img_url: '450x450' }}" alt="{{ collection.image.alt }}" />
+							<img src="{{ collection | img_url: '450x450' }}" alt="{{ collection.image.alt }}"/>
 						{% else %}
-							<img src="{{ collection.products.first | img_url: '450x450' }}" alt="{{ collection.title | escape  }}" />
+							<img src="{{ collection.products.first | img_url: '450x450' }}" alt="{{ collection.title | escape }}"/>
 						{% endif %}
 						<h5 class="u-mT-20">{{ collection.title }}</h5>
 					</a>
 				</div>
 			{% endfor %}
-			
+
 		</div>
-		
+
 	</div>
-	
+
 </div>

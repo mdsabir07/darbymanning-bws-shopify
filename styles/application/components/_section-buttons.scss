@@ -1,16 +1,16 @@
 .section-buttons {
-    margin-bottom: 8rem;
-    margin-top: 0;
+  margin-bottom: 8rem;
+  margin-top: 0;
 
-    &__button {
-        box-sizing: inherit;
-        justify-content: center;
-        position: relative;
-        width: 100%;
-        width: 100%;
+  &__button {
+    box-sizing: inherit;
+    justify-content: center;
+    position: relative;
+    width: 100%;
+    width: 100%;
 
-        &.active {
-            background-color: var(--dark-blue);
-        }
+    &.active {
+      background-color: var(--dark-blue);
     }
+  }
 }

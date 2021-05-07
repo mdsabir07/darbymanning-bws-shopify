@@ -1,32 +1,46 @@
-<div
-class="product-recommendations"
-data-base-url="{{ routes.product_recommendations_url }}"
-data-product-id="{{ product.id }}"
-data-limit="3"
->
-<section class="product-similar  u-mB-48">
-  {%- if recommendations.products_count > 0 -%}
-    <div class="o-grid  o-grid--p">
-      <div class="o-grid__item  u-size-12@s">
-        <h4 class="nimbus u-textUpper u-mB-48">Something else?</h4>
-      </div>
-
-      {%- for product in recommendations.products -%}
-         <div class="o-grid__item  u-size-6 u-size-6@s  u-size-4@m  collection-items__item product">
-          <a href="{{ product.url }}">
-          <img
-              class="product-similar__img"
-              src="{{ product.featured_image | img_url: '300x300' }}"
-              alt="{{ product.featured_image.alt }}"
-          />
-          <h5 class="dark-blue  u-mT-20">{{ product.title }}</h5>
-          <div class="u-mB-20">
-          	<strong class="dark-blue">{{ product.price | money}}</strong>
-          </div>
-          </a>
-        </div>
-      {%- endfor -%}
-    </div>
-  {%- endif -%}
+<section class="c-product__recommendations c-slider c-slider--transparent js-productRecommendations" data-base-url="{{ routes.product_recommendations_url }}" data-product-id="{{ product.id }}" data-limit="10">
+	<div class="o-container">
+		<h4 class="c-slider__title">Something else?</h4>
+		{%- if recommendations.products_count > 0 -%}
+			<div class="js-slider" data-items="4" data-loop="0" data-gutter="1" data-responsive='{"300": {"items": "2"}, "768": {"items": "3"}, "1024": {"items": "4"}}'>
+				{%- for product in recommendations.products -%}
+					<div class="slide__item">
+						{% include 'product-card-grid' with {
+            product: product,
+            shrink: true,
+            show_vendor: true,
+            price_on_image: true,
+          } %}
+					</div>
+				{% endfor %}
+			</div>
+			<ul class="slider__controls slider__controls--wide js-slider-controls" aria-label="Carousel Navigation" tabindex="0">
+				<li class="slider__prev button js-slider-prev" data-controls="prev" aria-controls="customize" tabindex="-1">
+					<svg width="17px" height="18px" viewbox="0 0 17 18" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+						<title>Fill 3</title>
+						<g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+							<g id="Arrow" fill="#FFFFFF">
+								<polygon id="Fill-3" transform="translate(8.500000, 9.000000) rotate(-270.000000) translate(-8.500000, -9.000000) " points="7.58805575 1 0 17 2.34598347 17 8.54454108 3.44934827 14.6540165 17 17 17 9.44133218 1"></polygon>
+							</g>
+						</g>
+					</svg>
+				</li>
+				<li class="slider__next  button js-slider-next" data-controls="next" aria-controls="customize" tabindex="-1">
+					<svg width="17px" height="18px" viewbox="0 0 17 18" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+						<title>Fill 3</title>
+						<g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+							<g id="Arrow" fill="#FFFFFF">
+								<polygon id="Fill-3" transform="translate(8.500000, 9.000000) rotate(-270.000000) translate(-8.500000, -9.000000) " points="7.58805575 1 0 17 2.34598347 17 8.54454108 3.44934827 14.6540165 17 17 17 9.44133218 1"></polygon>
+							</g>
+						</g>
+					</svg>
+				</li>
+				{% if section.settings.show_view_all %}
+					<li class="slider__more">
+						<a class="button" href="{{ collection.url }}">View All</a>
+					</li>
+				{% endif %}
+			</ul>
+		{%- endif -%}
+	</div>
 </section>
-</div>

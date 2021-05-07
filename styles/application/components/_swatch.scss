@@ -1,70 +1,68 @@
 .swatch {
-    margin-top: 1.5rem;
+  &__element {
+    display: inline-block;
+    position: relative;
+    width: auto;
 
-    &__element {
-        display: inline-block;
-        position: relative;
-        width: auto;
+    label {
+      align-items: center;
+      background-color: var(--blue);
+      color: var(--white);
+      cursor: pointer;
+      display: flex;
+      font-size: 1.5rem;
+      height: 5.4rem;
+      justify-content: center;
+      margin-right: 1.8rem;
+      margin-top: 0;
+      position: relative;
+      width: 5.4rem;
 
-        label {
-            align-items: center;
-            background-color: var(--blue);
-            color: var(--white);
-            cursor: pointer;
-            display: flex;
-            font-size: 1.5rem;
-            height: 4rem;
-            justify-content: center;
-            margin-right: 2rem;
-            margin-top: 1rem;
-            position: relative;
-            width: 4rem;
+      @include respond-below(sm) {
+        margin-right: 0.5rem;
+      }
 
-            @include respond-below(sm) {
-                margin-right: 0.5rem;
-            }
-
-            &.active {
-                border: 1px solid var(--dark-blue);
-            }
-        }
-
-        &.size {
-            label {
-                align-items: center;
-                background-color: var(--light-gray);
-                color: var(--blue);
-                height: 5rem;
-                justify-content: center;
-                text-transform: uppercase;
-                transition: 0.3s all;
-                width: 5rem;
-
-                @include respond-below(sm) {
-                    height: 4.5rem;
-                    width: 4.5rem;
-                }
-
-                &:hover,
-                &.active {
-                    background-color: var(--blue);
-                    color: var(--white);
-                }
-            }
-        }
-
-        &:last-child label {
-            margin-right: 0;
-        }
+      &.active {
+        border: 1px solid var(--dark-blue);
+      }
     }
 
-    &__crossed-out {
-        height: 100%;
-        left: 0;
-        object-fit: cover;
-        opacity: 0;
-        position: absolute;
-        top: 0;
-        width: 100%;
+    &.size {
+      label {
+        align-items: center;
+        background-color: var(--light-gray);
+        color: var(--blue);
+        height: 5rem;
+        justify-content: center;
+        text-transform: uppercase;
+        transition: 0.3s all;
+        width: 5rem;
+
+        @include respond-below(sm) {
+          height: 4.5rem;
+          width: 4.5rem;
+        }
+
+        &:hover,
+        &.active {
+          background-color: var(--blue);
+          color: var(--white);
+        }
+      }
     }
+
+    &:last-child label {
+      margin-right: 0;
+    }
+  }
+
+  &__crossed-out {
+    height: 100%;
+    left: 0;
+    object-fit: cover;
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+  }
 }

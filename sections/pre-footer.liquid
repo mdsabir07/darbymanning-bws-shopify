@@ -10,79 +10,79 @@
     or request.page_type == 'article'
     or request.page_type == 'blog'
   -%}
-    {%- assign social_icons = true -%}
+	{%- assign social_icons = true -%}
 {%- endif -%}
 
 {%- assign socials = "Facebook Twitter Pinterest Instagram Tumblr Snapchat YouTube Vimeo" | split: ' ' -%}
 
 <div class="pre-footer">
-    <div class="o-grid  o-grid--small-pad">
-        {%- for block in section.blocks -%}
-            <div class="o-grid__item{% if section.blocks.size == 1 %} u-textCenter u-size-12{% endif %} u-size-6@s" {{ block.shopify_attributes }}>
-                {%- case block.type -%}
-                    {%- when 'newsletter' -%}
-                        <article class="block block--shadow join {% if block.settings.show_border %}border{% endif %} site-footer__newsletter">
-                            <div class="join__wrap  block__info" style="background-color:{{block.settings.bg_color}};">
-	                                <div>
-	                                <h4 class="join__title block__title  block__title--large  block__title--p-t blue u-textUpper">{{ block.settings.title }}</h4>
-	                                <div class="rte_settings">
-	                                    {{block.settings.text}}
-	                                </div>
-	                               </div>
-                                {%- assign formId = 'ContactFooter' -%}
-                                <form action="https://manage.kmail-lists.com/subscriptions/subscribe?a=MccrpL&amp;g=H5vr9r" method="post" name="mc-embedded-subscribe-form" class="contact-form" target="_blank">
-							  	  <input type="email" value="" name="EMAIL" class="input-group__field newsletter__input join__input{% if form.errors %} input--error{% endif %}"  placeholder="Enter email...">
-							  	  <span class="input-group__btn">
-                                        <button class="newsletter__submit button  button--dark  join__button" type="submit" value="Sign Up" name="subscribe" >
-                                            <span class="newsletter__submit-text--large">{{ 'general.newsletter_form.submit' | t }}</span>
-                                        </button>
-                                    </span>
-							    </form>
-                            </div>
-                        </article>
+	<div class="o-grid  o-grid--small-pad">
+		{%- for block in section.blocks -%}
+			<div class="o-grid__item{% if section.blocks.size == 1 %} u-textCenter u-size-12{% endif %} u-size-6@s" {{ block.shopify_attributes }}>
+				{%- case block.type -%}
+					{%- when 'newsletter' -%}
+						<article class="block block--shadow join {% if block.settings.show_border %}border{% endif %} site-footer__newsletter">
+							<div class="join__wrap  block__info" style="background-color:{{block.settings.bg_color}};">
+								<div>
+									<h4 class="join__title block__title  block__title--large  block__title--p-t blue u-textUpper">{{ block.settings.title }}</h4>
+									<div class="rte_settings">
+										{{block.settings.text}}
+									</div>
+								</div>
+								{%- assign formId = 'ContactFooter' -%}
+								<form action="https://manage.kmail-lists.com/subscriptions/subscribe?a=MccrpL&amp;g=H5vr9r" method="post" name="mc-embedded-subscribe-form" class="contact-form" target="_blank">
+									<input type="email" value="" name="EMAIL" class="input-group__field newsletter__input join__input{% if form.errors %} input--error{% endif %}" placeholder="Enter email...">
+									<span class="input-group__btn">
+										<button class="newsletter__submit button  button--dark  join__button" type="submit" value="Sign Up" name="subscribe">
+											<span class="newsletter__submit-text--large">{{ 'general.newsletter_form.submit' | t }}</span>
+										</button>
+									</span>
+								</form>
+							</div>
+						</article>
 
-                    {%- when 'social' -%}
-                        <article class="block block--shadow social {% if block.settings.show_border %}border{% endif %}">
-                            <div class="social__wrap block--row" style="background-color:{{block.settings.bg_color}};">
-                                <div class="block__col social__link">
-                                    <div class="block__info  block__info--p-tb block__info--transparent">
-                                        {%- if block.settings.title -%}
-                                            <p class="h4 block__title block__title--large  block__title--p-t dark-blue u-textUpper">{{ block.settings.title | escape }}</p>
-                                        {%- endif -%}
-                                        {%- if social_icons -%}
-                                            <ul class="social__ul site-footer__social-icons">
-                                                {%- for social in socials -%}
-                                                    {%- assign social_link = social | prepend: 'social_' | append: '_link' | downcase -%}
-                                                    {%- assign icon_link = social | prepend: 'icon-' | downcase -%}
-                                                    {%- if settings[social_link] != blank -%}
-                                                        <li class="social__li">
-                                                            <a class="social__a" href="{{ settings[social_link] | escape }}" aria-describedby="a11y-external-message">
-                                                                {{ social }}
-                                                            </a>
-                                                        </li>
-                                                    {%- endif -%}
-                                                {%- endfor -%}
-                                                {%- if settings.social_refer_link != blank -%}
-                                                    <li class="social__li">
-                                                        <a class="social__a" href="{{ settings.social_refer_link | escape }}" aria-describedby="a11y-external-message">
-                                                            Refer a Friend
-                                                        </a>
-                                                    </li>
-                                                {%- endif -%}
-                                            </ul>
-                                        {%- endif -%}
-                                    </div>
-                                </div>
-                                {% if block.settings.image != blank %}
-                                    {%- assign img_url = block.settings.image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
-                                    <img class="social__img block__col" src="{{ block.settings.image | img_url: '480x480' }}" alt="{{ block.settings.image.alt | escape }}">
-                                {% endif %}
-                            </div>
-                        </article>
-                {%- endcase -%}
-            </div>
-        {%- endfor -%}
-    </div>
+					{%- when 'social' -%}
+						<article class="block block--shadow social {% if block.settings.show_border %}border{% endif %}">
+							<div class="social__wrap block--row" style="background-color:{{block.settings.bg_color}};">
+								<div class="block__col social__link">
+									<div class="block__info  block__info--p-tb block__info--transparent">
+										{%- if block.settings.title -%}
+											<p class="h4 block__title block__title--large  block__title--p-t dark-blue u-textUpper">{{ block.settings.title | escape }}</p>
+										{%- endif -%}
+										{%- if social_icons -%}
+											<ul class="social__ul site-footer__social-icons">
+												{%- for social in socials -%}
+													{%- assign social_link = social | prepend: 'social_' | append: '_link' | downcase -%}
+													{%- assign icon_link = social | prepend: 'icon-' | downcase -%}
+													{%- if settings[social_link] != blank -%}
+														<li class="social__li">
+															<a class="social__a" href="{{ settings[social_link] | escape }}" aria-describedby="a11y-external-message">
+																{{ social }}
+															</a>
+														</li>
+													{%- endif -%}
+												{%- endfor -%}
+												{%- if settings.social_refer_link != blank -%}
+													<li class="social__li">
+														<a class="social__a" href="{{ settings.social_refer_link | escape }}" aria-describedby="a11y-external-message">
+															Refer a Friend
+														</a>
+													</li>
+												{%- endif -%}
+											</ul>
+										{%- endif -%}
+									</div>
+								</div>
+								{% if block.settings.image != blank %}
+									{%- assign img_url = block.settings.image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
+									<img class="social__img block__col" src="{{ block.settings.image | img_url: '480x480' }}" alt="{{ block.settings.image.alt | escape }}">
+								{% endif %}
+							</div>
+						</article>
+				{%- endcase -%}
+			</div>
+		{%- endfor -%}
+	</div>
 </div>
 
 

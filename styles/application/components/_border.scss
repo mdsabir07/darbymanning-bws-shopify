@@ -1,40 +1,40 @@
 .border {
-    &::before {
-        background: var(--blue);
-        content: '';
-        display: block;
-        height: 0.6rem;
-        left: 0;
-        position: absolute;
-        right: 0;
-        top: 2.5rem;
-        width: 100%;
-        z-index: 3;
-    }
+  &::before {
+    background: var(--blue);
+    content: "";
+    display: block;
+    height: 0.6rem;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 2.5rem;
+    width: 100%;
+    z-index: 3;
+  }
 
-    &--close:before {
-        background-color: var(--dark-blue);
-        background-color: var(--border-color);
-        top: 1rem;
-    }
+  &--close:before {
+    background-color: var(--dark-blue);
+    background-color: var(--border-color);
+    top: 1rem;
+  }
 
-    &--small:before {
-        top: 1.8rem;
-    }
+  &--small:before {
+    top: 1.8rem;
+  }
 
-    &--large:before {
-        top: 2.7rem;
-    }
+  &--large:before {
+    top: 2.7rem;
+  }
 
-    &--xlarge:before {
-        top: 3.5rem;
-    }
+  &--xlarge:before {
+    top: 3.5rem;
+  }
 
-    &--top::before {
-        top: 0;
-    }
+  &--top::before {
+    top: 0;
+  }
 
-    &--darkblue::before {
-        background: var(--dark-blue);
-    }
+  &--darkblue::before {
+    background: var(--dark-blue);
+  }
 }

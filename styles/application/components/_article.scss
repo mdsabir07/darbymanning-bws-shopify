@@ -1,33 +1,32 @@
 .article {
-	font-family: DINOTRegular;
-    img {
-        display: inline-block;
-    }
-    
-    p {
-	    font-size: 1.8rem;
-    }
+  font-family: DINOTRegular;
+  img {
+    display: inline-block;
+  }
 
-    p.border {
-        display: inline-flex;
-        justify-self: center;
-        padding: 0 2rem;
+  p {
+    font-size: 1.8rem;
+  }
+
+  p.border {
+    display: inline-flex;
+    justify-self: center;
+    padding: 0 2rem;
+  }
+
+  p span:empty {
+    margin-right: 0.5rem;
+  }
+
+  &__date,
+  &__author {
+    font-size: 1.4rem;
+  }
+
+  @include respond-below(md) {
+    &__date {
+      margin-top: 2rem;
+      display: block;
     }
-    
-    p span:empty {
-	    margin-right: .5rem;
-    }
-    
-    &__date, &__author {
-	    font-size: 1.4rem;
-    }
-    
-    @include respond-below(md) {
-	    
-	    &__date {
-		    margin-top: 2rem;
-		    display: block;
-	    }
-	    
-	}
+  }
 }

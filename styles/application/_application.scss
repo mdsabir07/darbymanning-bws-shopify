@@ -1,72 +1,26 @@
-/* prettier-ignore start */
-/*!---------------------------------------------------------------------------*\
+@import 'tools/functions/function';
 
-    #YOUR PROJECT NAME
+@import 'tools/mixins/mixin';
+@import 'tools/mixins/breakpoints';
+@import 'tools/mixins/placeholder';
+@import 'tools/mixins/border';
+@import 'tools/mixins/heading';
 
-    - Version:      1.0
-    - Author:       YOUR NAME
-    - Site:         http://YOUR_SITE
-    - Copyright:    2019, YOUR COMPANY
-    – License:      YOUR LICENSE
+@import 'generic/keyframes';
+@import 'generic/fonts';
+@import 'generic/shared';
 
-\*----------------------------------------------------------------------------*/
+@import 'elements/document';
+@import 'elements/forms';
+@import 'elements/links';
+@import 'elements/lists';
+@import 'elements/media';
+@import 'elements/quotes';
+@import 'elements/tables';
+@import 'elements/type';
 
-/*----------------------------------------------------------------------------*\
-    #FUNCTIONS
-
-    Globally-available functions.
-\*----------------------------------------------------------------------------*/
-
-@import 'tools/functions/function'; // Example function.
-
-/*----------------------------------------------------------------------------*\
-    #MIXINS
-
-    Globally-available mixins.
-\*----------------------------------------------------------------------------*/
-
-@import 'tools/mixins/mixin'; // Example Mixin.
-@import 'tools/mixins/breakpoints'; // Breakpoints code variables.
-@import 'tools/mixins/placeholder'; // Placeholder.
-
-/*----------------------------------------------------------------------------*\
-    #GENERIC
-
-    Ground-zero styles. Low-specificity, far-reaching.
-\*----------------------------------------------------------------------------*/
-
-@import 'generic/keyframes'; // CSS Keyframe blocks.
-@import 'generic/fonts'; // Vector icons/fonts includes.
-@import 'generic/shared'; // Shared global commonalities.
-
-/*----------------------------------------------------------------------------*\
-    #ELEMENTS
-
-    Last layer for type selectors (h1-h6, a).
-\*----------------------------------------------------------------------------*/
-
-@import 'elements/document'; // Page-level styles (HTML, body etc).
-@import 'elements/forms'; // Form inputs, textareas.
-@import 'elements/links'; // Hyperlinks.
-@import 'elements/lists'; // Lists.
-@import 'elements/media'; // Media elements, img, svg, video, etc.
-@import 'elements/quotes'; // Blockquotes, cite, etc.
-@import 'elements/tables'; // Table element styles.
-@import 'elements/type'; // All type styles.
-
-/*----------------------------------------------------------------------------*\
-    #OBJECTS
-
-    Design Patterns. Layout. No cosmetics. Start using agnostic classes only.
-\*----------------------------------------------------------------------------*/
-
-@import 'objects/app'; // Core UI Wrapper.
-
-/*----------------------------------------------------------------------------*\
-    #COMPONENTS
-
-    Designed pieces of UI. Only using classes. More explicit naming.
-\*----------------------------------------------------------------------------*/
+@import 'objects/app';
+@import 'objects/container';
 
 @import 'components/border';
 @import 'components/core/head';
@@ -91,14 +45,11 @@
 @import 'components/section-header';
 @import 'components/section-buttons';
 
-@import 'components/product-main';
-@import 'components/product-footprint';
-@import 'components/product-similar';
+@import 'components/product';
 @import 'components/accordion';
 @import 'components/breadcrumbs';
 
 @import 'components/payment-icons';
-@import 'components/product-meta';
 @import 'components/price';
 @import 'components/block-spacer';
 @import 'components/pagination';
@@ -117,18 +68,5 @@
 @import 'components/article';
 @import 'components/announcement';
 
-/*----------------------------------------------------------------------------*\
-    #Helpers
-
-    Designed pieces of UI. Only using classes. More explicit naming.
-\*----------------------------------------------------------------------------*/
-
-
-/*----------------------------------------------------------------------------*\
-    #UTILITIES
-
-    Overrides, helpers, utilities. Only affect one item at a time.
-\*----------------------------------------------------------------------------*/
-
-@import 'utilities/spacing'; // Micro-level spacing.
-@import 'utilities/grid'; // Grid override.
+@import 'utilities/spacing';
+@import 'utilities/grid';

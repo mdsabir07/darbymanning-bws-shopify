@@ -1,34 +1,34 @@
 {% assign count = collection.products_count %}
 <div class="o-grid__item u-size-12 slider">
-   	<h4 class="nimbus u-textUpper slider__title">{{collection.title}}</h4>
+	<h4 class="nimbus u-textUpper slider__title">{{collection.title}}</h4>
 	<div class="js-slider" data-items="4" data-gutter="1" data-responsive='{"300": {"items": "1"}, "768": {"items": "3"}, "1024": {"items": "4"}}'>
 		{% for product in collection.products %}
-		    <div>
-		        {% include 'product-card-grid', product: product, show_vendor: true %}
-		    </div>
+			<div>
+				{% include 'product-card-grid', product: product, show_vendor: true %}
+			</div>
 		{% else %}
 			<div class="o-grid__item u-size-12">
-		    	<p class="u-mL-2">No products in collections.</p>
-		    </div>
+				<p class="u-mL-2">No products in collections.</p>
+			</div>
 		{% endfor %}
 	</div>
 	<ul class="slider__controls slider__controls--negative js-slider-controls" aria-label="Carousel Navigation" tabindex="0">
-	    <li class="slider__prev" data-controls="prev" aria-controls="customize" tabindex="-1">
-	        <i class="fas fa-angle-left fa-5x"></i>
-	    </li>
-	    <li class="slider__next  button" data-controls="next" aria-controls="customize" tabindex="-1">
-	        <?xml version="1.0" encoding="UTF-8"?>
-	        <svg width="17px" height="18px" viewBox="0 0 17 18" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-	            <title>Fill 3</title>
-	            <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-	                <g id="Arrow" fill="#FFFFFF">
-	                    <polygon id="Fill-3" transform="translate(8.500000, 9.000000) rotate(-270.000000) translate(-8.500000, -9.000000) " points="7.58805575 1 0 17 2.34598347 17 8.54454108 3.44934827 14.6540165 17 17 17 9.44133218 1"></polygon>
-	                </g>
-	            </g>
-	        </svg>
-	    </li>
-	    <li class="slider__more">
-	    	<a class="button" href="{{ collection.url }}">View All</a>
-	    </li>
+		<li class="slider__prev" data-controls="prev" aria-controls="customize" tabindex="-1">
+			<i class="fas fa-angle-left fa-5x"></i>
+		</li>
+		<li class="slider__next  button" data-controls="next" aria-controls="customize" tabindex="-1">
+			<?xml version="1.0" encoding="UTF-8"?>
+			<svg width="17px" height="18px" viewBox="0 0 17 18" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+				<title>Fill 3</title>
+				<g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+					<g id="Arrow" fill="#FFFFFF">
+						<polygon id="Fill-3" transform="translate(8.500000, 9.000000) rotate(-270.000000) translate(-8.500000, -9.000000) " points="7.58805575 1 0 17 2.34598347 17 8.54454108 3.44934827 14.6540165 17 17 17 9.44133218 1"></polygon>
+					</g>
+				</g>
+			</svg>
+		</li>
+		<li class="slider__more">
+			<a class="button" href="{{ collection.url }}">View All</a>
+		</li>
 	</ul>
 </div>

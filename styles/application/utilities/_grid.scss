@@ -1,22 +1,22 @@
 .o-grid {
-    $b: &;
+  $b: &;
 
-    &--p {
-        padding: 0 1.8rem;
-    }
+  &--p {
+    padding: 0 1.8rem;
+  }
 
-    &--small-pad {
-        #{$b}__item {
-            padding-left: 0.05rem;
-            padding-right: 0.05rem;
-        }
+  &--small-pad {
+    #{$b}__item {
+      padding-left: 0.05rem;
+      padding-right: 0.05rem;
     }
+  }
 
-    &--small-marg {
-        &,
-        #{$b} & {
-            margin-left: -0.9rem;
-            margin-right: -0.9rem;
-        }
+  &--small-marg {
+    &,
+    #{$b} & {
+      margin-left: -0.9rem;
+      margin-right: -0.9rem;
     }
+  }
 }

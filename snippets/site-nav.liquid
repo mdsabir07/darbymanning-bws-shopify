@@ -1,108 +1,95 @@
 {% unless linklists[section.settings.main_linklist] == blank %}
-      <button class="nav__toggle  nav__toggle--main js-nav-toggle">
-        <img src="{{ 'menu.svg' | asset_url }}" alt="menu">
-      </button>
+	<button class="nav__toggle  nav__toggle--main js-nav-toggle">
+		<img src="{{ 'menu.svg' | asset_url }}" alt="menu">
+	</button>
 {% endunless %}
 
 <ul class="nav__menu  nav__ul" id="siteNav" itemtype="http://www.schema.org/SiteNavigationElement">
-    <li class="nav__li nav__li--close">
-      <button class="nav__a nav__close js-nav-toggle"  type="button"></button>
-    </li>
+	<li class="nav__li nav__li--close">
+		<button class="nav__a nav__close js-nav-toggle" type="button"></button>
+	</li>
 
-    {% for link in linklists[linklist].links %}
-      {%- assign child_list_handle = link.title | handleize -%}
-      {% comment %}
-        Check if third-level nav exists on each parent link.
-      {% endcomment %}
-      {%- assign three_level_nav = false -%}
-      {% if link.links != blank %}
-        {% if link.levels == 2 %}
-          {%- assign three_level_nav = true -%}
-        {% endif %}
-      {% endif %}
-  
-      {% if link.links != blank %}
-        <li class="nav__li{% if three_level_nav %} site-nav--has-centered-dropdown{% endif %}{% if link.active %} site-nav--active{% endif %}" data-has-dropdowns itemprop="name">
-          <a href="{{ link.url }}" class="nav__a{% if link.child_active %} site-nav__link--active{% endif %} js-top-level-menu" itemprop="url">
-            {{ link.title | escape }} <i class="icon-arrow"></i>
-          </a>
-  
-          <div class="nav__dropdown js-menu-dropdown">
-            {% if three_level_nav %}
-                             
-             <ul class="nav__dd-wrap nav__dd-wrap--size-{{ link.links.size }} site-nav__childlist-grid" itemtype="http://www.schema.org/SiteNavigationElement">
-             	<li class="nav__col  border border--xlarge u-hide@m">
-                    <ul class="nav__sub-ul" itemtype="http://www.schema.org/SiteNavigationElement">
-                    	<li itemprop="name">
-                    	 <a href="{{ link.url }}"
-                              class="nav__a  nav__a--sub"
-                              itemprop="url"
-                            >
-                                Go to {{ link.title | escape }} →</a>
-                                </li>
-                                </ul>
-                    </li>
-                  {% if link.links != blank %}
-                    {% for childlink in link.links %}
-                      <li class="nav__col border border--xlarge {% if link.links.size == 1 %}nav__col--single{% endif %}">
-                      
-                        <h2 class="nav__sub-title {%if childlink.title == '-' %}nav__sub-title--invisible{% endif %}  nimbus" itemprop="name">
-                          {{ childlink.title | escape }}
-                        </h2>
-                        {% if childlink.links != blank %}
-                          <ul class="nav__sub-ul" itemtype="http://www.schema.org/SiteNavigationElement">
-                          {% for grandchildlink in childlink.links %}
-                            <li itemprop="name">
-                              <a href="{{ grandchildlink.url }}"
-                              itemprop="url"
-                              class="nav__a  nav__a--sub"
-                              {% if grandchildlink.current %} aria-current="page"{% endif %}
-                            >
-                                {{ grandchildlink.title | escape }}
-                              </a>
-                            </li>
-                          {% endfor %}
-                          </ul>
-                        {% endif %}
-  
-                      </li>
-                    {% endfor %}
-                  {% endif %}
-                </ul>             
-             
-  
-            {% else %}
-            <div class="nav__dd-wrap site-nav__childlist">
-             <div class="nav__col  border">
-              <ul class="nav__sub-ul" itemtype="http://www.schema.org/SiteNavigationElement">
-                {% for childlink in link.links %}
-                  <li itemprop="name">
-                    <a href="{{ childlink.url }}"
-                    itemprop="url"
-                    class="nav__a  nav__a--sub"
-                    {% if childlink.current %} aria-current="page"{% endif %}
-                  >
-                      {{ childlink.title | escape }}
-                    </a>
-                  </li>
-                {% endfor %}
-              </ul>
-              </div>
-              </div>
-            {% endif %}
-          </div>
-        </li>
-      {% else %}
-        <li {% if link.active %} class="nav__li"{% endif %} itemprop="name">
-          <a href="{{ link.url }}"
-          	itemprop="url"
-            class="site-nav__link site-nav__link--main{% if link.active %} site-nav__link--active{% endif %}"
-            {% if link.current %} aria-current="page"{% endif %}
-          >
-            {{ link.title | escape }}
-          </a>
-        </li>
-      {% endif %}
-    {% endfor %}
-  </ul>
-  
+	{% for link in linklists[linklist].links %}
+		{%- assign child_list_handle = link.title | handleize -%}
+		{% comment %}
+			Check if third-level nav exists on each parent link.
+		{% endcomment %}
+		{%- assign three_level_nav = false -%}
+		{% if link.links != blank %}
+			{% if link.levels == 2 %}
+				{%- assign three_level_nav = true -%}
+			{% endif %}
+		{% endif %}
+
+		{% if link.links != blank %}
+			<li class="nav__li{% if three_level_nav %} site-nav--has-centered-dropdown{% endif %}{% if link.active %} site-nav--active{% endif %}" data-has-dropdowns itemprop="name">
+				<a href="{{ link.url }}" class="nav__a{% if link.child_active %} site-nav__link--active{% endif %} js-top-level-menu" itemprop="url">
+					{{ link.title | escape }}
+					<i class="icon-arrow"></i>
+				</a>
+
+				<div class="nav__dropdown js-menu-dropdown">
+					{% if three_level_nav %}
+
+						<ul class="nav__dd-wrap nav__dd-wrap--size-{{ link.links.size }} site-nav__childlist-grid" itemtype="http://www.schema.org/SiteNavigationElement">
+							<li class="nav__col  border border--xlarge u-hide@m">
+								<ul class="nav__sub-ul" itemtype="http://www.schema.org/SiteNavigationElement">
+									<li itemprop="name">
+										<a href="{{ link.url }}" class="nav__a  nav__a--sub" itemprop="url">
+											Go to
+											{{ link.title | escape }}
+											→</a>
+									</li>
+								</ul>
+							</li>
+							{% if link.links != blank %}
+								{% for childlink in link.links %}
+									<li class="nav__col border border--xlarge {% if link.links.size == 1 %}nav__col--single{% endif %}">
+
+										<h2 class="nav__sub-title {%if childlink.title == '-' %}nav__sub-title--invisible{% endif %}  nimbus" itemprop="name">
+											{{ childlink.title | escape }}
+										</h2>
+										{% if childlink.links != blank %}
+											<ul class="nav__sub-ul" itemtype="http://www.schema.org/SiteNavigationElement">
+												{% for grandchildlink in childlink.links %}
+													<li itemprop="name">
+														<a href="{{ grandchildlink.url }}" itemprop="url" class="nav__a  nav__a--sub" {% if grandchildlink.current %} aria-current="page" {% endif %}>
+															{{ grandchildlink.title | escape }}
+														</a>
+													</li>
+												{% endfor %}
+											</ul>
+										{% endif %}
+
+									</li>
+								{% endfor %}
+							{% endif %}
+						</ul>
+
+
+					{% else %}
+						<div class="nav__dd-wrap site-nav__childlist">
+							<div class="nav__col  border">
+								<ul class="nav__sub-ul" itemtype="http://www.schema.org/SiteNavigationElement">
+									{% for childlink in link.links %}
+										<li itemprop="name">
+											<a href="{{ childlink.url }}" itemprop="url" class="nav__a  nav__a--sub" {% if childlink.current %} aria-current="page" {% endif %}>
+												{{ childlink.title | escape }}
+											</a>
+										</li>
+									{% endfor %}
+								</ul>
+							</div>
+						</div>
+					{% endif %}
+				</div>
+			</li>
+		{% else %}
+			<li {% if link.active %} class="nav__li" {% endif %} itemprop="name">
+				<a href="{{ link.url }}" itemprop="url" class="site-nav__link site-nav__link--main{% if link.active %} site-nav__link--active{% endif %}" {% if link.current %} aria-current="page" {% endif %}>
+					{{ link.title | escape }}
+				</a>
+			</li>
+		{% endif %}
+	{% endfor %}
+</ul>

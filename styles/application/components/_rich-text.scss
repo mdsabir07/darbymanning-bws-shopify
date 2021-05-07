@@ -1,25 +1,25 @@
 .rich-text {
-    &__text {
-        @include DINOTRegular;
-    }
+  &__text {
+    @include DINOTRegular;
+  }
 
-    * {
-        font-weight: normal;
-        color: var(--dark-blue);
+  * {
+    font-weight: normal;
+    color: var(--dark-blue);
 
-        @include respond-below(md) {
-            font-size: 2.4rem;
-            line-height: normal
-        }
+    @include respond-below(md) {
+      font-size: 2.4rem;
+      line-height: normal;
     }
+  }
 
-    span {
-        border-bottom: 0.4rem solid var(--blue);
-        line-height: 2.75rem;
-		display: inline-block;
-		
-		.windows & {
-			padding-bottom: .4rem;
-		}
+  span {
+    border-bottom: 0.4rem solid var(--blue);
+    line-height: 2.75rem;
+    display: inline-block;
+
+    .windows & {
+      padding-bottom: 0.4rem;
     }
+  }
 }

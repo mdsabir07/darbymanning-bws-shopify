@@ -1,7 +1,7 @@
 {% assign count = blog.articles_count %}
 
 <div class="o-grid__item u-size-12 slider">
-   	<h4 class="nimbus u-textUpper slider__title">{{blog.title}}</h4>
+	<h4 class="nimbus u-textUpper slider__title">{{blog.title}}</h4>
 	<div id="slider-{{ blog.handle }}" class="js-slider slider" data-items="{{ columns.size }}" data-gutter="1" data-responsive='{"300": {"items": "2"}, "768": {"items": "3"}, "1024": {"items": "{{ columns.size }}"}}' data-loop="0" data-basis="25">
 		{% for article in blog.articles %}
 			{% assign offset = forloop.index | modulo:columns.size %}
@@ -23,9 +23,9 @@
 				{% assign truncate = 200 %}
 			{% endif %}
 			{% if columns.size < 4 %}
-			    <div class="u-size-12 u-size-0@m u-flex" data-size="{{ column | divided_by:3 }}">
-			        {% include 'blog-card-grid', article: article, blog: blog, orientation: orientation, truncate: truncate %}
-			    </div>
+				<div class="u-size-12 u-size-0@m u-flex" data-size="{{ column | divided_by:3 }}">
+					{% include 'blog-card-grid', article: article, blog: blog, orientation: orientation, truncate: truncate %}
+				</div>
 			{% else %}
 				<div class="slide__item">
 					{% include 'blog-card-grid', article: article, blog: blog, orientation: orientation, truncate: truncate %}
@@ -33,37 +33,37 @@
 			{% endif %}
 		{% else %}
 			<div class="o-grid__item u-size-12">
-		    	<p class="u-mL-2">No articles in blog.</p>
-		    </div>
+				<p class="u-mL-2">No articles in blog.</p>
+			</div>
 		{% endfor %}
 	</div>
 	<ul class="slider__controls slider__controls--wide slider__controls--push js-slider-controls" aria-label="Carousel Navigation" tabindex="0">
 		<li class="slider__prev button js-slider-prev" data-controls="prev" aria-controls="customize" tabindex="-1">
-            <svg width="17px" height="18px" viewBox="0 0 17 18" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                <title>Fill 3</title>
-                <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                    <g id="Arrow" fill="#FFFFFF">
-                        <polygon id="Fill-3" transform="translate(8.500000, 9.000000) rotate(-270.000000) translate(-8.500000, -9.000000) " points="7.58805575 1 0 17 2.34598347 17 8.54454108 3.44934827 14.6540165 17 17 17 9.44133218 1"></polygon>
-                    </g>
-                </g>
-            </svg>
-        </li>
-        <div class="slider__group">
-        	<li class="slider__more">
-		    	<a class="button" href="{{ blog.url }}">View All</a>
-		    </li>
-		    <li class="slider__next  button" data-controls="next" aria-controls="customize" tabindex="-1">
-		        <?xml version="1.0" encoding="UTF-8"?>
-		        <svg width="17px" height="18px" viewBox="0 0 17 18" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-		            <title>Fill 3</title>
-		            <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-		                <g id="Arrow" fill="#FFFFFF">
-		                    <polygon id="Fill-3" transform="translate(8.500000, 9.000000) rotate(-270.000000) translate(-8.500000, -9.000000) " points="7.58805575 1 0 17 2.34598347 17 8.54454108 3.44934827 14.6540165 17 17 17 9.44133218 1"></polygon>
-		                </g>
-		            </g>
-		        </svg>
-		    </li>
-		    
+			<svg width="17px" height="18px" viewbox="0 0 17 18" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+				<title>Fill 3</title>
+				<g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+					<g id="Arrow" fill="#FFFFFF">
+						<polygon id="Fill-3" transform="translate(8.500000, 9.000000) rotate(-270.000000) translate(-8.500000, -9.000000) " points="7.58805575 1 0 17 2.34598347 17 8.54454108 3.44934827 14.6540165 17 17 17 9.44133218 1"></polygon>
+					</g>
+				</g>
+			</svg>
+		</li>
+		<div class="slider__group">
+			<li class="slider__more">
+				<a class="button" href="{{ blog.url }}">View All</a>
+			</li>
+			<li class="slider__next  button" data-controls="next" aria-controls="customize" tabindex="-1">
+				<?xml version="1.0" encoding="UTF-8"?>
+				<svg width="17px" height="18px" viewBox="0 0 17 18" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+					<title>Fill 3</title>
+					<g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+						<g id="Arrow" fill="#FFFFFF">
+							<polygon id="Fill-3" transform="translate(8.500000, 9.000000) rotate(-270.000000) translate(-8.500000, -9.000000) " points="7.58805575 1 0 17 2.34598347 17 8.54454108 3.44934827 14.6540165 17 17 17 9.44133218 1"></polygon>
+						</g>
+					</g>
+				</svg>
+			</li>
+
 		</div>
 	</ul>
 </div>

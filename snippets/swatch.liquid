@@ -1,37 +1,54 @@
-{% assign is_color = false %}
-{% assign option_index = 0 %}
+{%- assign is_color = false -%}
+{%- assign option_index = 0 -%}
 
-{% for option in product.options %}
-  {% if option == swatch %}
-    {% assign option_index = forloop.index0 %}
-    {% assign downcased_option = swatch | downcase %}
-    {% if downcased_option contains 'color' or downcased_option contains 'colour' %}
-      {% assign is_color = true %}
-    {% endif %}
-  {% endif %}
-{% endfor %}
+{%- for option in product.options -%}
+	{% if option == swatch %}
+		{% assign option_index = forloop.index0 %}
+		{% assign downcased_option = swatch | downcase %}
+		{% if downcased_option contains 'color' or downcased_option contains 'colour' %}
+			{% assign is_color = true %}
+		{% endif %}
+	{% endif %}
+{%- endfor -%}
 
-<div class="swatch js-swatch" data-option-index="{{ option_index }}">
-  <h5 class="swatch__header">{{ swatch }}</h5>
-  {% assign values = '' %}
-  {% for variant in product.variants %}
-    {% assign value = variant.options[option_index] %}
-    {% unless values contains value %}
-      {% assign values = values | join: ',' %}
-      {% assign values = values | append: ',' | append: value %} 
-      {% assign values = values | split: ',' %}
-      <div data-value="{{ value | escape }}" class="swatch__element {% if is_color %}color {% else %}size {% endif %}{{ value | handle }} {% if variant.available %}available{% else %}soldout{% endif %}">
-        {% if is_color %}
-	        <label style="background-color: {{ value | split: ' ' | last | handle }}; background-image: url({{ value | handle | append: '.' | append: file_extension | asset_url }})" class="js-swatch-item {% if forloop.first == true %}active{% endif %}">
-	          <img class="swatch__crossed-out" src="{{ 'soldout.png' | asset_url }}" />
-	        </label>
-        {% else %}
-	        <label class="js-swatch-item {% if forloop.first == true %}active{% endif %}">
-	          {{ value }}
-	          <img class="swatch__crossed-out" src="{{ 'soldout.png' | asset_url }}" />
-	        </label>
-        {% endif %}
-      </div>
-    {% endunless %}
-  {% endfor %}
-</div>
+{%- unless swatch == 'Size' -%}
+	<div class="swatch js-swatch" data-option-index="{{ option_index }}">
+		<h5 class="c-product__formLabel">{{ swatch }}</h5>
+		{% assign values = '' %}
+		{% for variant in product.variants %}
+
+			{% assign value = variant.options[option_index] %}
+
+			<!-- parse-ignore-start -->
+      {% capture swatch_style -%}
+        background-color: {{ value | split: ' ' | last | handle }};
+        background-image: url(https://media-cdn.starapps.studio/apps/vsk/brothers-we-stand/swatches/Colour/{{ value }}.media)
+      {%- endcapture %}
+
+      {% capture swatch_class -%}
+        swatch__element {{ value | handle -}}
+        {%- if is_color %} color{%- else %} size{%- endif -%}
+        {%- if variant.available %} available{%- else %} soldout{%- endif -%}
+      {%- endcapture %}
+      <!-- parse-ignore-end -->
+
+			{% unless values contains value %}
+				{% assign values = values | join: ',' %}
+				{% assign values = values | append: ',' | append: value %}
+				{% assign values = values | split: ',' %}
+				<div data-value="{{ value | escape }}" class="{{ swatch_class }}">
+					{% if is_color %}
+						<label style="{{ swatch_style }}" class="js-swatch-item {% if forloop.first == true %}active{% endif %}">
+							<img class="swatch__crossed-out" src="{{ 'soldout.png' | asset_url }}"/>
+						</label>
+					{% else %}
+						<label class="js-swatch-item {% if forloop.first == true %}active{% endif %}">
+							{{ value }}
+							<img class="swatch__crossed-out" src="{{ 'soldout.png' | asset_url }}"/>
+						</label>
+					{% endif %}
+				</div>
+			{% endunless %}
+		{% endfor %}
+	</div>
+{%- endunless -%}

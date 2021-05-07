@@ -3,50 +3,50 @@
 \*----------------------------------------------------------------------------*/
 
 @include nu-utility__spacing(
-    $attrs: (
-        margin,
-        padding,
-    ),
-    $steps: (
-        2,
-        80,
-        50,
-        48,
-        16,
-    ),
-    $directions: (
-        top,
-        vertical,
-    ),
-    $responsive: (
-        up,
-        only,
-        down,
-    )
+  $attrs: (
+    margin,
+    padding,
+  ),
+  $steps: (
+    2,
+    80,
+    50,
+    48,
+    16,
+  ),
+  $directions: (
+    top,
+    vertical,
+  ),
+  $responsive: (
+    up,
+    only,
+    down,
+  )
 );
 
 .u-pH-144.u-pH-144 {
-    padding-left: 14.4rem;
-    padding-right: 14.4rem;
+  padding-left: 14.4rem;
+  padding-right: 14.4rem;
 }
 
 @include respond-below(md) {
-    .u-mV-50\@s.u-mV-50\@s {
-        margin-bottom: 5rem;
-        margin-top: 5rem;
-    }
-    .u-mV-16\@s.u-mV-16\@s {
-        margin-bottom: 1.6rem;
-        margin-top: 1.6rem;
-    }
-    .u-pH-48\@s.u-pH-48\@s {
-        padding-left: 4.8rem;
-        padding-right: 4.8rem;
-    }
-    .u-mL-16\@s.u-mL-16\@s {
-        margin-left: 1.6rem;
-    }
-    .u-mR-16\@s.u-mR-16\@s {
-        margin-right: 1.6rem;
-    }
+  .u-mV-50\@s.u-mV-50\@s {
+    margin-bottom: 5rem;
+    margin-top: 5rem;
+  }
+  .u-mV-16\@s.u-mV-16\@s {
+    margin-bottom: 1.6rem;
+    margin-top: 1.6rem;
+  }
+  .u-pH-48\@s.u-pH-48\@s {
+    padding-left: 4.8rem;
+    padding-right: 4.8rem;
+  }
+  .u-mL-16\@s.u-mL-16\@s {
+    margin-left: 1.6rem;
+  }
+  .u-mR-16\@s.u-mR-16\@s {
+    margin-right: 1.6rem;
+  }
 }
