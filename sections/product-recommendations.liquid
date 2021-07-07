@@ -1,21 +1,23 @@
 <section class="c-product__recommendations c-slider c-slider--transparent js-productRecommendations" data-base-url="{{ routes.product_recommendations_url }}" data-product-id="{{ product.id }}" data-limit="10">
 	<div class="o-container">
 		<h4 class="c-slider__title">Something else?</h4>
+	</div>
 		{%- if recommendations.products_count > 0 -%}
-			<div class="js-slider" data-items="4" data-loop="0" data-gutter="1" data-responsive='{"300": {"items": "2"}, "768": {"items": "3"}, "1024": {"items": "4"}}'>
+			<div class="mp-slider js-mp-slider">
 				{%- for product in recommendations.products -%}
-					<div class="slide__item">
+					<div class="mp-slider__item js-mp-slide">
 						{% include 'product-card-grid' with {
-            product: product,
-            shrink: true,
-            show_vendor: true,
-            price_on_image: true,
-          } %}
+			            product: product,
+			            shrink: true,
+			            show_vendor: true,
+			            price_on_image: true,
+			          } %}
 					</div>
 				{% endfor %}
 			</div>
+			<div class="o-container">
 			<ul class="slider__controls slider__controls--wide js-slider-controls" aria-label="Carousel Navigation" tabindex="0">
-				<li class="slider__prev button js-slider-prev" data-controls="prev" aria-controls="customize" tabindex="-1">
+				<li class="slider__prev button js-slider-prev js-mp-prev" data-controls="prev" aria-controls="customize" tabindex="-1">
 					<svg width="17px" height="18px" viewbox="0 0 17 18" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 						<title>Fill 3</title>
 						<g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -25,7 +27,7 @@
 						</g>
 					</svg>
 				</li>
-				<li class="slider__next  button js-slider-next" data-controls="next" aria-controls="customize" tabindex="-1">
+				<li class="slider__next  button js-slider-next js-mp-next" data-controls="next" aria-controls="customize" tabindex="-1">
 					<svg width="17px" height="18px" viewbox="0 0 17 18" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 						<title>Fill 3</title>
 						<g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -41,6 +43,6 @@
 					</li>
 				{% endif %}
 			</ul>
+			</div>
 		{%- endif -%}
-	</div>
 </section>

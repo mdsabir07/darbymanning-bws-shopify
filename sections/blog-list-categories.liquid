@@ -2,9 +2,11 @@
 	{% for block in section.blocks %}
 		{%- assign blog = blogs[block.settings.blog] -%}
 		{% assign columns = block.settings.layout | split: '-' %}
-		<div class="o-grid u-pV-32">
-			{% include 'blog-grid-item', blog: blog, remainder: remainder, columns: columns %}
-		</div>
+    <div class="mp-bgFlip">
+  		<div class="o-grid u-pV-32">
+  			{% include 'blog-grid-item', blog: blog, remainder: remainder, columns: columns %}
+  		</div>
+    </div>
 	{% endfor %}
 </section>
 

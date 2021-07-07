@@ -17,7 +17,7 @@
 	cloudzoom
 {%- endcapture %}
 
-<div class="{{ media_class }}" data-media-id="{{ section.id }}-{{ media.id }}">
+<div class="{{ media_class }}" data-media-id="{{ section.id }}-{{ media.id }}" data-alt="{{ media.alt }}">
 	{%- case media.media_type -%}
 
 		{% when 'external_video' -%}

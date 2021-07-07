@@ -1,0 +1,46 @@
+.mp-slider {
+  --pad: 1.6rem;
+  display: flex;
+  overflow: auto;
+  -ms-overflow-style: none;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+
+  @media (min-width: 768px) {
+    --pad: calc(1.6rem + (100vw - var(--containerMaxWidth)) / 2);
+  }
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  &::before,
+  &::after {
+    content: "";
+    flex: 0 0 var(--pad);
+    scroll-snap-align: start;
+  }
+
+  &__item {
+    display: flex;
+    flex: 0 0 174px;
+    padding: 0 1px;
+    scroll-margin-left: var(--pad);
+    scroll-snap-align: start;
+    transition: opacity 0.25s ease;
+    will-change: opacity;
+
+    @media (min-width: 768px) {
+      flex: 0 0 314px;
+    }
+  }
+
+  .block__info {
+    min-height: 160px;
+  }
+}
+
+.mp-show {
+  opacity: 1;
+  pointer-events: all;
+}

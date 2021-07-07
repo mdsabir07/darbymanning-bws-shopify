@@ -49,18 +49,22 @@
 		{% endif %}
 		{% if section.settings.display_type == 'all' %}
 			{% for collection in collections %}
-				<div class="o-grid u-mB-48">
+      <div class="slider slider--white slider--hideLeft u-pV-50 u-pV-80@s">
+				<div class="o-grid">
 					{% include 'collection-grid-item', collection: collection %}
 				</div>
+      </div>
 			{% endfor %}
 		{% else %}
 			{%- assign blocks = section.blocks | map: "settings" | map: "collection" -%}
 			{% for collection in collections %}
 				{%- assign filtered = blocks | where: collection.handle -%}
 				{% if filtered.size > 0 %}
-					<div class="o-grid u-mB-48">
+        <div class="slider slider--white slider--hideLeft u-pV-50 u-pV-80@s">
+					<div class="o-grid">
 						{% include 'collection-grid-item', collection: collection %}
 					</div>
+        </div>
 				{% endif %}
 			{% endfor %}
 		{% endif %}

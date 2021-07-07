@@ -17,11 +17,11 @@
 {% endif %}
 
 <div class="block  border block--shadow block--slide">
-	<a href="{{ link_url }}">
+	<a href="{{ link_url }}" class="block__link">
 		{% if tag %}
 			<p class="block__message block__message--{{ tagColor }}">{{tag}}</p>
 		{% endif %}
-		<div class="block__img block__img--top" data-image-loading-animation>
+		<div class="block__img" data-image-loading-animation>
 			<div class="block__wrap">
 				{%- assign url = collection.image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
 				{%- assign alt = collection.image.alt  %}
@@ -34,7 +34,7 @@
 				<img alt="{{ alt }}" class="lazyload lazypreload" data-src="{{ url }}" data-sizes="auto"/>
 			</div>
 		</div>
-		<article class="block__info block__info--flexed {%if show_vendor %}block__info--190{% endif %}">
+		<article class="block__info block__info--flexed">
 			<div>
 				<h4 class="block__title block__title--small">{{ collection.title }}</h4>
 				{% assign description = collection.description %}

@@ -12,7 +12,7 @@
 			<span class="c-product__tag">{{ product.metafields.global.tag }}</span>
 			<hr class="c-divide"/>
 			<div class="c-product__mediaWrap" data-c-product-media-group>
-				{%- assign featured_media = product.selected_or_first_available_variant.featured_media | default: product.featured_media -%}
+				{%- assign featured_media = product.selected_variant.featured_media | default: product.media[1] -%}
 
 				<div class="c-product__galleryWrap">
 					<button data-gallery-direction="prev" class="c-product__mediaControl">
@@ -21,7 +21,11 @@
 
 					<div class="c-product__gallery">
 						{%- for media in product.media -%}
-							{% include 'media', media: media, featured_media: featured_media, height: 720, image_scale: product_image_scale, product: product %}
+							{% if forloop.first == false %}
+								{% if media.alt != 'footprint-image' %}
+									{% include 'media', media: media, featured_media: featured_media, height: 720, image_scale: product_image_scale, product: product %}
+								{% endif %}
+							{% endif %}
 						{%- endfor -%}
 					</div>
 
@@ -34,25 +38,29 @@
 				{% if product.media.size > 1 %}
 					<ul class="c-product__thumbnailList">
 						{% for media in product.media %}
-							<li class="c-product__thumbnailItem">
-								<a class="c-product__thumbnailLink" href="{{ media.preview_image | img_url: product_image_zoom_size, scale: product_image_scale }}" data-thumbnail-id="{{ section.id }}-{{ media.id }}">
+							{% if forloop.first == false %}
+								{% if media.alt != 'footprint-image' %}
+									<li class="c-product__thumbnailItem" data-alt="{{ media.alt }}">
+										<a class="c-product__thumbnailLink" href="{{ media.preview_image | img_url: product_image_zoom_size, scale: product_image_scale }}" data-thumbnail-id="{{ section.id }}-{{ media.id }}">
 
-									{%- capture thumbnailAlt -%}
-										{%- if media.media_type == 'video' or media.media_type == 'external_video' -%}
-											{{ 'sections.featured_product.video_thumbnail_alt' | t: imageAlt: media.alt | escape }}
-										{%- else -%}
-											{{ 'sections.featured_product.gallery_thumbnail_alt' | t: imageAlt: media.alt | escape }}
-										{%- endif -%}
-									{%- endcapture -%}
+											{%- capture thumbnailAlt -%}
+												{%- if media.media_type == 'video' or media.media_type == 'external_video' -%}
+													{{ 'sections.featured_product.video_thumbnail_alt' | t: imageAlt: media.alt | escape }}
+												{%- else -%}
+													{{ 'sections.featured_product.gallery_thumbnail_alt' | t: imageAlt: media.alt | escape }}
+												{%- endif -%}
+											{%- endcapture -%}
 
-									<img class="c-product__thumbnailImage" src="{{ media.preview_image | img_url: '60x60', scale: 2 }}" alt="{{ thumbnailAlt }}">
-									{%- if media.media_type == 'video' or media.media_type =='external_video' -%}
-										<div class="c-product__thumbnail-badge">
-											{% include 'icon-video-badge-full-color' %}
-										</div>
-									{%- endif -%}
-								</a>
-							</li>
+											<img class="c-product__thumbnailImage" src="{{ media.preview_image | img_url: '60x60', scale: 2 }}" alt="{{ thumbnailAlt }}">
+											{%- if media.media_type == 'video' or media.media_type =='external_video' -%}
+												<div class="c-product__thumbnail-badge">
+													{% include 'icon-video-badge-full-color' %}
+												</div>
+											{%- endif -%}
+										</a>
+									</li>
+								{% endif %}
+							{% endif %}
 						{% endfor %}
 
 						{% if product.metafields.footprint.strong_points != blank or custom_attributes.size > 0 %}
@@ -70,7 +78,8 @@
 			</div>
 			<div class="c-product__detail">
 				<div class="c-product__detailHeader">
-					<span class="c-product__vendor">{{ product.vendor }}</span>
+					{% assign vendor_href = product.vendor | url_for_vendor | replace: 'vendors?q=', '' | replace: '%C3%B6', 'o' | replace: '%27', '' | replace: '%20and', '' | replace: '%20', '-' | replace: '.', '-' | url_escape | downcase %}
+					<a class="c-product__vendor" href="{{vendor_href}}">{{ product.vendor }}</a>
 					<h1 class="c-product__title">{{ product.title | replace: product.vendor, '' }}</h1>
 					<span id="ProductPrice" class="c-product__price{% if product.compare_at_price > product.price %} on-sale{% endif %}" itemprop="price" content="{{ current_variant.price | divided_by: 100.00 }}">
 						{{ current_variant.price | money }}
@@ -175,6 +184,11 @@
 											{% include 'icon-delivery' %}
 										</figure>
 										<span class="c-product__accordionTitle">Delivery</span>
+									{% elsif attribute_code contains 'clothing_care' %}
+										<figure class="c-product__accordionIcon">
+											{% include 'icon-clothing' %}
+										</figure>
+										<span class="c-product__accordionTitle">Clothing Care</span>
 									{% endif %}
 								</a>
 								<div id="accordion-{{ attribute_code }}" class="c-product__accordionDetail">

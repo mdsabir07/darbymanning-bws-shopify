@@ -1,94 +1,98 @@
 <section class="collection-item-list">
-    <div class="o-grid  o-grid--p">
-        <form class="o-grid__item  u-size-12@s u-mB-24 js-sort-and-tag" data-collection="{{ collection.handle }}">
+	<div class="o-grid  o-grid--p">
+		<form class="o-grid__item  u-size-12@s u-mB-24 js-sort-and-tag" data-collection="{{ collection.handle }}">
 
-            {%- capture contentForQuerystring -%}{{ content_for_header }}{%- endcapture -%}
-            {%- assign pageUrl = contentForQuerystring | split:'"pageurl":"' | last | split:'"' | first | split:'.myshopify.com' | last |
+			{%- capture contentForQuerystring -%}
+				{{ content_for_header }}
+			{%- endcapture -%}
+			{%- assign pageUrl = contentForQuerystring | split:'"pageurl":"' | last | split:'"' | first | split:'.myshopify.com' | last |
             replace:'\/','/' |
             replace:'%20',' ' |
             replace:'\u0026','&'
             -%}
-            {%- assign pageQuerystring = pageUrl | split:'?' | last -%}
-            {%- assign parts = pageQuerystring | split:'&' -%}
-            {%- assign sort = section.settings.sort -%}
-            {%- for part in parts -%}
-                {%- assign keyAndValue = part | split:'=' -%}
-                {%- if keyAndValue.size > 1 -%}
-                    {%- if keyAndValue[0] == 'sort_by' -%}
-                        {%- assign sort = keyAndValue[1] -%}
-                    {% endif %}
-                {% endif %}
-            {% endfor %}
+			{%- assign pageQuerystring = pageUrl | split:'?' | last -%}
+			{%- assign parts = pageQuerystring | split:'&' -%}
+			{%- assign sort = section.settings.sort -%}
+			{%- for part in parts -%}
+				{%- assign keyAndValue = part | split:'=' -%}
+				{%- if keyAndValue.size > 1 -%}
+					{%- if keyAndValue[0] == 'sort_by' -%}
+						{%- assign sort = keyAndValue[1] -%}
+					{% endif %}
+				{% endif %}
+			{% endfor %}
 
-            <div class="o-grid">
+			<div class="o-grid">
 
-            <div class="o-grid__item u-size-12 u-size-6@s u-mB-24">
+				<div class="o-grid__item u-size-12 u-size-6@s u-mB-24">
 
-                <div class="o-grid o-grid--edge u-alignCenter">
+					<div class="o-grid o-grid--edge u-alignCenter">
 
-                <span class="u-textUpper  h3  nimbus u-mL-16@s u-mR-8 o-grid__item u-size-12 u-size-0@s" for="sort-by">Sort by</span>
+						<span class="u-textUpper  h3  nimbus u-mL-16@s u-mR-8 o-grid__item u-size-12 u-size-0@s" for="sort-by">Sort by</span>
 
-                <select name="sort_by" class="u-size-12 u-size-8@s u-size-6@m" onchange="this.form.dispatchEvent(new Event('submit'))">
-                    <option {%if sort == 'manual' %}selected="selected"{% endif %}  value="manual">Featured</option>
-                    <option {%if sort == 'price-ascending' %}selected="selected"{% endif %}  value="price-ascending">Price: Low to High</option>
-                    <option {%if sort == 'price-descending' %}selected="selected"{% endif %}  value="price-descending">Price: High to Low</option>
-                    <option {%if sort == 'title-ascending' %}selected="selected"{% endif %}  value="title-ascending">A-Z</option>
-                    <option {%if sort == 'title-descending' %}selected="selected"{% endif %}  value="title-descending">Z-A</option>
-                    <option {%if sort == 'created-ascending' %}selected="selected"{% endif %}  value="created-ascending">Oldest to Newest</option>
-                    <option {%if sort == 'created-descending' %}selected="selected"{% endif %}  value="created-descending">Newest to Oldest</option>
-                    <option {%if sort == 'best-selling' %}selected="selected"{% endif %}  value="best-selling">Best Selling</option>
-                </select>
+						<select name="sort_by" class="u-size-12 u-size-8@s u-size-6@m" onchange="this.form.dispatchEvent(new Event('submit'))">
+							<option {%if sort == 'manual' %} selected="selected" {% endif %} value="manual">Featured</option>
+							<option {%if sort == 'price-ascending' %} selected="selected" {% endif %} value="price-ascending">Price: Low to High</option>
+							<option {%if sort == 'price-descending' %} selected="selected" {% endif %} value="price-descending">Price: High to Low</option>
+							<option {%if sort == 'title-ascending' %} selected="selected" {% endif %} value="title-ascending">A-Z</option>
+							<option {%if sort == 'title-descending' %} selected="selected" {% endif %} value="title-descending">Z-A</option>
+							<option {%if sort == 'created-ascending' %} selected="selected" {% endif %} value="created-ascending">Oldest to Newest</option>
+							<option {%if sort == 'created-descending' %} selected="selected" {% endif %} value="created-descending">Newest to Oldest</option>
+							<option {%if sort == 'best-selling' %} selected="selected" {% endif %} value="best-selling">Best Selling</option>
+						</select>
 
-                </div>
+					</div>
 
-            </div>
+				</div>
 
-            <div class="o-grid__item u-size-12 u-size-6@s u-mB-24">
+				<div class="o-grid__item u-size-12 u-size-6@s u-mB-24">
 
-            <div class="o-grid o-grid--edge u-justifyEnd u-alignCenter">
+					<div class="o-grid o-grid--edge u-justifyEnd u-alignCenter">
 
-                <span class="u-textUpper  h3  nimbus u-mR-8 o-grid__item u-size-12 u-size-0@s" for="tag">Filter By</span>
+						<span class="u-textUpper  h3  nimbus u-mR-8 o-grid__item u-size-12 u-size-0@s" for="tag">Filter By</span>
 
-                <select name="tag" class="u-size-12 u-size-8@s u-size-6@m u-mR-16@s" onchange="this.form.dispatchEvent(new Event('submit'))">
-                    <option value="">All</option>
-                    {% for tag in collection.all_tags %} {% if current_tags contains tag %}
-                    <option value="{{ tag | handle }}" selected>{{ tag }}</option>
-                    {% else %}
-                    <option value="{{ tag | handle }}">{{ tag }}</option>
-                    {% endif %} {% endfor %}
-                </select>
+						<select name="tag" class="u-size-12 u-size-8@s u-size-6@m u-mR-16@s" onchange="this.form.dispatchEvent(new Event('submit'))">
+							<option value="">All</option>
+							{% for tag in collection.all_tags %}
+								{% if current_tags contains tag %}
+									<option value="{{ tag | handle }}" selected>{{ tag }}</option>
+								{% else %}
+									<option value="{{ tag | handle }}">{{ tag }}</option>
+								{% endif %}
+							{% endfor %}
+						</select>
 
-                </div>
+					</div>
 
-            </div>
+				</div>
 
-            </div>
-        </form>
-    </div>
+			</div>
+		</form>
+	</div>
 
-    <div class="o-grid  o-grid--p o-grid--small-pad">
+	<div class="o-grid  o-grid--p o-grid--small-pad">
 
-        {% paginate collection.products by 16 %}
-        {% for product in collection.products %}
-            {% if template contains 'brands' %}
-            <div class="o-grid__item  u-size-6  u-size-4@m  u-size-3@l">
-                {% include 'product-card-grid', product: product, show_vendor: true %}
-            </div>
-            {% else %}
-                <div class="o-grid__item  u-size-6  u-size-4@m  u-size-3@l  u-mB-32  u-flex">
-                    {% include 'product-card-list', product: product %}
-                </div>
-            {% endif %}
+		{% paginate collection.products by 16 %}
+			{% for product in collection.products %}
+				{% if template contains 'brands' %}
+					<div class="o-grid__item  u-size-6  u-size-4@m  u-size-3@l">
+						{% include 'product-card-grid', product: product, show_vendor: true %}
+					</div>
+				{% else %}
+					<div class="o-grid__item  u-size-6  u-size-4@m  u-size-3@l  u-mB-32  u-flex">
+						{% include 'product-card-list', product: product %}
+					</div>
+				{% endif %}
 
-        {% else %}
-            <div class="u-flex u-size-12 u-justifyCenter u-pV-40">
-                <p>No results</p>
-            </div>
-        {% endfor %}
-        {% if paginate.pages > 1 %}
-            {% include 'pagination', paginate: paginate %}
-        {% endif %}
-        {% endpaginate %}
+			{% else %}
+				<div class="u-flex u-size-12 u-justifyCenter u-pV-40">
+					<p>No results</p>
+				</div>
+			{% endfor %}
+			{% if paginate.pages > 1 %}
+				{% include 'pagination', paginate: paginate %}
+			{% endif %}
+		{% endpaginate %}
 
-    </div>
+	</div>
 </section>

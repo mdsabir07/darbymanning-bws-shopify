@@ -64,7 +64,7 @@
     }
 
     @include nu-media(xs) {
-      margin-bottom: 9rem;
+      //margin-bottom: 9rem; <- Matt
     }
   }
 
@@ -86,7 +86,7 @@
     grid-area: image;
 
     @include nu-media(xs) {
-      height: 100%;
+      //height: 100%; <- Matt
       object-fit: cover;
       width: 100%;
     }
@@ -128,13 +128,37 @@
 
     @include nu-media(s) {
       max-height: 29.5rem;
+      padding-bottom: 10rem;
       overflow: auto;
+      
+      &::-webkit-scrollbar {
+        -webkit-appearance: none;
+        width: 7px;
+      }
+      &::-webkit-scrollbar-thumb {
+        border-radius: 4px;
+        background-color: rgba(0, 0, 0, .5);
+        box-shadow: 0 0 1px rgba(255, 255, 255, .5);
+      }
     }
   }
 }
 
 .c-footprintPeople {
   grid-area: people;
+  
+  @include nu-media(s) {
+    &::after {
+      background-image: linear-gradient(0deg, rgba(white,1) 0%, rgba(white,0) 100%);
+      bottom: 0;
+      content: '';
+      display: block;
+      height: 100px;
+      left: 0;
+      position: absolute;
+      width: calc(100% - 7px);
+    }
+  }
 }
 
 .c-footprintPlanet {

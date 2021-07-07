@@ -3,60 +3,61 @@
 		{% if section.settings.title != blank %}
 			<h4 class="nimbus u-textUpper slider__title">{{ section.settings.title | escape }}</h4>
 		{% endif %}
-		<div class="js-slider" data-items="4" data-loop="0" data-gutter="1" data-responsive='{"300": {"items": "2"}, "768": {"items": "3"}, "1024": {"items": "4"}}'>
-			{% for block in section.blocks %}
-				<div class="slide__item--{{section.id}}">
-					{% if block.settings.type == 'article' %}
-						{% assign article = articles[block.settings.article] %}
-						{% include 'blog-card-grid' with {
-                      article: article,
-                      blog: article.blog,
-                      display_btn: true,
-                      truncate: 0,
-                      custom_image: block.settings.image,
-                      custom_description: block.settings.description,
-                      custom_button_label: block.settings.button_label,
-                      custom_button_link: block.settings.button_link,
-                      custom_tag: block.settings.tag,
-                      orientation: 'cover',
-                      custom_tag_colour: block.settings.tag_colour
-                } %}
-					{% elsif block.settings.type == 'collection' %}
-						{% assign collection = collections[block.settings.collection] %}
-						{% include 'collection-card-grid' with {
-                      collection: collection,
-                      custom_image: block.settings.image,
-                      custom_description: block.settings.description,
-                      custom_button_label: block.settings.button_label,
-                      custom_button_link: block.settings.button_link,
-                      custom_tag: block.settings.tag,
-                      orientation: 'cover',
-                      custom_tag_colour: block.settings.tag_colour
-                } %}
-					{% else %}
-						{% assign product = all_products[block.settings.product] %}
-						{% include 'product-card-grid' with {
-                          product: product,
-                          shrink: true,
-                          show_vendor: true,
-                          price_on_image: true,
-                          custom_image: block.settings.image,
-                          custom_description: block.settings.description,
-                          custom_button_label: block.settings.button_label,
-                          custom_button_link: block.settings.button_link,
-                          custom_tag: block.settings.tag,
-                          custom_top: block.settings.top,
-                          custom_orientation: block.settings.orientation,
-                          custom_tag_colour: block.settings.tag_colour,
-                    } %}
-					{% endif %}
-				</div>
-			{% endfor %}
+  </div>
+	<div class="mp-slider js-mp-slider">
+		{% for block in section.blocks %}
+			<div class="mp-slider__item js-mp-slide">
+				{% if block.settings.type == 'article' %}
+					{% assign article = articles[block.settings.article] %}
+					{% include 'blog-card-grid' with {
+                    article: article,
+                    blog: article.blog,
+                    display_btn: true,
+                    truncate: 0,
+                    custom_image: block.settings.image,
+                    custom_description: block.settings.description,
+                    custom_button_label: block.settings.button_label,
+                    custom_button_link: block.settings.button_link,
+                    custom_tag: block.settings.tag,
+                    orientation: 'cover',
+                    custom_tag_colour: block.settings.tag_colour
+              } %}
+				{% elsif block.settings.type == 'collection' %}
+					{% assign collection = collections[block.settings.collection] %}
+					{% include 'collection-card-grid' with {
+                    collection: collection,
+                    custom_image: block.settings.image,
+                    custom_description: block.settings.description,
+                    custom_button_label: block.settings.button_label,
+                    custom_button_link: block.settings.button_link,
+                    custom_tag: block.settings.tag,
+                    orientation: 'cover',
+                    custom_tag_colour: block.settings.tag_colour
+              } %}
+				{% else %}
+					{% assign product = all_products[block.settings.product] %}
+					{% include 'product-card-grid' with {
+                        product: product,
+                        shrink: true,
+                        show_vendor: true,
+                        price_on_image: true,
+                        custom_image: block.settings.image,
+                        custom_description: block.settings.description,
+                        custom_button_label: block.settings.button_label,
+                        custom_button_link: block.settings.button_link,
+                        custom_tag: block.settings.tag,
+                        custom_top: block.settings.top,
+                        custom_orientation: block.settings.orientation,
+                        custom_tag_colour: block.settings.tag_colour,
+                  } %}
+				{% endif %}
+			</div>
+		{% endfor %}
 
-		</div>
-
+	</div>
+  <div class="o-grid o-grid--item">
 		<ul class="slider__controls slider__controls--wide js-slider-controls" aria-label="Carousel Navigation" tabindex="0">
-			<li class="slider__prev button js-slider-prev" data-controls="prev" aria-controls="customize" tabindex="-1">
+			<li class="slider__prev button js-slider-prev js-mp-prev" data-controls="prev" aria-controls="customize" tabindex="-1">
 				<svg width="17px" height="18px" viewbox="0 0 17 18" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 					<title>Fill 3</title>
 					<g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -66,7 +67,7 @@
 					</g>
 				</svg>
 			</li>
-			<li class="slider__next  button js-slider-next" data-controls="next" aria-controls="customize" tabindex="-1">
+			<li class="slider__next  button js-slider-next js-mp-next" data-controls="next" aria-controls="customize" tabindex="-1">
 				<svg width="17px" height="18px" viewbox="0 0 17 18" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 					<title>Fill 3</title>
 					<g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">

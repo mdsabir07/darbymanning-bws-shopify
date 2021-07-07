@@ -18,25 +18,18 @@
     }
   }
 
-  > a {
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1;
-  }
-
   &--shadow > * {
-    box-shadow: 0px 0px 7px 2px rgba(0, 0, 0, 0.05);
+    box-shadow: 0px 0px 7px 2px rgba(0, 0, 0, 0.15);
     transition: 0.3s all;
 
     &:hover {
-      box-shadow: 0px 0px 7px 2px rgba(0, 0, 0, 0.301);
+      box-shadow: 0px 0px 7px 2px rgba(0, 0, 0, 0.3);
     }
   }
 
   &--slide {
     display: flex;
     flex-direction: column;
-    flex-grow: 1;
     margin: 1rem 0;
     width: 100%;
   }
@@ -58,8 +51,12 @@
     }
   }
 
-  @include respond-above(sm) {
-    &__link {
+  &__link {
+    display: flex;
+    flex: 1;
+    flex-flow: column;
+
+    @include respond-above(sm) {
       &--landscape {
         flex-direction: row !important;
       }
@@ -106,13 +103,10 @@
         margin: 2.5rem 0;
       }
     }
-    &--190 {
-      min-height: 22rem;
-    }
+
     &--flexed {
       display: flex;
       flex-direction: column;
-      flex-grow: 1;
       justify-content: space-between;
       padding: 1.5rem 1rem 0.5rem;
     }
@@ -169,7 +163,8 @@
 
   &__img {
     background: white;
-    padding: 3.1rem 0 0;
+    flex: 1;
+    padding-top: 3.1rem;
     position: relative;
 
     img {
@@ -190,9 +185,24 @@
       }
     }
 
-    &--contain {
+    img {
+      object-fit: contain;
+    }
+
+    &--cover {
+      padding-top: 0;
+
+      #{$b}__wrap {
+        display: flex;
+        height: 100%;
+        margin-bottom: 3.1rem;
+      }
+
       img {
-        object-fit: contain;
+        height: 100%;
+        object-fit: cover;
+        position: absolute;
+        top: 0;
       }
     }
 
@@ -202,13 +212,6 @@
       left: 0.5em;
       position: absolute;
     }
-  }
-
-  &__wrap {
-    display: flex;
-    height: 100%;
-    overflow: hidden;
-    width: 100%;
   }
 
   &__title {
@@ -289,33 +292,10 @@
     }
   }
 
-  &--product {
-    #{$b}__img,
-    #{$b}__info {
-      height: inherit;
-      min-height: inherit;
-    }
-
-    img {
-      height: auto;
-      position: relative;
-      width: auto;
-    }
-
-    #{$b}__img--top {
-      height: 100% !important;
-      padding-top: 0;
-
-      img {
-        height: 100% !important;
-      }
-    }
-  }
-
   &--feature {
     #{$b}__p {
       @include respond-above(md) {
-        max-width: 50%;
+        max-width: 80%;
       }
     }
   }

@@ -11,6 +11,7 @@ import "./modules/smooth-scrolling.js";
 import "./modules/accordions.js";
 import "./modules/sort-and-tag.js";
 import "./modules/modal.js";
+import "./modules/mp-slider.js";
 
 function clean(node) {
   for (var n = 0; n < node.childNodes.length; n++) {

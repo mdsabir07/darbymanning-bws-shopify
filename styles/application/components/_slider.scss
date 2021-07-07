@@ -27,7 +27,7 @@
 
   &--hideLeft:after {
     background-color: var(--bgColor);
-    content: "";
+    //content: ""; <- Matt
     height: 100%;
     left: 0;
     min-width: 1.5rem;

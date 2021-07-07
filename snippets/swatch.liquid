@@ -22,7 +22,7 @@
 			<!-- parse-ignore-start -->
       {% capture swatch_style -%}
         background-color: {{ value | split: ' ' | last | handle }};
-        background-image: url(https://media-cdn.starapps.studio/apps/vsk/brothers-we-stand/swatches/Colour/{{ value }}.media)
+        background-image: url(https://media-cdn.starapps.studio/apps/vsk/brothers-we-stand/swatches/Colour/{{ value | replace: " ", "%20" }}.media)
       {%- endcapture %}
 
       {% capture swatch_class -%}

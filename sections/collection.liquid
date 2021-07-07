@@ -1,3 +1,5 @@
+
+
 <section class="slider slider--hideLeft u-pV-50 u-pV-80@s">
 	<div class="o-grid  o-grid--item">
 		{% if section.settings.title != blank %}
@@ -5,18 +7,25 @@
 		{% endif %}
 
 		{%- assign collection = collections[section.settings.collection] -%}
-
-		<div class="js-slider " data-items="4" data-gutter="1" data-loop="0" data-responsive='{"300": {"items": "2"}, "768": {"items": "3"}, "1024": {"items": "4"}}'>
+		
+		{% comment %} <div class="js-slider " data-items="4" data-gutter="1" data-loop="0" data-responsive='{"300": {"items": "2"}, "768": {"items": "3"}, "1024": {"items": "4"}}'>
 			{% for product in collection.products limit: 10 %}
 				<div class="slide__item--{{section.id}}">
 					{% include 'product-card-grid', product: product, show_vendor: true %}
 				</div>
 			{% endfor %}
-
-		</div>
-
+		</div> {% endcomment %}
+	</div>
+	<div class="mp-slider js-mp-slider">
+		{% for product in collection.products limit: 10 %}
+			<div class="mp-slider__item js-mp-slide">
+				{% include 'product-card-grid', product: product, show_vendor: true %}
+			</div>
+		{% endfor %}
+	</div>
+	<div class="o-grid  o-grid--item">
 		<ul class="slider__controls slider__controls--wide js-slider-controls" aria-label="Carousel Navigation" tabindex="0">
-			<li class="slider__prev button js-slider-prev" data-controls="prev" aria-controls="customize" tabindex="-1">
+			<li class="slider__prev button js-slider-prev js-mp-prev" data-controls="prev" aria-controls="customize" tabindex="-1">
 				<svg width="17px" height="18px" viewbox="0 0 17 18" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 					<title>Fill 3</title>
 					<g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -26,7 +35,7 @@
 					</g>
 				</svg>
 			</li>
-			<li class="slider__next  button js-slider-next" data-controls="next" aria-controls="customize" tabindex="-1">
+			<li class="slider__next  button js-slider-next js-mp-next" data-controls="next" aria-controls="customize" tabindex="-1">
 				<svg width="17px" height="18px" viewbox="0 0 17 18" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 					<title>Fill 3</title>
 					<g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">

@@ -18,9 +18,54 @@ function onOptionChange(event) {
   window.history.replaceState({ path: url }, "", url);
 }
 
+function filterThumbnailImages(el) {
+  const swatchEl = el.closest(".swatch__element");
+  const optionName = swatchEl ? swatchEl.dataset.value : el.dataset.alt;
+
+  function hideOrShowThumbnail(item) {
+    const addOrRemove = item.dataset.alt === optionName ? "remove" : "add";
+    item.classList[addOrRemove]("invisible");
+  }
+
+  const thumbnailList = document.querySelector(".c-product__thumbnailList");
+  const hasThumbnail = !!thumbnailList.querySelector(
+    `.c-product__thumbnailItem[data-alt="${optionName}"]`
+  );
+  const hasSwatch = !!document.querySelector(
+    `.swatch__element[data-value="${optionName}"]`
+  );
+
+  if (!hasThumbnail || !hasSwatch) return;
+
+  document.querySelector(".c-product__formLabel").innerText = optionName;
+
+  thumbnailList
+    .querySelectorAll(".c-product__thumbnailItem")
+    .forEach(hideOrShowThumbnail);
+
+  const firstItem = document.querySelector(
+    `.c-product__thumbnailItem[data-alt="${optionName}"]`
+  );
+  document
+
+    .querySelectorAll("[data-media-id]")
+    .forEach((el) => el.classList.add("invisible"));
+
+  const id = firstItem
+    .querySelector(".c-product__thumbnailLink")
+    .getAttribute("data-thumbnail-id");
+
+  document
+    .querySelector(`[data-media-id="${id}"]`)
+    .classList.remove("invisible");
+}
+
 document.addEventListener("DOMContentLoaded", async () => {
   const formElement = document.querySelector("[data-product-form]");
   const productHandle = formElement ? formElement.dataset.productHandle : null;
+
+  const currentImage = document.querySelector(".c-product__media");
+  filterThumbnailImages(currentImage);
 
   if (productHandle) {
     fetch(`/products/${productHandle}.js`)
@@ -42,6 +87,8 @@ document.addEventListener("DOMContentLoaded", async () => {
       ).forEach((el) => el.classList.remove("active"));
       el.classList.add("active");
       const optionIndex = swatch.getAttribute("data-option-index");
+
+      filterThumbnailImages(el);
 
       el
         .closest("form")

@@ -65,8 +65,7 @@
 
     display: inline-grid;
     gap: var(--gutter);
-    grid-auto-columns: var(--itemSize);
-    grid-auto-flow: column;
+    grid-template-columns: repeat(6, var(--itemSize));
     list-style: none;
     margin: auto;
     padding: 0;
@@ -74,6 +73,16 @@
 
   &__thumbnailItem {
     background-color: var(--light-gray);
+
+    &.invisible {
+      display: none;
+    }
+  }
+
+  &__thumbnailImage {
+    height: 60px;
+    object-fit: cover;
+    width: 60px;
   }
 
   &__thumbnailFootPrint {

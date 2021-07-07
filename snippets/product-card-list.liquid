@@ -1,4 +1,8 @@
 {%- assign top = product.metafields.carousel.top -%}
+{%- assign orientation = product.metafields.carousel.orientation -%}
+{% if custom_orientation %}
+	{%- assign orientation = custom_orientation -%}
+{% endif %}
 
 <div class="block  border  block--shadow  block--slide  block--product">
 	<a href="{{ product.url | within: collection }}">
@@ -7,13 +11,13 @@
 			{%- assign tag = product.metafields.global.tag -%}
 		{% endif %}
 		<p class="block__message  block__message--blue">{{tag}}</p>
-		<div class="block__img  {%- if top %} block__img--top{% endif %}" data-image-loading-animation>
+		<div class="block__img {% if orientation %} block__img--{{ orientation }}{% endif %}" data-image-loading-animation>
 			<div class="block__wrap">
 				<img src="{{ product.featured_image.src | img_url: 'large' }}" alt="{{ product.featured_image.alt | escape }}">
 			</div>
 		</div>
 
-		<div class="block__info block__info--flexed block__info--190">
+		<div class="block__info block__info--flexed">
 			<div>
 				<h4 class="block__title block__title--small">{{ product.vendor }}</h4>
 				{% assign lcase = product.vendor | downcase %}
