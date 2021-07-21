@@ -19,6 +19,8 @@ function onOptionChange(event) {
 }
 
 function filterThumbnailImages(el) {
+  if (!el) return;
+
   const swatchEl = el.closest(".swatch__element");
   const optionName = swatchEl ? swatchEl.dataset.value : el.dataset.alt;
 
