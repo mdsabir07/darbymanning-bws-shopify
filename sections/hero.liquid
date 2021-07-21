@@ -5,14 +5,19 @@
 			{% for block in section.blocks %}
 				<div id="{{block.id}}">
 					<div class="slide  border border--close" style="--border-color: {{block.settings.button_color_bg}}">
-						{% capture order %}
-							{% if block.settings.layout == 'left' %}1{% else %}2
-							{% endif %}
-						{% endcapture %}
+						{% capture order -%}
+							{%- if block.settings.layout == 'left' -%}1{%- else -%}2
+							{%- endif -%}
+						{%- endcapture %}
 						<div class="slide__img" style="order: {{ order }}" data-image-loading-animation>
 							{% if block.settings.image != blank %}
-								{%- assign img_url = block.settings.image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
-								<img class="lazyload lazypreload" data-src="{{ img_url }}" data-sizes="auto" alt="{{ block.settings.image.alt | escape }}">
+                <picture>
+                  <source media="(min-width: 768px)" srcset="{{ block.settings.image | img_url: '1920x' }}">
+                  {%- if block.settings.mobile_image -%}
+                    <source srcset="{{ block.settings.mobile_image | img_url: '768x' }}">
+                  {%- endif -%}
+                  <img src="{{ block.settings.image | img_url: '1920x' }}" alt="{{ block.settings.image.alt | escape }}" />
+                </picture>
 							{% else %}
 								{{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
 							{% endif %}
@@ -84,6 +89,11 @@
       "type": "image_picker",
       "id": "image",
       "label": "Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "mobile_image",
+      "label": "Image (Mobile)"
     },
     {
       "type": "select",

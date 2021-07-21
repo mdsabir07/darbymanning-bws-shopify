@@ -18,17 +18,20 @@
 					{% endif %}
 				</div>
 			</div>
-
-			<div class="section-header__img  block__col">
-				{% if collection.image != blank %}
-					{%- assign url = collection.image | img_url: 'master' %}
-					{%- assign alt = collection.image.alt  %}
-				{% else %}
-					{%- assign url = products.first.featured_image | img_url: 'master' %}
-					{%- assign alt = products.first.featured_image.alt  %}
-				{% endif %}
-				<img src="{{url}}" alt="{{ alt }}"/>
-			</div>
+      {% if collection.image != blank %}
+        {%- assign url = collection.image %}
+        {%- assign alt = collection.image.alt  %}
+      {% else %}
+        {%- assign url = products.first.featured_image %}
+        {%- assign alt = products.first.featured_image.alt  %}
+      {% endif %}
+      <picture class="section-header__img  block__col">
+        <source media="(min-width: 768px)" srcset="{{ url | img_url: '1920x' }}">
+        {%- if section.settings.mobile_image -%}
+          <source srcset="{{ section.settings.mobile_image | img_url: '768x' }}">
+        {%- endif -%}
+        <img src="{{ url | img_url: '1920x' }}" alt="{{ alt | escape }}" />
+      </picture>
 		</div>
 	</div>
 </section>

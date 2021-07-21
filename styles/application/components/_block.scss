@@ -53,13 +53,16 @@
 
   &__link {
     display: flex;
-    flex: 1;
     flex-flow: column;
 
     @include respond-above(sm) {
       &--landscape {
         flex-direction: row !important;
       }
+    }
+
+    &--cover {
+      flex: 1;
     }
   }
 
@@ -190,6 +193,7 @@
     }
 
     &--cover {
+      min-height: 22rem;
       padding-top: 0;
 
       #{$b}__wrap {
@@ -219,6 +223,13 @@
     font-size: 2rem;
     font-weight: bold;
     transition: color 0.5s ease;
+
+    @include nu-media($maxbreak: xs) {
+      -webkit-box-orient: vertical;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      overflow: hidden;
+    }
 
     &--normal {
       font-weight: normal;

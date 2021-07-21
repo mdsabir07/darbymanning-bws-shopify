@@ -28,10 +28,12 @@
     scroll-margin-left: var(--pad);
     scroll-snap-align: start;
     transition: opacity 0.25s ease;
+    width: 174px;
     will-change: opacity;
 
     @media (min-width: 768px) {
       flex: 0 0 314px;
+      width: 314px;
     }
   }
 
