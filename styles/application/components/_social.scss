@@ -21,9 +21,12 @@
     height: 100%;
     object-fit: cover;
 
-    @include respond-below(md) {
-      max-height: 18rem;
+    @include nu-media($maxbreak: m) {
       order: 1;
+    }
+
+    @include nu-media($minbreak: xs, $maxbreak: m) {
+      max-height: 18rem;
     }
   }
 
@@ -33,8 +36,8 @@
     padding: 0;
 
     @include respond-below(md) {
-      margin-top: 1rem;
       margin-bottom: 0;
+      margin-top: 1rem;
     }
   }
 
