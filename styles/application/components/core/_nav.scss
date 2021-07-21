@@ -282,7 +282,9 @@
     }
 
     @include respond-below(md) {
-      display: none;
+      font-size: 1.2rem;
+      letter-spacing: 0.05em;
+      margin: 2rem 0.5rem 0.5rem;
     }
   }
 
