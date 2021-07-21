@@ -13,10 +13,6 @@
 				{% assign ind = columns.size %}
 			{% endif %}
 			{% assign ind = ind | minus: 1 %}
-			{% assign orientation = 'portrait' %}
-			{% if columns.size == 2 %}
-				{% assign orientation = 'landscape' %}
-			{% endif %}
 			{% assign truncate = 80 %}
 			{% assign column = columns[ind] %}
 			{% if column == '6' %}
@@ -27,11 +23,11 @@
 			{% endif %}
 			{% if columns.size < 4 %}
 				<div class="u-size-12 u-size-0@m u-flex" data-size="{{ column | divided_by:3 }}">
-					{% include 'blog-card-grid', article: article, blog: blog, orientation: orientation, truncate: truncate %}
+					{% include 'blog-card-grid', article: article, blog: blog, truncate: truncate %}
 				</div>
 			{% else %}
 				<div class="slide__item">
-					{% include 'blog-card-grid', article: article, blog: blog, orientation: orientation, truncate: truncate %}
+					{% include 'blog-card-grid', article: article, blog: blog, truncate: truncate %}
 				</div>
 			{% endif %}
 		</div>

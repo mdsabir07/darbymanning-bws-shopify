@@ -1,6 +1,22 @@
-{%if orientation == null %}
-	{% assign orientation = 'portrait' %}
-{% endif %}
+{% capture orientation -%}
+  {{ article.metafields.carousel.orientation | default: "cover" }}
+{%- endcapture %}
+
+{% capture image -%}
+  {%- if article.metafields.carousel.image -%}
+    <img
+      alt="{{ article.metafields.carousel.image_alt | default: article.title | escape }}"
+      class="lazyload lazypreload"
+      src="{{ article.metafields.carousel.image }}"
+    />
+  {%- else -%}
+    {%- assign img_url = article.image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
+    {% if custom_image != null %}
+      {%- assign img_url = custom_image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
+    {% endif %}
+    <img class="lazyload lazypreload" data-src="{{ img_url }}" data-sizes="auto" alt="{{ preview_image.alt | escape }}">
+  {%- endif -%}
+{%- endcapture %}
 
 {%if truncate == null %}
 	{% assign truncate = 80 %}
@@ -50,11 +66,7 @@
 		{% endif %}
 		<div class="block__img block__img--transparent block__img--{{ orientation }}" data-image-loading-animation>
 			<div class="block__wrap">
-				{%- assign img_url = article.image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
-				{%if custom_image != null %}
-					{%- assign img_url = custom_image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
-				{% endif %}
-				<img class="lazyload lazypreload" data-src="{{ img_url }}" data-sizes="auto" alt="{{ preview_image.alt | escape }}">
+        {{ image }}
 			</div>
 		</div>
 		<article class="block__info block__info--flexed block__info--skinny block__info--{{ orientation }}">
