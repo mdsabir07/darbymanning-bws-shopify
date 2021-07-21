@@ -1,31 +1,28 @@
 .section-header {
+  --border-color: var(--blue);
   margin-bottom: 3rem;
   padding-bottom: 3rem;
   padding-top: 3rem;
-
-  --border-color: var(--blue);
 
   &--top {
     padding-top: 0;
   }
 
   &__img {
-    height: 50rem;
-    overflow: hidden;
-    position: relative;
+    order: 1;
 
-    > img {
-      height: 100%;
-      object-fit: cover;
-      object-position: center;
-      position: absolute;
-      width: 100%;
-    }
+    @include respond-above(md) {
+      height: 50rem;
+      overflow: hidden;
+      position: relative;
 
-    @include respond-below(md) {
-      height: 32rem;
-      order: 2;
-      order: 1;
+      > img {
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+        position: absolute;
+        width: 100%;
+      }
     }
   }
 
@@ -42,10 +39,10 @@
 
   @include respond-above(md) {
     &__overlap {
+      height: 100%;
+      left: 1rem;
       position: absolute;
       z-index: 1;
-      left: 1rem;
-      height: 100%;
     }
   }
 
@@ -59,9 +56,9 @@
   }
 
   &__content {
-    @include DINOTRegular;
     font-size: 1.8rem;
     overflow: hidden;
+    @include DINOTRegular;
 
     @include respond-above(md) {
       -webkit-box-orient: vertical;
@@ -76,18 +73,18 @@
   }
 
   &__more {
-    @include NimbusExt;
     border-bottom: 1px solid var(--blue);
     color: var(--blue);
     display: block;
     line-height: normal;
+    margin-top: 20px;
     padding-bottom: 20px;
     padding-right: 30px;
     position: relative;
     text-align: right;
     text-transform: uppercase;
     width: 100%;
-    margin-top: 20px;
+    @include NimbusExt;
 
     &:after {
       content: ">";
