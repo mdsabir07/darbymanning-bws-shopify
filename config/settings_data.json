@@ -39,35 +39,21 @@
           "1600954535246-0": {
             "type": "slide",
             "settings": {
-              "image": "shopify:\/\/shop_images\/Bitmap_3x_61994937-1974-4584-bb60-cc4d6bb62cd0.png",
+              "image": "shopify:\/\/shop_images\/Brava_fruit_stand_onset.jpg",
+              "mobile_image": "shopify:\/\/shop_images\/Brava-fruit-stand-onset-cropped.jpg",
               "layout": "right",
-              "text": "Our Favourite  Sustainable Garms’  For A Slow Summer",
+              "text": "Layer Up In Nature Friendly Style.",
               "text_block_bg": "#f2f2f2",
               "text_color": "#234766",
-              "button_label": "Shop Summers' Picks",
-              "button_link": "shopify:\/\/collections",
+              "button_label": "SHOP SUMMER EDIT",
+              "button_link": "shopify:\/\/collections\/winter-collection",
               "button_text_color": "#ffffff",
               "button_color_bg": "#54add3"
-            }
-          },
-          "27a00b4d-492d-41e1-98a8-9e4355059784": {
-            "type": "slide",
-            "settings": {
-              "image": "shopify:\/\/shop_images\/Bitmap_Copy_3x_61996931-6cd0-4bd5-9f57-4c999344f68e.png",
-              "layout": "left",
-              "text": "Jollie good socks",
-              "text_block_bg": "#54add3",
-              "text_color": "#fafafa",
-              "button_label": "Shop Toe Warners",
-              "button_link": "shopify:\/\/collections\/all",
-              "button_text_color": "#ffffff",
-              "button_color_bg": "#234766"
             }
           }
         },
         "block_order": [
-          "1600954535246-0",
-          "27a00b4d-492d-41e1-98a8-9e4355059784"
+          "1600954535246-0"
         ],
         "settings": {
         }
@@ -75,7 +61,7 @@
       "1600954725493": {
         "type": "rich-text",
         "settings": {
-          "text": "<h1 class=\"h-text-center  h-light\">Ethical mens clothing, <span class=\"h-underline\">selected with style<\/span>\n<\/h1>"
+          "text": "<a href=\"#\"><\/a><h1>\n<a href=\"#\">Ethical mens clothing, <span>selected with style<\/span><\/a>\n<\/h1>"
         }
       },
       "1600954818239": {
@@ -85,7 +71,7 @@
             "type": "text_block",
             "settings": {
               "image": "shopify:\/\/shop_images\/Footprint_small_3x_18553273-706c-45a4-b52e-3050188a72b9.png",
-              "title": "Ethical Productions",
+              "title": "Ethical Production",
               "text": "<p>Every product has a &#x27;footprint’ breaking down its social and environmental impact.<\/p>"
             }
           },
@@ -101,7 +87,7 @@
             "type": "text_block",
             "settings": {
               "image": "shopify:\/\/shop_images\/Group_3_3x_09f8c16c-d2cd-492d-b95e-d0d610bca1f0.png",
-              "title": "Build to last",
+              "title": "Made to last",
               "text": "<p>Clothes are made to be enjoyed for many years.<\/p>"
             }
           }
@@ -120,7 +106,7 @@
         "type": "collection",
         "settings": {
           "title": "ETHICAL CLOTHING",
-          "collection": "knowledge-cotton-apparel",
+          "collection": "ethical-clothing-carousel",
           "show_view_all": false
         }
       },
@@ -140,7 +126,7 @@
             "type": "link_list",
             "settings": {
               "title": "BRANDS",
-              "menu": "collection-for-mens",
+              "menu": "collection-for-brands",
               "width": "33%",
               "mobile_width": "100%"
             }
@@ -228,7 +214,7 @@
             "type": "newsletter",
             "settings": {
               "title": "JOIN THE BROTHERS",
-              "text": "<p class=\"white\">Stay up to date with ethical men's clothing, selected with style:<\/p>\n                        <ul class=\"join__ul\">                            <li class=\"join__li\">New products<\/li>                           <li class=\"join__li\">Suply chain stories<\/li>\n<li class=\"join__li\">Thought pieces<\/li>\n<li class=\"join__li\">Like minded projects<\/li>                        <\/ul>",
+              "text": "<p style=\"font-family: DINOTRegular;\" class=\"white\">Stay up to date with ethical men's clothing, selected with style:<\/p>",
               "show_border": true,
               "bg_color": "#234766"
             }
@@ -265,8 +251,7 @@
         "type": "collection-template",
         "settings": {
           "col_nav": "collection-top-nav",
-          "col_nav_top": "collection-button-nav",
-          "col_nav_bottom": "collection-button-nav"
+          "mobile_image": "shopify:\/\/shop_images\/BrFAlaskaWhiteShirt1_grande_dabf4c8c-df99-47ff-ba44-91655da3ab39.jpg"
         }
       },
       "product-template": {
@@ -383,7 +368,6 @@
         "settings": {
           "show_vendor": false,
           "col_nav": "collection-top-nav",
-          "col_nav_bottom": "brands",
           "display_type": "selected",
           "sort": "alphabetical"
         }
@@ -406,24 +390,11 @@
       "blog-list-categories": {
         "type": "blog-list-categories",
         "blocks": {
-          "804c2c6e-5ae8-499c-8afc-4fcd65e83c90": {
+          "6744de19-fa53-4818-a339-05bcec37993b": {
             "type": "blog",
             "settings": {
-              "blog": "latest",
-              "show_view_all": true
-            }
-          },
-          "c8e3c622-1ee7-4faa-8da3-56a98634979a": {
-            "type": "blog",
-            "settings": {
-              "blog": "culture",
-              "show_view_all": true
-            }
-          },
-          "d5a4cc08-6a0f-432c-bf8b-06d7f42a0603": {
-            "type": "blog",
-            "settings": {
-              "blog": "supply-chain-story",
+              "blog": "learn-think",
+              "layout": "3-6-3",
               "show_view_all": true
             }
           },
@@ -431,6 +402,15 @@
             "type": "blog",
             "settings": {
               "blog": "brand-stories",
+              "layout": "3-3-3-3",
+              "show_view_all": true
+            }
+          },
+          "dab0fe7a-9c68-48e0-b5cd-78ee8db922d5": {
+            "type": "blog",
+            "settings": {
+              "blog": "lifestyle",
+              "layout": "3-3-3-3",
               "show_view_all": true
             }
           },
@@ -438,48 +418,16 @@
             "type": "blog",
             "settings": {
               "blog": "announcements",
-              "show_view_all": true
-            }
-          },
-          "e19b013e-f934-4f46-87b6-71e1cb516d1c": {
-            "type": "blog",
-            "settings": {
-              "blog": "news",
-              "show_view_all": true
-            }
-          },
-          "6744de19-fa53-4818-a339-05bcec37993b": {
-            "type": "blog",
-            "settings": {
-              "blog": "learn-think",
-              "show_view_all": true
-            }
-          },
-          "dab0fe7a-9c68-48e0-b5cd-78ee8db922d5": {
-            "type": "blog",
-            "settings": {
-              "blog": "style",
-              "show_view_all": true
-            }
-          },
-          "6c6be2e8-74b5-4d79-a9a9-ba22ddfdff51": {
-            "type": "blog",
-            "settings": {
-              "blog": "transparency",
+              "layout": "3-3-3-3",
               "show_view_all": true
             }
           }
         },
         "block_order": [
-          "804c2c6e-5ae8-499c-8afc-4fcd65e83c90",
-          "c8e3c622-1ee7-4faa-8da3-56a98634979a",
-          "d5a4cc08-6a0f-432c-bf8b-06d7f42a0603",
-          "3274e566-b67e-4fe2-bd63-3b527226c879",
-          "dfa5a022-2fc5-4c01-af3e-55521ac386e6",
-          "e19b013e-f934-4f46-87b6-71e1cb516d1c",
           "6744de19-fa53-4818-a339-05bcec37993b",
+          "3274e566-b67e-4fe2-bd63-3b527226c879",
           "dab0fe7a-9c68-48e0-b5cd-78ee8db922d5",
-          "6c6be2e8-74b5-4d79-a9a9-ba22ddfdff51"
+          "dfa5a022-2fc5-4c01-af3e-55521ac386e6"
         ],
         "settings": {
         }
@@ -487,64 +435,216 @@
       "1604054872da7c535c": {
         "type": "collections",
         "blocks": {
+          "cc34c1ee-315b-4032-bfa8-74ce7ff399ab": {
+            "type": "collection",
+            "settings": {
+              "collection": "knowledge-cotton-apparel",
+              "tag": "",
+              "tag_colour": "blue",
+              "image": "shopify:\/\/shop_images\/KCA_ee628dc3-6d1b-419d-9cc2-0c82e0835f40.jpg",
+              "description": "",
+              "button_label": "Shop Brand",
+              "button_link": ""
+            }
+          },
           "2b30c305-c6da-4ad9-bbfd-9f104bea295a": {
             "type": "collection",
             "settings": {
-              "collection": "t-shirts"
+              "collection": "brava-fabrics",
+              "tag": "",
+              "tag_colour": "blue",
+              "image": "shopify:\/\/shop_images\/Brava_af90591a-d442-4e47-a5ad-f8312dc66394.jpg",
+              "description": "",
+              "button_label": "Shop Brand",
+              "button_link": ""
             }
           },
           "03a518a3-f4de-4372-9ebd-e43febd7a027": {
             "type": "collection",
             "settings": {
-              "collection": "chinos-trousers"
-            }
-          },
-          "cc34c1ee-315b-4032-bfa8-74ce7ff399ab": {
-            "type": "collection",
-            "settings": {
-              "collection": "knowledge-cotton-apparel"
+              "collection": "idioma-1",
+              "tag": "",
+              "tag_colour": "blue",
+              "image": "shopify:\/\/shop_images\/Idioma_1.jpg",
+              "description": "",
+              "button_label": "Shop Brand",
+              "button_link": ""
             }
           },
           "ef052bab-bcfc-4aee-b6b9-181561b5edad": {
             "type": "collection",
             "settings": {
-              "collection": "hoodies"
-            }
-          },
-          "e69c78d6-cec3-4e50-b1f3-3600eb03f8de": {
-            "type": "collection",
-            "settings": {
-              "collection": "mensclothing"
+              "collection": "yarmouth-oilskins",
+              "tag": "",
+              "tag_colour": "blue",
+              "image": "shopify:\/\/shop_images\/Yarmouth_2.jpg",
+              "description": "",
+              "button_label": "Shop Brand",
+              "button_link": ""
             }
           },
           "aa449109-f5c0-4703-82b0-b3f0f1af9d85": {
             "type": "collection",
             "settings": {
-              "collection": "eco-alf"
+              "collection": "eco-alf",
+              "tag": "",
+              "tag_colour": "blue",
+              "image": "shopify:\/\/shop_images\/Ecoalf_62763254-83c8-4426-81a2-4e13b62747f8.jpg",
+              "description": "",
+              "button_label": "Shop Brand",
+              "button_link": ""
+            }
+          },
+          "e69c78d6-cec3-4e50-b1f3-3600eb03f8de": {
+            "type": "collection",
+            "settings": {
+              "collection": "mud-jeans",
+              "tag": "",
+              "tag_colour": "blue",
+              "image": "shopify:\/\/shop_images\/MUD_2.jpg",
+              "description": "",
+              "button_label": "Shop Brand",
+              "button_link": ""
             }
           },
           "69648e76-9248-4822-b55e-ee2bfaf5730b": {
             "type": "collection",
             "settings": {
-              "collection": ""
+              "collection": "elvis-kresse",
+              "tag": "",
+              "tag_colour": "blue",
+              "image": "shopify:\/\/shop_images\/Elvis_and_Kresse_88f4af01-f342-45a7-acb5-689e70257426.jpg",
+              "description": "",
+              "button_label": "Shop Brand",
+              "button_link": ""
             }
           },
           "1e93ca37-4cf6-4f55-9f55-64ca311757be": {
             "type": "collection",
             "settings": {
-              "collection": ""
+              "collection": "jollies",
+              "tag": "",
+              "tag_colour": "blue",
+              "image": "shopify:\/\/shop_images\/Jollies1.jpg",
+              "description": "",
+              "button_label": "Shop Brand",
+              "button_link": ""
+            }
+          },
+          "2a777cdb-6a28-43ae-99c5-9b4130d8ae04": {
+            "type": "collection",
+            "settings": {
+              "collection": "level-collective",
+              "tag": "",
+              "tag_colour": "blue",
+              "image": "shopify:\/\/shop_images\/LC1.jpg",
+              "description": "",
+              "button_label": "Shop Brand",
+              "button_link": ""
+            }
+          },
+          "63a38335-1ccc-435e-b082-b35918fdfe48": {
+            "type": "collection",
+            "settings": {
+              "collection": "living-crafts",
+              "tag": "",
+              "tag_colour": "blue",
+              "image": "shopify:\/\/shop_images\/living-crafts.jpg",
+              "description": "",
+              "button_label": "Shop Brand",
+              "button_link": ""
+            }
+          },
+          "25b42e9a-1886-433a-9f29-18752bfd5188": {
+            "type": "collection",
+            "settings": {
+              "collection": "loackme",
+              "tag": "",
+              "tag_colour": "blue",
+              "image": "shopify:\/\/shop_images\/Loackme_9b0ef5f1-e383-4164-8ea0-a156b2df990f.jpg",
+              "description": "",
+              "button_label": "Shop Brand",
+              "button_link": ""
+            }
+          },
+          "567558f8-cf78-4298-a2a6-c6fb26b71628": {
+            "type": "collection",
+            "settings": {
+              "collection": "re-sustain",
+              "tag": "",
+              "tag_colour": "blue",
+              "image": "shopify:\/\/shop_images\/Resustain.jpg",
+              "description": "",
+              "button_label": "Shop Brand",
+              "button_link": ""
+            }
+          },
+          "e92d0496-b57e-41cc-85f5-0adf3aac6b1c": {
+            "type": "collection",
+            "settings": {
+              "collection": "riz",
+              "tag": "",
+              "tag_colour": "blue",
+              "image": "shopify:\/\/shop_images\/Riz_2.jpg",
+              "description": "",
+              "button_label": "",
+              "button_link": ""
+            }
+          },
+          "88800e68-8e2d-412f-a754-521e1ebdb999": {
+            "type": "collection",
+            "settings": {
+              "collection": "silverstick",
+              "tag": "",
+              "tag_colour": "blue",
+              "image": "shopify:\/\/shop_images\/Silverstick_b18e0569-073f-4f60-b810-0348d72934dd.jpg",
+              "description": "",
+              "button_label": "Shop Brand",
+              "button_link": ""
+            }
+          },
+          "1890495e-60f6-4b6d-bfd3-f0e7ba4627fc": {
+            "type": "collection",
+            "settings": {
+              "collection": "world-supporting-goods-by-lars-godeke",
+              "tag": "",
+              "tag_colour": "blue",
+              "image": "shopify:\/\/shop_images\/WSG3.jpg",
+              "description": "",
+              "button_label": "Shop Brand",
+              "button_link": ""
+            }
+          },
+          "7f9a278e-b926-4e73-b6d8-bdde2b0cc159": {
+            "type": "collection",
+            "settings": {
+              "collection": "brothers-we-stand",
+              "tag": "",
+              "tag_colour": "blue",
+              "image": "shopify:\/\/shop_images\/BWS_c9bb7369-45cd-4a01-b3ab-d88a9e8c0d2e.jpg",
+              "description": "",
+              "button_label": "Shop Brand",
+              "button_link": ""
             }
           }
         },
         "block_order": [
+          "cc34c1ee-315b-4032-bfa8-74ce7ff399ab",
           "2b30c305-c6da-4ad9-bbfd-9f104bea295a",
           "03a518a3-f4de-4372-9ebd-e43febd7a027",
-          "cc34c1ee-315b-4032-bfa8-74ce7ff399ab",
           "ef052bab-bcfc-4aee-b6b9-181561b5edad",
-          "e69c78d6-cec3-4e50-b1f3-3600eb03f8de",
           "aa449109-f5c0-4703-82b0-b3f0f1af9d85",
+          "e69c78d6-cec3-4e50-b1f3-3600eb03f8de",
           "69648e76-9248-4822-b55e-ee2bfaf5730b",
-          "1e93ca37-4cf6-4f55-9f55-64ca311757be"
+          "1e93ca37-4cf6-4f55-9f55-64ca311757be",
+          "2a777cdb-6a28-43ae-99c5-9b4130d8ae04",
+          "63a38335-1ccc-435e-b082-b35918fdfe48",
+          "25b42e9a-1886-433a-9f29-18752bfd5188",
+          "567558f8-cf78-4298-a2a6-c6fb26b71628",
+          "e92d0496-b57e-41cc-85f5-0adf3aac6b1c",
+          "88800e68-8e2d-412f-a754-521e1ebdb999",
+          "1890495e-60f6-4b6d-bfd3-f0e7ba4627fc",
+          "7f9a278e-b926-4e73-b6d8-bdde2b0cc159"
         ],
         "settings": {
           "title": "A Crafted collection"
@@ -553,20 +653,105 @@
       "1604068480c67a97c8": {
         "type": "curated",
         "blocks": {
-          "4d0d69a6-e416-4a9c-ba9c-33a6cab32277": {
+          "a8f42e49-5ec5-46ec-bfaf-382a3bd3d007": {
             "type": "source",
             "settings": {
               "type": "product",
-              "product": "alec-bizby-handmade-charcoal-jacquard-kimono-cardigan",
-              "article": ""
+              "product": "riz-braunton-short-polka-urchin",
+              "article": "",
+              "collection": "",
+              "top": false,
+              "tag": "Recycled materials",
+              "tag_colour": "blue",
+              "image": "shopify:\/\/shop_images\/Shorts_2.jpg",
+              "orientation": "contain",
+              "description": "",
+              "button_label": "",
+              "button_link": ""
             }
           },
-          "8243b5ea-653e-470a-9ea4-d6cb38e197b1": {
+          "3537f5f2-cecb-450d-a5ac-641de88262ec": {
+            "type": "source",
+            "settings": {
+              "type": "collection",
+              "product": "",
+              "article": "",
+              "collection": "t-shirts",
+              "top": false,
+              "tag": "",
+              "tag_colour": "blue",
+              "image": "shopify:\/\/shop_images\/T-shirts1.png",
+              "orientation": "contain",
+              "description": "",
+              "button_label": "Shop Collection",
+              "button_link": ""
+            }
+          },
+          "d128a50c-86c9-4331-bcfa-96d411cf7752": {
+            "type": "source",
+            "settings": {
+              "type": "product",
+              "product": "brava-fabrics-organic-ndebele-t-shirt",
+              "article": "",
+              "collection": "",
+              "top": true,
+              "tag": "Organic Cotton",
+              "tag_colour": "blue",
+              "orientation": "contain",
+              "description": "",
+              "button_label": "",
+              "button_link": ""
+            }
+          },
+          "ec05fbe7-e749-41f2-acab-96215c0dafb2": {
             "type": "source",
             "settings": {
               "type": "article",
               "product": "",
-              "article": "supply-chain-story\/about-project-pico"
+              "article": "announcements\/what-to-look-forward-to-in-2021",
+              "collection": "",
+              "top": false,
+              "tag": "Blog",
+              "tag_colour": "blue",
+              "image": "shopify:\/\/shop_images\/blog_2.png",
+              "orientation": "cover",
+              "description": "",
+              "button_label": "",
+              "button_link": ""
+            }
+          },
+          "ceda121c-c38b-4c10-b0bd-b54332c70e97": {
+            "type": "source",
+            "settings": {
+              "type": "collection",
+              "product": "",
+              "article": "",
+              "collection": "swimwear",
+              "top": false,
+              "tag": "Collection",
+              "tag_colour": "blue",
+              "image": "shopify:\/\/shop_images\/Swimwear_86a5b874-7925-4adc-9fbe-66d346a0e032.png",
+              "orientation": "cover",
+              "description": "Premium quality ethical swimwear.",
+              "button_label": "Shop Collection",
+              "button_link": ""
+            }
+          },
+          "3918dc43-b38a-44cf-8ae2-25ce0903f38b": {
+            "type": "source",
+            "settings": {
+              "type": "product",
+              "product": "idioma-organic-cotton-ya-rouhi-t-shirt",
+              "article": "",
+              "collection": "",
+              "top": false,
+              "tag": "Organic",
+              "tag_colour": "blue",
+              "image": "shopify:\/\/shop_images\/Ya_Rouhi.jpg",
+              "orientation": "cover",
+              "description": "",
+              "button_label": "",
+              "button_link": ""
             }
           },
           "b9a314ed-ecff-45d4-a55c-bf694f965f57": {
@@ -574,69 +759,365 @@
             "settings": {
               "type": "article",
               "product": "",
-              "article": "latest\/9719616-2nd-august-2013"
+              "article": "learn-think\/coastal-conversations-pt-1-shopping-sustainably-is-tough",
+              "collection": "",
+              "top": false,
+              "tag": "",
+              "tag_colour": "blue",
+              "image": "shopify:\/\/shop_images\/cc-blog.jpg",
+              "orientation": "cover",
+              "description": "",
+              "button_label": "Read On",
+              "button_link": ""
             }
           },
-          "ceda121c-c38b-4c10-b0bd-b54332c70e97": {
+          "8243b5ea-653e-470a-9ea4-d6cb38e197b1": {
+            "type": "source",
+            "settings": {
+              "type": "collection",
+              "product": "",
+              "article": "",
+              "collection": "sustainable-shorts",
+              "top": false,
+              "tag": "Collection",
+              "tag_colour": "blue",
+              "image": "shopify:\/\/shop_images\/Shorts_collection.jpg",
+              "orientation": "cover",
+              "description": "Stay fresh in our favourite ethical and sustainable shorts.",
+              "button_label": "Shop Collection",
+              "button_link": ""
+            }
+          },
+          "bdd64113-d9e9-4cd4-b3e2-cf2df6ee5ad1": {
             "type": "source",
             "settings": {
               "type": "product",
-              "product": "alec-bizby-handmade-red-kimo",
-              "article": ""
+              "product": "brava-fabrics-alaska-essential-shirt",
+              "article": "",
+              "collection": "",
+              "top": false,
+              "tag": "",
+              "tag_colour": "blue",
+              "image": "shopify:\/\/shop_images\/BrFAlaskaWhiteShirt1_grande_dabf4c8c-df99-47ff-ba44-91655da3ab39.jpg",
+              "orientation": "contain",
+              "description": "",
+              "button_label": "Shop Shirt",
+              "button_link": ""
+            }
+          },
+          "4d0d69a6-e416-4a9c-ba9c-33a6cab32277": {
+            "type": "source",
+            "settings": {
+              "type": "collection",
+              "product": "",
+              "article": "",
+              "collection": "solar-selection",
+              "top": false,
+              "tag": "Edit",
+              "tag_colour": "blue",
+              "image": "shopify:\/\/shop_images\/Solar_Selection.png",
+              "orientation": "cover",
+              "description": "Celebrate the sun with our collection of solar powered style.",
+              "button_label": "Shop Collection",
+              "button_link": ""
             }
           },
           "8322ec58-3786-4f7f-8b8e-771b29c7f917": {
             "type": "source",
             "settings": {
-              "type": "product",
-              "product": "antiform-tweed-sweater-in-grey",
-              "article": ""
+              "type": "collection",
+              "product": "",
+              "article": "",
+              "collection": "quality-essentials",
+              "top": false,
+              "tag": "",
+              "tag_colour": "blue",
+              "image": "shopify:\/\/shop_images\/Quality_Essentials.png",
+              "orientation": "cover",
+              "description": "",
+              "button_label": "Shop Collection",
+              "button_link": ""
             }
           },
-          "556fc4f3-5ed9-458e-bae1-80e636082a8d": {
+          "24355815-94af-4aa1-90fc-3049f4f71744": {
             "type": "source",
             "settings": {
-              "type": "article",
-              "product": "",
-              "article": "blog\/9789608-14th-august-2013"
+              "type": "product",
+              "product": "elvis-and-kresse-overnight-bag-red",
+              "article": "",
+              "collection": "",
+              "top": false,
+              "tag": "Recycled Materials",
+              "tag_colour": "blue",
+              "image": "shopify:\/\/shop_images\/overnightbag2_tiny_d30ce757-9ef1-4638-9b4d-d08c17234567.jpg",
+              "orientation": "cover",
+              "description": "",
+              "button_label": "Shop Bag",
+              "button_link": ""
+            }
+          },
+          "ca6456f7-fc59-48ae-af48-aecdf083bd9a": {
+            "type": "source",
+            "settings": {
+              "type": "product",
+              "product": "loackme-hand-printed-neighbourhood-t-shirt",
+              "article": "",
+              "collection": "",
+              "top": false,
+              "tag": "",
+              "tag_colour": "blue",
+              "image": "shopify:\/\/shop_images\/tee.jpg",
+              "orientation": "contain",
+              "description": "",
+              "button_label": "",
+              "button_link": ""
             }
           }
         },
         "block_order": [
-          "4d0d69a6-e416-4a9c-ba9c-33a6cab32277",
-          "8243b5ea-653e-470a-9ea4-d6cb38e197b1",
-          "b9a314ed-ecff-45d4-a55c-bf694f965f57",
+          "a8f42e49-5ec5-46ec-bfaf-382a3bd3d007",
+          "3537f5f2-cecb-450d-a5ac-641de88262ec",
+          "d128a50c-86c9-4331-bcfa-96d411cf7752",
+          "ec05fbe7-e749-41f2-acab-96215c0dafb2",
           "ceda121c-c38b-4c10-b0bd-b54332c70e97",
+          "3918dc43-b38a-44cf-8ae2-25ce0903f38b",
+          "b9a314ed-ecff-45d4-a55c-bf694f965f57",
+          "8243b5ea-653e-470a-9ea4-d6cb38e197b1",
+          "bdd64113-d9e9-4cd4-b3e2-cf2df6ee5ad1",
+          "4d0d69a6-e416-4a9c-ba9c-33a6cab32277",
           "8322ec58-3786-4f7f-8b8e-771b29c7f917",
-          "556fc4f3-5ed9-458e-bae1-80e636082a8d"
+          "24355815-94af-4aa1-90fc-3049f4f71744",
+          "ca6456f7-fc59-48ae-af48-aecdf083bd9a"
         ],
         "settings": {
-          "title": "Curated for you"
+          "title": "Curated for you",
+          "bg_color": "white"
         }
       },
       "16073454848184ed19": {
         "type": "featured-blog",
         "blocks": {
-          "16073454848184ed19-0": {
-            "type": "blog",
+          "a38d6765-39b4-44b4-a62e-29a6c119ab5b": {
+            "type": "source",
             "settings": {
+              "type": "article",
               "article": "supply-chain-story\/about-project-pico",
+              "page": "",
               "button_label": "View More",
               "tag": "Supply Chain Story"
             }
           },
-          "16073454848184ed19-1": {
-            "type": "blog",
+          "c9f532d8-ee07-4b1f-99d6-e6fda3f3bc79": {
+            "type": "source",
             "settings": {
-              "article": "transparency\/what-is-a-footprint",
+              "type": "article",
+              "article": "learn-think\/what-is-a-footprint",
+              "page": "",
+              "image": "shopify:\/\/shop_images\/Footprint_A.png",
               "button_label": "View More",
               "tag": "Transparency"
             }
           }
         },
         "block_order": [
-          "16073454848184ed19-0",
-          "16073454848184ed19-1"
+          "a38d6765-39b4-44b4-a62e-29a6c119ab5b",
+          "c9f532d8-ee07-4b1f-99d6-e6fda3f3bc79"
+        ],
+        "settings": {
+        }
+      },
+      "curated": {
+        "type": "curated",
+        "blocks": {
+          "ddb8dab0-b689-43ab-9bfb-30561f8ed7ce": {
+            "type": "source",
+            "settings": {
+              "type": "article",
+              "product": "",
+              "article": "learn-think\/fashion-revolution-week-2021-events-to-look-out-for",
+              "collection": "",
+              "top": false,
+              "tag": "",
+              "tag_colour": "blue",
+              "image": "shopify:\/\/shop_images\/fashrev.jpg",
+              "orientation": "contain",
+              "description": "",
+              "button_label": "",
+              "button_link": ""
+            }
+          },
+          "f5e24355-c6c8-4ff8-8d68-a0eb32a6036b": {
+            "type": "source",
+            "settings": {
+              "type": "article",
+              "product": "",
+              "article": "news\/a-statement-of-solidarity-with-india-s-farmers",
+              "collection": "",
+              "top": false,
+              "tag": "",
+              "tag_colour": "blue",
+              "image": "shopify:\/\/shop_images\/farmers.jpg",
+              "orientation": "cover",
+              "description": "",
+              "button_label": "",
+              "button_link": ""
+            }
+          },
+          "9036d578-2ace-4f18-baa7-92ee3bda3d3d": {
+            "type": "source",
+            "settings": {
+              "type": "article",
+              "product": "",
+              "article": "news\/coastal-conversations-pt-2-drawing-together-with-our-lockdown-locals",
+              "collection": "",
+              "top": false,
+              "tag": "",
+              "tag_colour": "blue",
+              "image": "shopify:\/\/shop_images\/coastal-conv-2.jpg",
+              "orientation": "cover",
+              "description": "",
+              "button_label": "",
+              "button_link": ""
+            }
+          },
+          "8a57f8b4-4546-4f8e-bdd2-7c42ab5e14a7": {
+            "type": "source",
+            "settings": {
+              "type": "article",
+              "product": "",
+              "article": "announcements\/bws-breaks-record-for-funniest-staff-team-in-history",
+              "collection": "",
+              "top": false,
+              "tag": "",
+              "tag_colour": "blue",
+              "image": "shopify:\/\/shop_images\/Small-Portrait-Product-Card-Template.jpg",
+              "orientation": "cover",
+              "description": "",
+              "button_label": "",
+              "button_link": ""
+            }
+          },
+          "a045a961-9c6e-4676-9cf4-fa6e251b5c19": {
+            "type": "source",
+            "settings": {
+              "type": "article",
+              "product": "",
+              "article": "learn-think\/coastal-conversations-pt-1-shopping-sustainably-is-tough",
+              "collection": "",
+              "top": false,
+              "tag": "",
+              "tag_colour": "blue",
+              "image": "shopify:\/\/shop_images\/coatsl-conversations.jpg",
+              "orientation": "cover",
+              "description": "",
+              "button_label": "",
+              "button_link": ""
+            }
+          },
+          "bbcde09a-bfdc-4c7f-9373-ab86e4a6d0e5": {
+            "type": "source",
+            "settings": {
+              "type": "article",
+              "product": "",
+              "article": "announcements\/covid-19-a-message-from-brothers-we-stand-founder-jonathan-mitchell",
+              "collection": "",
+              "top": false,
+              "tag": "",
+              "tag_colour": "blue",
+              "orientation": "cover",
+              "description": "",
+              "button_label": "Read Message",
+              "button_link": ""
+            }
+          },
+          "6dad7e12-2b15-45cd-8260-5565df893a23": {
+            "type": "source",
+            "settings": {
+              "type": "article",
+              "product": "",
+              "article": "learn-think\/something-to-smile-about",
+              "collection": "",
+              "top": false,
+              "tag": "",
+              "tag_colour": "blue",
+              "orientation": "cover",
+              "description": "",
+              "button_label": "",
+              "button_link": ""
+            }
+          },
+          "5bbe151f-3000-4b3a-a3f2-409303b9eea2": {
+            "type": "source",
+            "settings": {
+              "type": "article",
+              "product": "",
+              "article": "learn-think\/what-is-a-footprint",
+              "collection": "",
+              "top": false,
+              "tag": "",
+              "tag_colour": "blue",
+              "orientation": "cover",
+              "description": "",
+              "button_label": "",
+              "button_link": ""
+            }
+          }
+        },
+        "block_order": [
+          "ddb8dab0-b689-43ab-9bfb-30561f8ed7ce",
+          "f5e24355-c6c8-4ff8-8d68-a0eb32a6036b",
+          "9036d578-2ace-4f18-baa7-92ee3bda3d3d",
+          "8a57f8b4-4546-4f8e-bdd2-7c42ab5e14a7",
+          "a045a961-9c6e-4676-9cf4-fa6e251b5c19",
+          "bbcde09a-bfdc-4c7f-9373-ab86e4a6d0e5",
+          "6dad7e12-2b15-45cd-8260-5565df893a23",
+          "5bbe151f-3000-4b3a-a3f2-409303b9eea2"
+        ],
+        "settings": {
+          "title": "Latest",
+          "bg_color": "grey"
+        }
+      },
+      "blog-list-links": {
+        "type": "blog-list-links",
+        "blocks": {
+          "558ef72f-139c-48c8-87f5-739dff05875c": {
+            "type": "blog",
+            "settings": {
+              "blog": "latest"
+            }
+          },
+          "4e057ca7-f8bd-4bcb-8e31-d87ea5ed63b8": {
+            "type": "blog",
+            "settings": {
+              "blog": "learn-think"
+            }
+          },
+          "b57e459d-bc3d-49ca-a7bd-f5e5da714128": {
+            "type": "blog",
+            "settings": {
+              "blog": "brand-stories"
+            }
+          },
+          "515b258d-f88c-469b-a716-7c832194fa81": {
+            "type": "blog",
+            "settings": {
+              "blog": "lifestyle"
+            }
+          },
+          "3ccb60e3-1a81-4d3c-818a-918f2177d52c": {
+            "type": "blog",
+            "settings": {
+              "blog": "announcements"
+            }
+          }
+        },
+        "block_order": [
+          "558ef72f-139c-48c8-87f5-739dff05875c",
+          "4e057ca7-f8bd-4bcb-8e31-d87ea5ed63b8",
+          "b57e459d-bc3d-49ca-a7bd-f5e5da714128",
+          "515b258d-f88c-469b-a716-7c832194fa81",
+          "3ccb60e3-1a81-4d3c-818a-918f2177d52c"
         ],
         "settings": {
         }
