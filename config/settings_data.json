@@ -39,8 +39,6 @@
           "1600954535246-0": {
             "type": "slide",
             "settings": {
-              "image": "shopify:\/\/shop_images\/Brava_fruit_stand_onset.jpg",
-              "mobile_image": "shopify:\/\/shop_images\/Brava-fruit-stand-onset-cropped.jpg",
               "layout": "right",
               "text": "Layer Up In Nature Friendly Style.",
               "text_block_bg": "#f2f2f2",
@@ -70,7 +68,6 @@
           "1600954818239-0": {
             "type": "text_block",
             "settings": {
-              "image": "shopify:\/\/shop_images\/Footprint_small_3x_18553273-706c-45a4-b52e-3050188a72b9.png",
               "title": "Ethical Production",
               "text": "<p>Every product has a &#x27;footprint’ breaking down its social and environmental impact.<\/p>"
             }
@@ -78,7 +75,6 @@
           "1600954818239-1": {
             "type": "text_block",
             "settings": {
-              "image": "shopify:\/\/shop_images\/Footprint_small_3x_5fb9ec34-a422-4fb6-b048-6935bdd8efe8.png",
               "title": "Designed to please",
               "text": "<p>Products look good and perform  the jobs they were created to do.<\/p>"
             }
@@ -86,7 +82,6 @@
           "1600954818239-2": {
             "type": "text_block",
             "settings": {
-              "image": "shopify:\/\/shop_images\/Group_3_3x_09f8c16c-d2cd-492d-b95e-d0d610bca1f0.png",
               "title": "Made to last",
               "text": "<p>Clothes are made to be enjoyed for many years.<\/p>"
             }
@@ -117,7 +112,7 @@
             "type": "link_list",
             "settings": {
               "title": "MENS CLOTHING",
-              "menu": "collection-for-mens",
+              "menu": "",
               "width": "33%",
               "mobile_width": "100%"
             }
@@ -126,7 +121,7 @@
             "type": "link_list",
             "settings": {
               "title": "BRANDS",
-              "menu": "collection-for-brands",
+              "menu": "",
               "width": "33%",
               "mobile_width": "100%"
             }
@@ -144,7 +139,7 @@
             "type": "link_list",
             "settings": {
               "title": "GIFTS",
-              "menu": "gifts",
+              "menu": "",
               "width": "16%",
               "mobile_width": "50%"
             }
@@ -168,7 +163,7 @@
             "type": "link_list",
             "settings": {
               "title": "SHIPPING",
-              "menu": "shipping",
+              "menu": "",
               "width": "25%",
               "mobile_width": "50%"
             }
@@ -177,7 +172,7 @@
             "type": "link_list",
             "settings": {
               "title": "CONTACT",
-              "menu": "contact",
+              "menu": "",
               "width": "25%",
               "mobile_width": "100%"
             }
@@ -224,7 +219,6 @@
             "settings": {
               "title": "SOCIAL JAZZ",
               "show_border": true,
-              "image": "shopify:\/\/shop_images\/IMAGE_BOX_Copy_25_3x_c66be918-19ea-41b1-8090-2b5ccdd8c089.png",
               "bg_color": "#f6f6f6"
             }
           }
@@ -239,8 +233,7 @@
       "header": {
         "type": "header",
         "settings": {
-          "logo": "shopify:\/\/shop_images\/Group_14_3x_f598b9d3-d747-4aaf-966b-2692a3da83ae.png",
-          "main_linklist": "main-menu",
+          "main_linklist": "main-menu-test",
           "announcement_text": "<p>Show Announcement Here<\/p>",
           "show_announcement": false,
           "home_page_only": false,
@@ -441,7 +434,6 @@
               "collection": "knowledge-cotton-apparel",
               "tag": "",
               "tag_colour": "blue",
-              "image": "shopify:\/\/shop_images\/KCA_ee628dc3-6d1b-419d-9cc2-0c82e0835f40.jpg",
               "description": "",
               "button_label": "Shop Brand",
               "button_link": ""
@@ -453,7 +445,6 @@
               "collection": "brava-fabrics",
               "tag": "",
               "tag_colour": "blue",
-              "image": "shopify:\/\/shop_images\/Brava_af90591a-d442-4e47-a5ad-f8312dc66394.jpg",
               "description": "",
               "button_label": "Shop Brand",
               "button_link": ""
@@ -465,7 +456,6 @@
               "collection": "idioma-1",
               "tag": "",
               "tag_colour": "blue",
-              "image": "shopify:\/\/shop_images\/Idioma_1.jpg",
               "description": "",
               "button_label": "Shop Brand",
               "button_link": ""
@@ -477,7 +467,6 @@
               "collection": "yarmouth-oilskins",
               "tag": "",
               "tag_colour": "blue",
-              "image": "shopify:\/\/shop_images\/Yarmouth_2.jpg",
               "description": "",
               "button_label": "Shop Brand",
               "button_link": ""
@@ -489,7 +478,6 @@
               "collection": "eco-alf",
               "tag": "",
               "tag_colour": "blue",
-              "image": "shopify:\/\/shop_images\/Ecoalf_62763254-83c8-4426-81a2-4e13b62747f8.jpg",
               "description": "",
               "button_label": "Shop Brand",
               "button_link": ""
@@ -501,7 +489,6 @@
               "collection": "mud-jeans",
               "tag": "",
               "tag_colour": "blue",
-              "image": "shopify:\/\/shop_images\/MUD_2.jpg",
               "description": "",
               "button_label": "Shop Brand",
               "button_link": ""
@@ -513,7 +500,6 @@
               "collection": "elvis-kresse",
               "tag": "",
               "tag_colour": "blue",
-              "image": "shopify:\/\/shop_images\/Elvis_and_Kresse_88f4af01-f342-45a7-acb5-689e70257426.jpg",
               "description": "",
               "button_label": "Shop Brand",
               "button_link": ""
@@ -525,7 +511,6 @@
               "collection": "jollies",
               "tag": "",
               "tag_colour": "blue",
-              "image": "shopify:\/\/shop_images\/Jollies1.jpg",
               "description": "",
               "button_label": "Shop Brand",
               "button_link": ""
@@ -537,7 +522,6 @@
               "collection": "level-collective",
               "tag": "",
               "tag_colour": "blue",
-              "image": "shopify:\/\/shop_images\/LC1.jpg",
               "description": "",
               "button_label": "Shop Brand",
               "button_link": ""
@@ -549,7 +533,6 @@
               "collection": "living-crafts",
               "tag": "",
               "tag_colour": "blue",
-              "image": "shopify:\/\/shop_images\/living-crafts.jpg",
               "description": "",
               "button_label": "Shop Brand",
               "button_link": ""
@@ -561,7 +544,6 @@
               "collection": "loackme",
               "tag": "",
               "tag_colour": "blue",
-              "image": "shopify:\/\/shop_images\/Loackme_9b0ef5f1-e383-4164-8ea0-a156b2df990f.jpg",
               "description": "",
               "button_label": "Shop Brand",
               "button_link": ""
@@ -573,7 +555,6 @@
               "collection": "re-sustain",
               "tag": "",
               "tag_colour": "blue",
-              "image": "shopify:\/\/shop_images\/Resustain.jpg",
               "description": "",
               "button_label": "Shop Brand",
               "button_link": ""
@@ -585,7 +566,6 @@
               "collection": "riz",
               "tag": "",
               "tag_colour": "blue",
-              "image": "shopify:\/\/shop_images\/Riz_2.jpg",
               "description": "",
               "button_label": "",
               "button_link": ""
@@ -597,7 +577,6 @@
               "collection": "silverstick",
               "tag": "",
               "tag_colour": "blue",
-              "image": "shopify:\/\/shop_images\/Silverstick_b18e0569-073f-4f60-b810-0348d72934dd.jpg",
               "description": "",
               "button_label": "Shop Brand",
               "button_link": ""
@@ -609,7 +588,6 @@
               "collection": "world-supporting-goods-by-lars-godeke",
               "tag": "",
               "tag_colour": "blue",
-              "image": "shopify:\/\/shop_images\/WSG3.jpg",
               "description": "",
               "button_label": "Shop Brand",
               "button_link": ""
@@ -621,7 +599,6 @@
               "collection": "brothers-we-stand",
               "tag": "",
               "tag_colour": "blue",
-              "image": "shopify:\/\/shop_images\/BWS_c9bb7369-45cd-4a01-b3ab-d88a9e8c0d2e.jpg",
               "description": "",
               "button_label": "Shop Brand",
               "button_link": ""
@@ -663,7 +640,6 @@
               "top": false,
               "tag": "Recycled materials",
               "tag_colour": "blue",
-              "image": "shopify:\/\/shop_images\/Shorts_2.jpg",
               "orientation": "contain",
               "description": "",
               "button_label": "",
@@ -680,7 +656,6 @@
               "top": false,
               "tag": "",
               "tag_colour": "blue",
-              "image": "shopify:\/\/shop_images\/T-shirts1.png",
               "orientation": "contain",
               "description": "",
               "button_label": "Shop Collection",
@@ -713,7 +688,6 @@
               "top": false,
               "tag": "Blog",
               "tag_colour": "blue",
-              "image": "shopify:\/\/shop_images\/blog_2.png",
               "orientation": "cover",
               "description": "",
               "button_label": "",
@@ -730,7 +704,6 @@
               "top": false,
               "tag": "Collection",
               "tag_colour": "blue",
-              "image": "shopify:\/\/shop_images\/Swimwear_86a5b874-7925-4adc-9fbe-66d346a0e032.png",
               "orientation": "cover",
               "description": "Premium quality ethical swimwear.",
               "button_label": "Shop Collection",
@@ -747,7 +720,6 @@
               "top": false,
               "tag": "Organic",
               "tag_colour": "blue",
-              "image": "shopify:\/\/shop_images\/Ya_Rouhi.jpg",
               "orientation": "cover",
               "description": "",
               "button_label": "",
@@ -764,7 +736,6 @@
               "top": false,
               "tag": "",
               "tag_colour": "blue",
-              "image": "shopify:\/\/shop_images\/cc-blog.jpg",
               "orientation": "cover",
               "description": "",
               "button_label": "Read On",
@@ -781,7 +752,6 @@
               "top": false,
               "tag": "Collection",
               "tag_colour": "blue",
-              "image": "shopify:\/\/shop_images\/Shorts_collection.jpg",
               "orientation": "cover",
               "description": "Stay fresh in our favourite ethical and sustainable shorts.",
               "button_label": "Shop Collection",
@@ -798,7 +768,6 @@
               "top": false,
               "tag": "",
               "tag_colour": "blue",
-              "image": "shopify:\/\/shop_images\/BrFAlaskaWhiteShirt1_grande_dabf4c8c-df99-47ff-ba44-91655da3ab39.jpg",
               "orientation": "contain",
               "description": "",
               "button_label": "Shop Shirt",
@@ -815,7 +784,6 @@
               "top": false,
               "tag": "Edit",
               "tag_colour": "blue",
-              "image": "shopify:\/\/shop_images\/Solar_Selection.png",
               "orientation": "cover",
               "description": "Celebrate the sun with our collection of solar powered style.",
               "button_label": "Shop Collection",
@@ -832,7 +800,6 @@
               "top": false,
               "tag": "",
               "tag_colour": "blue",
-              "image": "shopify:\/\/shop_images\/Quality_Essentials.png",
               "orientation": "cover",
               "description": "",
               "button_label": "Shop Collection",
@@ -849,7 +816,6 @@
               "top": false,
               "tag": "Recycled Materials",
               "tag_colour": "blue",
-              "image": "shopify:\/\/shop_images\/overnightbag2_tiny_d30ce757-9ef1-4638-9b4d-d08c17234567.jpg",
               "orientation": "cover",
               "description": "",
               "button_label": "Shop Bag",
@@ -866,7 +832,6 @@
               "top": false,
               "tag": "",
               "tag_colour": "blue",
-              "image": "shopify:\/\/shop_images\/tee.jpg",
               "orientation": "contain",
               "description": "",
               "button_label": "",
@@ -913,7 +878,6 @@
               "type": "article",
               "article": "learn-think\/what-is-a-footprint",
               "page": "",
-              "image": "shopify:\/\/shop_images\/Footprint_A.png",
               "button_label": "View More",
               "tag": "Transparency"
             }
