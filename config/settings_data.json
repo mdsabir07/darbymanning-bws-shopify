@@ -433,8 +433,9 @@
             "type": "collection",
             "settings": {
               "collection": "knowledge-cotton-apparel",
-              "tag": "",
+              "tag": "Brand",
               "tag_colour": "blue",
+              "image": "shopify:\/\/shop_images\/KCA_360x_1720e530-1e6f-4d41-8be3-16c9fca837c6.jpg",
               "description": "",
               "button_label": "Shop Brand",
               "button_link": ""
@@ -444,8 +445,9 @@
             "type": "collection",
             "settings": {
               "collection": "brava-fabrics",
-              "tag": "",
+              "tag": "Brand",
               "tag_colour": "blue",
+              "image": "shopify:\/\/shop_images\/Brava_360x_d6cddd5b-6985-41f9-931a-249dd18518e5.jpg",
               "description": "",
               "button_label": "Shop Brand",
               "button_link": ""
@@ -454,9 +456,10 @@
           "03a518a3-f4de-4372-9ebd-e43febd7a027": {
             "type": "collection",
             "settings": {
-              "collection": "idioma-1",
-              "tag": "",
+              "collection": "idioma",
+              "tag": "Brand",
               "tag_colour": "blue",
+              "image": "shopify:\/\/shop_images\/Idioma_1_360x_fb552bcf-fbed-4020-a670-6711637ea0e2.jpg",
               "description": "",
               "button_label": "Shop Brand",
               "button_link": ""
@@ -466,8 +469,9 @@
             "type": "collection",
             "settings": {
               "collection": "yarmouth-oilskins",
-              "tag": "",
+              "tag": "Brand",
               "tag_colour": "blue",
+              "image": "shopify:\/\/shop_images\/Yarmouth_2_360x_63d5d316-6ec3-48a4-af84-0895393a0350.jpg",
               "description": "",
               "button_label": "Shop Brand",
               "button_link": ""
@@ -477,8 +481,9 @@
             "type": "collection",
             "settings": {
               "collection": "eco-alf",
-              "tag": "",
+              "tag": "Brand",
               "tag_colour": "blue",
+              "image": "shopify:\/\/shop_images\/Ecoalf_360x_f6ccc77c-4e5c-4c59-b548-7a78ca62f592.jpg",
               "description": "",
               "button_label": "Shop Brand",
               "button_link": ""
@@ -488,8 +493,9 @@
             "type": "collection",
             "settings": {
               "collection": "mud-jeans",
-              "tag": "",
+              "tag": "Brand",
               "tag_colour": "blue",
+              "image": "shopify:\/\/shop_images\/MUD_2_360x_d0ffd8ba-876a-4c67-b0ef-f9bbe4bbc481.jpg",
               "description": "",
               "button_label": "Shop Brand",
               "button_link": ""
@@ -499,8 +505,9 @@
             "type": "collection",
             "settings": {
               "collection": "elvis-kresse",
-              "tag": "",
+              "tag": "Brand",
               "tag_colour": "blue",
+              "image": "shopify:\/\/shop_images\/Elvis_and_Kresse_360x_12cf1cbc-6dca-400a-a753-1f1b099b2440.jpg",
               "description": "",
               "button_label": "Shop Brand",
               "button_link": ""
@@ -510,8 +517,9 @@
             "type": "collection",
             "settings": {
               "collection": "jollies",
-              "tag": "",
+              "tag": "Brand",
               "tag_colour": "blue",
+              "image": "shopify:\/\/shop_images\/Jollies1_360x_81f9f7ca-e25d-4c8c-8cdd-18a10856df1b.jpg",
               "description": "",
               "button_label": "Shop Brand",
               "button_link": ""
@@ -521,8 +529,9 @@
             "type": "collection",
             "settings": {
               "collection": "level-collective",
-              "tag": "",
+              "tag": "Brand",
               "tag_colour": "blue",
+              "image": "shopify:\/\/shop_images\/LC1_360x_3f8531df-4f22-4ace-b0fe-a6d112a811d1.jpg",
               "description": "",
               "button_label": "Shop Brand",
               "button_link": ""
@@ -532,8 +541,9 @@
             "type": "collection",
             "settings": {
               "collection": "living-crafts",
-              "tag": "",
+              "tag": "Brand",
               "tag_colour": "blue",
+              "image": "shopify:\/\/shop_images\/living-crafts_360x_23f8d428-568d-442e-84a7-dff08bd097db.jpg",
               "description": "",
               "button_label": "Shop Brand",
               "button_link": ""
@@ -543,8 +553,9 @@
             "type": "collection",
             "settings": {
               "collection": "loackme",
-              "tag": "",
+              "tag": "Brand",
               "tag_colour": "blue",
+              "image": "shopify:\/\/shop_images\/Loackme_360x_2000b174-fc6b-4495-92da-4d9ee2d4189d.jpg",
               "description": "",
               "button_label": "Shop Brand",
               "button_link": ""
@@ -554,8 +565,9 @@
             "type": "collection",
             "settings": {
               "collection": "re-sustain",
-              "tag": "",
+              "tag": "Brand",
               "tag_colour": "blue",
+              "image": "shopify:\/\/shop_images\/Resustain_360x_95772fda-571a-477e-9ffa-232e8bc7ebd0.jpg",
               "description": "",
               "button_label": "Shop Brand",
               "button_link": ""
@@ -565,8 +577,9 @@
             "type": "collection",
             "settings": {
               "collection": "riz",
-              "tag": "",
+              "tag": "Brand",
               "tag_colour": "blue",
+              "image": "shopify:\/\/shop_images\/Riz_2_360x_05aefba2-0a00-4fb1-a5b9-ccc7311febdf.jpg",
               "description": "",
               "button_label": "",
               "button_link": ""
@@ -576,7 +589,7 @@
             "type": "collection",
             "settings": {
               "collection": "silverstick",
-              "tag": "",
+              "tag": "Brand",
               "tag_colour": "blue",
               "description": "",
               "button_label": "Shop Brand",
@@ -587,8 +600,9 @@
             "type": "collection",
             "settings": {
               "collection": "world-supporting-goods-by-lars-godeke",
-              "tag": "",
+              "tag": "Brand",
               "tag_colour": "blue",
+              "image": "shopify:\/\/shop_images\/WSG3_360x_48939f62-ee49-43f4-bf98-4e1836fbf70a.jpg",
               "description": "",
               "button_label": "Shop Brand",
               "button_link": ""
@@ -598,8 +612,9 @@
             "type": "collection",
             "settings": {
               "collection": "brothers-we-stand",
-              "tag": "",
+              "tag": "Brand",
               "tag_colour": "blue",
+              "image": "shopify:\/\/shop_images\/BWS_360x_f7cdd8bb-135c-4b4b-bef8-a59647cd4f10.jpg",
               "description": "",
               "button_label": "Shop Brand",
               "button_link": ""
