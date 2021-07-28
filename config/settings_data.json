@@ -453,6 +453,18 @@
               "button_link": ""
             }
           },
+          "1e93ca37-4cf6-4f55-9f55-64ca311757be": {
+            "type": "collection",
+            "settings": {
+              "collection": "jollies",
+              "tag": "Brand",
+              "tag_colour": "blue",
+              "image": "shopify:\/\/shop_images\/165553837_805829030030008_1195121860944580579_n.jpg",
+              "description": "",
+              "button_label": "Shop Brand",
+              "button_link": ""
+            }
+          },
           "03a518a3-f4de-4372-9ebd-e43febd7a027": {
             "type": "collection",
             "settings": {
@@ -489,18 +501,6 @@
               "button_link": ""
             }
           },
-          "e69c78d6-cec3-4e50-b1f3-3600eb03f8de": {
-            "type": "collection",
-            "settings": {
-              "collection": "mud-jeans",
-              "tag": "Brand",
-              "tag_colour": "blue",
-              "image": "shopify:\/\/shop_images\/MUD_2_360x_d0ffd8ba-876a-4c67-b0ef-f9bbe4bbc481.jpg",
-              "description": "",
-              "button_label": "Shop Brand",
-              "button_link": ""
-            }
-          },
           "69648e76-9248-4822-b55e-ee2bfaf5730b": {
             "type": "collection",
             "settings": {
@@ -508,30 +508,6 @@
               "tag": "Brand",
               "tag_colour": "blue",
               "image": "shopify:\/\/shop_images\/Elvis_and_Kresse_360x_12cf1cbc-6dca-400a-a753-1f1b099b2440.jpg",
-              "description": "",
-              "button_label": "Shop Brand",
-              "button_link": ""
-            }
-          },
-          "1e93ca37-4cf6-4f55-9f55-64ca311757be": {
-            "type": "collection",
-            "settings": {
-              "collection": "jollies",
-              "tag": "Brand",
-              "tag_colour": "blue",
-              "image": "shopify:\/\/shop_images\/Jollies1_360x_81f9f7ca-e25d-4c8c-8cdd-18a10856df1b.jpg",
-              "description": "",
-              "button_label": "Shop Brand",
-              "button_link": ""
-            }
-          },
-          "2a777cdb-6a28-43ae-99c5-9b4130d8ae04": {
-            "type": "collection",
-            "settings": {
-              "collection": "level-collective",
-              "tag": "Brand",
-              "tag_colour": "blue",
-              "image": "shopify:\/\/shop_images\/LC1_360x_3f8531df-4f22-4ace-b0fe-a6d112a811d1.jpg",
               "description": "",
               "button_label": "Shop Brand",
               "button_link": ""
@@ -549,6 +525,18 @@
               "button_link": ""
             }
           },
+          "e69c78d6-cec3-4e50-b1f3-3600eb03f8de": {
+            "type": "collection",
+            "settings": {
+              "collection": "mud-jeans",
+              "tag": "Brand",
+              "tag_colour": "blue",
+              "image": "shopify:\/\/shop_images\/210719961_249845973181426_6445784833667081455_n.jpg",
+              "description": "",
+              "button_label": "Shop Brand",
+              "button_link": ""
+            }
+          },
           "25b42e9a-1886-433a-9f29-18752bfd5188": {
             "type": "collection",
             "settings": {
@@ -556,6 +544,18 @@
               "tag": "Brand",
               "tag_colour": "blue",
               "image": "shopify:\/\/shop_images\/Loackme_360x_2000b174-fc6b-4495-92da-4d9ee2d4189d.jpg",
+              "description": "",
+              "button_label": "Shop Brand",
+              "button_link": ""
+            }
+          },
+          "2a777cdb-6a28-43ae-99c5-9b4130d8ae04": {
+            "type": "collection",
+            "settings": {
+              "collection": "level-collective",
+              "tag": "Brand",
+              "tag_colour": "blue",
+              "image": "shopify:\/\/shop_images\/116909851_659666201317044_7010363404699042103_n.jpg",
               "description": "",
               "button_label": "Shop Brand",
               "button_link": ""
@@ -624,15 +624,15 @@
         "block_order": [
           "cc34c1ee-315b-4032-bfa8-74ce7ff399ab",
           "2b30c305-c6da-4ad9-bbfd-9f104bea295a",
+          "1e93ca37-4cf6-4f55-9f55-64ca311757be",
           "03a518a3-f4de-4372-9ebd-e43febd7a027",
           "ef052bab-bcfc-4aee-b6b9-181561b5edad",
           "aa449109-f5c0-4703-82b0-b3f0f1af9d85",
-          "e69c78d6-cec3-4e50-b1f3-3600eb03f8de",
           "69648e76-9248-4822-b55e-ee2bfaf5730b",
-          "1e93ca37-4cf6-4f55-9f55-64ca311757be",
-          "2a777cdb-6a28-43ae-99c5-9b4130d8ae04",
           "63a38335-1ccc-435e-b082-b35918fdfe48",
+          "e69c78d6-cec3-4e50-b1f3-3600eb03f8de",
           "25b42e9a-1886-433a-9f29-18752bfd5188",
+          "2a777cdb-6a28-43ae-99c5-9b4130d8ae04",
           "567558f8-cf78-4298-a2a6-c6fb26b71628",
           "e92d0496-b57e-41cc-85f5-0adf3aac6b1c",
           "88800e68-8e2d-412f-a754-521e1ebdb999",
