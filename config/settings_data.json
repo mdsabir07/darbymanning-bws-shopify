@@ -39,6 +39,7 @@
           "1600954535246-0": {
             "type": "slide",
             "settings": {
+              "image": "shopify:\/\/shop_images\/slideshow_1_e84d650a-28df-4493-859b-730b7fc9129b.jpg",
               "layout": "right",
               "text": "Layer Up In Nature Friendly Style.",
               "text_block_bg": "#f2f2f2",
@@ -233,7 +234,7 @@
       "header": {
         "type": "header",
         "settings": {
-          "main_linklist": "main-menu-test",
+          "main_linklist": "main-menu",
           "announcement_text": "<p>Show Announcement Here<\/p>",
           "show_announcement": false,
           "home_page_only": false,
