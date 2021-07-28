@@ -234,7 +234,7 @@
       "header": {
         "type": "header",
         "settings": {
-          "main_linklist": "main-menu",
+          "main_linklist": "primary-menu",
           "announcement_text": "<p>Show Announcement Here<\/p>",
           "show_announcement": false,
           "home_page_only": false,
