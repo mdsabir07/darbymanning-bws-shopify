@@ -659,7 +659,7 @@
               "tag": "",
               "tag_colour": "blue",
               "image": "shopify:\/\/shop_images\/T-shirts1_360x_99c8ab5d-6c2f-4399-942a-c3fa70cbcbcf.png",
-              "orientation": "contain",
+              "orientation": "cover",
               "description": "",
               "button_label": "Shop Collection",
               "button_link": ""
@@ -777,7 +777,7 @@
               "tag": "",
               "tag_colour": "blue",
               "image": "shopify:\/\/shop_images\/RDMUDNI.jpg",
-              "orientation": "contain",
+              "orientation": "cover",
               "description": "",
               "button_label": "Shop Shirt",
               "button_link": ""
@@ -845,7 +845,7 @@
               "tag": "",
               "tag_colour": "blue",
               "image": "shopify:\/\/shop_images\/50207---1228-Light-feather-gray---Main.jpg",
-              "orientation": "contain",
+              "orientation": "cover",
               "description": "",
               "button_label": "",
               "button_link": ""
