@@ -15,13 +15,9 @@
 		<div class="o-grid__item">
 			<div class="header__wrap">
 				<div class="header__logo" id="logo">
-					{% if section.settings.logo %}
-						<a href="{{ routes.root_url }}" class="header__logo-image">
-							<img src="{{ 'logo.svg' | asset_url }}" alt="{{ shop.name | escape }}">
-						</a>
-					{% else %}
-						<a class="header__logo-link" href="{{ routes.root_url }}">{{ shop.name }}</a>
-					{% endif %}
+          <a href="{{ routes.root_url }}" class="header__logo-image">
+            <img src="{{ 'logo.svg' | asset_url }}" alt="{{ shop.name | escape }}">
+          </a>
 				</div>
 
 				<div class="header__menu">
@@ -70,66 +66,70 @@
 			</div>
 		</div>
 	</div>
-</div></header>{% if section.settings.announcement_text %}
-{% if section.settings.home_page_only == false or request.page_type == 'index' %}
-	<section class="bg-grey u-pV-8 u-textCenter announcement u-hide@s u-mB-20">
-		<div class="o-grid u-justifyCenter u-alignCenter">
-			<div class="o-grid__item u-size-12">
-				{{ section.settings.announcement_text }}
-			</div>
-		</div>
-	</section>
-{% endif %}{% endif %}<div class="search-overlay" id="searchOverlay">
+</header>
 
-<a href="#" id="searchClose" class="search-overlay__close">
+{% if section.settings.announcement_text %}
+  {% if section.settings.home_page_only == false or request.page_type == 'index' %}
+    <section class="bg-grey u-pV-8 u-textCenter announcement u-hide@s u-mB-20">
+      <div class="o-grid u-justifyCenter u-alignCenter">
+        <div class="o-grid__item u-size-12">
+          {{ section.settings.announcement_text }}
+        </div>
+      </div>
+    </section>
+  {% endif %}
+{% endif %}
 
-	{% include 'icon-close' %}
+<div class="search-overlay" id="searchOverlay">
+  <a href="#" id="searchClose" class="search-overlay__close">
+    {% include 'icon-close' %}
+  </a>
+  <div class="u-textCenter">
+    <h4 class="search-overlay__title">Search Website:</h4>
+    <form action="/search" method="get" role="search">
+      <input type="search" name="q" class="search-overlay__field" placeholder="Search Website...">
+    </form>
+  </div>
+</div>
 
-</a>
-
-<div class="u-textCenter">
-
-	<h4 class="search-overlay__title">Search Website:</h4>
-
-	<form action="/search" method="get" role="search">
-		<input type="search" name="q" class="search-overlay__field" placeholder="Search Website...">
-	</form>
-
-</div></div>{% schema %}{
+{% schema %}
+  {
     "name": "Header",
     "settings": [
-        {
-            "type": "image_picker",
-            "id": "logo",
-            "label": "Logo image"
-        }, {
-            "type": "link_list",
-            "id": "main_linklist",
-            "label": "Menu",
-            "default": "main-menu"
-        }, {
-            "type": "header",
-            "content": "Announcement bar"
-        }, {
-            "type": "richtext",
-            "id": "announcement_text",
-            "label": "Announcement Text",
-            "default": "<p>Announce something here</p>"
-	          }, {
-	              "type": "checkbox",
-	              "id": "show_announcement",
-	              "label": "Show announcement",
-	              "default": false
-	          }, {
-	              "type": "checkbox",
-	              "id": "home_page_only",
-	              "label": "Home page only",
-	              "default": true
-	          }, {
-	              "type": "text",
-	              "id": "message_text",
-	              "label": "Shipping Text",
-	              "default": "Announce something here"
-	          }
-	      ]
-	  }{% endschema %}
+      {
+        "type": "link_list",
+        "id": "main_linklist",
+        "label": "Menu",
+        "default": "main-menu"
+      },
+      {
+        "type": "header",
+        "content": "Announcement bar"
+      },
+      {
+        "type": "richtext",
+        "id": "announcement_text",
+        "label": "Announcement Text",
+        "default": "<p>Announce something here</p>"
+      },
+      {
+        "type": "checkbox",
+        "id": "show_announcement",
+        "label": "Show announcement",
+        "default": false
+      },
+      {
+        "type": "checkbox",
+        "id": "home_page_only",
+        "label": "Home page only",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "message_text",
+        "label": "Shipping Text",
+        "default": "Announce something here"
+      }
+    ]
+  }
+{% endschema %}
