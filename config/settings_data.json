@@ -741,7 +741,8 @@
               "top": false,
               "tag": "Organic",
               "tag_colour": "blue",
-              "orientation": "cover",
+              "image": "shopify:\/\/shop_images\/Ya-Rouhi_Colour2.SandTee_Full_High_864x864_9531de4c-f35a-4434-833a-81ac821fa27a.jpg",
+              "orientation": "contain",
               "description": "",
               "button_label": "",
               "button_link": ""
