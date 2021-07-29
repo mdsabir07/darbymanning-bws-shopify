@@ -759,7 +759,7 @@
               "tag": "Blog",
               "tag_colour": "blue",
               "image": "shopify:\/\/shop_images\/blog-1.jpg",
-              "orientation": "cover",
+              "orientation": "contain",
               "description": "",
               "button_label": "Read On",
               "button_link": ""
