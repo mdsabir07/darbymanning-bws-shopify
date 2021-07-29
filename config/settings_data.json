@@ -810,7 +810,7 @@
               "tag": "Edit",
               "tag_colour": "blue",
               "image": "shopify:\/\/shop_images\/Kosmos_Tee_Black_Daniel_Web_672x672_8f8e1725-a45c-4790-879c-8bfa5da9cca4.jpg",
-              "orientation": "cover",
+              "orientation": "contain",
               "description": "Celebrate the sun with our collection of solar powered style.",
               "button_label": "Shop Collection",
               "button_link": ""
