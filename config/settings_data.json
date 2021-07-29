@@ -793,7 +793,7 @@
               "tag": "",
               "tag_colour": "blue",
               "image": "shopify:\/\/shop_images\/RDMUDNI_abe113cd-87aa-4847-827b-d224557d5cde.jpg",
-              "orientation": "cover",
+              "orientation": "contain",
               "description": "",
               "button_label": "Shop Shirt",
               "button_link": ""
