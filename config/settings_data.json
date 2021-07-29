@@ -453,6 +453,18 @@
               "button_link": ""
             }
           },
+          "2a777cdb-6a28-43ae-99c5-9b4130d8ae04": {
+            "type": "collection",
+            "settings": {
+              "collection": "level-collective",
+              "tag": "Brand",
+              "tag_colour": "blue",
+              "image": "shopify:\/\/shop_images\/test.jpg",
+              "description": "Hand-Printed Designs For The Adventurous",
+              "button_label": "Shop Brand",
+              "button_link": ""
+            }
+          },
           "1e93ca37-4cf6-4f55-9f55-64ca311757be": {
             "type": "collection",
             "settings": {
@@ -549,18 +561,6 @@
               "button_link": ""
             }
           },
-          "2a777cdb-6a28-43ae-99c5-9b4130d8ae04": {
-            "type": "collection",
-            "settings": {
-              "collection": "level-collective",
-              "tag": "Brand",
-              "tag_colour": "blue",
-              "image": "shopify:\/\/shop_images\/116909851_659666201317044_7010363404699042103_n.jpg",
-              "description": "Hand-Printed Designs For The Adventurous",
-              "button_label": "Shop Brand",
-              "button_link": ""
-            }
-          },
           "567558f8-cf78-4298-a2a6-c6fb26b71628": {
             "type": "collection",
             "settings": {
@@ -624,6 +624,7 @@
         "block_order": [
           "cc34c1ee-315b-4032-bfa8-74ce7ff399ab",
           "2b30c305-c6da-4ad9-bbfd-9f104bea295a",
+          "2a777cdb-6a28-43ae-99c5-9b4130d8ae04",
           "1e93ca37-4cf6-4f55-9f55-64ca311757be",
           "03a518a3-f4de-4372-9ebd-e43febd7a027",
           "ef052bab-bcfc-4aee-b6b9-181561b5edad",
@@ -632,7 +633,6 @@
           "63a38335-1ccc-435e-b082-b35918fdfe48",
           "e69c78d6-cec3-4e50-b1f3-3600eb03f8de",
           "25b42e9a-1886-433a-9f29-18752bfd5188",
-          "2a777cdb-6a28-43ae-99c5-9b4130d8ae04",
           "567558f8-cf78-4298-a2a6-c6fb26b71628",
           "e92d0496-b57e-41cc-85f5-0adf3aac6b1c",
           "88800e68-8e2d-412f-a754-521e1ebdb999",
@@ -656,7 +656,7 @@
               "top": false,
               "tag": "Recycled materials",
               "tag_colour": "blue",
-              "image": "shopify:\/\/shop_images\/Shorts_2_360x_1d8eace7-7e79-45c7-a167-c71d84a0ee7f.jpg",
+              "image": "shopify:\/\/shop_images\/116909851_659666201317044_7010363404699042103_n_bf49620d-250e-4717-8280-3df724459813.jpg",
               "orientation": "contain",
               "description": "",
               "button_label": "",
@@ -690,7 +690,7 @@
               "top": true,
               "tag": "Organic Cotton",
               "tag_colour": "blue",
-              "image": "shopify:\/\/shop_images\/Brothers_We_Stand_Premium_Weight_Organic_T-Shirt_grey_front_360-x-520.jpg",
+              "image": "shopify:\/\/shop_images\/421-bws_4cff5fc0-b107-4f68-93b8-b95d378038e3.jpg",
               "orientation": "contain",
               "description": "",
               "button_label": "",
