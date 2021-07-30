@@ -760,7 +760,7 @@
               "tag": "Blog",
               "tag_colour": "blue",
               "image": "shopify:\/\/shop_images\/421-cc-1_6ff03b8d-5765-4629-bff3-f4d33ed720c0.jpg",
-              "orientation": "contain",
+              "orientation": "cover",
               "description": "",
               "button_label": "Read On",
               "button_link": ""
