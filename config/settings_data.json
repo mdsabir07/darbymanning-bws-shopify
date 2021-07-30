@@ -116,7 +116,7 @@
             "type": "link_list",
             "settings": {
               "title": "MENS CLOTHING",
-              "menu": "",
+              "menu": "new-footer-mens-clothing",
               "width": "33%",
               "mobile_width": "100%"
             }
@@ -125,7 +125,7 @@
             "type": "link_list",
             "settings": {
               "title": "BRANDS",
-              "menu": "",
+              "menu": "new-footer-brands",
               "width": "33%",
               "mobile_width": "100%"
             }
@@ -134,7 +134,7 @@
             "type": "link_list",
             "settings": {
               "title": "ACCESSORIES",
-              "menu": "accessories",
+              "menu": "new-footer-accessories",
               "width": "16%",
               "mobile_width": "50%"
             }
@@ -143,7 +143,7 @@
             "type": "link_list",
             "settings": {
               "title": "GIFTS",
-              "menu": "",
+              "menu": "new-footer-gifts",
               "width": "16%",
               "mobile_width": "50%"
             }
