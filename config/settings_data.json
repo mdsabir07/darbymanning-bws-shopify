@@ -77,6 +77,7 @@
           "1600954818239-1": {
             "type": "text_block",
             "settings": {
+              "image": "shopify:\/\/shop_images\/Footprint_small_3x_180x_e7cbe9a0-4e18-4b57-9d75-a392e9c28199.png",
               "title": "Designed to please",
               "text": "<p>Products look good and perform  the jobs they were created to do.<\/p>"
             }
@@ -84,6 +85,7 @@
           "1600954818239-2": {
             "type": "text_block",
             "settings": {
+              "image": "shopify:\/\/shop_images\/Group_3_3x_180x_f0d195ed-88f8-4385-9c94-8154a30da9b7.png",
               "title": "Made to last",
               "text": "<p>Clothes are made to be enjoyed for many years.<\/p>"
             }
