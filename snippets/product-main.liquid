@@ -84,9 +84,9 @@
 					<span id="ProductPrice" class="c-product__price{% if product.compare_at_price > product.price %} on-sale{% endif %}" itemprop="price" content="{{ current_variant.price | divided_by: 100.00 }}">
 						{{ current_variant.price | money }}
 					</span>
-					{% if product.metafields.global.description_tag %}
+					{% if product.metafields.global.pitch %}
 						<p class="c-product__descriptionTag">
-							{{ product.metafields.global.description_tag }}
+							{{ product.metafields.global.pitch }}
 						</p>
 					{% endif %}
 				</div>
@@ -189,6 +189,11 @@
 											{% include 'icon-clothing' %}
 										</figure>
 										<span class="c-product__accordionTitle">Clothing Care</span>
+									{% elsif attribute_code contains 'full_description' %}
+										<figure class="c-product__accordionIcon">
+											{% include 'icon-star' %}
+										</figure>
+										<span class="c-product__accordionTitle">Description</span>
 									{% endif %}
 								</a>
 								<div id="accordion-{{ attribute_code }}" class="c-product__accordionDetail">
@@ -201,15 +206,6 @@
 								</div>
 							{% endfor %}
 						{% endif %}
-						<a href="#accordion-description" class="c-product__accordionItem js-accordion-toggle">
-							<figure class="c-product__accordionIcon">
-								{% include 'icon-star' %}
-							</figure>
-							<span class="c-product__accordionTitle">Description</span>
-						</a>
-						<div id="accordion-description" class="c-product__accordionDetail">
-							{{ product.description }}
-						</div>
 
 						<!-- parse-ignore-start -->
             {% comment %}
