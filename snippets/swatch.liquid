@@ -38,13 +38,10 @@
 				{% assign values = values | split: ',' %}
 				<div data-value="{{ value | escape }}" class="{{ swatch_class }}">
 					{% if is_color %}
-						<label style="{{ swatch_style }}" class="js-swatch-item {% if forloop.first == true %}active{% endif %}">
-							<img class="swatch__crossed-out" src="{{ 'soldout.png' | asset_url }}"/>
-						</label>
+						<label style="{{ swatch_style }}" class="{%if variant.available %}js-swatch-item{% endif %} {% if forloop.first == true %}active{% endif %}"></label>
 					{% else %}
 						<label class="js-swatch-item {% if forloop.first == true %}active{% endif %}">
 							{{ value }}
-							<img class="swatch__crossed-out" src="{{ 'soldout.png' | asset_url }}"/>
 						</label>
 					{% endif %}
 				</div>

@@ -111,9 +111,18 @@
 
 								<select id="Option{{ option.position }}" class="c-product__select js-product-option" data-option="{{option.name}}" name="options[{{ option.name | escape }}]">
 									{% for value in option.values %}
-										<option value="{{ value | escape }}" {% if option.selected_value == value %} selected="selected" {% endif %}>
-											{{ value }}
-										</option>
+                    {% if product.variants[forloop.index0].available %}
+                      <option
+                        value="{{ value | escape }}"
+                        {% if option.selected_value == value %}
+                          selected
+                        {% endif %}
+                      >
+                        {{ value }}
+                      </option>
+                    {% else %}
+                      <option disabled>{{ value }} - sold out</option>
+                    {% endif %}
 									{% endfor %}
 								</select>
 							</div>

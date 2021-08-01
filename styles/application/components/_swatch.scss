@@ -54,6 +54,30 @@
     &:last-child label {
       margin-right: 0;
     }
+
+    &.soldout label::before {
+      background-image: linear-gradient(
+          to bottom left,
+          transparent 50%,
+          #404040 50%,
+          #404040 52%,
+          transparent 50%
+        ),
+        linear-gradient(
+          to bottom right,
+          transparent 50%,
+          #404040 50%,
+          #404040 52%,
+          transparent 50%
+        );
+      content: "";
+      cursor: not-allowed;
+      height: 100%;
+      left: 0;
+      position: absolute;
+      top: 0;
+      width: 100%;
+    }
   }
 
   &__crossed-out {
