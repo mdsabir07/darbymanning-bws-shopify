@@ -86,7 +86,9 @@
   }
 
   &__thumbnailFootPrint {
+    background-color: var(--light-gray);
     height: 100%;
+    margin: calc(var(--gutter) / 2);
     max-height: var(--itemSize);
     max-width: var(--itemSize);
     padding: 0.8rem;
