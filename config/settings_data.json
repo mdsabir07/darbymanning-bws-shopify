@@ -176,7 +176,7 @@
             "type": "link_list",
             "settings": {
               "title": "CONTACT",
-              "menu": "",
+              "menu": "new-website-contact",
               "width": "25%",
               "mobile_width": "100%"
             }
