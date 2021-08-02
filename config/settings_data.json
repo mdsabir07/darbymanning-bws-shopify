@@ -167,7 +167,7 @@
             "type": "link_list",
             "settings": {
               "title": "SHIPPING",
-              "menu": "",
+              "menu": "new-website-shipping",
               "width": "25%",
               "mobile_width": "50%"
             }
