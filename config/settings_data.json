@@ -213,7 +213,7 @@
           "1601039258191": {
             "type": "newsletter",
             "settings": {
-              "title": "JOIN THE BROTHERS",
+              "title": "NEWSLETTER",
               "text": "<p style=\"font-family: DINOTRegular;\" class=\"white\">Stay up to date with ethical men's clothing, selected with style:<\/p>",
               "show_border": true,
               "bg_color": "#234766"
@@ -249,8 +249,7 @@
       "collection-template": {
         "type": "collection-template",
         "settings": {
-          "col_nav": "collection-top-nav",
-          "mobile_image": "shopify:\/\/shop_images\/BrFAlaskaWhiteShirt1_grande_dabf4c8c-df99-47ff-ba44-91655da3ab39.jpg"
+          "col_nav": ""
         }
       },
       "product-template": {
