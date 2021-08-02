@@ -181,12 +181,13 @@
               "mobile_width": "100%"
             }
           },
-          "1601041468389": {
-            "type": "search",
+          "887a23d8-864e-4e36-ba0d-231f389840b2": {
+            "type": "link_list",
             "settings": {
-              "title": "Search",
+              "title": "Guides",
+              "menu": "footer",
               "width": "25%",
-              "mobile_width": "100%"
+              "mobile_width": "25%"
             }
           }
         },
@@ -199,7 +200,7 @@
           "1601041217014",
           "1601041339965",
           "1601041362448",
-          "1601041468389"
+          "887a23d8-864e-4e36-ba0d-231f389840b2"
         ],
         "settings": {
           "show_payment_icons": true,
