@@ -185,7 +185,7 @@
             "type": "link_list",
             "settings": {
               "title": "Guides",
-              "menu": "footer",
+              "menu": "new-website-guides",
               "width": "25%",
               "mobile_width": "25%"
             }
@@ -222,7 +222,7 @@
           "1601039265616": {
             "type": "social",
             "settings": {
-              "title": "SOCIAL JAZZ",
+              "title": "FIND US ONLINE",
               "show_border": true,
               "image": "shopify:\/\/shop_images\/IMAGE_BOX_Copy_25_3x_480x480_cd385cb4-be49-4246-abea-78536550db2c.png",
               "bg_color": "#f6f6f6"
