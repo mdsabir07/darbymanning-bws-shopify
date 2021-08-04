@@ -207,6 +207,11 @@
 								</a>
 								<div id="accordion-{{ attribute_code }}" class="c-product__accordionDetail">
 									<p>{{attribute_value}}</p>
+									{% if attribute_code contains 'fit' and product.metafields.global.sizing_info %}
+                    <a href="#measurements" class="c-product__a js-modal__open">
+                      <small>See Product Measurements</small>
+                    </a>
+                  {% endif %}
 									{% if attribute_code contains 'made_in' %}
 										<p>
 											<a href="#footprint">See product footprint</a>
