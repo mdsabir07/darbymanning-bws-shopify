@@ -118,7 +118,7 @@
                           selected
                         {% endif %}
                       >
-                        {{ value }} {{ variant.title }}
+                        {{ value }}
                       </option>
                     {% else %}
                       <option disabled>{{ value }} - sold out</option>
@@ -146,7 +146,7 @@
 					{% endcomment %}
 
 					<div class="c-product__buttons">
-						<button type="submit" class="button button--full" {% unless current_variant.available %} disabled="disabled" {% endunless %}>
+						<button type="submit" class="button button--full action_button add_to_cart" {% unless current_variant.available %} disabled="" {% endunless %}>
 							{{ 'products.product.add_to_cart' | t }}
 						</button>
 					</div>
